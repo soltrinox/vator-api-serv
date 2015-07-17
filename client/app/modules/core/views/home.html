@@ -18,42 +18,6 @@
 
           </div>
         </tab>
-        <tab heading="{{ 'Variables' | translate }}">
-          <div class="row">
-            <div class="col-md-6">
-              <h4 translate>Current user</h4>
-              <pre>{{currentUser | json}}</pre>
-            </div>
-            <div class="col-md-6">
-              <h4 translate>Settings</h4>
-              <pre>{{settings | json}}</pre>
-            </div>
-          </div>
-        </tab>
-        <tab heading="{{ 'Theme' | translate }}">
-          <div class="row">
-            <div class="col-md-6">
-              <h4> {{ 'Theme' | translate }}
-                <small>{{appTheme}}</small>
-              </h4>
-              <div class="btn-group" data-toggle="btn-toggle">
-                <button type="button" class="btn btn-default btn-xs" data-toggle="on"
-                        ng-repeat="theme in appThemes" ng-click="setSetting('appTheme', theme.class)">
-                  {{theme.name}}
-                </button>
-              </div>
-              <h4>Layout
-                <small>{{appLayout}}</small>
-              </h4>
-              <div class="btn-group" data-toggle="btn-toggle">
-                <button type="button" class="btn btn-default btn-xs" data-toggle="on"
-                        ng-repeat="layout in appLayouts" ng-click="setSetting('appLayout', layout.class)">
-                  {{layout.name}}
-                </button>
-              </div>
-            </div>
-          </div>
-        </tab>
       </tabset>
     </div>
   </div>
