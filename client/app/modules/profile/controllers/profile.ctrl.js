@@ -19,25 +19,54 @@ app.controller('MyProfileCtrl', function($scope, $state, $stateParams, ProfileSe
       type: 'hidden',
       label: gettextCatalog.getString('UUID'),
       required: true
-    },{
-      key: "Type",
-      type: "select",
-      label: "Type",
-      options: [
-          {
-              name: "School",
-              value : "EDU"
-          },
-          {
-              name: "Military",
-              value : "MIL"
-          },
-          {
-              name: "Organization",
-              value : "ORG"
-          }
-      ]
     }];
+
+
+    $scope.formFields2 = [ {
+        key: 'School',
+        type: 'text',
+        label: 'Name',
+        required: true
+      }, {
+        key: 'Date',
+        type: 'text',
+        label: 'Year Graduated',
+        required: true
+      }, {
+        key: 'Major',
+        type: 'text',
+        label: 'Field/Major',
+        required: false
+      }, {
+        key: 'URL',
+        type: 'text',
+        label: 'URL',
+        required: false
+      },{
+        key: 'profileId',
+        type: 'hidden',
+        label: gettextCatalog.getString('UUID'),
+        required: true
+      },{
+        key: "Degree",
+        type: "select",
+        label: "Type",
+        required: true,
+        options: [
+            {
+                name: "School",
+                value : "EDU"
+            },
+            {
+                name: "Military",
+                value : "MIL"
+            },
+            {
+                name: "Organization",
+                value : "ORG"
+            }
+        ]
+      }];
 
   $scope.formOptions = {
     uniqueFormId: true,
