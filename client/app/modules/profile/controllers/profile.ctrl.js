@@ -1,50 +1,80 @@
 'use strict';
-var app = angular.module('com.module.profile');
+var app = angular.module('com.module.profile', ['formly', 'formlyBootstrap']);
 
 app.controller('MyProfileCtrl', function($scope, $state, $stateParams, User, ProfileService) {
 
     $scope.pid = $stateParams.id;
     console.log('PID: '+$scope.pid);
 
-  $scope.formFields = [{
-    key: 'Name',
-    type: 'text',
-defaultValue: 'Name'
-  }, {
-    key: 'Bio',
-    type: 'textarea',
-defaultValue: 'Bio'
-  }, {
-    key: 'UUID',
-    type: 'hidden',
-    defaultValue: $scope.pid
-  }];
+    var vm = this;
+        // funcation assignment
+        vm.onSubmit = onSubmit;
 
-$scope.ioptions = {};
+        // variable assignment
+        vm.author = { // optionally fill in your info below :-)
+          name: 'Kent C. Dodds',
+          url: 'https://twitter.com/kentcdodds'
+        };
+        vm.exampleTitle = 'Default Value'; // add this
+        vm.env = {
+          angularVersion: angular.version.full,
+          formlyVersion: formlyVersion
+        };
 
-  $scope.credentialsFields =
-[
-  {
-          key: 'School',
-          type: 'input',
-          defaultValue: 'Entity',
-        },
-        {
-          key: 'Major',
-          type: 'select',
-          templateOptions: {
-            label: 'Type',
-            options: [
-              {name: 'School', value: '123'},
-              {name: 'Org', value: '456'},
-              {name: 'Mil', value: '789'}
-            ]
+        vm.model = {
+          lastName: 'Smith'
+        };
+        vm.options = {};
+
+        vm.fields = [
+          {
+            key: 'firstName',
+            type: 'input',
+            defaultValue: 'This is a default value',
+            templateOptions: {
+              label: 'First Name (initialized via default value)'
+            }
+          },
+          {
+            key: 'lastName',
+            type: 'input',
+            defaultValue: 'This is a default value',
+            templateOptions: {
+              label: 'Last Name (initialized via the model)'
+            }
+          },
+          {
+            key: 'candy',
+            type: 'select',
+            defaultValue: 'milky_way',
+            templateOptions: {
+              label: 'Favorite Candy (initialized via default value',
+              options: [
+                {name: 'Snickers', value: 'snickers'},
+                {name: 'Baby Ruth', value: 'baby_ruth'},
+                {name: 'Milky Way', value: 'milky_way'}
+              ]
+            }
+          },
+          {
+            key: 'agree',
+            type: 'checkbox',
+            templateOptions: {
+              label: 'Agree? (not initialized at all)',
+              required: true
+            }
           }
+        ];
+
+        vm.originalFields = angular.copy(vm.fields);
+
+
+        // function definition
+        function onSubmit() {
+          vm.options.updateInitialValue();
+          alert(JSON.stringify(vm.model), null, 2);
         }
-];
-
-
-
+      });
 
 
   $scope.delete = function(id) {
