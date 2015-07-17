@@ -14,6 +14,11 @@ app.controller('MyProfileCtrl', function($scope, $state, $stateParams, ProfileSe
     type: 'textarea',
     label: gettextCatalog.getString('Bio'),
     required: true
+  }, {
+    key: 'UUID',
+    type: 'hidden',
+    label: gettextCatalog.getString('UUID'),
+    required: true
   }];
 
   $scope.formOptions = {
@@ -31,7 +36,7 @@ app.controller('MyProfileCtrl', function($scope, $state, $stateParams, ProfileSe
   $scope.onSubmit = function() {
     ProfileService.upsertProfile($scope.profile, function() {
       $scope.profiles = ProfileService.getProfiles();
-      $state.go('^.list');
+      $state.go('^.view');
     });
   };
 

@@ -11,9 +11,8 @@ function($state,
 
   this.getProfile = function(pid) {
     console.log('Profile.findById()' + pid);
-    return Profile.findById({ where: {
-       id : '$pid'
-      }
+    return Profile.findById({
+      id : pid   
     });
   };
 
