@@ -8,35 +8,35 @@
 
 
 
-  <div class="container col-lg-8 col-md-6">
+  <div class="container col-lg-8 col-md-8">
     <div class="alert alert-danger" ng-if="addError" translate>Could not add profile!</div>
 
 
 
     <tabset class="nav-tabs-custom">
       <tab heading="{{ 'Profile' | translate }}">
-        <div class="row col-lg-8 col-md-6">
+        <div class="row ">
           <!--  contact for email here ??? -->
         <formly-form result="profile" fields="formFields" options="formOptions" ng-submit="onSubmit()"></formly-form>
 
         </div>
       </tab>
       <tab heading="{{ 'Credentials' | translate }}">
-        <div class="row col-lg-8 col-md-6">
+        <div class="row ">
 
         <formly-form result="education" fields="formFields2" options="formOptions" ng-submit="onSubmit()"></formly-form>
 
         </div>
       </tab>
       <tab heading="{{ 'Experience' | translate }}">
-        <div class="row col-lg-8 col-md-6">
+        <div class="row ">
 
         <formly-form result="profile" fields="formFields" options="formOptions" ng-submit="onSubmit()"></formly-form>
 
         </div>
       </tab>
       <tab heading="{{ 'Social' | translate }}">
-        <div class="row col-lg-8 col-md-6">
+        <div class="row ">
           <!--  contact for email here too -->
         <formly-form result="profile" fields="formFields" options="formOptions" ng-submit="onSubmit()"></formly-form>
 
