@@ -49,6 +49,16 @@
     "consumerSecret": "L8wfOaljvsSz0ZS98KFAbkNae1Sh23wPyDHpABhIf4gGS3zyZ3",
     "failureFlash": true
   },
+  "linkedin-login": {
+    "clientID": "LINKEDIN_ID || 75n72hpwpbnltj",
+    "clientSecret": "LINKEDIN_SECRET || jkmCQcbZfPwOfooq",
+    "callbackURL": "/auth/linkedin/callback"
+  },
+  "github-login": {
+    "clientID": "GITHUB_ID || 50c3f4fe451f895c063b",
+    "clientSecret": "GITHUB_SECRET || 73206c4a3b385693cbb7b6f9435dc3b433e47b90",
+    "callbackURL": "/auth/github/callback"
+  },
   "facebook-link": {
     "provider": "facebook",
     "module": "passport-facebook",
