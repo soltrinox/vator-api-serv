@@ -117,17 +117,6 @@ group: ''
 
 
 
-  $scope.formOptions = {
-    uniqueFormId: true,
-    hideSubmit: false,
-    submitCopy: 'Save'
-  };
-
-  $scope.addOptions = {
-    uniqueFormId: true,
-    hideSubmit: false,
-    submitCopy: 'Add'
-  };
 
   $scope.delete = function(id) {
     ProfileService.deleteProfile(id, function() {
