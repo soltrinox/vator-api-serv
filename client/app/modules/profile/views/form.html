@@ -17,14 +17,14 @@
       <tab heading="{{ 'Profile' | translate }}">
         <div class="row">
           <!--  contact for email here ??? -->
-        <formly-form result="profile" fields="formFields"   ng-submit="onSubmit()"></formly-form>
+        <formly-form result="profile" fields="formFields" options="ioptions"  ng-submit="onSubmit()"></formly-form>
 
         </div>
       </tab>
       <tab heading="{{ 'Credentials' | translate }}">
         <div class="row">
 
-        <formly-form result="profile" fields="credentialsFields"   ng-submit="onCredSubmit()"></formly-form>
+        <formly-form result="education" fields="credentialsFields"  options="ioptions" ng-submit="onCredSubmit()"></formly-form>
 
         </div>
       </tab>

@@ -4,21 +4,23 @@ var app = angular.module('com.module.profile');
 app.controller('MyProfileCtrl', function($scope, $state, $stateParams, User, ProfileService) {
 
     $scope.pid = $stateParams.id;
+    console.log('PID: '+$scope.pid);
 
   $scope.formFields = [{
     key: 'Name',
-    type: 'text'
-
+    type: 'text',
+defaultValue: 'Name'
   }, {
     key: 'Bio',
-    type: 'textarea'
-
+    type: 'textarea',
+defaultValue: 'Bio'
   }, {
     key: 'UUID',
     type: 'hidden',
-    value: $scope.pid
+    defaultValue: $scope.pid
   }];
 
+$scope.ioptions = {};
 
   $scope.credentialsFields =
 [
