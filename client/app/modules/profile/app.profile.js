@@ -1,2 +1,2 @@
 'use strict';
-angular.module('com.module.profile', ['formly']);
+angular.module('com.module.profile');
