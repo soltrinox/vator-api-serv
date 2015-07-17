@@ -25,31 +25,6 @@ app.controller('MyProfileCtrl', function($scope, $state, $stateParams, User, Pro
   }];
 
 
-  formlyConfig.setType({
-  name: 'ui-select-select2',
-  extends: 'ui-select',
-  template: '<ui-select ng-model="model[options.key]" theme="select2" ng-required="{{to.required}}" ng-disabled="{{to.disabled}}" reset-search-input="false"> <ui-select-match placeholder="{{to.placeholder}}"> {{$select.selected[to.labelProp || \'name\']}} </ui-select-match> <ui-select-choices group-by="to.groupBy" repeat="option[to.valueProp || \'value\'] as option in to.options | filter: $select.search"> <div ng-bind-html="option[to.labelProp || \'name\'] | highlight: $select.search"></div> </ui-select-choices> </ui-select>'
-});
-
-var typelist=  [
-   {
-     name: 'School',
-     abbr: 'EDU'
-   },
-   {
-     name: 'Organization',
-     abbr: 'ORG'
-   },
-   {
-     name: 'Military',
-     abbr: 'MIL'
-   },
-   {
-     name: 'Government',
-     abbr: 'GOV'
-   }
- ];
-
   $scope.credentialsFields = [{
       key: 'name',
       label: gettextCatalog.getString('Name'),
@@ -73,13 +48,28 @@ var typelist=  [
       format: gettextCatalog.getString('dd/MM/yyyy'),
       opened: false
     }, {
-        key: 'Type',
-        type: 'ui-select-select2',
+        key: 'marvel1',
+        type: 'select',
         templateOptions: {
-          label: 'Type',
-          valueProp: 'abbr',
-          labelProp: 'name',
-          options: typelist
+          label: 'Normal Select',
+          options: [
+            {
+              name: 'School',
+              value: 'EDU'
+            },
+            {
+              name: 'Organization',
+              value: 'ORG'
+            },
+            {
+              name: 'Military',
+              value: 'MIL'
+            },
+            {
+              name: 'Government',
+              value: 'GOV'
+            }
+          ]
         }
       }
   ];
