@@ -48,4 +48,5 @@ function($state, CoreService, Education, User, gettextCatalog) {
       });
   };
 
+
 }]);
