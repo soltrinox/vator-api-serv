@@ -70,7 +70,7 @@ app.run(function($rootScope, Setting, gettextCatalog) {
 
 });
 
-app.config(function(formlyConfigProvider) {
+app.config(function() {
   // var templates = 'modules/core/views/elements/fields/';
   // var formly = templates + 'formly-field-';
   // var fields = [
