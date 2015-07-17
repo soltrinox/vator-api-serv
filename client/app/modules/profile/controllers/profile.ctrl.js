@@ -232,9 +232,9 @@ console.log('UID: '+ $scope.currentUser.id );
     });
   };
 
-  $scope.getMe = function(id){
-    console.log('CLICK :'+id);
-       ProfileService.getProfile(id, function(){
+  $scope.getMe = function(x){
+    console.log('CLICK :'+x.id);
+       ProfileService.getProfile(x.id, function(){
 
         $state.go('^.view');
       });
