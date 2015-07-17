@@ -68,10 +68,6 @@ msgstr ""
 msgid "Add a new setting"
 msgstr ""
 
-#: client/app/modules/products/views/main.html:2
-msgid "Add Group"
-msgstr ""
-
 #: client/app/modules/products/views/list.html:5
 msgid "Add product to category"
 msgstr ""
@@ -222,12 +218,6 @@ msgstr ""
 #: client/app/modules/core/config/core.config.js:18
 #: client/app/modules/core/views/home.html:13
 msgid "Dashboard"
-msgstr ""
-
-#: client/app/modules/events/controllers/events.ctrl.js:108
-#: client/app/modules/events/controllers/events.ctrl.js:93
-#: client/app/modules/profile/controllers/profile.ctrl.js:47
-msgid "dd/MM/yyyy"
 msgstr ""
 
 #: client/app/modules/products/views/list.html:9
@@ -410,21 +400,13 @@ msgstr ""
 msgid "Files"
 msgstr ""
 
-#: client/app/modules/users/controllers/profile.ctrl.js:24
-#: client/app/modules/users/controllers/users.ctrl.js:79
-msgid "First name"
-msgstr ""
-
 #: client/app/modules/users/controllers/register.ctrl.js:25
 msgid "First Name"
 msgstr ""
 
-#: client/app/modules/products/controllers/products.ctrl.js:87
-msgid "Group"
-msgstr ""
-
-#: client/app/modules/products/config/products.config.js:14
-msgid "Groups"
+#: client/app/modules/users/controllers/profile.ctrl.js:24
+#: client/app/modules/users/controllers/users.ctrl.js:79
+msgid "First name"
 msgstr ""
 
 #: client/app/modules/products/controllers/products.ctrl.js:87
@@ -439,20 +421,8 @@ msgstr ""
 msgid "Hello,"
 msgstr ""
 
-#: client/app/modules/files/views/list.html:23
-msgid "here"
-msgstr ""
-
 #: client/app/modules/core/views/home.html:5
 msgid "Home"
-msgstr ""
-
-#: client/app/modules/posts/controllers/posts.ctrl.js:44
-msgid "image"
-msgstr ""
-
-#: client/app/modules/files/views/upload.html:32
-msgid "in queue"
 msgstr ""
 
 #: client/app/modules/core/helpers/FormHelper.js:27
@@ -464,13 +434,13 @@ msgstr ""
 msgid "Key"
 msgstr ""
 
+#: client/app/modules/users/controllers/register.ctrl.js:38
+msgid "Last Name"
+msgstr ""
+
 #: client/app/modules/users/controllers/profile.ctrl.js:29
 #: client/app/modules/users/controllers/users.ctrl.js:84
 msgid "Last name"
-msgstr ""
-
-#: client/app/modules/users/controllers/register.ctrl.js:38
-msgid "Last Name"
 msgstr ""
 
 #: client/app/modules/users/controllers/login.ctrl.js:98
@@ -518,7 +488,7 @@ msgstr ""
 #: client/app/modules/products/controllers/categories.ctrl.js:23
 #: client/app/modules/products/controllers/products.ctrl.js:82
 #: client/app/modules/profile/controllers/profile.ctrl.js:12
-#: client/app/modules/profile/controllers/profile.ctrl.js:29
+#: client/app/modules/profile/controllers/profile.ctrl.js:55
 msgid "Name"
 msgstr ""
 
@@ -662,12 +632,12 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: client/app/modules/users/views/login.html:16
-msgid "Sign in"
-msgstr ""
-
 #: client/app/modules/users/views/login.html:7
 msgid "Sign In"
+msgstr ""
+
+#: client/app/modules/users/views/login.html:16
+msgid "Sign in"
 msgstr ""
 
 #: client/app/modules/core/views/elements/navbar.html:43
@@ -795,10 +765,6 @@ msgstr ""
 msgid "Users"
 msgstr ""
 
-#: client/app/modules/profile/controllers/profile.ctrl.js:23
-msgid "UUID"
-msgstr ""
-
 #: client/app/modules/products/controllers/products.ctrl.js:96
 msgid "Valuation"
 msgstr ""
@@ -840,6 +806,10 @@ msgstr ""
 msgid "You need an email address"
 msgstr ""
 
+#: client/app/modules/users/views/profile.html:20
+msgid "Your Gravatar"
+msgstr ""
+
 #: client/app/modules/products/controllers/products.ctrl.js:67
 msgid "Your category is deleted!"
 msgstr ""
@@ -874,10 +844,6 @@ msgstr ""
 
 #: client/app/modules/files/controllers/files.ctrl.js:25
 msgid "Your file is deleted!"
-msgstr ""
-
-#: client/app/modules/users/views/profile.html:20
-msgid "Your Gravatar"
 msgstr ""
 
 #: client/app/modules/core/helpers/FormHelper.js:28
