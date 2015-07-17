@@ -27,43 +27,27 @@ app.controller('MyProfileCtrl', function($scope, $state, $stateParams, User, Pro
 
   $scope.credentialsFields =
 [
-{
-className: 'col-xs-12',
-type: 'text',
-key: 'Entity',
-templateOptions: {
-type: '',
-label: 'Entity',
-required: false,
-placeholder: 'Entity',
-description: '',
-options: []
-}
-},
-{
-className: 'col-xs-12',
-type: 'select',
-key: 'TypeCred',
-templateOptions: {
-type: '',
-label: '',
-required: false,
-placeholder: '',
-description: '',
-options: [
   {
-    name: 'No1',
-    value: 0,
-    group: ''
-  },
-  {
-    name: 'no2',
-    value: 1,
-    group: ''
-  }
-]
-}
-}
+          key: 'School',
+          type: 'input',
+          defaultValue: 'Entity',
+          templateOptions: {
+            label: 'Last Name (initialized via the model)'
+          }
+        },
+        {
+          key: 'Major',
+          type: 'select',
+          defaultValue: 'Type',
+          templateOptions: {
+            label: 'Type',
+            options: [
+              {name: 'School', value: '123'},
+              {name: 'Org', value: '456'},
+              {name: 'Mil', value: '789'}
+            ]
+          }
+        }
 ];
 
 
