@@ -14,20 +14,21 @@ console.log('UID: '+ $scope.currentUser.id );
     $scope.MediaRecord = {};
     $scope.CompanyRecord = {};
     $scope.MyProfile = {};
+    $scope.profiles = {};
 
+    $scope.sliceProfile = function (inProfile){
+      if(inProfile){
 
-    $scope.sliceProfile = function (){
-
-        $scope.profiles = ProfileService.getProfiles();
-        $scope.educations = $scope.profiles.edu;        // ---------
-        $scope.portfolio = $scope.profiles.companies ;  // ---------
-        $scope.medias = $scope.profiles.medias ;        // ---------
-        $scope.workhistory = $scope.profiles.work ;     // ---------
-        $scope.social = $scope.profiles.social ;        // ---------
-        $scope.credentials = $scope.profiles.creds ;    // ---------
-        $scope.contacts = $scope.profiles.contact ;      // ---------
+      }else{
+        $scope.educations = $scope.profile.edu;        // ---------
+        $scope.portfolio = $scope.profile.companies ;  // ---------
+        $scope.medias = $scope.profile.medias ;        // ---------
+        $scope.workhistory = $scope.profile.work ;     // ---------
+        $scope.social = $scope.profile.social ;        // ---------
+        $scope.credentials = $scope.profile.creds ;    // ---------
+        $scope.contacts = $scope.profile.contact ;      // ---------
         // $scope. = $scope.profiles. ;
-
+      }
     };
 
   $scope.formFields = [ {
@@ -285,7 +286,11 @@ console.log('UID: '+ $scope.currentUser.id );
 // declared now
 
 
-
+  setTimeout(function () {
+      $scope.$apply(function() {
+              $scope.profiles = ProfileService.getProfiles();
+          });
+  }, 100);
 
 
 
