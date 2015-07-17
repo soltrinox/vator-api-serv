@@ -85,12 +85,12 @@ app.config(function(formlyConfig) {
     'textarea'
   ];
 
-  angular.forEach(fields, function(val) {
-    formlyConfig.setTemplateUrl(val, formly + val + '.html');
-  });
-
-  formlyConfig.setTemplateUrl('date', templates + 'date.html');
-  formlyConfig.setTemplateUrl('time', templates + 'time.html');
+  // angular.forEach(fields, function(val) {
+  //   formlyConfig.setTemplateUrl(val, formly + val + '.html');
+  // });
+  //
+  // formlyConfig.setTemplateUrl('date', templates + 'date.html');
+  // formlyConfig.setTemplateUrl('time', templates + 'time.html');
 
 });
 
