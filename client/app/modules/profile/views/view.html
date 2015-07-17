@@ -1,7 +1,9 @@
 
 <h4>
   <a href="" ui-sref="^.list" class="btn btn-default"><i class="fa fa-arrow-left"></i></a>
-  {{profile.Name}}
+
+
+  {{$scope.profile.Name}}
 
   <span class="pull-right btn-group" style="margin-top: 7px;">
     <a href="" class="btn btn-sm btn-default" ui-sref="^.edit({id: profile.id})">
@@ -12,7 +14,7 @@
     </a>
   </span>
 <br/>
-{{profile.Bio}}
+{{$scope.profile.Bio}}
 </h4>
 <hr>
-<pre>{{profile | json}}</pre>
+<pre>{{$scope.profile | json}}</pre>
