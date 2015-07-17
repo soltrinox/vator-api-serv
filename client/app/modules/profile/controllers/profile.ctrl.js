@@ -24,6 +24,32 @@ app.controller('MyProfileCtrl', function($scope, $state, $stateParams, User, Pro
     required: true
   }];
 
+
+  formlyConfig.setType({
+  name: 'ui-select-select2',
+  extends: 'ui-select',
+  template: '<ui-select ng-model="model[options.key]" theme="select2" ng-required="{{to.required}}" ng-disabled="{{to.disabled}}" reset-search-input="false"> <ui-select-match placeholder="{{to.placeholder}}"> {{$select.selected[to.labelProp || \'name\']}} </ui-select-match> <ui-select-choices group-by="to.groupBy" repeat="option[to.valueProp || \'value\'] as option in to.options | filter: $select.search"> <div ng-bind-html="option[to.labelProp || \'name\'] | highlight: $select.search"></div> </ui-select-choices> </ui-select>'
+});
+
+var typelist=  [
+   {
+     name: 'School',
+     abbr: 'EDU'
+   },
+   {
+     name: 'Organization',
+     abbr: 'ORG'
+   },
+   {
+     name: 'Military',
+     abbr: 'MIL'
+   },
+   {
+     name: 'Government',
+     abbr: 'GOV'
+   }
+ ];
+
   $scope.credentialsFields = [{
       key: 'name',
       label: gettextCatalog.getString('Name'),
@@ -47,33 +73,19 @@ app.controller('MyProfileCtrl', function($scope, $state, $stateParams, User, Pro
       format: gettextCatalog.getString('dd/MM/yyyy'),
       opened: false
     }, {
-    key: 'state',
-    type: 'ui-select-select2',
-    templateOptions: {
-      label: 'Type',
-      valueProp: 'abbr',
-      labelProp: 'name',
-      options: [
-        {
-          name: 'School',
-          abbr: 'EDU'
-        },
-        {
-          name: 'Organization',
-          abbr: 'ORG'
-        },
-        {
-          name: 'Military',
-          abbr: 'MIL'
-        },
-        {
-          name: 'Government',
-          abbr: 'GOV'
+        key: 'Type',
+        type: 'ui-select-select2',
+        templateOptions: {
+          label: 'Type',
+          valueProp: 'abbr',
+          labelProp: 'name',
+          options: typelist
         }
-      ]
-    }
+      }
   }
   ];
+
+
 
   $scope.formOptions = {
     uniqueFormId: true,
