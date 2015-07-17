@@ -10,7 +10,42 @@
 <div class="row">
   <div class="col-md-4">
     <div class="alert alert-danger" ng-if="addError" translate>Could not add profile!</div>
-    <formly-form result="profile" fields="formFields" options="formOptions" ng-submit="onSubmit()"></formly-form>
+
+
+
+    <tabset class="nav-tabs-custom">
+      <tab heading="{{ 'Profile' | translate }}">
+        <div class="row">
+          <!--  contact for email here ??? -->
+        <formly-form result="profile" fields="formFields" options="formOptions" ng-submit="onSubmit()"></formly-form>
+
+        </div>
+      </tab>
+      <tab heading="{{ 'Credentials' | translate }}">
+        <div class="row">
+
+        <formly-form result="profile" fields="formFields" options="formOptions" ng-submit="onSubmit()"></formly-form>
+
+        </div>
+      </tab>
+      <tab heading="{{ 'Experience' | translate }}">
+        <div class="row">
+
+        <formly-form result="profile" fields="formFields" options="formOptions" ng-submit="onSubmit()"></formly-form>
+
+        </div>
+      </tab>
+      <tab heading="{{ 'Social' | translate }}">
+        <div class="row">
+          <!--  contact for email here too -->
+        <formly-form result="profile" fields="formFields" options="formOptions" ng-submit="onSubmit()"></formly-form>
+
+        </div>
+      </tab>
+
+    </tabset>
+
+
   </div>
 </div>
 <div class="controls">

@@ -9,9 +9,11 @@ function($state,
     return Profile.find();
   };
 
-  this.getProfile = function(id) {
-    return Profile.findById({
-      id: id
+  this.getProfile = function(pid) {
+    console.log('Profile.findById()' + pid);
+    return Profile.findById({ where: {
+       id : '$pid'
+      }
     });
   };
 
