@@ -1,7 +1,7 @@
 'use strict';
 var app = angular.module('com.module.profile');
 
-app.service('WorkHistoryService', ['$state', 'CoreService', 'User', 'WorkHistory', 'gettextCatalog',
+app.service('WorkHistoryService', ['$state', 'CoreService',  'WorkHistory', 'User','gettextCatalog',
 function($state, CoreService, WorkHistory, User, gettextCatalog) {
 
   this.getWorkHistorys = function() {
@@ -47,5 +47,6 @@ function($state, CoreService, WorkHistory, User, gettextCatalog) {
         return false;
       });
   };
+
 
 }]);

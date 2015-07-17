@@ -46,22 +46,22 @@ app.controller('MyProfileCtrl',function($scope, $state, $stateParams,
 
 
     $scope.formFields2 = [{
-      key: "Degree",
-      type: "select",
-      label: "Type",
+      key: 'Degree',
+      type: 'select',
+      label: 'Type',
       required: true,
       options: [
           {
-              name: "School",
-              value : "EDU"
+              name: 'School',
+              value : 'EDU'
           },
           {
-              name: "Military",
-              value : "MIL"
+              name: 'Military',
+              value : 'MIL'
           },
           {
-              name: "Organization",
-              value : "ORG"
+              name: 'Organization',
+              value : 'ORG'
           }
       ]
     }, {
@@ -70,13 +70,13 @@ app.controller('MyProfileCtrl',function($scope, $state, $stateParams,
         label: 'Name',
         required: true
       },{
-        "key": "Date",
-        "type": "number",
-        "label": "Year Completed",
-        "default": 2015,
-        "min": 1900,
-        "max": 2020,
-        "required": true
+        key: 'Date',
+        type: 'number',
+        label: 'Year Completed',
+        default: 2015,
+        min: 1900,
+        max: 2020,
+        required: true
     }, {
         key: 'Major',
         type: 'text',
@@ -95,31 +95,31 @@ app.controller('MyProfileCtrl',function($scope, $state, $stateParams,
       }];
 
 
-  //     "companyname": "",
-  //  "jobtitle": "",
-  //  "datestart": "",
-  //  "dateend": "",
-  //  "id": "objectid",
-  //  "profileId": "objectid"
+  //     'companyname': '',
+  //  'jobtitle': '',
+  //  'datestart': '',
+  //  'dateend': '',
+  //  'id': 'objectid',
+  //  'profileId': 'objectid'
 
       $scope.formFields3 = [
         {
-        key: "Type",
-        type: "select",
-        label: "Type",
+        key: 'Type',
+        type: 'select',
+        label: 'Type',
         required: true,
         options: [
             {
-                name: "Employee",
-                value : "001"
+                name: 'Employee',
+                value : '001'
             },
             {
-                name: "Founder",
-                value : "002"
+                name: 'Founder',
+                value : '002'
             },
             {
-                name: "Investor",
-                value : "003"
+                name: 'Investor',
+                value : '003'
             }
         ]
       }, {
@@ -160,34 +160,34 @@ app.controller('MyProfileCtrl',function($scope, $state, $stateParams,
 
 
         $scope.formFields4 = [ {
-          key: "Type",
-          type: "select",
-          label: "Type",
+          key: 'Type',
+          type: 'select',
+          label: 'Type',
           required: true,
           options: [
               {
-                  name: "Email",
-                  value : "001"
+                  name: 'Email',
+                  value : '001'
               },
               {
-                  name: "Facebook",
-                  value : "002"
+                  name: 'Facebook',
+                  value : '002'
               },
               {
-                  name: "Twitter",
-                  value : "003"
+                  name: 'Twitter',
+                  value : '003'
               },
               {
-                  name: "GitHub",
-                  value : "004"
+                  name: 'GitHub',
+                  value : '004'
               },
               {
-                  name: "LinkedIn",
-                  value : "005"
+                  name: 'LinkedIn',
+                  value : '005'
               },
               {
-                  name: "Google",
-                  value : "006"
+                  name: 'Google',
+                  value : '006'
               }
           ]
         },{

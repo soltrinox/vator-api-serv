@@ -1,9 +1,9 @@
 'use strict';
 var app = angular.module('com.module.profile');
 
-app.service('ProfileService', ['$state', 'CoreService', 'Profile', 'User', 'Education', 'Social', 'WorkHistory',  'gettextCatalog',
-function($state,
-  CoreService, Profile, gettextCatalog) {
+app.service('ProfileService', ['$state', 'CoreService', 'Profile', 'User',
+'Education', 'Social', 'WorkHistory',  'gettextCatalog',
+function($state, CoreService, Profile, User, Education, Social, WorkHistory, gettextCatalog) {
 
   this.getProfiles = function() {
     return Profile.find();
