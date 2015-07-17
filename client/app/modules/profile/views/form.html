@@ -18,28 +18,36 @@
         <div class="row ">
           <!--  contact for email here ??? -->
         <formly-form result="profile" fields="formFields" options="formOptions" ng-submit="onSubmit()"></formly-form>
-
+        <div class="controls">
+            <button class="btn btn-primary btn-success" ng-click="onSubmit()" translate>Submit</button>
+        </div>
         </div>
       </tab>
       <tab heading="{{ 'Credentials' | translate }}">
         <div class="row ">
 
         <formly-form result="education" fields="formFields2" options="formOptions" ng-submit="onSubmit2()"></formly-form>
-
+        <div class="controls">
+            <button class="btn btn-primary btn-success" ng-click="onSubmit2()" translate>Add Credials</button>
+        </div>
         </div>
       </tab>
       <tab heading="{{ 'Experience' | translate }}">
         <div class="row ">
 
         <formly-form result="profile" fields="formFields3" options="formOptions" ng-submit="onSubmit3()"></formly-form>
-
+        <div class="controls">
+            <button class="btn btn-primary btn-success" ng-click="onSubmit3()" translate>Add Experience </button>
+        </div>
         </div>
       </tab>
       <tab heading="{{ 'Social' | translate }}">
         <div class="row ">
           <!--  contact for email here too -->
         <formly-form result="profile" fields="formFields4" options="formOptions" ng-submit="onSubmit4()"></formly-form>
-
+        <div class="controls">
+            <button class="btn btn-primary btn-success" ng-click="onSubmit4()" translate>Add Contact / Social Account</button>
+        </div>
         </div>
       </tab>
 
@@ -47,7 +55,3 @@
 
 
   </div>
-
-<div class="controls">
-    <button class="btn btn-primary btn-success" ng-click="onSubmit()" translate>Submit</button>
-</div>

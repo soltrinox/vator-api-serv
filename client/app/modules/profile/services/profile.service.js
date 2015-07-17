@@ -1,7 +1,7 @@
 'use strict';
 var app = angular.module('com.module.profile');
 
-app.service('ProfileService', ['$state', 'CoreService', 'Profile', 'gettextCatalog',
+app.service('ProfileService', ['$state', 'CoreService', 'Profile', 'User','gettextCatalog',
 function($state,
   CoreService, Profile, gettextCatalog) {
 
@@ -10,9 +10,9 @@ function($state,
   };
 
   this.getProfile = function(pid) {
-    console.log('Profile.findById()' + pid);
-    return Profile.findById({
-      id : pid   
+    console.log('Profile.getEntireProfile()' + pid);
+    return Profile.getEntireProfile({
+      id : pid
     });
   };
 

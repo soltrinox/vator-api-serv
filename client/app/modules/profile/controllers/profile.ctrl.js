@@ -1,8 +1,11 @@
 'use strict';
 var app = angular.module('com.module.profile');
 
-app.controller('MyProfileCtrl', function($scope, $state, $stateParams, ProfileService,
+app.controller('MyProfileCtrl', function($scope, $state, $stateParams, ProfileService, WorkHistoryService, EducationService,
   gettextCatalog) {
+
+
+
 
   $scope.formFields = [ {
       key: 'Name',
@@ -79,7 +82,8 @@ app.controller('MyProfileCtrl', function($scope, $state, $stateParams, ProfileSe
   //  "id": "objectid",
   //  "profileId": "objectid"
 
-      $scope.formFields3 = [{
+      $scope.formFields3 = [
+        {
         key: "Type",
         type: "select",
         label: "Type",
@@ -123,7 +127,8 @@ app.controller('MyProfileCtrl', function($scope, $state, $stateParams, ProfileSe
           type: 'hidden',
           label: gettextCatalog.getString('UUID'),
           required: true
-        }];
+        }
+      ];
 
         // Type (string, optional),
         // Value (string, optional),
@@ -205,50 +210,53 @@ app.controller('MyProfileCtrl', function($scope, $state, $stateParams, ProfileSe
 
   $scope.onSubmit = function() {
     ProfileService.upsertProfile($scope.profile, function() {
-      $scope.profiles = ProfileService.getProfiles();
+      $scope.profile = ProfileService.getProfile();
       $state.go('^.view');
     });
   };
 
   $scope.delete2 = function(id) {
-    ProfileService.deleteProfile(id, function() {
-      $scope.profile = ProfileService.getProfile();
+    EducationService.deleteEducation(id, function() {
+      $scope.profile = ProfileService.getProfileById();
     });
   };
 
   $scope.onSubmit2 = function() {
-    ProfileService.upsertProfile($scope.profile, function() {
-      $scope.profiles = ProfileService.getProfiles();
+    EducationService.upsertEducation($scope.profile, function() {
+      $scope.profile = ProfileService.getProfileById();
       $state.go('^.view');
     });
   };
 
   $scope.delete3 = function(id) {
-    ProfileService.deleteProfile(id, function() {
-      $scope.profile = ProfileService.getProfile();
+    WorkHistoryService.deleteWorkHistory(id, function() {
+      $scope.profile = ProfileService.getProfileById();
     });
   };
+
   $scope.onSubmit3 = function() {
-    ProfileService.upsertProfile($scope.profile, function() {
-      $scope.profiles = ProfileService.getProfiles();
+    WorkHistoryService.upsertWorkHistory($scope.profile, function() {
+      $scope.profile = ProfileService.getProfileById();
       $state.go('^.view');
     });
   };
 
   $scope.delete4 = function(id) {
-    ProfileService.deleteProfile(id, function() {
-      $scope.profile = ProfileService.getProfile();
+    EducationService.deleteEducation(id, function() {
+      $scope.profile = ProfileService.getProfileById();
     });
   };
   $scope.onSubmit4 = function() {
-    ProfileService.upsertProfile($scope.profile, function() {
-      $scope.profiles = ProfileService.getProfiles();
+    EducationService.upsertEducation($scope.profile, function() {
+      $scope.profiles = ProfileService.getProfileById();
       $state.go('^.view');
     });
   };
 
-  $scope.profiles = ProfileService.getProfiles();
+// declared now
 
+  $scope.profiles = ProfileService.getProfiles();
+$scope.educations = 
 
   if ($stateParams.id) {
     $scope.profile = ProfileService.getProfile($stateParams.id);
