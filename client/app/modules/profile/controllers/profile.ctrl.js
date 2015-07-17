@@ -233,8 +233,8 @@ console.log('UID: '+ $scope.currentUser.id );
   };
 
   $scope.getMe = function(x){
-    console.log('CLICK :'+x.id);
-       $scope.profile = ProfileService.getProfile(x.id);
+    console.log('CLICK :'+x);
+      return $scope.profile = ProfileService.getProfile(x);
         $state.go('^.view');
   };
 
