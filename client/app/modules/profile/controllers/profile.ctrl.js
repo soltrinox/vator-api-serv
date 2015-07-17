@@ -29,7 +29,7 @@ app.controller('MyProfileCtrl', function($scope, $state, $stateParams, User, Pro
 [
 {
 className: 'col-xs-12',
-type: 'input',
+type: 'text',
 key: 'Entity',
 templateOptions: {
 type: '',
