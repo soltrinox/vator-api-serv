@@ -1,7 +1,7 @@
 'use strict';
 /**
  * @ngdoc overview
- * @name com.module.about
+ * @name com.module.other
  * @module
  * @description
  * @requires loopbackApp
