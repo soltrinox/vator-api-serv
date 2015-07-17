@@ -55,7 +55,8 @@ module.exports = function(app) {
       userCredentialModel: app.models.userCredential
     });
 
-    // Configure passport strategies for third party auth providers and add them to the API
+    // Configure passport strategies for third party
+    // auth providers and add them to the API
     for (var s in config) {
       var c = config[s];
 
