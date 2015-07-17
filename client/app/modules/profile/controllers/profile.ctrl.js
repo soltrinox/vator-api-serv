@@ -236,7 +236,6 @@ console.log('UID: '+ $scope.currentUser.id );
     console.log('CLICK :'+x);
       hithere = ProfileService.getProfile(x);
         $state.go('^.view({id: hithere.id})');
-        
   };
 
   $scope.onSubmit = function() {
