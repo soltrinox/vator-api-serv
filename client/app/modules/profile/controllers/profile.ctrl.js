@@ -19,7 +19,23 @@ app.controller('MyProfileCtrl', function($scope, $state, $stateParams, ProfileSe
     type: 'hidden',
     label: gettextCatalog.getString('UUID'),
     required: true
-  }];
+  },
+{
+        key: "Type",
+        type: "select",
+        label: "How do you get around in the city",
+        options: [
+            {
+                name: "Car"
+            },
+            {
+                name: "Helicopter"
+            },
+            {
+                name: "Sport Utility Vehicle"
+            }
+        ]
+    }];
 
   $scope.formOptions = {
     uniqueFormId: true,
