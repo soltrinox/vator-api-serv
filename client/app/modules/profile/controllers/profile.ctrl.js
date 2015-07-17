@@ -1,7 +1,7 @@
 'use strict';
 var app = angular.module('com.module.profile');
 
-app.controller('MyProfileCtrl',function($scope, $state, $stateParams,
+app.controller('MyProfileCtrl',function($scope, $location, $state, $stateParams,
   ProfileService, WorkHistoryService, EducationService, SocialService,
   gettextCatalog) {
 
@@ -236,8 +236,8 @@ console.log('UID: '+ $scope.currentUser.id );
     console.log('CLICK :'+pro.id);
       $scope.MyProfile = {};
       $scope.MyProfile = ProfileService.getProfile(pro.id);
-      $location.path('/app/myProfile/'+pro.id);
-    
+      $location.path('/#/app/myProfile/'+pro.id);
+
   };
 
   $scope.onSubmit = function() {
