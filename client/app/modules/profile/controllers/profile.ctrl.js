@@ -8,20 +8,16 @@ app.controller('MyProfileCtrl', function($scope, $state, $stateParams, User, Pro
 
   $scope.formFields = [{
     key: 'Name',
-    type: 'text',
-    label: gettextCatalog.getString('Name'),
-    required: true
+    type: 'text'
+
   }, {
     key: 'Bio',
-    type: 'textarea',
-    label: gettextCatalog.getString('Bio'),
-    required: true
+    type: 'textarea'
+
   }, {
     key: 'UUID',
     type: 'hidden',
-    defaultValue: $scope.pid ,
-    label: gettextCatalog.getString('UUID'),
-    required: true
+    value: $scope.pid
   }];
 
 
@@ -31,14 +27,10 @@ app.controller('MyProfileCtrl', function($scope, $state, $stateParams, User, Pro
           key: 'School',
           type: 'input',
           defaultValue: 'Entity',
-          templateOptions: {
-            label: 'Last Name (initialized via the model)'
-          }
         },
         {
           key: 'Major',
           type: 'select',
-          defaultValue: 'Type',
           templateOptions: {
             label: 'Type',
             options: [
