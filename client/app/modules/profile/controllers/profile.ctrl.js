@@ -13,6 +13,7 @@ console.log('UID: '+ $scope.currentUser.id );
     $scope.WorkRecord = {};
     $scope.MediaRecord = {};
     $scope.CompanyRecord = {};
+    $scope.MyProfile = {};
 
 
     $scope.sliceProfile = function (){
@@ -231,6 +232,12 @@ console.log('UID: '+ $scope.currentUser.id );
   };
 
   $scope.onSubmit = function() {
+    $scope.MyProfile.Name = $scope.formFields.Name;
+    $scope.MyProfile.Bio = $scope.formFields.Bio;
+    $scope.MyProfile.UUID = $scope.formFields.UUID;
+
+    console.log('PROFILE: '+$scope.MyProfile);
+
     ProfileService.upsertProfile($scope.profile, function() {
       $scope.profile = ProfileService.getProfile();
       $state.go('^.view');
