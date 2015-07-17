@@ -236,12 +236,12 @@ console.log('UID: '+ $scope.currentUser.id );
     $scope.MyProfile.Name = $scope.formFields.Name;
     $scope.MyProfile.Bio = $scope.formFields.Bio;
     $scope.MyProfile.UUID = $scope.formFields.UUID;
-
-    console.log('PROFILE: '+$scope.MyProfile);
-
+    $scope.target = '^.view({id: '+ $scope.MyProfile.UUID +'item.id''})';
+    console.log('PROFILE: '+$scope.profile);
+    console.log('UUID BEFORE UPSERT: '+$scope.MyProfile.UUID);
     ProfileService.upsertProfile($scope.profile, function() {
+      console.log('UUID IN UPSERT: '+$scope.MyProfile.UUID);
       $scope.profile = ProfileService.getProfile($scope.MyProfile.UUID);
-      $scope.target = '^.view({id: '+ $scope.MyProfile.UUID +'item.id''})';
       $state.go($scope.target);
     });
   };
