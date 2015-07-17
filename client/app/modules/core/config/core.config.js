@@ -86,11 +86,24 @@ app.config(function(formlyConfigProvider) {
   ];
 
   angular.forEach(fields, function(val) {
-    formlyConfigProvider.setTemplateUrl(val, formly + val + '.html');
+    formlyConfigProvider.setType({
+      name : val,
+      templateUrl : formly + val + '.html'
+    });
+    //TemplateUrl(val, formly + val + '.html');
   });
 
-  formlyConfigProvider.setTemplateUrl('date', templates + 'date.html');
-  formlyConfigProvider.setTemplateUrl('time', templates + 'time.html');
+  formlyConfigProvider.setType({
+    name : 'date',
+    templateUrl: templates + 'date.html'
+  });
+  //TemplateUrl('date', );
+
+  formlyConfigProvider.setType({
+    name :'time',
+    templateUrl: templates + 'time.html'
+  });
+  //TemplateUrl('time', templates + 'time.html');
 
 });
 
