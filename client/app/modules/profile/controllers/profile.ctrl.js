@@ -236,8 +236,8 @@ console.log('UID: '+ $scope.currentUser.id );
     $scope.MyProfile.Name = $scope.formFields.Name;
     $scope.MyProfile.Bio = $scope.formFields.Bio;
     $scope.MyProfile.UUID = $scope.formFields.UUID;
-    $scope.target = ;
     
+
     console.log('PROFILE: '+$scope.profile);
     console.log('UUID BEFORE UPSERT: '+$scope.MyProfile.UUID);
 
