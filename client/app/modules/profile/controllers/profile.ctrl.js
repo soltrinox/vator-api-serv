@@ -4,37 +4,39 @@ var app = angular.module('com.module.profile');
 app.controller('MyProfileCtrl', function($scope, $state, $stateParams, ProfileService,
   gettextCatalog) {
 
-  $scope.formFields = [{
-    key: 'Name',
-    type: 'text',
-    label: gettextCatalog.getString('Name'),
-    required: true
-  }, {
-    key: 'Bio',
-    type: 'textarea',
-    label: gettextCatalog.getString('Bio'),
-    required: true
-  }, {
-    key: 'UUID',
-    type: 'hidden',
-    label: gettextCatalog.getString('UUID'),
-    required: true
-  },
-{
-        key: "Type",
-        type: "select",
-        label: "How do you get around in the city",
-        options: [
-            {
-                name: "Car"
-            },
-            {
-                name: "Helicopter"
-            },
-            {
-                name: "Sport Utility Vehicle"
-            }
-        ]
+  $scope.formFields = [ {
+      key: 'Name',
+      type: 'text',
+      label: gettextCatalog.getString('Name'),
+      required: true
+    }, {
+      key: 'Bio',
+      type: 'textarea',
+      label: gettextCatalog.getString('Bio'),
+      required: true
+    }, {
+      key: 'UUID',
+      type: 'hidden',
+      label: gettextCatalog.getString('UUID'),
+      required: true
+    },{
+      key: "Type",
+      type: "select",
+      label: "Type",
+      options: [
+          {
+              name: "School",
+              value : "EDU"
+          },
+          {
+              name: "Military",
+              value : "MIL"
+          },
+          {
+              name: "Organization",
+              value : "ORG"
+          }
+      ]
     }];
 
   $scope.formOptions = {
