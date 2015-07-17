@@ -1,5 +1,5 @@
 'use strict';
-var app = angular.module('com.module.core',['formly']);
+var app = angular.module('com.module.core');
 app.run(function($rootScope, Setting, gettextCatalog) {
 
   // Left Sidemenu
@@ -70,40 +70,27 @@ app.run(function($rootScope, Setting, gettextCatalog) {
 
 });
 
-app.config(function() {
-  // var templates = 'modules/core/views/elements/fields/';
-  // var formly = templates + 'formly-field-';
-  // var fields = [
-  //   'checkbox',
-  //   'email',
-  //   'hidden',
-  //   'number',
-  //   'password',
-  //   'radio',
-  //   'select',
-  //   'text',
-  //   'textarea'
-  // ];
-  //
-  // angular.forEach(fields, function(val) {
-  //   formlyConfigProvider.setType({
-  //     name : val,
-  //     templateUrl : formly + val + '.html'
-  //   });
-  //   //TemplateUrl(val, formly + val + '.html');
-  // });
-  //
-  // formlyConfigProvider.setType({
-  //   name : 'date',
-  //   templateUrl: templates + 'date.html'
-  // });
-  // //TemplateUrl('date', );
-  //
-  // formlyConfigProvider.setType({
-  //   name :'time',
-  //   templateUrl: templates + 'time.html'
-  // });
-  // //TemplateUrl('time', templates + 'time.html');
+app.config(function(formlyConfigProvider) {
+  var templates = 'modules/core/views/elements/fields/';
+  var formly = templates + 'formly-field-';
+  var fields = [
+    'checkbox',
+    'email',
+    'hidden',
+    'number',
+    'password',
+    'radio',
+    'select',
+    'text',
+    'textarea'
+  ];
+
+  angular.forEach(fields, function(val) {
+    formlyConfigProvider.setTemplateUrl(val, formly + val + '.html');
+  });
+
+  formlyConfigProvider.setTemplateUrl('date', templates + 'date.html');
+  formlyConfigProvider.setTemplateUrl('time', templates + 'time.html');
 
 });
 

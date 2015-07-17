@@ -649,7 +649,7 @@ module.exports = function (grunt) {
     'wiredep:server',
     'concurrent:test',
     'autoprefixer',
-    //'connect:test'
+    'connect:test'
   ]);
 
   grunt.registerTask('build', [
@@ -668,7 +668,7 @@ module.exports = function (grunt) {
     //'cdnify',
     'cssmin',
     'uglify',
-   // 'filerev',
+    'filerev',
     'usemin',
     'htmlmin'
   ]);
@@ -678,7 +678,7 @@ module.exports = function (grunt) {
     'test',
     'ngconstant:development',
     'loopback_sdk_angular:development',
-   // 'docular',
+    'docular',
     'nggettext_extract',
     'nggettext_compile',
     'build'

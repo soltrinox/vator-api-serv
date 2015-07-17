@@ -41,23 +41,23 @@ msgid "Add"
 msgstr ""
 
 #: client/app/modules/products/views/main.html:2
-msgid "Add Group"
+msgid "Add Category"
 msgstr ""
 
-#: client/app/modules/products/views/form.html:4
-msgid "Add a new company"
+#: client/app/modules/products/views/categoryform.html:3
+msgid "Add a new category"
 msgstr ""
 
 #: client/app/modules/events/views/form.html:5
 msgid "Add a new event"
 msgstr ""
 
-#: client/app/modules/products/views/categoryform.html:3
-msgid "Add a new group"
-msgstr ""
-
 #: client/app/modules/posts/views/form.html:4
 msgid "Add a new post"
+msgstr ""
+
+#: client/app/modules/products/views/form.html:4
+msgid "Add a new product"
 msgstr ""
 
 #: client/app/modules/profile/views/form.html:4
@@ -83,11 +83,14 @@ msgstr ""
 #: client/app/modules/pages/controllers/pages.ctrl.js:33
 #: client/app/modules/posts/services/posts.service.js:22
 #: client/app/modules/products/controllers/products.ctrl.js:42
-#: client/app/modules/profile/services/profile.service.js:33
-#: client/app/modules/profile/services/profile.service.js:68
+#: client/app/modules/profile/services/profile.service.js:32
 #: client/app/modules/settings/controllers/settings.ctrl.js:28
 #: client/app/modules/users/controllers/users.ctrl.js:26
 msgid "Are you sure?"
+msgstr ""
+
+#: client/app/modules/profile/controllers/profile.ctrl.js:15
+msgid "Bio"
 msgstr ""
 
 #: client/app/modules/notes/controllers/notes.ctrl.js:15
@@ -106,6 +109,14 @@ msgstr ""
 msgid "Cancel all"
 msgstr ""
 
+#: client/app/modules/products/config/products.config.js:14
+msgid "Categories"
+msgstr ""
+
+#: client/app/modules/products/controllers/products.ctrl.js:87
+msgid "Category"
+msgstr ""
+
 #: client/app/modules/products/controllers/products.ctrl.js:66
 msgid "Category deleted"
 msgstr ""
@@ -116,12 +127,6 @@ msgstr ""
 
 #: client/app/modules/users/views/profile.html:21
 msgid "Change it here!"
-msgstr ""
-
-#: client/app/modules/products/views/list.html:36
-msgid ""
-"Click\n"
-"          <a href=\"\" ui-sref=\"^.add({ categoryId: category.id })\">here</a> to add a company!"
 msgstr ""
 
 #: client/app/modules/posts/views/list.html:59
@@ -138,21 +143,20 @@ msgstr ""
 msgid "Click <a href=\"\" ui-sref=\"^.add\">here</a> to add a page!"
 msgstr ""
 
+#: client/app/modules/profile/views/list.html:20
+msgid "Click <a href=\"\" ui-sref=\"^.add\">here</a> to add a profile!"
+msgstr ""
+
 #: client/app/modules/settings/views/list.html:20
 msgid "Click <a href=\"\" ui-sref=\"^.add\">here</a> to add a setting!"
 msgstr ""
 
-#: client/app/modules/profile/views/list.html:20
-msgid "Click <a href=\"\" ui-sref=\"^.add\">here</a> to create a profile!"
+#: client/app/modules/products/views/list.html:36
+msgid "Click <a href=\"\" ui-sref=\"^.add({ categoryId: category.id })\">here</a> to add a product!"
 msgstr ""
 
 #: client/app/modules/files/views/list.html:23
 msgid "Click <a href=\"\" ui-sref=\"^.upload\" translate=\"\">here</a> to upload some!"
-msgstr ""
-
-#: client/app/modules/products/config/products.config.js:4
-#: client/app/modules/products/config/products.config.js:8
-msgid "Company"
 msgstr ""
 
 #: client/app/modules/users/controllers/register.ctrl.js:80
@@ -163,16 +167,12 @@ msgstr ""
 msgid "Content"
 msgstr ""
 
-#: client/app/modules/products/views/form.html:12
-msgid "Could not add company!"
+#: client/app/modules/products/views/categoryform.html:8
+msgid "Could not add category!"
 msgstr ""
 
 #: client/app/modules/events/views/form.html:13
 msgid "Could not add event!"
-msgstr ""
-
-#: client/app/modules/products/views/categoryform.html:8
-msgid "Could not add group!"
 msgstr ""
 
 #: client/app/modules/pages/views/form.html:26
@@ -181,6 +181,10 @@ msgstr ""
 
 #: client/app/modules/posts/views/form.html:12
 msgid "Could not add post!"
+msgstr ""
+
+#: client/app/modules/products/views/form.html:12
+msgid "Could not add product!"
 msgstr ""
 
 #: client/app/modules/profile/views/form.html:12
@@ -199,18 +203,6 @@ msgstr ""
 msgid "Create pages with rich content!"
 msgstr ""
 
-#: client/app/modules/profile/services/profile.service.js:72
-msgid "Cred deleted"
-msgstr ""
-
-#: client/app/modules/profile/services/profile.service.js:55
-msgid "Credential saved"
-msgstr ""
-
-#: client/app/modules/profile/views/form.html:30
-msgid "Credentials"
-msgstr ""
-
 #: client/app/modules/core/config/core.config.js:18
 #: client/app/modules/core/views/home.html:13
 msgid "Dashboard"
@@ -227,8 +219,7 @@ msgstr ""
 #: client/app/modules/pages/controllers/pages.ctrl.js:34
 #: client/app/modules/posts/services/posts.service.js:23
 #: client/app/modules/products/controllers/products.ctrl.js:43
-#: client/app/modules/profile/services/profile.service.js:34
-#: client/app/modules/profile/services/profile.service.js:69
+#: client/app/modules/profile/services/profile.service.js:33
 #: client/app/modules/settings/controllers/settings.ctrl.js:29
 #: client/app/modules/users/controllers/users.ctrl.js:27
 msgid "Deleting this cannot be undone"
@@ -248,24 +239,21 @@ msgstr ""
 msgid "E-mail"
 msgstr ""
 
+#: client/app/modules/products/views/categoryform.html:4
 #: client/app/modules/products/views/list.html:7
 msgid "Edit category"
-msgstr ""
-
-#: client/app/modules/products/views/form.html:5
-msgid "Edit company"
 msgstr ""
 
 #: client/app/modules/events/views/form.html:6
 msgid "Edit event"
 msgstr ""
 
-#: client/app/modules/products/views/categoryform.html:4
-msgid "Edit groups"
-msgstr ""
-
 #: client/app/modules/posts/views/form.html:5
 msgid "Edit post"
+msgstr ""
+
+#: client/app/modules/products/views/form.html:5
+msgid "Edit product"
 msgstr ""
 
 #: client/app/modules/profile/views/form.html:5
@@ -302,10 +290,6 @@ msgstr ""
 msgid "Error deleting category"
 msgstr ""
 
-#: client/app/modules/profile/services/profile.service.js:77
-msgid "Error deleting cred"
-msgstr ""
-
 #: client/app/modules/events/controllers/events.ctrl.js:61
 msgid "Error deleting event"
 msgstr ""
@@ -327,7 +311,7 @@ msgstr ""
 msgid "Error deleting product"
 msgstr ""
 
-#: client/app/modules/profile/services/profile.service.js:42
+#: client/app/modules/profile/services/profile.service.js:41
 msgid "Error deleting profile"
 msgstr ""
 
@@ -343,15 +327,11 @@ msgstr ""
 msgid "Error registering!"
 msgstr ""
 
-#: client/app/modules/profile/services/profile.service.js:60
-msgid "Error saving creds"
-msgstr ""
-
 #: client/app/modules/notes/services/notes.service.js:25
 msgid "Error saving note"
 msgstr ""
 
-#: client/app/modules/profile/services/profile.service.js:26
+#: client/app/modules/profile/services/profile.service.js:25
 #: client/app/modules/users/controllers/profile.ctrl.js:45
 msgid "Error saving profile"
 msgstr ""
@@ -381,10 +361,6 @@ msgstr ""
 msgid "Events"
 msgstr ""
 
-#: client/app/modules/profile/views/form.html:37
-msgid "Experience"
-msgstr ""
-
 #: client/app/modules/files/controllers/files.ctrl.js:24
 msgid "File deleted"
 msgstr ""
@@ -403,14 +379,6 @@ msgstr ""
 #: client/app/modules/users/controllers/profile.ctrl.js:24
 #: client/app/modules/users/controllers/users.ctrl.js:79
 msgid "First name"
-msgstr ""
-
-#: client/app/modules/products/controllers/products.ctrl.js:87
-msgid "Group"
-msgstr ""
-
-#: client/app/modules/products/config/products.config.js:14
-msgid "Groups"
 msgstr ""
 
 #: client/app/modules/core/views/app.html:14
@@ -464,7 +432,7 @@ msgid "Manage your products here!"
 msgstr ""
 
 #: client/app/modules/profile/views/main.html:2
-msgid "Manage your profile here!"
+msgid "Manage your profiles here!"
 msgstr ""
 
 #: client/app/modules/settings/views/main.html:1
@@ -483,6 +451,7 @@ msgstr ""
 #: client/app/modules/files/views/upload.html:56
 #: client/app/modules/products/controllers/categories.ctrl.js:23
 #: client/app/modules/products/controllers/products.ctrl.js:82
+#: client/app/modules/profile/controllers/profile.ctrl.js:10
 msgid "Name"
 msgstr ""
 
@@ -542,6 +511,10 @@ msgstr ""
 msgid "Password"
 msgstr ""
 
+#: client/app/modules/products/controllers/products.ctrl.js:96
+msgid "Percentage"
+msgstr ""
+
 #: client/app/modules/posts/controllers/posts.ctrl.js:56
 msgid "Post saved"
 msgstr ""
@@ -550,6 +523,10 @@ msgstr ""
 #: client/app/modules/posts/config/posts.config.js:8
 #: client/app/modules/posts/views/main.html:1
 msgid "Posts"
+msgstr ""
+
+#: client/app/modules/products/controllers/products.ctrl.js:100
+msgid "Price"
 msgstr ""
 
 #: client/app/modules/products/views/main.html:1
@@ -564,20 +541,27 @@ msgstr ""
 msgid "Product saved"
 msgstr ""
 
+#: client/app/modules/products/config/products.config.js:4
+#: client/app/modules/products/config/products.config.js:8
+msgid "Products"
+msgstr ""
+
 #: client/app/modules/core/views/elements/navbar.html:40
 #: client/app/modules/profile/config/profile.config.js:5
-#: client/app/modules/profile/views/form.html:17
-#: client/app/modules/profile/views/main.html:1
 msgid "Profile"
 msgstr ""
 
-#: client/app/modules/profile/services/profile.service.js:37
+#: client/app/modules/profile/services/profile.service.js:36
 msgid "Profile deleted"
 msgstr ""
 
-#: client/app/modules/profile/services/profile.service.js:21
+#: client/app/modules/profile/services/profile.service.js:20
 #: client/app/modules/users/controllers/profile.ctrl.js:41
 msgid "Profile saved"
+msgstr ""
+
+#: client/app/modules/profile/views/main.html:1
+msgid "Profiles"
 msgstr ""
 
 #: client/app/modules/files/views/upload.html:58
@@ -642,10 +626,6 @@ msgstr ""
 msgid "Size"
 msgstr ""
 
-#: client/app/modules/profile/views/form.html:44
-msgid "Social"
-msgstr ""
-
 #: client/app/modules/events/controllers/events.ctrl.js:91
 msgid "Start Date"
 msgstr ""
@@ -667,13 +647,9 @@ msgstr ""
 #: client/app/modules/posts/views/form.html:17
 #: client/app/modules/products/views/categoryform.html:13
 #: client/app/modules/products/views/form.html:19
-#: client/app/modules/profile/views/form.html:58
+#: client/app/modules/profile/views/form.html:17
 #: client/app/modules/settings/views/form.html:21
 msgid "Submit"
-msgstr ""
-
-#: client/app/modules/products/views/list.html:33
-msgid "There are no companies in this group!"
 msgstr ""
 
 #: client/app/modules/events/views/list.html:23
@@ -688,20 +664,24 @@ msgstr ""
 msgid "There are no pages"
 msgstr ""
 
-#: client/app/modules/settings/views/list.html:17
-msgid "There are no settings"
+#: client/app/modules/products/views/list.html:33
+msgid "There are no products in this category!"
 msgstr ""
 
-#: client/app/modules/profile/services/profile.service.js:61
-msgid "This creds could not be saved:"
+#: client/app/modules/profile/views/list.html:17
+msgid "There are no profiles"
+msgstr ""
+
+#: client/app/modules/settings/views/list.html:17
+msgid "There are no settings"
 msgstr ""
 
 #: client/app/modules/notes/services/notes.service.js:26
 msgid "This note could no be saved:"
 msgstr ""
 
-#: client/app/modules/profile/services/profile.service.js:27
-msgid "This profile could not be saved:"
+#: client/app/modules/profile/services/profile.service.js:26
+msgid "This profile could no be saved:"
 msgstr ""
 
 #: client/app/modules/users/controllers/users.ctrl.js:58
@@ -755,20 +735,12 @@ msgstr ""
 msgid "Users"
 msgstr ""
 
-#: client/app/modules/products/controllers/products.ctrl.js:96
-msgid "Valuation"
-msgstr ""
-
 #: client/app/modules/settings/controllers/settings.ctrl.js:64
 msgid "Value"
 msgstr ""
 
 #: client/app/modules/core/views/home.html:6
 msgid "Welcome!"
-msgstr ""
-
-#: client/app/modules/products/controllers/products.ctrl.js:100
-msgid "Year Founded"
 msgstr ""
 
 #: client/app/modules/users/controllers/login.ctrl.js:99
@@ -785,10 +757,6 @@ msgstr ""
 
 #: client/app/modules/files/views/upload.html:8
 msgid "You can just drag them in this window!"
-msgstr ""
-
-#: client/app/modules/profile/views/list.html:17
-msgid "You have no profile <i class=\"fa fa-frown-o\"></i>  !"
 msgstr ""
 
 #: client/app/modules/users/controllers/login.ctrl.js:37
@@ -810,14 +778,6 @@ msgstr ""
 
 #: client/app/modules/products/controllers/categories.ctrl.js:36
 msgid "Your category is safe with us!"
-msgstr ""
-
-#: client/app/modules/profile/services/profile.service.js:73
-msgid "Your cred is deleted!"
-msgstr ""
-
-#: client/app/modules/profile/services/profile.service.js:78
-msgid "Your cred is not deleted!"
 msgstr ""
 
 #: client/app/modules/events/controllers/events.ctrl.js:55
@@ -889,11 +849,11 @@ msgstr ""
 msgid "Your profile"
 msgstr ""
 
-#: client/app/modules/profile/services/profile.service.js:38
+#: client/app/modules/profile/services/profile.service.js:37
 msgid "Your profile is deleted!"
 msgstr ""
 
-#: client/app/modules/profile/services/profile.service.js:43
+#: client/app/modules/profile/services/profile.service.js:42
 msgid "Your profile is not deleted!"
 msgstr ""
 
@@ -901,8 +861,7 @@ msgstr ""
 msgid "Your profile is not saved:"
 msgstr ""
 
-#: client/app/modules/profile/services/profile.service.js:22
-#: client/app/modules/profile/services/profile.service.js:56
+#: client/app/modules/profile/services/profile.service.js:21
 msgid "Your profile is safe with us!"
 msgstr ""
 

@@ -17,34 +17,28 @@
       <tab heading="{{ 'Profile' | translate }}">
         <div class="row">
           <!--  contact for email here ??? -->
-
-          <form ng-submit="tx.onSubmit()" name="{{$scope.formx}}" novalidate>
-                <formly-form model="tx.model" fields="tx.fields" options="tx.options">
-                  <button type="submit" class="btn btn-primary submit-button" ng-disabled="tx.form.$invalid">Submit</button>
-                  <button type="button" class="btn btn-default" ng-click="tx.options.resetModel()">Reset</button>
-                </formly-form>
-              </form>
+        <formly-form result="profile" fields="formFields" options="formOptions" ng-submit="onSubmit()"></formly-form>
 
         </div>
       </tab>
       <tab heading="{{ 'Credentials' | translate }}">
         <div class="row">
 
-
+        <formly-form result="profile" fields="formFields" options="formOptions" ng-submit="onSubmit()"></formly-form>
 
         </div>
       </tab>
       <tab heading="{{ 'Experience' | translate }}">
         <div class="row">
 
-
+        <formly-form result="profile" fields="formFields" options="formOptions" ng-submit="onSubmit()"></formly-form>
 
         </div>
       </tab>
       <tab heading="{{ 'Social' | translate }}">
         <div class="row">
           <!--  contact for email here too -->
-
+        <formly-form result="profile" fields="formFields" options="formOptions" ng-submit="onSubmit()"></formly-form>
 
         </div>
       </tab>

@@ -1,9 +1,9 @@
 'use strict';
 var app = angular.module('com.module.profile');
 
-app.service('ProfileService', ['$state', 'CoreService', 'Profile', 'Education', 'gettextCatalog',
+app.service('ProfileService', ['$state', 'CoreService', 'Profile', 'gettextCatalog',
 function($state,
-  CoreService, Profile, Education, gettextCatalog) {
+  CoreService, Profile, gettextCatalog) {
 
   this.getProfiles = function() {
     return Profile.find();
@@ -12,7 +12,7 @@ function($state,
   this.getProfile = function(pid) {
     console.log('Profile.findById()' + pid);
     return Profile.findById({
-      id : pid
+      id : pid   
     });
   };
 
@@ -48,41 +48,5 @@ function($state,
         return false;
       });
   };
-
-
-  this.upsertEducation = function(edu, cb){
-    Education.upsert(edu, function(){
-      CoreService.toastSuccess(gettextCatalog.getString(
-        'Credential saved'), gettextCatalog.getString(
-        'Your profile is safe with us!'));
-      cb();
-    }, function(err) {
-      CoreService.toastSuccess(gettextCatalog.getString(
-        'Error saving creds '), gettextCatalog.getString(
-        'This creds could not be saved: ') + err);
-    });
-  };
-
-
-  this.deleteEducation = function(eid, cb) {
-    CoreService.confirm(gettextCatalog.getString('Are you sure?'),
-      gettextCatalog.getString('Deleting this cannot be undone'),
-      function() {
-        Education.deleteById(eid, function() {
-          CoreService.toastSuccess(gettextCatalog.getString(
-            'Cred deleted'), gettextCatalog.getString(
-            'Your cred is deleted!'));
-          cb();
-        }, function(err) {
-          CoreService.toastError(gettextCatalog.getString(
-            'Error deleting cred'), gettextCatalog.getString(
-            'Your cred is not deleted! ') + err);
-        });
-      },
-      function() {
-        return false;
-      });
-  };
-
 
 }]);
