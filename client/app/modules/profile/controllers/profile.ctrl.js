@@ -1,5 +1,5 @@
 'use strict';
-var app = angular.module('com.module.profile', ['formly', 'formlyBootstrap']);
+var app = angular.module('com.module.profile');
 
 app.controller('MyProfileCtrl', function($scope, $state, $stateParams, User, ProfileService, formlyVersion) {
 
