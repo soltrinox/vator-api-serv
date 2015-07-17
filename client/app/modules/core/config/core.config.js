@@ -85,7 +85,12 @@ app.config(function(formlyConfigProvider) {
     'textarea'
   ];
 
+  angular.forEach(fields, function(val) {
+    formlyConfigProvider.setTemplateUrl(val, formly + val + '.html');
+  });
 
+  formlyConfigProvider.setTemplateUrl('date', templates + 'date.html');
+  formlyConfigProvider.setTemplateUrl('time', templates + 'time.html');
 
 });
 
