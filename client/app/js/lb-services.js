@@ -12276,7 +12276,7 @@ module.factory(
          *  - `profile` – `{object=}` -
          */
         "getEntireProfile": {
-          url: urlBase + "/Profiles/entireprofile/:pid",
+          url: urlBase + "/Profiles/entireprofile/:id",
           method: "GET"
         },
 
