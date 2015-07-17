@@ -68,6 +68,8 @@ angular.module('com.module.users')
       window.location = CoreService.env.siteUrl + provider.authPath;
     };
 
+    $scope.authProviders = [];
+
     AuthProvider.count(function(result) {
       if (result.count > 0) {
         AuthProvider.find(function(result) {

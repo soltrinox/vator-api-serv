@@ -1,14 +1,4 @@
 {
-  "local": {
-    "provider": "local",
-    "module": "passport-local",
-    "usernameField": "username",
-    "passwordField": "password",
-    "authPath": "/auth/local",
-    "successRedirect": "/auth/account",
-    "failureRedirect": "/local",
-    "failureFlash": true
-  },
   "facebook-login": {
     "provider": "facebook",
     "module": "passport-facebook",
@@ -47,35 +37,6 @@
     "failureRedirect": "/login",
     "consumerKey": "ZRBzhiPamrbdcAokjxmAGcofu",
     "consumerSecret": "L8wfOaljvsSz0ZS98KFAbkNae1Sh23wPyDHpABhIf4gGS3zyZ3",
-    "failureFlash": true
-  },
-  "facebook-link": {
-    "provider": "facebook",
-    "module": "passport-facebook",
-    "clientID": "1577674469163293",
-    "clientSecret": "4aef82dcdf50b7c9261f47a31fd3f5aa",
-    "callbackURL": "/link/facebook/callback",
-    "authPath": "/link/facebook",
-    "callbackPath": "/link/facebook/callback",
-    "successRedirect": "/auth/account",
-    "failureRedirect": "/login",
-    "scope": ["email", "user_likes"],
-    "link": true,
-    "failureFlash": true
-  },
-  "google-link": {
-    "provider": "google",
-    "module": "passport-google-oauth",
-    "strategy": "OAuth2Strategy",
-    "clientID": "618390546603-060c7ic2gvju8smhh46a05mfjvtujoij.apps.googleusercontent.com",
-    "clientSecret": "el6JCuNCx-XX94aLxa8NMFxs",
-    "callbackURL": "/link/google/callback",
-    "authPath": "/link/google",
-    "callbackPath": "/link/google/callback",
-    "successRedirect": "/auth/account",
-    "failureRedirect": "/login",
-    "scope": ["email", "profile"],
-    "link": true,
     "failureFlash": true
   }
 }
