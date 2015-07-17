@@ -75,11 +75,12 @@ module.exports = function(app) {
           class: providerClass
         };
 
-        AuthProvider.create(entry, function(err, data) {
-          if (err) {
-            console.log(err);
-          }
-        });
+        // commented out to prevent copies
+        // AuthProvider.create(entry, function(err, data) {
+        //   if (err) {
+        //     console.log(err);
+        //   }
+        // });
 
         c.session = c.session !== false;
         passportConfigurator.configureProvider(s, c);
