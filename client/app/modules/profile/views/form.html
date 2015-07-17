@@ -17,19 +17,20 @@
       <tab heading="{{ 'Profile' | translate }}">
         <div class="row">
           <!--  contact for email here ??? -->
+
           <form ng-submit="vm.onSubmit()" name="vm.form" novalidate>
-        <formly-form model="vm.model" fields="vm.fields" options="vm.options">
-          <button type="submit" class="btn btn-primary submit-button" ng-disabled="vm.form.$invalid">Submit</button>
-          <button type="button" class="btn btn-default" ng-click="vm.options.resetModel()">Reset</button>
-        </formly-form>
-      </form>
+                <formly-form model="vm.model" fields="vm.fields" options="vm.options">
+                  <button type="submit" class="btn btn-primary submit-button" ng-disabled="vm.form.$invalid">Submit</button>
+                  <button type="button" class="btn btn-default" ng-click="vm.options.resetModel()">Reset</button>
+                </formly-form>
+              </form>
 
         </div>
       </tab>
       <tab heading="{{ 'Credentials' | translate }}">
         <div class="row">
 
-      
+
 
         </div>
       </tab>
