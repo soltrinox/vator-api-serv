@@ -16,11 +16,8 @@ angular.module('loopbackApp', [
     'oitozero.ngSweetAlert',
     'config',
     'formly',
-    'formlyBootstrap',
-
     'ngSanitize',
     'ui.select',
-
     'lbServices',
     'monospaced.elastic',
     'ngAnimate',
