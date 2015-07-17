@@ -15,77 +15,103 @@
     "public": true
   },
   "userCredential": {
-    "dataSource": "db",
+    "dataSource": "MONGOLOCAL",
     "public": true
   },
   "userIdentity": {
-    "dataSource": "db",
+    "dataSource": "MONGOLOCAL",
     "public": true
   },
   "ACL": {
-    "dataSource": "db",
+    "dataSource": "MONGOLOCAL",
     "public": false
   },
   "RoleMapping": {
-    "dataSource": "db",
+    "dataSource": "MONGOLOCAL",
     "public": true
   },
   "Role": {
-    "dataSource": "db",
+    "dataSource": "MONGOLOCAL",
     "public": true
   },
   "AppModel": {
-    "dataSource": "db",
+    "dataSource": "MONGOLOCAL",
     "public": false
   },
   "Review": {
-    "dataSource": "db",
+    "dataSource": "MONGOLOCAL",
     "public": true
   },
   "Page": {
-    "dataSource": "db",
+    "dataSource": "MONGOLOCAL",
     "public": true
   },
   "Note": {
-    "dataSource": "db",
+    "dataSource": "MONGOLOCAL",
     "public": true
   },
   "Post": {
-    "dataSource": "db",
+    "dataSource": "MONGOLOCAL",
     "public": true
   },
   "Setting": {
-    "dataSource": "db",
+    "dataSource": "MONGOLOCAL",
     "public": true
   },
   "Product": {
-    "dataSource": "db",
+    "dataSource": "MONGOLOCAL",
     "public": true
   },
   "Category": {
-    "dataSource": "db",
+    "dataSource": "MONGOLOCAL",
     "public": true
   },
   "Event": {
-    "dataSource": "db",
+    "dataSource": "MONGOLOCAL",
     "public": true
   },
   "AuthProvider": {
-    "dataSource": "db",
+    "dataSource": "MONGOLOCAL",
     "public": true
   },
   "user": {
-    "dataSource": "db",
+    "dataSource": "MONGOLOCAL",
     "public": true
   },
-  "Test1": {
-    "dataSource": "db",
-    "public": true,
-    "$promise": {},
-    "$resolved": true
+  "Profile": {
+    "dataSource": "MONGOLOCAL",
+    "public": true
   },
-  "Test2": {
-    "dataSource": "db",
+  "Team": {
+    "dataSource": "MONGOLOCAL",
+    "public": true
+  },
+  "WorkHistory": {
+    "dataSource": "MONGOLOCAL",
+    "public": true
+  },
+  "keys": {
+    "dataSource": "MONGOLOCAL",
+    "public": true
+  },
+  "Social": {
+    "dataSource": "MONGOLOCAL",
+    "public": true
+  },
+  "Education": {
+    "dataSource": "MONGOLOCAL",
+    "public": true
+  },
+  "EmailAddress": {
+    "dataSource": "MONGOLOCAL",
+    "public": true
+  },
+  "Graph": {
+    "dataSource": "MONGOLOCAL",
+    "public": true
+  },
+  "Media": {
+    "dataSource": "MONGOLOCAL",
     "public": true
   }
 }

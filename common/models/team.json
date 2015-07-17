@@ -1,5 +1,5 @@
 {
-  "name": "Test1",
+  "name": "Team",
   "base": "PersistedModel",
   "strict": false,
   "idInjection": false,
@@ -7,12 +7,21 @@
     "validateUpsert": true
   },
   "properties": {
-    "Value1": {
+    "Name": {
+      "type": "string"
+    },
+    "URL": {
       "type": "string"
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "members": {
+      "type": "hasAndBelongsToMany",
+      "model": "Profile",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
   "methods": []
 }
