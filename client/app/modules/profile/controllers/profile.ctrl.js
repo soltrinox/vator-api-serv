@@ -82,7 +82,6 @@ var typelist=  [
           options: typelist
         }
       }
-  }
   ];
 
 
