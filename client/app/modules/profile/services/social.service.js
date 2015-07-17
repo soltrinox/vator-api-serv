@@ -1,22 +1,22 @@
 'use strict';
 var app = angular.module('com.module.profile');
 
-app.service('EducationService', ['$state', 'CoreService', 'User', 'Education', 'gettextCatalog',
-function($state, CoreService, Education, User, gettextCatalog) {
+app.service('SocialService', ['$state', 'CoreService', 'User', 'Social', 'gettextCatalog',
+function($state, CoreService, Social, User, gettextCatalog) {
 
-  this.getEducations = function() {
-    return Education.find();
+  this.getSocials = function() {
+    return Social.find();
   };
 
-  this.getSingleEducationRecord = function(eid) {
-    console.log('Edcuation.findById()' + eid);
-    return Education.findById({
-      id : eid
+  this.getSingleSocialRecord = function(sid) {
+    console.log('Social.findById()' + sid);
+    return Social.findById({
+      id : sid
     });
   };
 
-  this.upsertEducation = function(creds, cb) {
-    Education.upsert(creds, function() {
+  this.upsertSocial = function(creds, cb) {
+    Social.upsert(creds, function() {
       CoreService.toastSuccess(gettextCatalog.getString(
         'Credentials saved'), gettextCatalog.getString(
         'Your creds is safe with us!'));
@@ -28,11 +28,11 @@ function($state, CoreService, Education, User, gettextCatalog) {
     });
   };
 
-  this.deleteEducation = function(id, cb) {
+  this.deleteSocial = function(id, cb) {
     CoreService.confirm(gettextCatalog.getString('Are you sure?'),
       gettextCatalog.getString('Deleting this cannot be undone'),
       function() {
-        Education.deleteById(id, function() {
+        Social.deleteById(id, function() {
           CoreService.toastSuccess(gettextCatalog.getString(
             'Creds deleted'), gettextCatalog.getString(
             'Your creds is deleted!'));

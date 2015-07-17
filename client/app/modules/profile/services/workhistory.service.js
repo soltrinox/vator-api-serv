@@ -2,17 +2,16 @@
 var app = angular.module('com.module.profile');
 
 app.service('WorkHistoryService', ['$state', 'CoreService', 'User', 'WorkHistory', 'gettextCatalog',
-function($state,
-  CoreService, WorkHistory, User, gettextCatalog) {
+function($state, CoreService, WorkHistory, User, gettextCatalog) {
 
   this.getWorkHistorys = function() {
     return WorkHistory.find();
   };
 
-  this.getSingleWorkHistoryRecord = function(id) {
-    console.log('Edcuation.findById()' + id);
+  this.getSingleWorkHistoryRecord = function(wid) {
+    console.log('Edcuation.findById()' + wid);
     return WorkHistory.findById({
-      id : pid
+      id : wid
     });
   };
 

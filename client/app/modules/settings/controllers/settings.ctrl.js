@@ -45,7 +45,8 @@ angular.module('com.module.settings')
         });
     };
 
-    $scope.schema = [{
+    $scope.schema = [
+      {
       label: '',
       property: 'key',
       placeholder: gettextCatalog.getString('Key'),
@@ -71,7 +72,8 @@ angular.module('com.module.settings')
         minlength: gettextCatalog.getString(
           'Needs to have at least 4 characters')
       }
-    }, ];
+    }
+  ];
 
     $scope.options = {
       validation: {

@@ -1,11 +1,31 @@
 'use strict';
 var app = angular.module('com.module.profile');
 
-app.controller('MyProfileCtrl', function($scope, $state, $stateParams, ProfileService, WorkHistoryService, EducationService,
+app.controller('MyProfileCtrl', function($scope, $state, $stateParams,
+  ProfileService, WorkHistoryService, EducationService, SocialService,
   gettextCatalog) {
 
 
+    $scope.SchoolRecord = {};
+    $scope.SocialRecord = {};
+    $scope.WorkRecord = {};
+    $scope.MediaRecord = {};
+    $scope.CompanyRecord = {};
 
+
+    $scope.sliceProfile = function (){
+
+        $scope.profiles = ProfileService.getProfiles();
+        $scope.educations = $scope.profiles.edu;        // ---------
+        $scope.portfolio = $scope.profiles.companies ;  // ---------
+        $scope.medias = $scope.profiles.medias ;        // ---------
+        $scope.workhistory = $scope.profiles.work ;     // ---------
+        $scope.social = $scope.profiles.social ;        // ---------
+        $scope.credentials = $scope.profiles.creds ;    // ---------
+        $scope.contacts = $scope.profiles.contact ;      // ---------
+        // $scope. = $scope.profiles. ;
+
+    };
 
   $scope.formFields = [ {
       key: 'Name',
@@ -204,7 +224,7 @@ app.controller('MyProfileCtrl', function($scope, $state, $stateParams, ProfileSe
 
   $scope.delete = function(id) {
     ProfileService.deleteProfile(id, function() {
-      $scope.profile = ProfileService.getProfile();
+      $scope.profile = ProfileService.getProfile(id);
     });
   };
 
@@ -217,46 +237,50 @@ app.controller('MyProfileCtrl', function($scope, $state, $stateParams, ProfileSe
 
   $scope.delete2 = function(id) {
     EducationService.deleteEducation(id, function() {
-      $scope.profile = ProfileService.getProfileById();
+      $scope.profile = ProfileService.getProfile($scope.profile.id);
     });
   };
 
   $scope.onSubmit2 = function() {
-    EducationService.upsertEducation($scope.profile, function() {
-      $scope.profile = ProfileService.getProfileById();
+    EducationService.upsertEducation($scope.SchoolRecord, function() {
+      $scope.profile = ProfileService.getProfile($scope.profile.id);
       $state.go('^.view');
     });
   };
 
   $scope.delete3 = function(id) {
     WorkHistoryService.deleteWorkHistory(id, function() {
-      $scope.profile = ProfileService.getProfileById();
+      $scope.profile = ProfileService.getProfile($scope.profile.id);
     });
   };
 
   $scope.onSubmit3 = function() {
-    WorkHistoryService.upsertWorkHistory($scope.profile, function() {
-      $scope.profile = ProfileService.getProfileById();
+    WorkHistoryService.upsertWorkHistory($scope.WorkRecord, function() {
+      $scope.profile = ProfileService.getProfile($scope.profile.id);
       $state.go('^.view');
     });
   };
 
   $scope.delete4 = function(id) {
     EducationService.deleteEducation(id, function() {
-      $scope.profile = ProfileService.getProfileById();
+      $scope.profile = ProfileService.getProfile($scope.profile.id);
     });
   };
   $scope.onSubmit4 = function() {
-    EducationService.upsertEducation($scope.profile, function() {
-      $scope.profiles = ProfileService.getProfileById();
+    EducationService.upsertEducation($scope.SocialRecord, function() {
+      $scope.profiles = ProfileService.getProfile($scope.profile.id);
       $state.go('^.view');
     });
   };
 
 // declared now
 
-  $scope.profiles = ProfileService.getProfiles();
-$scope.educations = 
+
+
+
+
+
+
 
   if ($stateParams.id) {
     $scope.profile = ProfileService.getProfile($stateParams.id);
