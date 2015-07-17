@@ -6,6 +6,8 @@ app.controller('MyProfileCtrl',function($scope, $state, $stateParams,
   gettextCatalog) {
 
 
+console.log('UID: '+ $scope.currentUser.id );
+
     $scope.SchoolRecord = {};
     $scope.SocialRecord = {};
     $scope.WorkRecord = {};
