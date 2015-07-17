@@ -90,10 +90,6 @@ msgstr ""
 msgid "Are you sure?"
 msgstr ""
 
-#: client/app/modules/profile/controllers/profile.ctrl.js:17
-msgid "Bio"
-msgstr ""
-
 #: client/app/modules/notes/controllers/notes.ctrl.js:15
 msgid "Body"
 msgstr ""
@@ -211,7 +207,7 @@ msgstr ""
 msgid "Credential saved"
 msgstr ""
 
-#: client/app/modules/profile/views/form.html:24
+#: client/app/modules/profile/views/form.html:30
 msgid "Credentials"
 msgstr ""
 
@@ -385,7 +381,7 @@ msgstr ""
 msgid "Events"
 msgstr ""
 
-#: client/app/modules/profile/views/form.html:31
+#: client/app/modules/profile/views/form.html:37
 msgid "Experience"
 msgstr ""
 
@@ -487,8 +483,6 @@ msgstr ""
 #: client/app/modules/files/views/upload.html:56
 #: client/app/modules/products/controllers/categories.ctrl.js:23
 #: client/app/modules/products/controllers/products.ctrl.js:82
-#: client/app/modules/profile/controllers/profile.ctrl.js:12
-#: client/app/modules/profile/controllers/profile.ctrl.js:55
 msgid "Name"
 msgstr ""
 
@@ -648,7 +642,7 @@ msgstr ""
 msgid "Size"
 msgstr ""
 
-#: client/app/modules/profile/views/form.html:38
+#: client/app/modules/profile/views/form.html:44
 msgid "Social"
 msgstr ""
 
@@ -673,7 +667,7 @@ msgstr ""
 #: client/app/modules/posts/views/form.html:17
 #: client/app/modules/products/views/categoryform.html:13
 #: client/app/modules/products/views/form.html:19
-#: client/app/modules/profile/views/form.html:52
+#: client/app/modules/profile/views/form.html:58
 #: client/app/modules/settings/views/form.html:21
 msgid "Submit"
 msgstr ""
@@ -721,10 +715,6 @@ msgstr ""
 
 #: client/app/modules/core/views/elements/navbar.html:3
 msgid "Toggle navigation"
-msgstr ""
-
-#: client/app/modules/profile/controllers/profile.ctrl.js:23
-msgid "UUID"
 msgstr ""
 
 #: client/app/modules/users/views/profile.html:36
@@ -938,7 +928,6 @@ msgstr ""
 
 #: client/app/modules/events/controllers/events.ctrl.js:108
 #: client/app/modules/events/controllers/events.ctrl.js:93
-#: client/app/modules/profile/controllers/profile.ctrl.js:73
 msgid "dd/MM/yyyy"
 msgstr ""
 

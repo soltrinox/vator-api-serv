@@ -678,7 +678,7 @@ module.exports = function (grunt) {
     'test',
     'ngconstant:development',
     'loopback_sdk_angular:development',
-    'docular',
+   // 'docular',
     'nggettext_extract',
     'nggettext_compile',
     'build'

@@ -3,9 +3,9 @@ var app = angular.module('com.module.profile');
 
 app.controller('MyProfileCtrl', function($scope, $state, $stateParams, User, ProfileService, formlyVersion) {
 
-    $scope.pid = $stateParams.id;
+  //  $scope.pid = $stateParams.id;
 
-    console.log('PID: '+$scope.pid + ' - '+ this.currentUser.id);
+//    console.log('PID: '+$scope.pid + ' - ');
 
 
 
