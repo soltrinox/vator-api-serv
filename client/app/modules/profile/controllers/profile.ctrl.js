@@ -1,7 +1,7 @@
 'use strict';
 var app = angular.module('com.module.profile');
 
-app.controller('MyProfileCtrl', function($scope, $state, $stateParams, User, ProfileService,
+app.controller('MyProfileCtrl', function($scope, $state, $stateParams, User, ProfileService, formlyConfig,
   gettextCatalog) {
 
     $scope.pid = $stateParams.id;
