@@ -48,28 +48,28 @@ app.controller('MyProfileCtrl', function($scope, $state, $stateParams, User, Pro
       opened: false,
       switchOpen: dateOpen
     }, {
-    key: "state",
-    type: "ui-select-select2",
+    key: 'state',
+    type: 'ui-select-select2',
     templateOptions: {
-      label: "Type",
-      valueProp: "abbr",
-      labelProp: "name",
+      label: 'Type',
+      valueProp: 'abbr',
+      labelProp: 'name',
       options: [
         {
-          name: "School",
-          abbr: "EDU"
+          name: 'School',
+          abbr: 'EDU'
         },
         {
-          name: "Organization",
-          abbr: "ORG"
+          name: 'Organization',
+          abbr: 'ORG'
         },
         {
-          name: "Military",
-          abbr: "MIL"
+          name: 'Military',
+          abbr: 'MIL'
         },
         {
-          name: "Government",
-          abbr: "GOV"
+          name: 'Government',
+          abbr: 'GOV'
         }
       ]
     }

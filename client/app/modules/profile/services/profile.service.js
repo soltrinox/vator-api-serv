@@ -61,7 +61,7 @@ function($state,
         'Error saving creds '), gettextCatalog.getString(
         'This creds could not be saved: ') + err);
     });
-  }
+  };
 
 
   this.deleteEducation = function(eid, cb) {
