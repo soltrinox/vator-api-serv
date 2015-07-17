@@ -24,7 +24,7 @@ function($state,
     }, function(err) {
       CoreService.toastSuccess(gettextCatalog.getString(
         'Error saving profile '), gettextCatalog.getString(
-        'This profile could no be saved: ') + err);
+        'This profile could not be saved: ') + err);
     });
   };
 
