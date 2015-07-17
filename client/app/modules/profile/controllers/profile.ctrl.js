@@ -234,9 +234,9 @@ console.log('UID: '+ $scope.currentUser.id );
 
   $scope.getMe = function(pro){
     console.log('CLICK :'+pro.id);
-      var MyProfile = {};
-      MyProfile = ProfileService.getProfile(pro.id);
-        $state.go('^.view({id: MyProfile.id})');
+      $scope.MyProfile = {};
+      $scope.MyProfile = ProfileService.getProfile(pro.id);
+        $state.go('^.view({id: $scope.MyProfile.id})');
   };
 
   $scope.onSubmit = function() {
