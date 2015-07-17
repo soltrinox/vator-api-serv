@@ -2,23 +2,23 @@
 var app = angular.module('com.module.profile');
 
 app.config(function($stateProvider) {
-  $stateProvider.state('app.profile', {
+  $stateProvider.state('app.myprofile', {
     abstract: true,
-    url: '/profile',
+    url: '/myprofile',
     templateUrl: 'modules/profile/views/main.html'
-  }).state('app.profile.list', {
+  }).state('app.myprofile.list', {
     url: '',
     templateUrl: 'modules/profile/views/list.html',
     controller: 'ProfileCtrl'
-  }).state('app.profile.add', {
+  }).state('app.myprofile.add', {
     url: '/add',
     templateUrl: 'modules/profile/views/form.html',
     controller: 'ProfileCtrl'
-  }).state('app.profile.edit', {
+  }).state('app.myprofile.edit', {
     url: '/:id/edit',
     templateUrl: 'modules/profile/views/form.html',
     controller: 'ProfileCtrl'
-  }).state('app.profile.view', {
+  }).state('app.myprofile.view', {
     url: '/:id',
     templateUrl: 'modules/profile/views/view.html',
     controller: 'ProfileCtrl'
