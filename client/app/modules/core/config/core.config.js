@@ -70,7 +70,7 @@ app.run(function($rootScope, Setting, gettextCatalog) {
 
 });
 
-app.config(function(formlyConfig) {
+app.config(function(formlyConfigProvider) {
   var templates = 'modules/core/views/elements/fields/';
   var formly = templates + 'formly-field-';
   var fields = [
@@ -86,11 +86,11 @@ app.config(function(formlyConfig) {
   ];
 
   angular.forEach(fields, function(val) {
-    formlyConfig.setTemplateUrl(val, formly + val + '.html');
+    formlyConfigProvider.setTemplateUrl(val, formly + val + '.html');
   });
 
-  formlyConfig.setTemplateUrl('date', templates + 'date.html');
-  formlyConfig.setTemplateUrl('time', templates + 'time.html');
+  formlyConfigProvider.setTemplateUrl('date', templates + 'date.html');
+  formlyConfigProvider.setTemplateUrl('time', templates + 'time.html');
 
 });
 
