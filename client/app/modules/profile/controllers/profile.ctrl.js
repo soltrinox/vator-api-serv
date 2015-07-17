@@ -30,20 +30,20 @@ app.controller('MyProfileCtrl', function($scope, $state, $stateParams, User, Pro
 {
 className: 'col-xs-12',
 type: 'input',
-key: 'input-1437140324328',
+key: 'Entity',
 templateOptions: {
 type: '',
-label: 'Name',
+label: 'Entity',
 required: false,
-placeholder: 'Name',
+placeholder: 'Entity',
 description: '',
 options: []
 }
 },
 {
 className: 'col-xs-12',
-type: 'basicSelect',
-key: 'basicSelect-1437140377198',
+type: 'select',
+key: 'TypeCred',
 templateOptions: {
 type: '',
 label: '',
@@ -51,69 +51,21 @@ required: false,
 placeholder: '',
 description: '',
 options: [
-{
-name: 'No1',
-value: 0,
-group: ''
-},
-{
-name: 'no2',
-value: 1,
-group: ''
-}
+  {
+    name: 'No1',
+    value: 0,
+    group: ''
+  },
+  {
+    name: 'no2',
+    value: 1,
+    group: ''
+  }
 ]
 }
 }
 ];
 
-  // [{
-  //     key: 'name',
-  //     label: gettextCatalog.getString('Name'),
-  //     type: 'text',
-  //     required: true
-  //   }, {
-  //     key: 'Major',
-  //     type: 'text',
-  //     label: 'Major', //gettextCatalog.getString('Major'),
-  //     required: false
-  //   },  {
-  //     key: 'Degree',
-  //     type: 'text',
-  //     label: 'Degree', //gettextCatalog.getString('Degree'),
-  //     required: true
-  //   },{
-  //     key: 'Date',
-  //     required: false,
-  //     label: 'Graduation Date', //gettextCatalog.getString('Graduation Date'),
-  //     type: 'date',
-  //     format: gettextCatalog.getString('dd/MM/yyyy'),
-  //     opened: false
-  //   }, {
-  //       key: 'marvel1',
-  //       type: 'select',
-  //       templateOptions: {
-  //         label: 'Normal Select',
-  //         options: [
-  //           {
-  //             name: 'School',
-  //             value: 'EDU'
-  //           },
-  //           {
-  //             name: 'Organization',
-  //             value: 'ORG'
-  //           },
-  //           {
-  //             name: 'Military',
-  //             value: 'MIL'
-  //           },
-  //           {
-  //             name: 'Government',
-  //             value: 'GOV'
-  //           }
-  //         ]
-  //       }
-  //     }
-  // ];
 
 
 
