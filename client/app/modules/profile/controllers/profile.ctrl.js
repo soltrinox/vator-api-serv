@@ -30,12 +30,13 @@ app.controller('MyProfileCtrl', function($scope, $state, $stateParams, ProfileSe
 
   $scope.onSubmit = function() {
     ProfileService.upsertProfile($scope.profile, function() {
-      $scope.profile = ProfileService.getProfile();
+      $scope.profiles = ProfileService.getProfiles();
       $state.go('^.list');
     });
   };
 
-  $scope.profile = ProfileService.getProfile();
+  $scope.profiles = ProfileService.getProfiles();
+
 
   if ($stateParams.id) {
     $scope.profile = ProfileService.getProfile($stateParams.id);
