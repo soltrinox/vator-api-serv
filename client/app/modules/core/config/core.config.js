@@ -1,5 +1,5 @@
 'use strict';
-var app = angular.module('com.module.core');
+var app = angular.module('com.module.core',['formly']);
 app.run(function($rootScope, Setting, gettextCatalog) {
 
   // Left Sidemenu
