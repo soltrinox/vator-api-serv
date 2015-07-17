@@ -1,7 +1,7 @@
 'use strict';
 var app = angular.module('com.module.profile');
 
-app.controller('ProfileCtrl', function($scope, $state, $stateParams, ProfileService,
+app.controller('MyProfileCtrl', function($scope, $state, $stateParams, ProfileService,
   gettextCatalog) {
 
   $scope.formFields = [{

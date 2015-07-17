@@ -9,18 +9,18 @@ app.config(function($stateProvider) {
   }).state('app.myprofile.list', {
     url: '',
     templateUrl: 'modules/profile/views/list.html',
-    controller: 'ProfileCtrl'
+    controller: 'MyProfileCtrl'
   }).state('app.myprofile.add', {
     url: '/add',
     templateUrl: 'modules/profile/views/form.html',
-    controller: 'ProfileCtrl'
+    controller: 'MyProfileCtrl'
   }).state('app.myprofile.edit', {
     url: '/:id/edit',
     templateUrl: 'modules/profile/views/form.html',
-    controller: 'ProfileCtrl'
+    controller: 'MyProfileCtrl'
   }).state('app.myprofile.view', {
     url: '/:id',
     templateUrl: 'modules/profile/views/view.html',
-    controller: 'ProfileCtrl'
+    controller: 'MyProfileCtrl'
   });
 });
