@@ -10,10 +10,10 @@ function($state, CoreService, Profile, User, Education, Social, WorkHistory, get
   };
 
   this.getProfile = function(pid) {
-    console.log('Profile.getEntireProfile() : ' + id);
-     Profile.findById(id,function() {
 
-    });
+    console.log('Profile.getEntireProfile() : ' + id);
+     Profile.findById(id);
+
   };
 
   this.upsertProfile = function(profile, cb) {
