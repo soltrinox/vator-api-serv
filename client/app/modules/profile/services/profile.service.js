@@ -9,10 +9,13 @@ function($state, CoreService, Profile, User, Education, Social, WorkHistory, get
     return Profile.find();
   };
 
-  this.getProfile = function(id) {
+  this.getProfile = function(id, cb) {
 
     console.log('Profile.getEntireProfile() : ' + id);
-    return Profile.findById(id);
+     Profile.findById(profile, function() {
+       cb();
+     }, function(err) {
+     });
 
   };
 

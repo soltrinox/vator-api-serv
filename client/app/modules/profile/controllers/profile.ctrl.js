@@ -233,9 +233,10 @@ console.log('UID: '+ $scope.currentUser.id );
   };
 
   $scope.getMe = function(id){
-
-      $scope.profile = ProfileService.getProfile(id);
-      $state.go('^.view');
+       ProfileService.getProfile(id, function(profile){
+         $scope.profile = profile;
+        $state.go('^.view');
+      });
   };
 
   $scope.onSubmit = function() {
