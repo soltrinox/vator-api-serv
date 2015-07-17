@@ -45,8 +45,7 @@ app.controller('MyProfileCtrl', function($scope, $state, $stateParams, User, Pro
       label: 'Graduation Date', //gettextCatalog.getString('Graduation Date'),
       type: 'date',
       format: gettextCatalog.getString('dd/MM/yyyy'),
-      opened: false,
-      switchOpen: dateOpen
+      opened: false
     }, {
     key: 'state',
     type: 'ui-select-select2',
