@@ -32,9 +32,10 @@ msgid "Actions"
 msgstr ""
 
 #: client/app/modules/events/views/main.html:2
-#: client/app/modules/notes/views/main.html:2
+#: client/app/modules/other/views/main.html:3
 #: client/app/modules/pages/views/main.html:2
 #: client/app/modules/posts/views/main.html:2
+#: client/app/modules/profile/views/main.html:3
 #: client/app/modules/settings/views/main.html:2
 #: client/app/modules/users/views/main.html:3
 msgid "Add"
@@ -52,7 +53,7 @@ msgstr ""
 msgid "Add a new event"
 msgstr ""
 
-#: client/app/modules/notes/views/form.html:4
+#: client/app/modules/profile/views/form.html:4
 msgid "Add a new note"
 msgstr ""
 
@@ -62,6 +63,10 @@ msgstr ""
 
 #: client/app/modules/products/views/form.html:4
 msgid "Add a new product"
+msgstr ""
+
+#: client/app/modules/other/views/form.html:4
+msgid "Add a new profile"
 msgstr ""
 
 #: client/app/modules/settings/views/form.html:4
@@ -79,13 +84,20 @@ msgstr ""
 #: client/app/modules/core/helpers/FormHelper.js:23
 #: client/app/modules/events/controllers/events.ctrl.js:50
 #: client/app/modules/files/controllers/files.ctrl.js:14
-#: client/app/modules/notes/services/notes.service.js:31
+#: client/app/modules/notes/services/notes.service.js:32
+#: client/app/modules/other/services/profile.service.js:32
 #: client/app/modules/pages/controllers/pages.ctrl.js:33
 #: client/app/modules/posts/services/posts.service.js:22
 #: client/app/modules/products/controllers/products.ctrl.js:42
+#: client/app/modules/profile/services/notes.service.js:32
 #: client/app/modules/settings/controllers/settings.ctrl.js:28
 #: client/app/modules/users/controllers/users.ctrl.js:26
 msgid "Are you sure?"
+msgstr ""
+
+#: client/app/modules/other/controllers/profile.ctrl.js:15
+#: client/app/modules/profile/controllers/notes.ctrl.js:15
+msgid "Bio"
 msgstr ""
 
 #: client/app/modules/notes/controllers/notes.ctrl.js:15
@@ -134,12 +146,16 @@ msgstr ""
 msgid "Click <a href=\"\" ui-sref=\"^.add\">here</a> to add a event!"
 msgstr ""
 
-#: client/app/modules/notes/views/list.html:20
+#: client/app/modules/profile/views/list.html:20
 msgid "Click <a href=\"\" ui-sref=\"^.add\">here</a> to add a note!"
 msgstr ""
 
 #: client/app/modules/pages/views/list.html:29
 msgid "Click <a href=\"\" ui-sref=\"^.add\">here</a> to add a page!"
+msgstr ""
+
+#: client/app/modules/other/views/list.html:20
+msgid "Click <a href=\"\" ui-sref=\"^.add\">here</a> to add a profile!"
 msgstr ""
 
 #: client/app/modules/settings/views/list.html:20
@@ -170,7 +186,7 @@ msgstr ""
 msgid "Could not add event!"
 msgstr ""
 
-#: client/app/modules/notes/views/form.html:12
+#: client/app/modules/profile/views/form.html:12
 msgid "Could not add note!"
 msgstr ""
 
@@ -186,6 +202,10 @@ msgstr ""
 msgid "Could not add product!"
 msgstr ""
 
+#: client/app/modules/other/views/form.html:12
+msgid "Could not add profile!"
+msgstr ""
+
 #: client/app/modules/settings/views/form.html:12
 msgid "Could not add setting!"
 msgstr ""
@@ -196,10 +216,6 @@ msgstr ""
 
 #: client/app/modules/pages/views/main.html:1
 msgid "Create pages with rich content!"
-msgstr ""
-
-#: client/app/modules/core/views/home.html:24
-msgid "Current user"
 msgstr ""
 
 #: client/app/modules/core/config/core.config.js:18
@@ -214,10 +230,12 @@ msgstr ""
 #: client/app/modules/core/helpers/FormHelper.js:24
 #: client/app/modules/events/controllers/events.ctrl.js:51
 #: client/app/modules/files/controllers/files.ctrl.js:15
-#: client/app/modules/notes/services/notes.service.js:32
+#: client/app/modules/notes/services/notes.service.js:33
+#: client/app/modules/other/services/profile.service.js:33
 #: client/app/modules/pages/controllers/pages.ctrl.js:34
 #: client/app/modules/posts/services/posts.service.js:23
 #: client/app/modules/products/controllers/products.ctrl.js:43
+#: client/app/modules/profile/services/notes.service.js:33
 #: client/app/modules/settings/controllers/settings.ctrl.js:29
 #: client/app/modules/users/controllers/users.ctrl.js:27
 msgid "Deleting this cannot be undone"
@@ -246,7 +264,7 @@ msgstr ""
 msgid "Edit event"
 msgstr ""
 
-#: client/app/modules/notes/views/form.html:5
+#: client/app/modules/profile/views/form.html:5
 msgid "Edit note"
 msgstr ""
 
@@ -256,6 +274,10 @@ msgstr ""
 
 #: client/app/modules/products/views/form.html:5
 msgid "Edit product"
+msgstr ""
+
+#: client/app/modules/other/views/form.html:5
+msgid "Edit profile"
 msgstr ""
 
 #: client/app/modules/settings/views/form.html:5
@@ -297,7 +319,8 @@ msgstr ""
 msgid "Error deleting item:"
 msgstr ""
 
-#: client/app/modules/notes/services/notes.service.js:40
+#: client/app/modules/notes/services/notes.service.js:41
+#: client/app/modules/profile/services/notes.service.js:41
 msgid "Error deleting note"
 msgstr ""
 
@@ -307,6 +330,10 @@ msgstr ""
 
 #: client/app/modules/products/controllers/products.ctrl.js:52
 msgid "Error deleting product"
+msgstr ""
+
+#: client/app/modules/other/services/profile.service.js:41
+msgid "Error deleting profile"
 msgstr ""
 
 #: client/app/modules/settings/controllers/settings.ctrl.js:38
@@ -321,10 +348,12 @@ msgstr ""
 msgid "Error registering!"
 msgstr ""
 
-#: client/app/modules/notes/services/notes.service.js:24
+#: client/app/modules/notes/services/notes.service.js:25
+#: client/app/modules/profile/services/notes.service.js:25
 msgid "Error saving note"
 msgstr ""
 
+#: client/app/modules/other/services/profile.service.js:25
 #: client/app/modules/users/controllers/profile.ctrl.js:45
 msgid "Error saving profile"
 msgstr ""
@@ -400,7 +429,7 @@ msgstr ""
 msgid "Last name"
 msgstr ""
 
-#: client/app/modules/users/controllers/login.ctrl.js:96
+#: client/app/modules/users/controllers/login.ctrl.js:98
 msgid "Logged in"
 msgstr ""
 
@@ -416,7 +445,7 @@ msgstr ""
 msgid "Manage your files here!"
 msgstr ""
 
-#: client/app/modules/notes/views/main.html:1
+#: client/app/modules/profile/views/main.html:2
 msgid "Manage your notes here!"
 msgstr ""
 
@@ -426,6 +455,10 @@ msgstr ""
 
 #: client/app/modules/products/views/main.html:1
 msgid "Manage your products here!"
+msgstr ""
+
+#: client/app/modules/other/views/main.html:2
+msgid "Manage your profiles here!"
 msgstr ""
 
 #: client/app/modules/settings/views/main.html:1
@@ -442,8 +475,10 @@ msgstr ""
 
 #: client/app/modules/events/controllers/events.ctrl.js:80
 #: client/app/modules/files/views/upload.html:56
+#: client/app/modules/other/controllers/profile.ctrl.js:10
 #: client/app/modules/products/controllers/categories.ctrl.js:23
 #: client/app/modules/products/controllers/products.ctrl.js:82
+#: client/app/modules/profile/controllers/notes.ctrl.js:10
 msgid "Name"
 msgstr ""
 
@@ -463,17 +498,15 @@ msgstr ""
 msgid "Nice email address!"
 msgstr ""
 
-#: client/app/modules/notes/services/notes.service.js:35
+#: client/app/modules/notes/services/notes.service.js:36
 msgid "Note deleted"
 msgstr ""
 
-#: client/app/modules/notes/services/notes.service.js:19
+#: client/app/modules/notes/services/notes.service.js:20
 msgid "Note saved"
 msgstr ""
 
-#: client/app/modules/notes/config/notes.config.js:5
-#: client/app/modules/notes/config/notes.config.js:9
-#: client/app/modules/notes/views/main.html:1
+#: client/app/modules/profile/views/main.html:1
 msgid "Notes"
 msgstr ""
 
@@ -498,8 +531,6 @@ msgstr ""
 msgid "Page saved"
 msgstr ""
 
-#: client/app/modules/pages/config/pages.config.js:4
-#: client/app/modules/pages/config/pages.config.js:8
 #: client/app/modules/pages/views/list.html:3
 #: client/app/modules/pages/views/main.html:1
 msgid "Pages"
@@ -547,11 +578,24 @@ msgid "Products"
 msgstr ""
 
 #: client/app/modules/core/views/elements/navbar.html:40
+#: client/app/modules/other/config/profile.config.js:5
+#: client/app/modules/profile/config/other.config.js:5
 msgid "Profile"
 msgstr ""
 
+#: client/app/modules/other/services/profile.service.js:36
+#: client/app/modules/profile/services/notes.service.js:36
+msgid "Profile deleted"
+msgstr ""
+
+#: client/app/modules/other/services/profile.service.js:20
+#: client/app/modules/profile/services/notes.service.js:20
 #: client/app/modules/users/controllers/profile.ctrl.js:41
 msgid "Profile saved"
+msgstr ""
+
+#: client/app/modules/other/views/main.html:1
+msgid "Profiles"
 msgstr ""
 
 #: client/app/modules/files/views/upload.html:58
@@ -596,8 +640,6 @@ msgstr ""
 msgid "Setting saved"
 msgstr ""
 
-#: client/app/modules/core/views/home.html:28
-#: client/app/modules/settings/config/settings.config.js:4
 #: client/app/modules/settings/views/main.html:1
 msgid "Settings"
 msgstr ""
@@ -636,17 +678,13 @@ msgstr ""
 
 #: client/app/modules/events/views/form.html:20
 #: client/app/modules/events/views/form.html:28
-#: client/app/modules/notes/views/form.html:17
+#: client/app/modules/other/views/form.html:17
 #: client/app/modules/posts/views/form.html:17
 #: client/app/modules/products/views/categoryform.html:13
-#: client/app/modules/products/views/form.html:17
+#: client/app/modules/products/views/form.html:19
+#: client/app/modules/profile/views/form.html:17
 #: client/app/modules/settings/views/form.html:21
 msgid "Submit"
-msgstr ""
-
-#: client/app/modules/core/views/home.html:33
-#: client/app/modules/core/views/home.html:36
-msgid "Theme"
 msgstr ""
 
 #: client/app/modules/events/views/list.html:23
@@ -657,7 +695,7 @@ msgstr ""
 msgid "There are no files"
 msgstr ""
 
-#: client/app/modules/notes/views/list.html:17
+#: client/app/modules/profile/views/list.html:17
 msgid "There are no notes"
 msgstr ""
 
@@ -669,12 +707,21 @@ msgstr ""
 msgid "There are no products in this category!"
 msgstr ""
 
+#: client/app/modules/other/views/list.html:17
+msgid "There are no profiles"
+msgstr ""
+
 #: client/app/modules/settings/views/list.html:17
 msgid "There are no settings"
 msgstr ""
 
-#: client/app/modules/notes/services/notes.service.js:25
+#: client/app/modules/notes/services/notes.service.js:26
+#: client/app/modules/profile/services/notes.service.js:26
 msgid "This note could no be saved:"
+msgstr ""
+
+#: client/app/modules/other/services/profile.service.js:26
+msgid "This profile could no be saved:"
 msgstr ""
 
 #: client/app/modules/users/controllers/users.ctrl.js:58
@@ -732,15 +779,11 @@ msgstr ""
 msgid "Value"
 msgstr ""
 
-#: client/app/modules/core/views/home.html:21
-msgid "Variables"
-msgstr ""
-
 #: client/app/modules/core/views/home.html:6
 msgid "Welcome!"
 msgstr ""
 
-#: client/app/modules/users/controllers/login.ctrl.js:97
+#: client/app/modules/users/controllers/login.ctrl.js:99
 msgid "You are logged in!"
 msgstr ""
 
@@ -798,15 +841,18 @@ msgstr ""
 msgid "Your item has been deleted!"
 msgstr ""
 
-#: client/app/modules/notes/services/notes.service.js:36
+#: client/app/modules/notes/services/notes.service.js:37
+#: client/app/modules/profile/services/notes.service.js:37
 msgid "Your note is deleted!"
 msgstr ""
 
-#: client/app/modules/notes/services/notes.service.js:41
+#: client/app/modules/notes/services/notes.service.js:42
+#: client/app/modules/profile/services/notes.service.js:42
 msgid "Your note is not deleted!"
 msgstr ""
 
-#: client/app/modules/notes/services/notes.service.js:20
+#: client/app/modules/notes/services/notes.service.js:21
+#: client/app/modules/profile/services/notes.service.js:21
 msgid "Your note is safe with us!"
 msgstr ""
 
@@ -846,8 +892,20 @@ msgstr ""
 msgid "Your profile"
 msgstr ""
 
+#: client/app/modules/other/services/profile.service.js:37
+msgid "Your profile is deleted!"
+msgstr ""
+
+#: client/app/modules/other/services/profile.service.js:42
+msgid "Your profile is not deleted!"
+msgstr ""
+
 #: client/app/modules/users/controllers/profile.ctrl.js:46
 msgid "Your profile is not saved:"
+msgstr ""
+
+#: client/app/modules/other/services/profile.service.js:21
+msgid "Your profile is safe with us!"
 msgstr ""
 
 #: client/app/modules/settings/controllers/settings.ctrl.js:33

@@ -21,12 +21,12 @@ module.exports = function (grunt) {
     test: require('./bower.json').appPath || 'client/test',
     dist: 'dist',
     api: {
-      development: 'http://api.vator.co:1000/api/',
-      production: 'http://api.vator.co:1000/api/'
+      development: 'http://api.vator.co/api/',
+      production: 'http://api.vator.co/api/'
     },
     site: {
-      development: 'http://dev.vator.co',
-      production: 'http://dev.vator.co'
+      development: 'http://api.vator.co',
+      production: 'http://api.vator.co'
     },
     host: '0.0.0.0'
   };

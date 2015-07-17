@@ -1,6 +1,6 @@
 (function(window, angular, undefined) {'use strict';
 
-var urlBase = "http://api.vator.co:1000/api";
+var urlBase = "http://api.vator.co/api";
 var authHeader = 'authorization';
 
 /**
