@@ -232,11 +232,17 @@ console.log('UID: '+ $scope.currentUser.id );
     });
   };
 
+  $scope.getMe = function(id){
+
+      $scope.profile = ProfileService.getProfile(id);
+      $state.go('^.view');
+  };
+
   $scope.onSubmit = function() {
     $scope.MyProfile.Name = $scope.formFields.Name;
     $scope.MyProfile.Bio = $scope.formFields.Bio;
     $scope.MyProfile.UUID = $scope.formFields.UUID;
-    
+
 
     console.log('PROFILE: '+$scope.profile);
     console.log('UUID BEFORE UPSERT: '+$scope.MyProfile.UUID);
