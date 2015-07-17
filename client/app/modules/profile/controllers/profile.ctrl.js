@@ -1,7 +1,7 @@
 'use strict';
 var app = angular.module('com.module.profile');
 
-app.controller('MyProfileCtrl', function($scope, $state, $stateParams, ProfileService,
+app.controller('MyProfileCtrl', function($scope, $state, $stateParams, User, ProfileService,
   gettextCatalog) {
 
   $scope.formFields = [{
@@ -17,6 +17,7 @@ app.controller('MyProfileCtrl', function($scope, $state, $stateParams, ProfileSe
   }, {
     key: 'UUID',
     type: 'hidden',
+    defaultValue: '$stateParams.id' ,
     label: gettextCatalog.getString('UUID'),
     required: true
   }];
@@ -29,7 +30,8 @@ app.controller('MyProfileCtrl', function($scope, $state, $stateParams, ProfileSe
 
   $scope.delete = function(id) {
     ProfileService.deleteProfile(id, function() {
-      $scope.profile = ProfileService.getProfile();
+      $scope.profiles = ProfileService.getProfiles();
+      $state.go('^.list');
     });
   };
 
