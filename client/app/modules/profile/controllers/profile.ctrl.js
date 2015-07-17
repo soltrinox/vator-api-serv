@@ -240,8 +240,9 @@ console.log('UID: '+ $scope.currentUser.id );
     console.log('PROFILE: '+$scope.MyProfile);
 
     ProfileService.upsertProfile($scope.profile, function() {
-      $scope.profile = ProfileService.getProfile();
-      $state.go('^.view');
+      $scope.profile = ProfileService.getProfile($scope.MyProfile.UUID);
+      $scope.target = '^.view({id: '+ $scope.MyProfile.UUID +'item.id''})';
+      $state.go($scope.target);
     });
   };
 
