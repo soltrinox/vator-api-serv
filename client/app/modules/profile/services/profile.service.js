@@ -1,7 +1,7 @@
 'use strict';
 var app = angular.module('com.module.profile');
 
-app.service('ProfilesService', ['$state', 'CoreService', 'Profile', 'gettextCatalog',
+app.service('ProfileService', ['$state', 'CoreService', 'Profile', 'gettextCatalog',
 function($state,
   CoreService, Profile, gettextCatalog) {
 
