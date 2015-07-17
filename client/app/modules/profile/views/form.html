@@ -18,9 +18,9 @@
         <div class="row">
           <!--  contact for email here ??? -->
 
-          <form ng-submit="$scope.onSubmit()" name="$scope.form" novalidate>
+          <form ng-submit="$scope.onSubmit()" name="$scope.formx" novalidate>
                 <formly-form model="$scope.model" fields="$scope.fields" options="$scope.options">
-                  <button type="submit" class="btn btn-primary submit-button" ng-disabled="$scope.form.$invalid">Submit</button>
+                  <button type="submit" class="btn btn-primary submit-button" ng-disabled="$scope.formx.$invalid">Submit</button>
                   <button type="button" class="btn btn-default" ng-click="$scope.options.resetModel()">Reset</button>
                 </formly-form>
               </form>
@@ -57,7 +57,3 @@
 <div class="controls">
     <button class="btn btn-primary btn-success" ng-click="onSubmit()" translate>Submit</button>
 </div>
-
-<script src="https://rawgit.com/formly-js/angular-formly/master/dist/formly.js"></script>
-<!-- This is the current state of master for the bootstrap templates -->
-<script src="//rawgit.com/formly-js/angular-formly-templates-bootstrap/master/dist/angular-formly-templates-bootstrap.js"></script>

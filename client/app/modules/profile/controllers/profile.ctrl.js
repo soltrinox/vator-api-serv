@@ -7,7 +7,7 @@ app.controller('MyProfileCtrl', function($scope, $state, $stateParams, User, Pro
 
 //    console.log('PID: '+$scope.pid + ' - ');
 
-
+$scope.formx = 'new1';
 
 
   // variable assignment
