@@ -18,10 +18,10 @@
         <div class="row">
           <!--  contact for email here ??? -->
 
-          <form ng-submit="$scope.onSubmit()" name="$scope.formx" novalidate>
-                <formly-form model="$scope.model" fields="$scope.fields" options="$scope.options">
-                  <button type="submit" class="btn btn-primary submit-button" ng-disabled="$scope.formx.$invalid">Submit</button>
-                  <button type="button" class="btn btn-default" ng-click="$scope.options.resetModel()">Reset</button>
+          <form ng-submit="tx.onSubmit()" name="{{$scope.formx}}" novalidate>
+                <formly-form model="tx.model" fields="tx.fields" options="tx.options">
+                  <button type="submit" class="btn btn-primary submit-button" ng-disabled="tx.form.$invalid">Submit</button>
+                  <button type="button" class="btn btn-default" ng-click="tx.options.resetModel()">Reset</button>
                 </formly-form>
               </form>
 

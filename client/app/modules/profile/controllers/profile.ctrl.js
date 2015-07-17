@@ -8,23 +8,23 @@ app.controller('MyProfileCtrl', function($scope, $state, $stateParams, User, Pro
 //    console.log('PID: '+$scope.pid + ' - ');
 
 $scope.formx = 'new1';
-
+var tx = this;
 
   // variable assignment
-  $scope.author = { // optionally fill in your info below :-)
+  tx.author = { // optionally fill in your info below :-)
     name: 'Kent C. Dodds',
     url: 'https://twitter.com'
   };
-  $scope.exampleTitle = 'Formly Bootstrap Select'; // add this
-  $scope.env = {
+  tx.exampleTitle = 'Formly Bootstrap Select'; // add this
+  tx.env = {
     angularVersion: angular.version.full,
     formlyVersion: formlyVersion
   };
 
-  $scope.model = {};
-  $scope.options = {};
+  tx.model = {};
+  tx.options = {};
 
-  $scope.fields = [
+  tx.fields = [
     {
       key: 'marvel1',
       type: 'select',
@@ -87,11 +87,11 @@ $scope.formx = 'new1';
     }
   ];
 
-  $scope.originalFields = angular.copy($scope.fields);
+  tx.originalFields = angular.copy(tx.fields);
 
-  // function $scope.onSubmit() {
-  //     $scope.options.updateInitialValue();
-  //     alert(JSON.stringify($scope.model), null, 2);
+  // function tx.onSubmit() {
+  //     tx.options.updateInitialValue();
+  //     alert(JSON.stringify(tx.model), null, 2);
   //   }
 
 
