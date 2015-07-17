@@ -71,39 +71,39 @@ app.run(function($rootScope, Setting, gettextCatalog) {
 });
 
 app.config(function(formlyConfigProvider) {
-  var templates = 'modules/core/views/elements/fields/';
-  var formly = templates + 'formly-field-';
-  var fields = [
-    'checkbox',
-    'email',
-    'hidden',
-    'number',
-    'password',
-    'radio',
-    'select',
-    'text',
-    'textarea'
-  ];
-
-  angular.forEach(fields, function(val) {
-    formlyConfigProvider.setType({
-      name : val,
-      templateUrl : formly + val + '.html'
-    });
-    //TemplateUrl(val, formly + val + '.html');
-  });
-
-  formlyConfigProvider.setType({
-    name : 'date',
-    templateUrl: templates + 'date.html'
-  });
-  //TemplateUrl('date', );
-
-  formlyConfigProvider.setType({
-    name :'time',
-    templateUrl: templates + 'time.html'
-  });
-  //TemplateUrl('time', templates + 'time.html');
+  // var templates = 'modules/core/views/elements/fields/';
+  // var formly = templates + 'formly-field-';
+  // var fields = [
+  //   'checkbox',
+  //   'email',
+  //   'hidden',
+  //   'number',
+  //   'password',
+  //   'radio',
+  //   'select',
+  //   'text',
+  //   'textarea'
+  // ];
+  //
+  // angular.forEach(fields, function(val) {
+  //   formlyConfigProvider.setType({
+  //     name : val,
+  //     templateUrl : formly + val + '.html'
+  //   });
+  //   //TemplateUrl(val, formly + val + '.html');
+  // });
+  //
+  // formlyConfigProvider.setType({
+  //   name : 'date',
+  //   templateUrl: templates + 'date.html'
+  // });
+  // //TemplateUrl('date', );
+  //
+  // formlyConfigProvider.setType({
+  //   name :'time',
+  //   templateUrl: templates + 'time.html'
+  // });
+  // //TemplateUrl('time', templates + 'time.html');
 
 });
 
