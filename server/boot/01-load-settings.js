@@ -10,7 +10,8 @@ module.exports = function(app) {
   function loadDefaultSettings() {
     console.error('Creating default settings');
 
-    var settings = [{
+    var settings = [
+      {
       type: 'string',
       key: 'appName',
       value: 'Loopback Admin'
@@ -46,7 +47,8 @@ module.exports = function(app) {
       type: 'boolean',
       key: 'com.module.users.enable_registration',
       value: true
-    }];
+    }
+  ];
 
     settings.forEach(function(setting) {
       Setting.create(setting, function(err) {

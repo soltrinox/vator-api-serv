@@ -1,7 +1,7 @@
 'use strict';
 var app = angular.module('com.module.profile');
 
-app.controller('MyProfileCtrl', ['WorkHistoryService','ProfileService', 'WorkHistoryService', 'EducationService', 'SocialService', function($scope, $state, $stateParams,
+app.controller('MyProfileCtrl',function($scope, $state, $stateParams,
   ProfileService, WorkHistoryService, EducationService, SocialService,
   gettextCatalog) {
 
@@ -288,4 +288,4 @@ app.controller('MyProfileCtrl', ['WorkHistoryService','ProfileService', 'WorkHis
     $scope.profile = {};
   }
 
-}]);
+});
