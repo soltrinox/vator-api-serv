@@ -25,8 +25,8 @@ module.exports = function (grunt) {
       production: 'http://api.vator.co:1000/api/'
     },
     site: {
-      development: 'http://api.vator.co:1000',
-      production: 'http://api.vator.co:1000'
+      development: 'http://dev.vator.co',
+      production: 'http://dev.vator.co'
     },
     host: '0.0.0.0'
   };
