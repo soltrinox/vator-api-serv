@@ -9,7 +9,7 @@ function($state, CoreService, WorkHistory, User, gettextCatalog) {
   };
 
   this.getSingleWorkHistoryRecord = function(wid) {
-    console.log('Edcuation.findById()' + wid);
+    console.log('WorkHistory.findById()' + wid);
     return WorkHistory.findById({
       id : wid
     });
@@ -18,12 +18,12 @@ function($state, CoreService, WorkHistory, User, gettextCatalog) {
   this.upsertWorkHistory = function(workhistory, cb) {
     WorkHistory.upsert(workhistory, function() {
       CoreService.toastSuccess(gettextCatalog.getString(
-        'Credentials saved'), gettextCatalog.getString(
+        'WorkHistory saved'), gettextCatalog.getString(
         'Your work history is safe with us!'));
       cb();
     }, function(err) {
       CoreService.toastSuccess(gettextCatalog.getString(
-        'Error saving credentials '), gettextCatalog.getString(
+        'Error saving WorkHistory '), gettextCatalog.getString(
         'This work history could not be saved: ') + err);
     });
   };
