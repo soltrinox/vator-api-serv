@@ -1,8 +1,8 @@
 <h4>
   <a href="" ui-sref="^.list" class="btn btn-default"><i class="fa fa-arrow-left"></i></a>
 
-  <span ng-show="!product.id" translate>Add a new product</span>
-  <span ng-show="product.id" translate>Edit product</span>
+  <span ng-show="!product.id" translate>Add a new company</span>
+  <span ng-show="product.id" translate>Edit company</span>
 
 </h4>
 
@@ -10,7 +10,7 @@
 <div class="row">
   <div class="col-md-4">
     <div class="alert alert-danger" ng-if="addError" translate>
-      Could not add product!</div>
+      Could not add company!</div>
     <formly-form result="product" fields="formFields" options="formOptions"
     ng-submit="onSubmit()"></formly-form>
   </div>

@@ -83,8 +83,8 @@ angular.module('com.module.products')
       required: true
     }, {
       key: 'categoryId',
-      type: 'text',
-      label: gettextCatalog.getString('Category'),
+      type: 'hidden',
+      label: gettextCatalog.getString('Group'),
       required: true
     }, {
       key: 'description',
@@ -93,11 +93,11 @@ angular.module('com.module.products')
     }, {
       key: 'percentage',
       type: 'text',
-      label: gettextCatalog.getString('Percentage')
+      label: gettextCatalog.getString('Valuation')
     }, {
       key: 'price',
       type: 'text',
-      label: gettextCatalog.getString('Price')
+      label: gettextCatalog.getString('Year Founded')
     }];
 
     $scope.formOptions = {
