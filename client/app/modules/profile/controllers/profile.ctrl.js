@@ -31,6 +31,12 @@ console.log('UID: '+ $scope.currentUser.id );
       }
     };
 
+    $scope.formOptions = {
+      uniqueFormId: true,
+      hideSubmit: false,
+      submitCopy: 'Save'
+    };
+
   $scope.formFields = [ {
       key: 'Name',
       type: 'text',
@@ -220,11 +226,7 @@ console.log('UID: '+ $scope.currentUser.id );
             required: true
           }];
 
-  $scope.formOptions = {
-    uniqueFormId: true,
-    hideSubmit: false,
-    submitCopy: 'Save'
-  };
+
 
   $scope.delete = function(id) {
     ProfileService.deleteProfile(id, function() {
