@@ -3,7 +3,7 @@
   <a href="" ui-sref="^.list" class="btn btn-default"><i class="fa fa-arrow-left"></i></a>
 
 
-  {{profile.Name}}
+  {{profile.user.Name}}
 
   <span class="pull-right btn-group" style="margin-top: 7px;">
     <a href="" class="btn btn-sm btn-default" ui-sref="^.edit({id: profile.id})">
@@ -14,7 +14,7 @@
     </a>
   </span>
 <br/>
-{{profile.Bio}}
+{{profile.user.Bio}}
 </h4>
 <hr>
 <pre>{{profile | json}}</pre>
