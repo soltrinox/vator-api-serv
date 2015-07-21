@@ -130,6 +130,14 @@ console.log('UID: '+ $scope.currentUser.id );
             {
                 name: 'Investor',
                 value : '003'
+            },
+            {
+                name: 'Advisor',
+                value : '004'
+            },
+            {
+                name: 'Board Member',
+                value : '005'
             }
         ]
       }, {
