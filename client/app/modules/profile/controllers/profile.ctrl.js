@@ -257,6 +257,7 @@ console.log('UID: '+ $scope.currentUser.id );
     console.log('CLICK :'+pro.id);
       $scope.MyProfile = {};
       $scope.MyProfile = ProfileService.getProfile(pro.id);
+      $scope.profile = $scope.MyProfile;
       $location.path('/app/myprofile/'+pro.id);
   };
 
