@@ -302,6 +302,7 @@ console.log('UID: '+ $scope.currentUser.id );
   setTimeout(function () {
       $scope.$apply(function() {
               $scope.profiles = ProfileService.getProfiles();
+
           });
   }, 100);
 
@@ -311,6 +312,7 @@ console.log('UID: '+ $scope.currentUser.id );
 
   if ($stateParams.id) {
     $scope.profile = ProfileService.getProfile($stateParams.id);
+    $scope.sliceProfile($scope.profile);
   } else {
     $scope.profile = {};
   }
