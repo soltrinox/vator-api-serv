@@ -255,19 +255,16 @@ console.log('UID: '+ $scope.currentUser.id );
 
   $scope.getMe = function(pro){
     console.log('CLICK :'+pro.id);
-      $scope.MyProfile = ProfileService.getProfile(pro.id, function(){
-
-        console.log('RESPONSE :'+ response );
-
-        $location.path('/app/myprofile/'+pro.id);
-      });
-
+      $scope.MyProfile = {};
+      $scope.MyProfile = ProfileService.getProfile(pro.id);
+      $location.path('/app/myprofile/'+pro.id);
   };
 
   $scope.onSubmit = function() {
     $scope.MyProfile.Name = $scope.formFields.Name;
     $scope.MyProfile.Bio = $scope.formFields.Bio;
     $scope.MyProfile.UUID = $scope.formFields.UUID;
+
 
     console.log('PROFILE: '+$scope.profile);
     console.log('UUID BEFORE UPSERT: '+$scope.MyProfile.UUID);
