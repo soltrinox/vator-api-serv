@@ -14,7 +14,7 @@
       <div class="col-md-12 ">
         <div class="panel panel-widget " style="background:#B6DEE4">
           <div class="panel-title" style="background:#B6DEE4">
-          Profile Enhancement <span class="label label-danger">UPDATE</span>
+            Profile Enhancement <span class="label label-danger">UPDATE</span>
             <ul class="panel-tools">
               <li><a class="icon minimise-tool"><i class="fa fa-minus"></i></a></li>
               <li><a class="icon closed-tool"><i class="fa fa-times"></i></a></li>
@@ -27,23 +27,23 @@
               <a href="entrepreneur/company.html" class="btn btn-default"><i class="fa fa-rocket"></i>Add Your Startup</a>
 
               <h4>Got a startup?</h4>
-                <!-- Start TwitterBox -->
-                  <div class="widget socialbox" style="background:#02A8F3; height:205px;">
+              <!-- Start TwitterBox -->
+              <div class="widget socialbox" style="background:#02A8F3; height:205px;">
 
-                    <p class="text">
-                      Are you in a startup? Register as an entrprenuer today!
-                    </p>
+                <p class="text">
+                  Are you in a startup? Register as an entrprenuer today!
+                </p>
 
 
-                    <div class="logo"><i class="fa fa-rocket"></i></div>
+                <div class="logo"><i class="fa fa-rocket"></i></div>
 
-                    <ul class="info">
-                      <li><i class="fa fa-user"></i>235</li>
+                <ul class="info">
+                  <li><i class="fa fa-user"></i>235</li>
 
-                    </ul>
+                </ul>
 
-                  </div>
-                <!-- End TwitterBox -->
+              </div>
+              <!-- End TwitterBox -->
             </div>
 
 
@@ -52,23 +52,23 @@
               <a href="#" class="btn btn-primary"><i class="fa fa-bank"></i>Find Investments</a>
 
               <h4>Do you invest?</h4>
-                <!-- Start FacebookBox -->
-                  <div class="widget socialbox" style="background:#47639E; height:205px;">
+              <!-- Start FacebookBox -->
+              <div class="widget socialbox" style="background:#47639E; height:205px;">
 
-                    <p class="text">
-                      Find the hottest startups to back. Join the Vator Investment Club.
-                    </p>
+                <p class="text">
+                  Find the hottest startups to back. Join the Vator Investment Club.
+                </p>
 
 
-                    <div class="logo"><i class="fa fa-bank"></i></div>
+                <div class="logo"><i class="fa fa-bank"></i></div>
 
-                    <ul class="info">
-                      <li><i class="fa fa-user"></i>131</li>
+                <ul class="info">
+                  <li><i class="fa fa-user"></i>131</li>
 
-                    </ul>
+                </ul>
 
-                  </div>
-                <!-- End FacebookBox -->
+              </div>
+              <!-- End FacebookBox -->
             </div>
 
             <div class="col-md-4">
@@ -76,42 +76,90 @@
               <a href="#" class="btn btn-basic"><i class="fa fa-trophy"></i>Launch A Competition</a>
 
               <h4>Got Competition?</h4>
-                <!-- Start FacebookBox -->
-                  <div class="widget socialbox" style="background:#ABABAB; height:205px;">
+              <!-- Start FacebookBox -->
+              <div class="widget socialbox" style="background:#ABABAB; height:205px;">
 
-                    <p class="text">
-                    Hold your own competition at your next event.
-                    </p>
+                <p class="text">
+                  Hold your own competition at your next event.
+                </p>
 
 
-                    <div class="logo"><i class="fa fa-trophy"></i></div>
+                <div class="logo"><i class="fa fa-trophy"></i></div>
 
-                    <ul class="info">
-                      <li><i class="fa fa-user"></i>12</li>
+                <ul class="info">
+                  <li><i class="fa fa-user"></i>12</li>
 
-                    </ul>
+                </ul>
 
-                  </div>
-                <!-- End FacebookBox -->
+              </div>
+              <!-- End FacebookBox -->
             </div>
 
           </div>
         </div>
+      </div>
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-xs-12">
-      <tabset class="nav-tabs-custom">
-        <tab heading="{{ 'Dashboard' | translate }}">
-          <div class="row">
+  <div class="container-widget">
+    <!-- Start Row -->
+    <div class="row">
+      <div class="col-md-12">
+        <div class="panel panel-widget">
 
-            <small-box name="{{ box.name }}" color="{{ box.color }}" icon="{{ box.icon }}"
-                       quantity="{{ box.quantity }}" href="{{ box.href }}" ng-repeat="box in boxes | orderBy:['-quantity', 'name']"></small-box>
-
+          <div class="panel-title">
+            Create Post
+            <ul class="panel-tools">
+              <li><a class="icon closed-tool"><i class="fa fa-times"></i></a></li>
+            </ul>
           </div>
-        </tab>
-      </tabset>
+          <div class="panel-body">
+            <form>
+              <p>
+                <textarea class="textarea form-control wysihtml5-textarea" placeholder="Enter text ..." style="height:100px; width:100%;"></textarea>
+              </p>
+              <button class="btn btn-warning fa fa-smile-o"> Icons</button>
+              <button class="btn btn-info fa fa-image"> Upload Image</button>
+              <button class="btn btn-default fa fa-thumb-tack"> Post</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Row -->
+  </div>
+
+  <div class="container-widget">
+    <div class="row">
+      <div class="col-xs-12">
+        <tabset class="nav-tabs-custom">
+          <tab heading="{{ 'Dashboard' | translate }}">
+            <div class="row">
+
+              <small-box name="{{ box.name }}" color="{{ box.color }}" icon="{{ box.icon }}" quantity="{{ box.quantity }}" href="{{ box.href }}" ng-repeat="box in boxes | orderBy:['-quantity', 'name']"></small-box>
+
+            </div>
+          </tab>
+        </tabset>
+      </div>
     </div>
   </div>
+
+  <div class="container-widget">
+    <div class="row">
+      <div class="col-md-12 ">
+        <div class="widget profile-widget" style="height:320px;">
+          <img src="../img/profileimg.png" class="profile-image" alt="img">
+          <h1>Bambi Francisco</h1>
+          <p><i class="fa fa-map-marker"></i> Alameda</p>
+          <ul class="stats widget-inline-list clearfix">
+            <li class="col-4"><span>2.109</span>Followers</li>
+            <li class="col-4"><span>596</span>Posts</li>
+            <li class="col-4"><span>902</span>Like</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </section>
