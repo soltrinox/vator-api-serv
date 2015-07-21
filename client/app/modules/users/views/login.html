@@ -31,22 +31,11 @@
             </a>
 
           <a ng-repeat="provider in authProviders" ng-hide="provider.link" ng-click="socialLogin(provider)">
-             <button type="button"    class="btn margin-10 btn-primary btn-{{provider.class}}" > <i class="fa fa-{{provider.provider}}"></i> {{provider.provider | ucfirst}}</button>
+             <button type="button"    class="btn margin-10 btn-primary btn-{{provider.class}}" >
+               <i class="fa fa-{{provider.provider}}"></i>Sign in with {{provider.provider | ucfirst}}</button>
           </a>
         </div>
 
-
-
-
-
-                <div class="row text-c ">
-                  <a href="../../../master/index.html"><button type="button" class="btn margin-10 btn-default"><i class="fa fa-twitter"></i>Sign in with Twitter</button></a><br/>
-                  <a href="../../../master/index.html"><button type="button" class="btn  margin-10 btn-primary"><i class="fa fa-facebook"></i>Sign in with Facebook</button></a><br/>
-                    <a href="../../../master/index.html"><button type="button" class="btn  margin-10 btn-danger"><i class="fa fa-google"></i>Sign in with Google</button></a><br/>
-                    <a href="../../../master/index.html"><button type="button" class="btn  margin-10 btn-basic"><i class="fa fa-github"></i>Sign in with GitHub</button></a><br/>
-                    <a href="../../../master/index.html"><button type="button" class="btn  margin-10 btn-info"><i class="fa fa-linkedin"></i>Sign in with LinkedIn</button></a><br/>
-                </div>
-                
       </form>
 
       <div class="footer-links row">
