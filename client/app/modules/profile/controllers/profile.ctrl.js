@@ -312,7 +312,7 @@ console.log('UID: '+ $scope.currentUser.id );
 
   if ($stateParams.id) {
     $scope.profile = ProfileService.getProfile($stateParams.id);
-    $scope.sliceProfile($scope.profile);
+    $scope.sliceProfile($scope.MyProfile);
   } else {
     $scope.profile = {};
   }
