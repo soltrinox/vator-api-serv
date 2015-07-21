@@ -1,5 +1,5 @@
     <div class="login-form">
-      <form action="../../../index.html">
+      <form role="form" ng-submit="login()" method="post">
         <div class="top">
           <img src="../../../img/dashboard/vator_logo.png" alt="icon" >
 
@@ -12,6 +12,9 @@
           <div class="group">
             <input type="password" class="form-control" placeholder="Password">
             <i class="fa fa-key"></i>
+          </div>
+          <div class="group">
+            <auto:fields fields="schema" data="credentials" options="options"></auto:fields>
           </div>
           <div class="checkbox checkbox-primary">
             <input id="checkbox101" type="checkbox" checked>
@@ -29,7 +32,7 @@
       </form>
 
       <div class="footer-links row">
-        <div class="col-xs-6"><a href="../../../register.html"><i class="fa fa-external-link"></i> Register with Vator</a></div>
+        <div class="col-xs-6"><a href="#/register"><i class="fa fa-external-link"></i> Register with Vator</a></div>
         <div class="col-xs-6 text-right"><a href="#"><i class="fa fa-lock"></i> Forgot password</a></div>
       </div>
     </div>
@@ -51,7 +54,7 @@
       </div>
       <div class="footer">
         <button type="submit" class="btn bg-olive btn-block" translate>Sign in</button>
-        <a href='#/register' class="btn bg-yellow btn-block" translate>Or register</a>
+
         <a ng-repeat="provider in authProviders" ng-hide="provider.link" ng-click="socialLogin(provider)"
            class="btn btn-block btn-{{provider.class}}">
           {{provider.provider | ucfirst}}
