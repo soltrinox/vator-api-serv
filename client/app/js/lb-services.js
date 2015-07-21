@@ -12259,8 +12259,7 @@ module.factory(
          *
          * @param {Object=} parameters Request parameters.
          *
-         *   This method does not accept any parameters.
-         *   Supply an empty object or omit this argument altogether.
+         *  - `id` – `{string=}` - 
          *
          * @param {function(Object,Object)=} successCb
          *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -12277,7 +12276,7 @@ module.factory(
          *  - `profile` – `{object=}` - 
          */
         "getEntireProfile": {
-          url: urlBase + "/Profiles/entireprofile/:id",
+          url: urlBase + "/Profiles/entireprofile/:pid",
           method: "GET"
         },
 

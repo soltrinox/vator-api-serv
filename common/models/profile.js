@@ -1,7 +1,7 @@
 //var app = require('../../server/server');
 module.exports = function(Profile, Team) {
 
-  Profile.getEntireProfile = function(id, cb) {
+  Profile.getEntireProfile = function(id,cb) {
     var app = Profile.app;
     Profile.findById(id,  function(err, profile) {
       // links the object
@@ -24,7 +24,8 @@ module.exports = function(Profile, Team) {
 
                       // console.log( response );
                       cb(null, response);
-                    });
+                      //return response;
+			});
                   });
                 });
               });
@@ -37,7 +38,7 @@ module.exports = function(Profile, Team) {
 
 
   Profile.remoteMethod('getEntireProfile', {
-    accepts: [],
+    accepts: [{arg: 'id', type: 'string'}],
     returns: {arg: 'profile', type: 'object'},
     http: {path:'/entireprofile/:pid', verb: 'get'}
   });
