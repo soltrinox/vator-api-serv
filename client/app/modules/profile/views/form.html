@@ -10,7 +10,7 @@
     <tab heading="{{ 'Profile' | translate }}">
       <div class="row tab-pane">
         <!--  contact for email here ??? -->
-        <formly-form result="profile" fields="formFields" options="formOptions" ng-submit="onSubmit()"></formly-form>
+        <formly-form result="profile.profile" fields="formFields" options="formOptions" ng-submit="onSubmit()"></formly-form>
         <pre>
           {{ profile.profile | json}}
         </pre>
