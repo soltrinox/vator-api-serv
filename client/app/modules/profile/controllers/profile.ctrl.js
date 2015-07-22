@@ -253,12 +253,22 @@ console.log('UID: '+ $scope.currentUser.id );
     });
   };
 
-  $scope.getMe = function(pro){
+  // $scope.getMe = function(pro){
+  //   console.log('CLICK :'+pro.id);
+  //     $scope.MyProfile = {};
+  //     $scope.MyProfile = ProfileService.getProfile(pro.id);
+  //     $location.path('/app/myprofile/'+pro.id);
+  // };
+
+
+  $scope.getMe = function(pro, function(){
+
     console.log('CLICK :'+pro.id);
       $scope.MyProfile = {};
       $scope.MyProfile = ProfileService.getProfile(pro.id);
       $location.path('/app/myprofile/'+pro.id);
-  };
+
+  });
 
   $scope.onSubmit = function() {
     $scope.MyProfile.Name = $scope.formFields.Name;
