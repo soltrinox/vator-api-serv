@@ -263,7 +263,7 @@ console.log('UID: '+ $scope.currentUser.id );
   };
 
   $scope.goLocation = function(id){
-    $location.path('/app/myprofile/:id');
+    $location.path('/app/myprofile/'+id+'/');
   };
 
 
