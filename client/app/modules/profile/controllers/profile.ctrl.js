@@ -40,17 +40,17 @@ console.log('UID: '+ $scope.currentUser.id );
   $scope.formFields = [ {
       key: 'Name',
       type: 'text',
-      label: gettextCatalog.getString('user.Name'),
+      label: gettextCatalog.getString('Name'),
       required: true
     }, {
       key: 'Bio',
       type: 'textarea',
-      label: gettextCatalog.getString('user.Bio'),
+      label: gettextCatalog.getString('Bio'),
       required: true
     }, {
       key: 'UUID',
       type: 'hidden',
-      label: gettextCatalog.getString('user.UUID'),
+      label: gettextCatalog.getString('UUID'),
       required: true
     }];
 
