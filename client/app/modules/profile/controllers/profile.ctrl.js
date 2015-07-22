@@ -258,15 +258,10 @@ console.log('UID: '+ $scope.currentUser.id );
       $scope.profile = ProfileService.getProfile(pro.id, function(){
         // $location.path('/app/myprofile/'+pro.id);
       });
-	     //$location.path('/app/myprofile/:id'+pro.id);
-       //$scope.goLocation(pro);
-       //$state.go('app.myprofile.view');
-       $location.path('/app/myprofile/'+pro.id+'/');
+	     $location.path('/app/myprofile/:id'+pro.id);
+
   };
 
-  $scope.goLocation = function(pro){
-    $location.path('/app/myprofile/'+pro.id+'/');
-  };
 
 
   $scope.onSubmit = function() {

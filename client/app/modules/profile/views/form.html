@@ -22,7 +22,7 @@
     <tab heading="{{ 'Credentials' | translate }}">
       <div class="row tab-pane">
 
-        <formly-form result="education" fields="formFields2" options="formOptions" ng-submit="onSubmit2()"></formly-form>
+        <formly-form result="profile.profile.edu" fields="formFields2" options="formOptions" ng-submit="onSubmit2()"></formly-form>
         <div class="controls">
           <button class="btn btn-primary btn-success" ng-click="onSubmit2()" translate>Add Credials</button>
         </div>
@@ -60,7 +60,7 @@
     <tab heading="{{ 'Experience' | translate }}">
       <div class="row tab-pane">
 
-        <formly-form result="profile.user" fields="formFields3" options="formOptions" ng-submit="onSubmit3()"></formly-form>
+        <formly-form result="profile.profile.work" fields="formFields3" options="formOptions" ng-submit="onSubmit3()"></formly-form>
         <div class="controls">
           <button class="btn btn-primary btn-success" ng-click="onSubmit3()" translate>Add Experience </button>
         </div>
