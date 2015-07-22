@@ -22,6 +22,10 @@ msgstr ""
 msgid "<i class=\"fa fa-save\"></i> Save"
 msgstr ""
 
+#: client/app/modules/users/views/login.html:30
+msgid "<i class=\"fa fa-star-o\"></i>Sign in to vator"
+msgstr ""
+
 #: client/app/modules/about/controllers/about.config.js:5
 #: client/app/modules/about/views/main.html:1
 msgid "About"
@@ -40,22 +44,6 @@ msgstr ""
 msgid "Add"
 msgstr ""
 
-#: client/app/modules/profile/views/form.html:49
-msgid "Add Contact / Social Account"
-msgstr ""
-
-#: client/app/modules/profile/views/form.html:31
-msgid "Add Credials"
-msgstr ""
-
-#: client/app/modules/profile/views/form.html:40
-msgid "Add Experience"
-msgstr ""
-
-#: client/app/modules/products/views/main.html:2
-msgid "Add Group"
-msgstr ""
-
 #: client/app/modules/products/views/form.html:4
 msgid "Add a new company"
 msgstr ""
@@ -72,12 +60,28 @@ msgstr ""
 msgid "Add a new post"
 msgstr ""
 
-#: client/app/modules/profile/views/form.html:4
+#: client/app/modules/profile/views/form.html:3
 msgid "Add a new profile"
 msgstr ""
 
 #: client/app/modules/settings/views/form.html:4
 msgid "Add a new setting"
+msgstr ""
+
+#: client/app/modules/profile/views/form.html:102
+msgid "Add Contact / Social Account"
+msgstr ""
+
+#: client/app/modules/profile/views/form.html:24
+msgid "Add Credials"
+msgstr ""
+
+#: client/app/modules/profile/views/form.html:62
+msgid "Add Experience"
+msgstr ""
+
+#: client/app/modules/products/views/main.html:2
+msgid "Add Group"
 msgstr ""
 
 #: client/app/modules/products/views/list.html:5
@@ -107,7 +111,7 @@ msgstr ""
 msgid "Are you sure?"
 msgstr ""
 
-#: client/app/modules/profile/controllers/profile.ctrl.js:42
+#: client/app/modules/profile/controllers/profile.ctrl.js:48
 msgid "Bio"
 msgstr ""
 
@@ -135,7 +139,7 @@ msgstr ""
 msgid "Category saved"
 msgstr ""
 
-#: client/app/modules/users/views/profile.html:21
+#: client/app/modules/users/views/profile.html:19
 msgid "Change it here!"
 msgstr ""
 
@@ -164,7 +168,7 @@ msgid "Click <a href=\"\" ui-sref=\"^.add\">here</a> to add a setting!"
 msgstr ""
 
 #: client/app/modules/profile/views/edu.list.html:20
-#: client/app/modules/profile/views/list.html:20
+#: client/app/modules/profile/views/list.html:23
 msgid "Click <a href=\"\" ui-sref=\"^.add\">here</a> to create a profile!"
 msgstr ""
 
@@ -205,7 +209,7 @@ msgstr ""
 msgid "Could not add post!"
 msgstr ""
 
-#: client/app/modules/profile/views/form.html:12
+#: client/app/modules/profile/views/form.html:8
 msgid "Could not add profile!"
 msgstr ""
 
@@ -221,7 +225,7 @@ msgstr ""
 msgid "Create pages with rich content!"
 msgstr ""
 
-#: client/app/modules/profile/views/form.html:26
+#: client/app/modules/profile/views/form.html:19
 msgid "Credentials"
 msgstr ""
 
@@ -242,8 +246,14 @@ msgid "Creds deleted"
 msgstr ""
 
 #: client/app/modules/core/config/core.config.js:18
-#: client/app/modules/core/views/home.html:13
+#: client/app/modules/core/views/home.html:135
+#: client/app/modules/core/views/home.html:4
 msgid "Dashboard"
+msgstr ""
+
+#: client/app/modules/events/controllers/events.ctrl.js:108
+#: client/app/modules/events/controllers/events.ctrl.js:93
+msgid "dd/MM/yyyy"
 msgstr ""
 
 #: client/app/modules/products/views/list.html:9
@@ -303,7 +313,7 @@ msgstr ""
 msgid "Edit post"
 msgstr ""
 
-#: client/app/modules/profile/views/form.html:5
+#: client/app/modules/profile/views/form.html:4
 msgid "Edit profile"
 msgstr ""
 
@@ -311,12 +321,12 @@ msgstr ""
 msgid "Edit setting"
 msgstr ""
 
-#: client/app/modules/users/controllers/login.ctrl.js:30
+#: client/app/modules/users/controllers/login.ctrl.js:32
 #: client/app/modules/users/controllers/register.ctrl.js:51
 msgid "Email"
 msgstr ""
 
-#: client/app/modules/users/controllers/login.ctrl.js:38
+#: client/app/modules/users/controllers/login.ctrl.js:40
 #: client/app/modules/users/controllers/register.ctrl.js:61
 msgid "Email address needs to be valid"
 msgstr ""
@@ -383,11 +393,6 @@ msgstr ""
 msgid "Error registering!"
 msgstr ""
 
-#: client/app/modules/profile/services/profile.service.js:165
-#: client/app/modules/profile/services/workhistory.service.js:25
-msgid "Error saving WorkHistory"
-msgstr ""
-
 #: client/app/modules/profile/services/education.service.js:25
 #: client/app/modules/profile/services/profile.service.js:118
 #: client/app/modules/profile/services/profile.service.js:72
@@ -406,6 +411,11 @@ msgstr ""
 
 #: client/app/modules/users/controllers/users.ctrl.js:61
 msgid "Error saving user:"
+msgstr ""
+
+#: client/app/modules/profile/services/profile.service.js:165
+#: client/app/modules/profile/services/workhistory.service.js:25
+msgid "Error saving WorkHistory"
 msgstr ""
 
 #: client/app/modules/users/controllers/register.ctrl.js:130
@@ -429,7 +439,7 @@ msgstr ""
 msgid "Events"
 msgstr ""
 
-#: client/app/modules/profile/views/form.html:35
+#: client/app/modules/profile/views/form.html:57
 msgid "Experience"
 msgstr ""
 
@@ -444,13 +454,13 @@ msgstr ""
 msgid "Files"
 msgstr ""
 
-#: client/app/modules/users/controllers/register.ctrl.js:25
-msgid "First Name"
-msgstr ""
-
 #: client/app/modules/users/controllers/profile.ctrl.js:24
 #: client/app/modules/users/controllers/users.ctrl.js:79
 msgid "First name"
+msgstr ""
+
+#: client/app/modules/users/controllers/register.ctrl.js:25
+msgid "First Name"
 msgstr ""
 
 #: client/app/modules/products/controllers/products.ctrl.js:87
@@ -465,8 +475,16 @@ msgstr ""
 msgid "Hello,"
 msgstr ""
 
-#: client/app/modules/core/views/home.html:5
-msgid "Home"
+#: client/app/modules/files/views/list.html:23
+msgid "here"
+msgstr ""
+
+#: client/app/modules/posts/controllers/posts.ctrl.js:44
+msgid "image"
+msgstr ""
+
+#: client/app/modules/files/views/upload.html:32
+msgid "in queue"
 msgstr ""
 
 #: client/app/modules/core/helpers/FormHelper.js:27
@@ -478,20 +496,21 @@ msgstr ""
 msgid "Key"
 msgstr ""
 
-#: client/app/modules/users/controllers/register.ctrl.js:38
-msgid "Last Name"
-msgstr ""
-
 #: client/app/modules/users/controllers/profile.ctrl.js:29
 #: client/app/modules/users/controllers/users.ctrl.js:84
 msgid "Last name"
 msgstr ""
 
-#: client/app/modules/users/controllers/login.ctrl.js:98
+#: client/app/modules/users/controllers/register.ctrl.js:38
+msgid "Last Name"
+msgstr ""
+
+#: client/app/modules/users/controllers/login.ctrl.js:100
 msgid "Logged in"
 msgstr ""
 
 #: client/app/modules/core/controllers/main.ctrl.js:28
+#: client/app/modules/core/controllers/main.ctrl.js:32
 msgid "Logged out"
 msgstr ""
 
@@ -527,7 +546,7 @@ msgstr ""
 #: client/app/modules/files/views/upload.html:56
 #: client/app/modules/products/controllers/categories.ctrl.js:23
 #: client/app/modules/products/controllers/products.ctrl.js:82
-#: client/app/modules/profile/controllers/profile.ctrl.js:37
+#: client/app/modules/profile/controllers/profile.ctrl.js:43
 msgid "Name"
 msgstr ""
 
@@ -542,7 +561,7 @@ msgstr ""
 msgid "New page"
 msgstr ""
 
-#: client/app/modules/users/controllers/login.ctrl.js:39
+#: client/app/modules/users/controllers/login.ctrl.js:41
 #: client/app/modules/users/controllers/register.ctrl.js:62
 msgid "Nice email address!"
 msgstr ""
@@ -560,14 +579,6 @@ msgstr ""
 msgid "Oops"
 msgstr ""
 
-#: client/app/modules/users/views/login.html:17
-msgid "Or register"
-msgstr ""
-
-#: client/app/modules/users/views/register.html:20
-msgid "Or sign in"
-msgstr ""
-
 #: client/app/modules/pages/controllers/pages.ctrl.js:37
 msgid "Page deleted"
 msgstr ""
@@ -581,7 +592,7 @@ msgstr ""
 msgid "Pages"
 msgstr ""
 
-#: client/app/modules/users/controllers/login.ctrl.js:44
+#: client/app/modules/users/controllers/login.ctrl.js:46
 #: client/app/modules/users/controllers/register.ctrl.js:71
 #: client/app/modules/users/views/form.html:26
 msgid "Password"
@@ -607,7 +618,7 @@ msgstr ""
 
 #: client/app/modules/core/views/elements/navbar.html:40
 #: client/app/modules/profile/config/profile.config.js:5
-#: client/app/modules/profile/views/form.html:17
+#: client/app/modules/profile/views/form.html:10
 #: client/app/modules/profile/views/main.html:1
 msgid "Profile"
 msgstr ""
@@ -629,9 +640,8 @@ msgstr ""
 msgid "Raw"
 msgstr ""
 
-#: client/app/modules/users/views/register.html:17
-#: client/app/modules/users/views/register.html:7
-msgid "Register"
+#: client/app/modules/users/views/register.html:29
+msgid "REGISTER NOW"
 msgstr ""
 
 #: client/app/modules/users/controllers/register.ctrl.js:124
@@ -667,14 +677,6 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: client/app/modules/users/views/login.html:7
-msgid "Sign In"
-msgstr ""
-
-#: client/app/modules/users/views/login.html:16
-msgid "Sign in"
-msgstr ""
-
 #: client/app/modules/core/views/elements/navbar.html:43
 msgid "Sign out"
 msgstr ""
@@ -683,7 +685,7 @@ msgstr ""
 msgid "Size"
 msgstr ""
 
-#: client/app/modules/profile/views/form.html:44
+#: client/app/modules/profile/views/form.html:97
 msgid "Social"
 msgstr ""
 
@@ -699,7 +701,7 @@ msgstr ""
 msgid "Status"
 msgstr ""
 
-#: client/app/modules/users/controllers/login.ctrl.js:51
+#: client/app/modules/users/controllers/login.ctrl.js:53
 msgid "Stay signed in"
 msgstr ""
 
@@ -708,7 +710,7 @@ msgstr ""
 #: client/app/modules/posts/views/form.html:17
 #: client/app/modules/products/views/categoryform.html:13
 #: client/app/modules/products/views/form.html:19
-#: client/app/modules/profile/views/form.html:22
+#: client/app/modules/profile/views/form.html:15
 #: client/app/modules/settings/views/form.html:21
 msgid "Submit"
 msgstr ""
@@ -766,14 +768,7 @@ msgstr ""
 msgid "Toggle navigation"
 msgstr ""
 
-#: client/app/modules/profile/controllers/profile.ctrl.js:152
-#: client/app/modules/profile/controllers/profile.ctrl.js:219
-#: client/app/modules/profile/controllers/profile.ctrl.js:47
-#: client/app/modules/profile/controllers/profile.ctrl.js:97
-msgid "UUID"
-msgstr ""
-
-#: client/app/modules/users/views/profile.html:36
+#: client/app/modules/users/views/profile.html:34
 msgid "Update profile"
 msgstr ""
 
@@ -811,6 +806,13 @@ msgstr ""
 msgid "Users"
 msgstr ""
 
+#: client/app/modules/profile/controllers/profile.ctrl.js:103
+#: client/app/modules/profile/controllers/profile.ctrl.js:169
+#: client/app/modules/profile/controllers/profile.ctrl.js:243
+#: client/app/modules/profile/controllers/profile.ctrl.js:53
+msgid "UUID"
+msgstr ""
+
 #: client/app/modules/products/controllers/products.ctrl.js:96
 msgid "Valuation"
 msgstr ""
@@ -819,8 +821,8 @@ msgstr ""
 msgid "Value"
 msgstr ""
 
-#: client/app/modules/core/views/home.html:6
-msgid "Welcome!"
+#: client/app/modules/core/views/home.html:4
+msgid "Welcome {{$scope.currentUser.name}}!"
 msgstr ""
 
 #: client/app/modules/profile/services/profile.service.js:160
@@ -832,11 +834,12 @@ msgstr ""
 msgid "Year Founded"
 msgstr ""
 
-#: client/app/modules/users/controllers/login.ctrl.js:99
+#: client/app/modules/users/controllers/login.ctrl.js:101
 msgid "You are logged in!"
 msgstr ""
 
 #: client/app/modules/core/controllers/main.ctrl.js:29
+#: client/app/modules/core/controllers/main.ctrl.js:33
 msgid "You are logged out!"
 msgstr ""
 
@@ -849,17 +852,13 @@ msgid "You can just drag them in this window!"
 msgstr ""
 
 #: client/app/modules/profile/views/edu.list.html:17
-#: client/app/modules/profile/views/list.html:17
+#: client/app/modules/profile/views/list.html:20
 msgid "You have no profile <i class=\"fa fa-frown-o\"></i>  !"
 msgstr ""
 
-#: client/app/modules/users/controllers/login.ctrl.js:37
+#: client/app/modules/users/controllers/login.ctrl.js:39
 #: client/app/modules/users/controllers/register.ctrl.js:60
 msgid "You need an email address"
-msgstr ""
-
-#: client/app/modules/users/views/profile.html:20
-msgid "Your Gravatar"
 msgstr ""
 
 #: client/app/modules/products/controllers/products.ctrl.js:67
@@ -911,6 +910,10 @@ msgstr ""
 msgid "Your file is deleted!"
 msgstr ""
 
+#: client/app/modules/users/views/profile.html:18
+msgid "Your Gravatar"
+msgstr ""
+
 #: client/app/modules/core/helpers/FormHelper.js:28
 #: client/app/modules/posts/services/posts.service.js:27
 msgid "Your item has been deleted!"
@@ -960,7 +963,7 @@ msgstr ""
 msgid "Your product is safe with us!"
 msgstr ""
 
-#: client/app/modules/users/views/profile.html:5
+#: client/app/modules/users/views/profile.html:3
 msgid "Your profile"
 msgstr ""
 
@@ -1013,21 +1016,4 @@ msgstr ""
 #: client/app/modules/profile/services/profile.service.js:161
 #: client/app/modules/profile/services/workhistory.service.js:21
 msgid "Your work history is safe with us!"
-msgstr ""
-
-#: client/app/modules/events/controllers/events.ctrl.js:108
-#: client/app/modules/events/controllers/events.ctrl.js:93
-msgid "dd/MM/yyyy"
-msgstr ""
-
-#: client/app/modules/files/views/list.html:23
-msgid "here"
-msgstr ""
-
-#: client/app/modules/posts/controllers/posts.ctrl.js:44
-msgid "image"
-msgstr ""
-
-#: client/app/modules/files/views/upload.html:32
-msgid "in queue"
 msgstr ""

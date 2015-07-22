@@ -2,8 +2,8 @@
 <html ng-app="loopbackApp" ng-controller="LayoutCtrl">
 <head>
   <meta charset="utf-8">
-  <title>vatorx : {{ getSetting('appName') }}</title>
-  <meta name="description" content="vatorx">
+  <title>Admin: {{ getSetting('appName') }}</title>
+  <meta name="description" content="">
   <meta name="viewport" content="width=device-width">
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
@@ -25,13 +25,8 @@
   <!-- build:css styles/main.css -->
   <link rel="stylesheet" href="/css/AdminLTE.css" />
   <link rel="stylesheet" href="/css/main.css" />
-
+  
   <!-- endbuild -->
-  <link href="../../../css/dashboard/root.css" rel="stylesheet">
-  <style type="text/css">
-    body{background: #F5F5F5;}
-  </style>
-
 </head>
 <body class="{{getSetting('appTheme') }} {{ getSetting('appLayout') }} " ng-controller="MainCtrl">
 <!--[if lt IE 7]>
