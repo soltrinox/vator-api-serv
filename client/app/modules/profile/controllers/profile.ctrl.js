@@ -259,11 +259,12 @@ console.log('UID: '+ $scope.currentUser.id );
         // $location.path('/app/myprofile/'+pro.id);
       });
 	     //$location.path('/app/myprofile/:id'+pro.id);
-       $scope.goLocation(pro.id);
+       //$scope.goLocation(pro);
+       $state.go('app.myprofile.view');
   };
 
-  $scope.goLocation = function(id){
-    $location.path('/app/myprofile/'+id+'/');
+  $scope.goLocation = function(pro){
+    $location.path('/app/myprofile/'+pro.id+'/');
   };
 
 
