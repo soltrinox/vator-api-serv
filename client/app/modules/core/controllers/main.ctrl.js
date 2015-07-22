@@ -28,9 +28,6 @@ angular.module('com.module.core')
         CoreService.toastSuccess(gettextCatalog.getString('Logged out'),
           gettextCatalog.getString('You are logged out!'));
       });
-      $state.go('login');
-      CoreService.toastSuccess(gettextCatalog.getString('Logged out'),
-        gettextCatalog.getString('You are logged out!'));
     };
 
   });

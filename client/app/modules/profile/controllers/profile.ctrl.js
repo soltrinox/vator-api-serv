@@ -31,12 +31,6 @@ console.log('UID: '+ $scope.currentUser.id );
       }
     };
 
-    $scope.formOptions = {
-      uniqueFormId: true,
-      hideSubmit: false,
-      submitCopy: 'Save'
-    };
-
   $scope.formFields = [ {
       key: 'Name',
       type: 'text',
@@ -105,147 +99,132 @@ console.log('UID: '+ $scope.currentUser.id );
       }];
 
 
-//     'companyname': '',
-//  'jobtitle': '',
-//  'datestart': '',
-//  'dateend': '',
-//  'id': 'objectid',
-//  'profileId': 'objectid'
+  //     'companyname': '',
+  //  'jobtitle': '',
+  //  'datestart': '',
+  //  'dateend': '',
+  //  'id': 'objectid',
+  //  'profileId': 'objectid'
 
-      $scope.formFields3 =
-        [
+      $scope.formFields3 = [
+        {
+        key: 'Type',
+        type: 'select',
+        label: 'Type',
+        required: true,
+        options: [
             {
-              key: 'Type',
-              type: 'select',
-              label: 'Type',
-              required: true,
-              options:
-              [
-                  {
-                      name: 'Employee',
-                      value : '001'
-                  },
-                  {
-                      name: 'Founder',
-                      value : '002'
-                  },
-                  {
-                      name: 'Investor',
-                      value : '003'
-                  },
-                  {
-                      name: 'Advisor',
-                      value : '004'
-                  },
-                  {
-                      name: 'Board Member',
-                      value : '005'
-                  }
-              ]
+                name: 'Employee',
+                value : '001'
             },
             {
-                key: 'companyname',
-                type: 'text',
-                label: 'Company',
-                required: true
-              }, {
-                key: 'datestart',
-                type: 'text',
-                label: 'Start Date',
-                required: true
-              }, {
-                key: 'dateend',
-                type: 'text',
-                label: 'End Date',
-                required: false
-              },{
-                key: 'jobtitle',
-                type: 'text',
-                label: 'Role',
-                required: false
-              },{
-                key: 'profileId',
-                type: 'hidden',
-                label: gettextCatalog.getString('UUID'),
-                required: true
-              }
+                name: 'Founder',
+                value : '002'
+            },
+            {
+                name: 'Investor',
+                value : '003'
+            }
+        ]
+      }, {
+          key: 'companyname',
+          type: 'text',
+          label: 'Company',
+          required: true
+        }, {
+          key: 'datestart',
+          type: 'text',
+          label: 'Start Date',
+          required: true
+        }, {
+          key: 'dateend',
+          type: 'text',
+          label: 'End Date',
+          required: false
+        },{
+          key: 'jobtitle',
+          type: 'text',
+          label: 'Role',
+          required: false
+        },{
+          key: 'profileId',
+          type: 'hidden',
+          label: gettextCatalog.getString('UUID'),
+          required: true
+        }
       ];
 
-// Type (string, optional),
-// Value (string, optional),
-// URL (string, optional),
-// created (string, optional),
-// status (number, optional),
-// verified (boolean, optional),
-// profileId (objectid, optional)
+        // Type (string, optional),
+        // Value (string, optional),
+        // URL (string, optional),
+        // created (string, optional),
+        // status (number, optional),
+        // verified (boolean, optional),
+        // profileId (objectid, optional)
 
 
-        $scope.formFields4 =
-        [
-            {
-            key: 'Type',
-            type: 'select',
-            label: 'Type',
-            required: true,
-            options:
-            [
-                {
-                    name: 'Email',
-                    value : '001'
-                },
-                {
-                    name: 'Facebook',
-                    value : '002'
-                },
-                {
-                    name: 'Twitter',
-                    value : '003'
-                },
-                {
-                    name: 'GitHub',
-                    value : '004'
-                },
-                {
-                    name: 'LinkedIn',
-                    value : '005'
-                },
-                {
-                    name: 'Google',
-                    value : '006'
-                }
-            ]
-            },{
-              key: 'Value',
-              type: 'text',
-              label: 'username / acct#',
-              required: true
-            },
-            {
-              key: 'created',
-              type: 'hidden',
-              required: true
-            },
-            {
-              key: 'status',
-              type: 'hidden',
-              default : 1,
-              required: true
-            },
-            {
-              key: 'verified',
-              type: 'text',
-              default : false,
-              required: true
-            },
-            {
-              key: 'profileId',
-              type: 'hidden',
-              label: gettextCatalog.getString('UUID'),
-              required: true
-            }
-        ];
+        $scope.formFields4 = [ {
+          key: 'Type',
+          type: 'select',
+          label: 'Type',
+          required: true,
+          options: [
+              {
+                  name: 'Email',
+                  value : '001'
+              },
+              {
+                  name: 'Facebook',
+                  value : '002'
+              },
+              {
+                  name: 'Twitter',
+                  value : '003'
+              },
+              {
+                  name: 'GitHub',
+                  value : '004'
+              },
+              {
+                  name: 'LinkedIn',
+                  value : '005'
+              },
+              {
+                  name: 'Google',
+                  value : '006'
+              }
+          ]
+        },{
+            key: 'Value',
+            type: 'text',
+            label: 'username / acct#',
+            required: true
+          }, {
+            key: 'created',
+            type: 'hidden',
+            required: true
+          }, {
+            key: 'status',
+            type: 'hidden',
+            default : 1,
+            required: true
+          },{
+            key: 'verified',
+            type: 'text',
+            default : false,
+            required: true
+          },{
+            key: 'profileId',
+            type: 'hidden',
+            label: gettextCatalog.getString('UUID'),
+            required: true
+          }];
 
-
+  $scope.formOptions = {
+    uniqueFormId: true,
+    hideSubmit: false,
+    submitCopy: 'Save'
+  };
 
   $scope.delete = function(id) {
     ProfileService.deleteProfile(id, function() {
@@ -255,12 +234,9 @@ console.log('UID: '+ $scope.currentUser.id );
 
   $scope.getMe = function(pro){
     console.log('CLICK :'+pro.id);
-      $scope.MyProfile = ProfileService.getProfile(pro.id, function(){
-
-        console.log('RESPONSE :'+ response );
-
-        $location.path('/app/myprofile/'+pro.id);
-      });
+      $scope.MyProfile = {};
+      $scope.MyProfile = ProfileService.getProfile(pro.id);
+      $location.path('/app/myprofile/'+pro.id);
 
   };
 
@@ -268,6 +244,7 @@ console.log('UID: '+ $scope.currentUser.id );
     $scope.MyProfile.Name = $scope.formFields.Name;
     $scope.MyProfile.Bio = $scope.formFields.Bio;
     $scope.MyProfile.UUID = $scope.formFields.UUID;
+
 
     console.log('PROFILE: '+$scope.profile);
     console.log('UUID BEFORE UPSERT: '+$scope.MyProfile.UUID);
@@ -323,7 +300,6 @@ console.log('UID: '+ $scope.currentUser.id );
   setTimeout(function () {
       $scope.$apply(function() {
               $scope.profiles = ProfileService.getProfiles();
-
           });
   }, 100);
 
@@ -333,7 +309,6 @@ console.log('UID: '+ $scope.currentUser.id );
 
   if ($stateParams.id) {
     $scope.profile = ProfileService.getProfile($stateParams.id);
-    $scope.sliceProfile($scope.MyProfile);
   } else {
     $scope.profile = {};
   }

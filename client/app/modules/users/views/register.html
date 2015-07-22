@@ -1,36 +1,24 @@
-<div class="login-form" >
-  <form name="joinForm" class="form-signin" role="form" ng-submit="register()">
-    <div class="top">
-      <img src="../../../img/dashboard/vator_logo.png" alt="icon" >
-      <h4>Register, join the vator community  !</h4>
-    </div>
+<div class="lockscreen" style="height: 100%">
+  <div class="form-box" id="login-box">
+        <span class="pull-right image" style="margin: 15px 20px; float: left;">
+            <img gravatar-src="registration.email" class="img-circle" alt="User Image" gravatar-size="50">
+        </span>
 
-    <div class="form-area">
+    <div class="header" style="text-align: left; padding-left: 25px;" translate>Register</div>
 
-      <auto:fields fields="schema" data="registration" options="options"></auto:fields>
-
-
-      <!-- <div class="group">
-        <input type="text" class="form-control" placeholder="Username">
-        <i class="fa fa-user"></i>
+    <form name="joinForm" class="form-signin" role="form" ng-submit="register()">
+      <div class="body bg-gray">
+        <div class="callout callout-danger" ng-if="registerError">
+          <p>{{registerError.message | translate }}</p>
+        </div>
+        <auto:fields fields="schema" data="registration" options="options"></auto:fields>
       </div>
-      <div class="group">
-        <input type="text" class="form-control" placeholder="E-mail">
-        <i class="fa fa-envelope-o"></i>
+      <div class="footer">
+        <button type="submit" class="btn bg-olive btn-block" ng-class="{'btn-primary':joinForm.$valid}" translate>
+          Register
+        </button>
+        <a href='#/login' class="btn bg-yellow btn-block" translate>Or sign in </a>
       </div>
-      <div class="group">
-        <input type="password" class="form-control" placeholder="Password">
-        <i class="fa fa-key"></i>
-      </div>
-      <div class="group">
-        <input type="password" class="form-control" placeholder="Password again">
-        <i class="fa fa-key"></i>
-      </div> -->
-      <button type="submit" class="btn btn-default btn-block" ng-class="{'btn-primary':joinForm.$valid}" translate >REGISTER NOW</button>
-    </div>
-  </form>
-  <div class="footer-links row">
-    <div class="col-xs-6"><a href="#/login"><i class="fa fa-sign-in"></i> Login</a></div>
-    <div class="col-xs-6 text-right"><a href="#"><i class="fa fa-lock"></i> Forgot password</a></div>
+    </form>
   </div>
 </div>
