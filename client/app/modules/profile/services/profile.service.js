@@ -12,7 +12,7 @@ function($state, CoreService, Profile, User, Education, Social, WorkHistory, get
   this.getProfile = function(id) {
 
      Profile.getEntireProfile({id:id}, function(){
-       return profile;
+       return response;
      });
   //   return Profile.findById({id:id});
 
