@@ -19,6 +19,8 @@ angular.module('com.module.users')
       rememberMe: true
     };
 
+    $scope.buttoncolors = ['default','primary','danger','basic', 'info'];
+
     if (CoreService.env.name === 'development') {
       $scope.credentials.email = 'admin@admin.com';
       $scope.credentials.password = 'admin';
