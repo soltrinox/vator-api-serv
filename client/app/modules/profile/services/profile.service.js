@@ -9,9 +9,10 @@ function($state, CoreService, Profile, User, Education, Social, WorkHistory, get
     return Profile.find();
   };
 
-  this.getProfile = function(id) {
-     return Profile.getEntireProfile({id:id});
-
+  this.getProfile = function(id,cb) {
+     Profile.getEntireProfile({id:id}, function(){
+       cb();
+     });
   };
 
   this.upsertProfile = function(profile, cb) {
