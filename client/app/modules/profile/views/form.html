@@ -220,15 +220,51 @@
         <formly-form result="profile" fields="formFields4" options="formOptions" ng-submit="onSubmit4()"></formly-form>
         <pre>
           {{ profile.profile.social | json}}
+
+          {{ profile.profile.contact | json}}
+
++++++++++
+
+"social": [
+  {
+    "Type": "FB",
+    "Value": "123567890",
+    "URL": "",
+    "created": "2015-01-01T00:00:00.000Z",
+    "status": 0,
+    "verified": true,
+    "id": "559b8b1fe5e4c98b19559ba9",
+    "profileId": "5579f4309e40ffe41be7da47"
+  },
+  {
+    "Type": "FB",
+    "Value": "123567890",
+    "URL": "new001",
+    "created": "2015-01-01T00:00:00.000Z",
+    "status": 1,
+    "verified": true,
+    "id": "559b8b34e5e4c98b19559baa",
+    "profileId": "5579f4309e40ffe41be7da47"
+  }
+],
+"contact": [
+  {
+    "id": "559b75b790d190d21674c8aa",
+    "profileId": "5579f4309e40ffe41be7da47",
+    "emailAddress": "second.email@me.com"
+  },
+  {
+    "id": "559b75bf90d190d21674c8ab",
+    "profileId": "5579f4309e40ffe41be7da47",
+    "emailAddress": "third.email@me.com"
+  }
+],
         </pre>
         <div class="controls">
           <button class="btn btn-primary btn-success" ng-click="onSubmit4()" translate>Add Contact / Social Account</button>
         </div>
       </div>
 
-<div>
-<pre>{{$scope.MyProfile | json}}</pre>
-</div>
 
       <table class="table table-hover">
         <thead>
