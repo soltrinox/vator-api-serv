@@ -123,11 +123,64 @@
         <formly-form result="profile.profile.user" fields="formFields" options="formOptions" ng-submit="onSubmit()"></formly-form>
         <pre>
           {{ profile.profile.user | json}}
+
+          {{ profile.profile.contact | json}}
+
++++++++++
+
+"contact": [
+  {
+    "id": "559b75b790d190d21674c8aa",
+    "profileId": "5579f4309e40ffe41be7da47",
+    "emailAddress": "second.email@me.com"
+  },
+  {
+    "id": "559b75bf90d190d21674c8ab",
+    "profileId": "5579f4309e40ffe41be7da47",
+    "emailAddress": "third.email@me.com"
+  }
+],
+
         </pre>
         <div class="controls">
           <button class="btn btn-primary btn-success" ng-click="onSubmit()" translate>Submit</button>
         </div>
       </div>
+
+
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <td class="text-center"><i class="fa fa-trash"></i></td>
+                  <td>Email</td>
+                  <td>Verified</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="text-center">
+                    <div class="checkbox margin-t-0">
+                      <input id="checkbox1" type="checkbox">
+                      <label for="checkbox1"></label>
+                    </div>
+                  </td>
+                  <td>me@facebook.com</td>
+                  <td> <a href="#" class="btn btn-warning ">Edit</a> </td>
+                </tr>
+                <tr>
+                  <td class="text-center">
+                    <div class="checkbox margin-t-0">
+                      <input id="checkbox1" type="checkbox">
+                      <label for="checkbox1"></label>
+                    </div>
+                  </td>
+                  <td>test@gmail.com</td>
+                  <td> <a href="#" class="btn btn-warning ">Edit</a> </td>
+                </tr>
+
+              </tbody>
+            </table>
+
     </tab>
     <tab heading="{{ 'Credentials' | translate }}">
       <div class="row tab-pane">
@@ -221,9 +274,7 @@
         <pre>
           {{ profile.profile.social | json}}
 
-          {{ profile.profile.contact | json}}
-
-+++++++++
++++++
 
 "social": [
   {
@@ -246,19 +297,7 @@
     "id": "559b8b34e5e4c98b19559baa",
     "profileId": "5579f4309e40ffe41be7da47"
   }
-],
-"contact": [
-  {
-    "id": "559b75b790d190d21674c8aa",
-    "profileId": "5579f4309e40ffe41be7da47",
-    "emailAddress": "second.email@me.com"
-  },
-  {
-    "id": "559b75bf90d190d21674c8ab",
-    "profileId": "5579f4309e40ffe41be7da47",
-    "emailAddress": "third.email@me.com"
-  }
-],
+]
         </pre>
         <div class="controls">
           <button class="btn btn-primary btn-success" ng-click="onSubmit4()" translate>Add Contact / Social Account</button>
