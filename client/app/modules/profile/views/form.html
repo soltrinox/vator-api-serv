@@ -12,7 +12,7 @@
         <!--  contact for email here ??? -->
         <formly-form result="profile" fields="formFields" options="formOptions" ng-submit="onSubmit()"></formly-form>
         <pre>
-          {{profile | json}}
+          {{ $scope.profile | json}}
         </pre>
         <div class="controls">
           <button class="btn btn-primary btn-success" ng-click="onSubmit()" translate>Submit</button>
