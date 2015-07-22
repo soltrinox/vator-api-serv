@@ -6,10 +6,10 @@
   {{profile.profile.user.Name}}
 
   <span class="pull-right btn-group" style="margin-top: 7px;">
-    <a href="" class="btn btn-sm btn-default" ui-sref="^.edit({id: profile.id})">
+    <a href="" class="btn btn-sm btn-default" ui-sref="^.edit({id: profile.profile.user.id})">
       <i class="fa fa-pencil"></i>
     </a>
-    <a href="" class="btn btn-sm btn-default" ng-click="delete({id: profile.id})">
+    <a href="" class="btn btn-sm btn-default" ng-click="delete({id: profile.profile.user.id})">
       <i class="fa fa-trash-o"></i>
     </a>
   </span>
