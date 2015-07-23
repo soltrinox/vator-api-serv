@@ -84,7 +84,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $stateParams,
       key: 'CoverPic',
       type: 'text',
       label: 'Cover Pic URL',
-      required: fasle
+      required: false
     }
 
 
