@@ -330,7 +330,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $stateParams,
       console.log('SelectedProfile: '+ JSON.stringify( SelectedProfile ));
       $scope.profile = ProfileService.getProfile(pro.id);
       console.log('CLICK : ' + pro.id);
-      console.log('PRO : '+ JSON.stringify( pro ));
+      console.log('PRO : '+ JSON.stringify( $scope.profile.profile ));
       $scope.sliceProfile($scope.SelectedProfile);
        $location.path('/app/myprofile/'+pro.id);
   };
