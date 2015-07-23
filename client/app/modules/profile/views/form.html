@@ -268,9 +268,9 @@
     <tab heading="{{ 'Social' | translate }}">
       <div class="row tab-pane ">
         <!--  contact for email here too -->
-        <formly-form result="profile" fields="formFields4" options="formOptions" ng-submit="onSubmit4()"></formly-form>
+        <formly-form result="SocialRecord" fields="formFields4" options="formOptions" ng-submit="onSubmit4()"></formly-form>
         <pre>
-          {{ profile.profile.social | json}}
+          {{ SocialRecord | json}}
 
 <!-- +++++
 
