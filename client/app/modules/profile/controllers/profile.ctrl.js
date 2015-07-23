@@ -273,17 +273,17 @@ console.log('UID: '+ $scope.currentUser.id );
   $scope.getMe = function(pro){
       console.log('CLICK :'+pro.id);
 
-      $scope.SelectedProfile = ProfileService.getProfile(pro.id, function(){
+      $scope.profile = ProfileService.getProfile(pro.id, function(){
         // $location.path('/app/myprofile/'+pro.id);
       });
-      $scope.profile = $scope.SelectedProfile;
+      $scope.SelectedProfile = $scope.profile;
       $scope.sliceProfile($scope.SelectedProfile.profile);
 
       // ProfileService.getProfile(pro.id, function(){
       //   // $location.path('/app/myprofile/'+pro.id);
       // });
 
-      console.log('PROFILE: '+ $scope.SelectedProfile.profile.user.id + ' || CLICK : ' + pro.id);
+      console.log('PROFILE: '+ $scope.SelectedProfile.user.id + ' || CLICK : ' + pro.id);
 	     $location.path('/app/myprofile/'+pro.id);
 
   };
