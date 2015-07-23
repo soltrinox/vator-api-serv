@@ -334,7 +334,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $stateParams,
         // $location.path('/app/myprofile/'+pro.id);
       });
       console.log('CLICK : ' + pro.id);
-      console.log('PROFILE: '+JSON.stringify( $scope.SelectedProfile ));
+      console.log('PROFILE: '+JSON.stringify( pro ));
       $scope.sliceProfile($scope.SelectedProfile);
        $location.path('/app/myprofile/'+pro.id);
   };
@@ -452,6 +452,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $stateParams,
     //Here your view content is fully loaded !!
       if($scope.currentUser){
         console.log('LOGGED IN UID: '+ $scope.currentUser.id );
+        console.log('PROFILE: '+JSON.stringify( $scope.profile ));
       }
   });
 
