@@ -252,11 +252,11 @@ console.log('UID: '+ $scope.currentUser.id );
   };
 
   $scope.getMe = function(pro){
-    console.log('CLICK :'+pro.id);
+      console.log('CLICK :'+pro.id);
       $scope.profile = ProfileService.getProfile(pro.id, function(){
         // $location.path('/app/myprofile/'+pro.id);
       });
-      console.log('PROFILE: '+ $scope.profile);
+      console.log('PROFILE: '+ $scope.profile.id + ' || CLICK : ' + pro.id);
 	     $location.path('/app/myprofile/'+pro.id);
 
   };
