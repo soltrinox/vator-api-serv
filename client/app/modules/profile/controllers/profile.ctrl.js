@@ -326,10 +326,10 @@ console.log('UID: '+ $scope.currentUser.id );
 //     $scope.WorkRecord.dateend = $scope.profile.profile.user.UUID;
  $scope.WorkRecord.profileId =  $scope.profile.profile.user.id;
 
-    console.log('COMPANY : '+ $scope.WorkRecord.companyname + '\n TITLE : ' + $scope.WorkRecord.jobtitle );
+    console.log('COMPANY : '+ $scope.WorkRecord.companyname + '\n TITLE : ' + $scope.WorkRecord.Type +' - ' + $scope.WorkRecord.jobtitle);
     console.log('UUID BEFORE UPSERT: '+ $scope.WorkRecord.profileId);
 
-    ProfileService.upsertWorkHistory($scope.profile.profile.user, function() {
+    ProfileService.upsertWorkHistory($scope.WorkRecord, function() {
       $scope.profile = ProfileService.getProfile($scope.profile.profile.user.id);
       //$state.go('^.view({id: $scope.MyProfile.UUID})');
       $location.path('/app/myprofile/'+$scope.profile.profile.user.id);
