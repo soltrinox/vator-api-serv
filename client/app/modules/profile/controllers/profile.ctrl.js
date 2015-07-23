@@ -297,8 +297,9 @@ console.log('UID: '+ $scope.currentUser.id );
     //         "profileId": "559b5a45b7802b091091a91f"
     //       }
 
+  // link to images module
 
-
+  $location.path('/app/files/');
 
 
   }
