@@ -19,6 +19,7 @@ console.log('UID: '+ $scope.currentUser.id );
     $scope.MediaRecord = {};
     $scope.CompanyRecord = {};
     $scope.MyProfile = {};
+    $scope.SelectedProfile = {};
     $scope.profiles = {};
 
     $scope.sliceProfile = function (inProfile){
@@ -259,12 +260,14 @@ console.log('UID: '+ $scope.currentUser.id );
   $scope.getMe = function(pro){
       console.log('CLICK :'+pro.id);
 
-
+      $scope.SelectedProfile = ProfileService.getProfile(pro.id, function(){
+        // $location.path('/app/myprofile/'+pro.id);
+      });
 
       $scope.profile = ProfileService.getProfile(pro.id, function(){
         // $location.path('/app/myprofile/'+pro.id);
       });
-      console.log('PROFILE: '+ $scope.profile.id + ' || CLICK : ' + pro.id);
+      console.log('PROFILE: '+ $scope.SelectedProfile.id + ' || CLICK : ' + pro.id);
 	     $location.path('/app/myprofile/'+pro.id);
 
   };
@@ -330,9 +333,9 @@ console.log('UID: '+ $scope.currentUser.id );
     console.log('UUID BEFORE UPSERT: '+ $scope.WorkRecord.profileId);
 
     ProfileService.upsertWorkHistory($scope.WorkRecord, function() {
-      $scope.profile = ProfileService.getProfile($scope.profile.profile.user.id);
+      $scope.profile = ProfileService.getProfile($scope.SelectedProfile.user.id);
       //$state.go('^.view({id: $scope.MyProfile.UUID})');
-      $location.path('/app/myprofile/'+$scope.profile.profile.user.id);
+      $location.path('/app/myprofile/'+$scope.SelectedProfile.user.id);
     });
 
   };
