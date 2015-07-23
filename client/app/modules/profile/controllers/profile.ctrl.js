@@ -258,7 +258,7 @@ console.log('UID: '+ $scope.currentUser.id );
 
   $scope.delete = function(id) {
     ProfileService.deleteProfile(id, function() {
-      $scope.profile = ProfileService.getProfile(id);
+      $state.go('^.list');
     });
   };
 
