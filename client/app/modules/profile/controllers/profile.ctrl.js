@@ -270,8 +270,8 @@ console.log('UID: '+ $scope.currentUser.id );
     $scope.MyProfile.UUID = $scope.formFields.UUID;
 
 
-    console.log('PROFILE: '+$scope.profile);
-    console.log('UUID BEFORE UPSERT: '+$scope.MyProfile.UUID);
+    console.log('form fields\n name : '+ $scope.formFields.Name + '\n Bio' + $scope.formFields.Bio );
+    console.log('UUID BEFORE UPSERT: '+$scope.formFields.UUID);
 
     ProfileService.upsertProfile($scope.profile, function() {
       //console.log('UUID IN UPSERT: '+$scope.MyProfile.UUID);
