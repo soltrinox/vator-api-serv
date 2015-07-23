@@ -367,7 +367,7 @@ console.log('UID: '+ $scope.currentUser.id );
 
     $scope.profile = ProfileService.getProfile($scope.SocialRecord.profileId);
     //$state.go('^.view({id: $scope.MyProfile.UUID})');
-    $location.path('/app/myprofile/'+ $scope.profile.profile.user.id +'/edit');
+    $location.path('/app/myprofile/'+$scope.SocialRecord.profileId +'/edit');
 
   };
 
