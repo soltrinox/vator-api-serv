@@ -118,7 +118,8 @@
   <div class="alert alert-danger" ng-if="addError" translate>Could not add profile!</div>
   <tabset class="nav-tabs-custom">
     <tab heading="{{ 'Profile' | translate }}">
-      <div class="row tab-pane">
+      <a href="#" class="btn btn-info" ng-click="toggleBase()"><i class="fa fa-plus"></i>Add / Edit Profile</a>
+      <div class="row tab-pane"   ng-hide="hideBase">
         <!--  contact for email here ??? -->
         <formly-form result="profile.profile.user" fields="formFields" id="userForm" options="formOptions" ng-submit="onSubmit()"></formly-form>
         <!-- <pre>
@@ -170,7 +171,6 @@
           </tr>
         </tbody>
       </table>
-
     </tab>
     <!-- <tab heading="{{ 'Credentials' | translate }}">
       <div class="row tab-pane">
@@ -215,7 +215,8 @@
 
     </tab> -->
     <tab heading="{{ 'Experience' | translate }}">
-      <div class="row tab-pane">
+      <a href="#" class="btn btn-info" ng-click="toggleWork()"><i class="fa fa-plus"></i>Add / Edit Experience</a>
+      <div class="row tab-pane"   ng-hide="hideWork">
 
         <formly-form result="WorkRecord" fields="formFields3" options="formOptions" ng-submit="onSubmit3()"></formly-form>
         <!-- <pre>
@@ -245,33 +246,17 @@
           </tr>
         </tbody>
       </table>
-      <a href="#" class="btn btn-info"><i class="fa fa-check"></i>Save</a>
-
     </tab>
     <tab heading="{{ 'Social' | translate }}">
-      <div class="row tab-pane ">
+      <a href="#" class="btn btn-info" ng-click="toggleSocial()"><i class="fa fa-plus"></i>Add / Edit Social</a>
+      <div class="row tab-pane "  ng-hide="hideSocial">
         <!--  contact for email here too -->
         <formly-form result="SocialRecord" fields="formFields4" options="formOptions" ng-submit="onSubmit4()"></formly-form>
-        <!-- <pre>
-          {{ SocialRecord | json}}
 
-+++++
-
-    "Type": "FB",
-    "Value": "123567890",
-    "URL": "",
-    "created": "2015-01-01T00:00:00.000Z",
-    "status": 0,
-    "verified": true,
-    "id": "559b8b1fe5e4c98b19559ba9",
-    "profileId": "5579f4309e40ffe41be7da47"
-
-        </pre> -->
         <div class="controls">
           <button class="btn btn-primary btn-success" ng-click="onSubmit4()" translate>Add Contact / Social Account</button>
         </div>
       </div>
-
 
       <table class="table table-hover">
         <tbody>
@@ -289,9 +274,6 @@
            <tr>
         </tbody>
       </table>
-
-
-      <a href="#" class="btn btn-info"><i class="fa fa-check"></i>Save</a>
     </tab>
   </tabset>
 </div>

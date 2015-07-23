@@ -265,6 +265,19 @@ console.log('UID: '+ $scope.currentUser.id );
             }
         ];
 
+  $scope.hideBase = true;
+  $scope.toggleBase = function(id) {
+    $scope.hideBase = $scope.hideBase === false ? true: false;
+  }
+  $scope.hideWork = true;
+  $scope.toggleWork = function(id) {
+    scope.hideWork = $scope.hideWork === false ? true: false;
+  }
+  $scope.hideSocial = true;
+  $scope.toggleSocial = function(id) {
+    scope.hideSocial = $scope.hideSocial === false ? true: false;
+  }
+
   $scope.delete = function(id) {
     ProfileService.deleteProfile(id, function() {
       $state.go('^.list');
