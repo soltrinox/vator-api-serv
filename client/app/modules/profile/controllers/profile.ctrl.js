@@ -73,9 +73,22 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $stateParams,
     }, {
       key: 'UUID',
       type: 'hidden',
-      label: gettextCatalog.getString('UUID'),
+      label: '',
       required: true
-    }];
+    }, {
+      key: 'ProfilePic',
+      type: 'text',
+      label: 'Profile Pic URL',
+      required: false
+    }, {
+      key: 'CoverPic',
+      type: 'text',
+      label: 'Cover Pic URL',
+      required: fasle
+    }
+
+
+  ];
 
 
     $scope.formFields2 = [{
