@@ -279,22 +279,25 @@ console.log('UID: '+ $scope.currentUser.id );
     });
   };
 
-  $scope.delete2 = function(id) {
-    EducationService.deleteEducation(id, function() {
-      $scope.profile = ProfileService.getProfile($scope.profile.id);
-    });
-  };
-
-  $scope.onSubmit2 = function() {
-    EducationService.upsertEducation($scope.SchoolRecord, function() {
-      $scope.profile = ProfileService.getProfile($scope.profile.id);
-      $state.go('^.view');
-    });
-  };
+  // $scope.delete2 = function(id) {
+  //   EducationService.deleteEducation(id, function() {
+  //     $scope.profile = ProfileService.getProfile($scope.profile.id);
+  //   });
+  // };
+  //
+  // $scope.onSubmit2 = function() {
+  //   EducationService.upsertEducation($scope.SchoolRecord, function() {
+  //     $scope.profile = ProfileService.getProfile($scope.profile.id);
+  //     $state.go('^.view');
+  //   });
+  // };
 
   $scope.delete3 = function(id) {
     WorkHistoryService.deleteWorkHistory(id, function() {
-      $scope.profile = ProfileService.getProfile($scope.profile.id);
+      $scope.msg = WorkHistoryService.deleteWorkHistory($scope.profile.id, function(){
+
+      });
+      console.log('MSG RESPONSE DELETE WORK: '+   $scope.msg);
     });
   };
 
