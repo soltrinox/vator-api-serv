@@ -40,8 +40,6 @@ console.log('UID: '+ $scope.currentUser.id );
 
     $scope.sliceProfile = function (inProfile){
       if(inProfile){
-
-      }else{
         $scope.educations = inProfile.edu;        // ---------
         $scope.portfolio = inProfile.companies ;  // ---------
         $scope.medias = inProfile.medias ;        // ---------
@@ -50,6 +48,8 @@ console.log('UID: '+ $scope.currentUser.id );
         $scope.credentials = inProfile.creds ;    // ---------
         $scope.contacts = inProfile.contact ;      // ---------
         // $scope. = $scope.profiles. ;
+      }else{
+        console.log('missing profile');
       }
     };
 
@@ -276,13 +276,13 @@ console.log('UID: '+ $scope.currentUser.id );
       $scope.SelectedProfile = ProfileService.getProfile(pro.id, function(){
         // $location.path('/app/myprofile/'+pro.id);
       });
-
-        $scope.sliceProfile($scope.SelectedProfile.profile);
-
       $scope.profile = $scope.SelectedProfile;
+      $scope.sliceProfile($scope.SelectedProfile.profile);
+
       // ProfileService.getProfile(pro.id, function(){
       //   // $location.path('/app/myprofile/'+pro.id);
       // });
+
       console.log('PROFILE: '+ $scope.SelectedProfile.profile.user.id + ' || CLICK : ' + pro.id);
 	     $location.path('/app/myprofile/'+pro.id);
 
@@ -392,7 +392,7 @@ console.log('UID: '+ $scope.currentUser.id );
 
   if ($stateParams.id) {
     $scope.profile = ProfileService.getProfile($stateParams.id);
-    $scope.sliceProfile($scope.MyProfile);
+    $scope.sliceProfile($scope.profile.profile);
   } else {
     $scope.profile = {};
   }
