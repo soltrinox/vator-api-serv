@@ -226,6 +226,8 @@
 
         <formly-form result="$scope.WorkRecord" fields="formFields3" options="formOptions" ng-submit="onSubmit3()"></formly-form>
         <pre>
+
+          {{ $scope.WorkRecord | json }}
           {{ profile.profile.work | json}}
         </pre>
         <div class="controls">
