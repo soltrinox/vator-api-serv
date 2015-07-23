@@ -253,15 +253,16 @@ console.log('UID: '+ $scope.currentUser.id );
 
   $scope.getMe = function(pro){
       console.log('CLICK :'+pro.id);
+
+
+
       $scope.profile = ProfileService.getProfile(pro.id, function(){
         // $location.path('/app/myprofile/'+pro.id);
       });
-      console.log('PROFILE: '+ $scope.profile.id + ' || CLICK : ' + pro.id);
+      console.log('PROFILE: '+ $scope.profile.profile.user.id + ' || CLICK : ' + pro.id);
 	     $location.path('/app/myprofile/'+pro.id);
 
   };
-
-
 
   $scope.onSubmit = function() {
     $scope.MyProfile.Name = $scope.formFields.Name;
@@ -279,6 +280,8 @@ console.log('UID: '+ $scope.currentUser.id );
     });
   };
 
+// ==============  EDUCATION ====================
+
   // $scope.delete2 = function(id) {
   //   EducationService.deleteEducation(id, function() {
   //     $scope.profile = ProfileService.getProfile($scope.profile.id);
@@ -292,6 +295,8 @@ console.log('UID: '+ $scope.currentUser.id );
   //   });
   // };
 
+// ==============  WORKHISTORY ====================
+
   $scope.delete3 = function(id) {
     WorkHistoryService.deleteWorkHistory(id, function() {
       $scope.msg = WorkHistoryService.deleteWorkHistory($scope.profile.id, function(){
@@ -302,19 +307,21 @@ console.log('UID: '+ $scope.currentUser.id );
   };
 
   $scope.onSubmit3 = function() {
-    WorkHistoryService.upsertWorkHistory($scope.WorkRecord, function() {
+    ProfileService.upsertWorkHistory($scope.WorkRecord, function() {
       $scope.profile = ProfileService.getProfile($scope.profile.id);
       $state.go('^.view');
     });
   };
 
+// ==============  EDUCATION ====================
+
   $scope.delete4 = function(id) {
-    EducationService.deleteEducation(id, function() {
+    ProfileService.deleteSocial(id, function() {
       $scope.profile = ProfileService.getProfile($scope.profile.id);
     });
   };
   $scope.onSubmit4 = function() {
-    EducationService.upsertEducation($scope.SocialRecord, function() {
+    ProfileService.upsertSocial($scope.SocialRecord, function() {
       $scope.profiles = ProfileService.getProfile($scope.profile.id);
       $state.go('^.view');
     });
