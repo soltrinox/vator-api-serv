@@ -326,8 +326,8 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $stateParams,
   $scope.getMe = function(pro){
       console.log('GET ME :'+pro.id);
 
-      $scope.SelectedProfile = ProfileService.getProfile(pro.id);
-      console.log('SelectedProfile: '+ JSON.stringify( $scope.SelectedProfile ));
+      SelectedProfile = ProfileService.getProfile(pro.id);
+      console.log('SelectedProfile: '+ JSON.stringify( SelectedProfile ));
       $scope.profile = ProfileService.getProfile(pro.id);
       console.log('CLICK : ' + pro.id);
       console.log('PRO : '+ JSON.stringify( pro ));
