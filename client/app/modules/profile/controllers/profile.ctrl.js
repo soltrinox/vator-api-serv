@@ -38,8 +38,8 @@ console.log('UID: '+ $scope.currentUser.id );
     $scope.credentials = [] ;    // ---------
     $scope.contacts = [] ;
 
-    $scope.sliceProfile = function (){
-      console.log('inProfile' + $scope.profile.profile.user.id);
+    $scope.sliceProfile = function (pro){
+      console.log('inProfile' + pro.user.id);
       if(inProfile){
         $scope.educations = $scope.profile.edu;        // ---------
         $scope.portfolio = $scope.profile.companies ;  // ---------
