@@ -452,7 +452,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $stateParams,
     //Here your view content is fully loaded !!
       if($scope.currentUser){
         console.log('LOGGED IN UID: '+ $scope.currentUser.id );
-        console.log('PROFILE: '+JSON.stringify( $scope.profile ));
+        console.log('PROFILE 2 : '+JSON.stringify( $scope.SelectedProfile ));
       }
   });
 
