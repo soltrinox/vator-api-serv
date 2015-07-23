@@ -1,5 +1,5 @@
 'use strict';
-var app = angular.module('com.module.profile');
+var app = angular.module('com.module.myprofile');
 
 app.config(function($stateProvider) {
   $stateProvider.state('app.myprofile', {

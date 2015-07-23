@@ -1,5 +1,5 @@
 'use strict';
-var app = angular.module('com.module.profile');
+var app = angular.module('com.module.myprofile');
 
 app.controller('MyProfileCtrl',function($scope, $location, $state, $stateParams,
   ProfileService, WorkHistoryService, EducationService, SocialService,

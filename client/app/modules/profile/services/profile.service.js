@@ -1,5 +1,5 @@
 'use strict';
-var app = angular.module('com.module.profile');
+var app = angular.module('com.module.myprofile');
 
 app.service('ProfileService', ['$state', 'CoreService', 'Profile', 'User',
 'Education', 'Social', 'WorkHistory',  'gettextCatalog',
