@@ -121,13 +121,13 @@
       <div class="row tab-pane">
         <!--  contact for email here ??? -->
         <formly-form result="profile.profile.user" fields="formFields" id="userForm" options="formOptions" ng-submit="onSubmit()"></formly-form>
-        <pre>
+        <!-- <pre>
           {{ profile.profile.user | json}}
 
           {{ $scope.currentUser | json}}
 
 +++++++++
-<!--
+
 "contact": [
   {
     "id": "559b75b790d190d21674c8aa",
@@ -139,8 +139,8 @@
     "profileId": "5579f4309e40ffe41be7da47",
     "emailAddress": "third.email@me.com"
   }
-], -->
-        </pre>
+],
+        </pre> -->
         <div class="controls">
           <button class="btn btn-primary btn-success" ng-click="onSubmit()" translate>Submit</button>
         </div>
@@ -269,10 +269,10 @@
       <div class="row tab-pane ">
         <!--  contact for email here too -->
         <formly-form result="SocialRecord" fields="formFields4" options="formOptions" ng-submit="onSubmit4()"></formly-form>
-        <pre>
+        <!-- <pre>
           {{ SocialRecord | json}}
 
-<!-- +++++
++++++
 
     "Type": "FB",
     "Value": "123567890",
@@ -281,9 +281,9 @@
     "status": 0,
     "verified": true,
     "id": "559b8b1fe5e4c98b19559ba9",
-    "profileId": "5579f4309e40ffe41be7da47" -->
+    "profileId": "5579f4309e40ffe41be7da47"
 
-        </pre>
+        </pre> -->
         <div class="controls">
           <button class="btn btn-primary btn-success" ng-click="onSubmit4()" translate>Add Contact / Social Account</button>
         </div>
@@ -300,9 +300,6 @@
           </tr>
         </thead>
         <tbody>
-
-
-
            <tr  ng-repeat="social in profile.profile.social" class="list-group-item">
              <td class="text-center">
                <div class="checkbox margin-t-0">
@@ -315,51 +312,6 @@
              <td> <a href="#" class="btn btn-warning ">Edit</a> </td>
            </tr>
            <tr>
-
-          <tr>
-            <td class="text-center">
-              <div class="checkbox margin-t-0">
-                <input id="checkbox1" type="checkbox">
-                <label for="checkbox1"></label>
-              </div>
-            </td>
-            <td><i class="fa fa-facebook"></i>&nbsp; &nbsp;Facebook</td>
-            <td>http://www.facebook.com</td>
-            <td> <a href="#" class="btn btn-warning ">Edit</a> </td>
-          </tr>
-          <tr>
-            <td class="text-center">
-              <div class="checkbox margin-t-0">
-                <input id="checkbox1" type="checkbox">
-                <label for="checkbox1"></label>
-              </div>
-            </td>
-            <td><i class="fa fa-twitter"></i>&nbsp; &nbsp;Twitter</td>
-            <td>http://www.twitter.com</td>
-            <td> <a href="#" class="btn btn-warning ">Edit</a> </td>
-          </tr>
-          <tr>
-            <td class="text-center">
-              <div class="checkbox margin-t-0">
-                <input id="checkbox1" type="checkbox">
-                <label for="checkbox1"></label>
-              </div>
-            </td>
-            <td><i class="fa fa-github"></i>&nbsp; &nbsp;Github</td>
-            <td>http://www.github.com/profilename</td>
-            <td> <a href="#" class="btn btn-warning ">Edit</a> </td>
-          </tr>
-          <tr>
-            <td class="text-center">
-              <div class="checkbox margin-t-0">
-                <input id="checkbox1" type="checkbox">
-                <label for="checkbox1"></label>
-              </div>
-            </td>
-            <td><i class="fa fa-link"></i>&nbsp; &nbsp;Web</td>
-            <td>http://www.myblog.com</td>
-            <td> <a href="#" class="btn btn-warning ">Edit</a> </td>
-          </tr>
         </tbody>
       </table>
 

@@ -288,7 +288,7 @@ console.log('UID: '+ $scope.currentUser.id );
 
     ProfileService.upsertProfile($scope.profile.profile.user, function() {
       //$state.go('^.view({id: $scope.MyProfile.UUID})');
-      $location.path('/app/myprofile/'+$scope.profile.profile.user.id);
+      $location.path('/app/myprofile/'+$scope.profile.profile.user.id+ '/edit');
     });
   };
 
