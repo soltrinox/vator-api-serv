@@ -10,6 +10,7 @@ function($state, CoreService, Profile, User, Education, Social, WorkHistory, get
   };
 
   this.getProfile = function(id) {
+    console.log('getPro : '+id);
     return   Profile.getEntireProfile({id:id});
   };
 
