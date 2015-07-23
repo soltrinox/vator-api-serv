@@ -39,6 +39,7 @@ console.log('UID: '+ $scope.currentUser.id );
     $scope.contacts = [] ;
 
     $scope.sliceProfile = function (inProfile){
+      console.log('inProfile' + inProfile.id );
       if(inProfile){
         $scope.educations = inProfile.profile.edu;        // ---------
         $scope.portfolio = inProfile.profile.companies ;  // ---------
