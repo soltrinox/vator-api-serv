@@ -245,8 +245,6 @@ console.log('UID: '+ $scope.currentUser.id );
             }
         ];
 
-
-
   $scope.delete = function(id) {
     ProfileService.deleteProfile(id, function() {
       $scope.profile = ProfileService.getProfile(id);
@@ -258,6 +256,7 @@ console.log('UID: '+ $scope.currentUser.id );
       $scope.profile = ProfileService.getProfile(pro.id, function(){
         // $location.path('/app/myprofile/'+pro.id);
       });
+      console.log('PROFILE: '+ $scope.profile);
 	     $location.path('/app/myprofile/'+pro.id);
 
   };
@@ -320,17 +319,11 @@ console.log('UID: '+ $scope.currentUser.id );
 
 // declared now
 
-
   setTimeout(function () {
       $scope.$apply(function() {
               $scope.profiles = ProfileService.getProfiles();
-
           });
   }, 100);
-
-
-
-
 
   if ($stateParams.id) {
     $scope.profile = ProfileService.getProfile($stateParams.id);
