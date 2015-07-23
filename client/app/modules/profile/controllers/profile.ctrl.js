@@ -391,8 +391,8 @@ console.log('UID: '+ $scope.currentUser.id );
   }, 100);
 
   if ($stateParams.id) {
-    $scope.profile = ProfileService.getProfile($stateParams.id);
-    $scope.sliceProfile($scope.profile.profile);
+    // $scope.profile = ProfileService.getProfile($stateParams.id);
+    // $scope.sliceProfile($scope.profile.profile);
   } else {
     $scope.profile = {};
   }
