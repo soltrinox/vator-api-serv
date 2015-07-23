@@ -278,6 +278,31 @@ console.log('UID: '+ $scope.currentUser.id );
     $scope.hideSocial = $scope.hideSocial === false ? true: false;
   }
 
+
+
+  $scope.company = function(id){
+    // break open the comapnies and allow auto completes
+  }
+
+
+  $scope.images = function(id){
+    // "medias": [
+    //       {
+    //         "Name": "PROFILEPIC",
+    //         "URI": "https://tctechcrunch2011.files.wordpress.com/2015/07/lexus.jpeg?w=738",
+    //         "SIZE": 0,
+    //         "Created": "2015-01-01T00:00:00.000Z",
+    //         "Type": 1,
+    //         "id": "559f6866778d7a3c3f05a245",
+    //         "profileId": "559b5a45b7802b091091a91f"
+    //       }
+
+
+
+
+
+  }
+
   $scope.delete = function(id) {
     ProfileService.deleteProfile(id, function() {
       $state.go('^.list');
