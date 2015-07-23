@@ -38,16 +38,16 @@ console.log('UID: '+ $scope.currentUser.id );
     $scope.credentials = [] ;    // ---------
     $scope.contacts = [] ;
 
-    $scope.sliceProfile = function (inProfile){
-      console.log('inProfile' + inProfile.id );
+    $scope.sliceProfile = function (){
+      console.log('inProfile' + $scope.profile.profile.user.id);
       if(inProfile){
-        $scope.educations = inProfile.profile.edu;        // ---------
-        $scope.portfolio = inProfile.profile.companies ;  // ---------
-        $scope.medias = inProfile.profile.medias ;        // ---------
-        $scope.workhistory = inProfile.profile.work ;     // ---------
-        $scope.socials = inProfile.profile.social ;        // ---------
-        $scope.credentials = inProfile.profile.creds ;    // ---------
-        $scope.contacts = inProfile.profile.contact ;      // ---------
+        $scope.educations = $scope.profile.edu;        // ---------
+        $scope.portfolio = $scope.profile.companies ;  // ---------
+        $scope.medias = $scope.profile.medias ;        // ---------
+        $scope.workhistory = $scope.profile.work ;     // ---------
+        $scope.socials = $scope.profile.social ;        // ---------
+        $scope.credentials = $scope.profile.creds ;    // ---------
+        $scope.contacts = $scope.profile.contact ;      // ---------
         // $scope. = $scope.profiles. ;
       }else{
         console.log('missing profile for slice');
@@ -281,8 +281,8 @@ console.log('UID: '+ $scope.currentUser.id );
       $scope.profile = ProfileService.getProfile(pro.id, function(){
         // $location.path('/app/myprofile/'+pro.id);
       });
-      console.log('PROFILE: '+ $scope.profile.id + ' || CLICK : ' + pro.id);
-      $scope.sliceProfile($scope.profile);
+      console.log(' || CLICK : ' + pro.id);
+      $scope.sliceProfile();
 	     $location.path('/app/myprofile/'+pro.id);
 
   };
@@ -391,7 +391,7 @@ console.log('UID: '+ $scope.currentUser.id );
 
   if ($stateParams.id) {
     $scope.profile = ProfileService.getProfile($stateParams.id);
-    $scope.sliceProfile($scope.MyProfile);
+    // $scope.sliceProfile($scope.MyProfile);
   } else {
     $scope.profile = {};
   }
