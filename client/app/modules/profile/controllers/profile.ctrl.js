@@ -273,10 +273,9 @@ console.log('UID: '+ $scope.currentUser.id );
     console.log('Name : '+ $scope.profile.profile.user.Name + '\n Bio : ' + $scope.profile.profile.user.Bio );
     console.log('UUID BEFORE UPSERT: '+$scope.profile.profile.user.id);
 
-    ProfileService.upsertProfile($scope.profile, function() {
-      //console.log('UUID IN UPSERT: '+$scope.MyProfile.UUID);
-      //$scope.profile = ProfileService.getProfile($scope.MyProfile.UUID);
+    ProfileService.upsertProfile($scope.profile.profile.user, function() {
       //$state.go('^.view({id: $scope.MyProfile.UUID})');
+      $location.path('/app/myprofile/'+$scope.profile.profile.user.id);
     });
   };
 
