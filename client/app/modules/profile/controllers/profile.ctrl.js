@@ -332,7 +332,7 @@ console.log('UID: '+ $scope.currentUser.id );
 //     $scope.WorkRecord.jobtitle = $scope.profile.profile.user.Bio;
 //     $scope.WorkRecord.datestart = $scope.profile.profile.user.UUID;
 //     $scope.WorkRecord.dateend = $scope.profile.profile.user.UUID;
- $scope.WorkRecord.profileId =  $scope.profile.profile.user.id;
+    $scope.WorkRecord.profileId =  $scope.profile.profile.user.id;
 
     console.log('COMPANY : '+ $scope.WorkRecord.companyname + '\n TITLE : ' + $scope.WorkRecord.Type +' - ' + $scope.WorkRecord.jobtitle);
     console.log('UUID BEFORE UPSERT: '+ $scope.WorkRecord.profileId);
@@ -356,7 +356,7 @@ console.log('UID: '+ $scope.currentUser.id );
   };
   $scope.onSubmit4 = function() {
 
-
+    $scope.SocialRecord.profileId = $scope.profile.profile.user.id;
 
     console.log('TYPE : '+ $scope.SocialRecord.Type + '\n VAL : ' + $scope.SocialRecord.URL +' - ' + $scope.SocialRecord.Value);
     console.log('UUID BEFORE UPSERT: '+ $scope.SocialRecord.profileId);
@@ -367,7 +367,7 @@ console.log('UID: '+ $scope.currentUser.id );
 
     $scope.profile = ProfileService.getProfile($scope.SocialRecord.profileId);
     //$state.go('^.view({id: $scope.MyProfile.UUID})');
-    $location.path('/app/myprofile/'+$scope.SocialRecord.profileId+'/edit');
+    $location.path('/app/myprofile/'+ $scope.profile.profile.user.id +'/edit');
 
   };
 
