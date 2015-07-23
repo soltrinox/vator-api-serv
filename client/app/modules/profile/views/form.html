@@ -12,26 +12,12 @@
       <a href="#" class="btn btn-info" ng-click="toggleBase()"><i class="fa fa-plus"></i>Add / Edit Profile</a>
       <div class="row tab-pane"   ng-hide="hideBase">
         <!--  contact for email here ??? -->
-        <formly-form result="profile.profile.user" fields="formFields" id="userForm" options="formOptions" ng-submit="onSubmit()"></formly-form>
+        <formly-form result="profile.user" fields="formFields" id="userForm" options="formOptions" ng-submit="onSubmit()"></formly-form>
         <pre>
-          {{ profile.profile.user | json}}
+          {{ profile.user | json}}
 
           {{ $scope.currentUser | json}}
 
-<!-- +++++++++
-
-"contact": [
-  {
-    "id": "559b75b790d190d21674c8aa",
-    "profileId": "5579f4309e40ffe41be7da47",
-    "emailAddress": "second.email@me.com"
-  },
-  {
-    "id": "559b75bf90d190d21674c8ab",
-    "profileId": "5579f4309e40ffe41be7da47",
-    "emailAddress": "third.email@me.com"
-  }
-], -->
         </pre>
         <div class="controls">
           <button class="btn btn-primary btn-success" ng-click="onSubmit()" translate>Submit</button>

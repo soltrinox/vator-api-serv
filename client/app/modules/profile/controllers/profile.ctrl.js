@@ -39,7 +39,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $stateParams,
     $scope.contacts = [] ;
 
     $scope.sliceProfile = function (pro){
-      // console.log('inProfile' + pro.id);
+      console.log('inProfile' + pro.user.id);
       if(pro){
         $scope.educations = pro.edu;        // ---------
         $scope.portfolio = pro.companies ;  // ---------
