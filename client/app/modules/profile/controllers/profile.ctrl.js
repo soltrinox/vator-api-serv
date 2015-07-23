@@ -4,9 +4,7 @@ var app = angular.module('com.module.profile');
 app.controller('MyProfileCtrl',function($scope, $location, $state, $stateParams,
   ProfileService, gettextCatalog) {
 
-if($scope.currentUser){
-  console.log('UID: '+ $scope.currentUser.id );
-}
+
 
 
     $scope.SchoolRecord = {};
@@ -429,6 +427,10 @@ if($scope.currentUser){
 
   setTimeout(function () {
       $scope.$apply(function() {
+
+        if($scope.currentUser){
+          console.log('LOGGED IN UID: '+ $scope.currentUser.id );
+        }
               $scope.profiles = ProfileService.getProfiles();
           });
   }, 100);
