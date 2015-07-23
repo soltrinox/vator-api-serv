@@ -39,7 +39,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $stateParams,
     $scope.contacts = [] ;
 
     $scope.sliceProfile = function (pro){
-      console.log('inProfile' + pro.user.id);
+      // console.log('inProfile' + pro.user.id);
       if(pro){
         $scope.educations = pro.edu;        // ---------
         $scope.portfolio = pro.companies ;  // ---------
@@ -332,11 +332,10 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $stateParams,
 
       $scope.profile = ProfileService.getProfile(pro.id, function(){
         // $location.path('/app/myprofile/'+pro.id);
+        console.log(' || CLICK : ' + pro.id);
+        $scope.sliceProfile($scope.profile.profile);
+  	     $location.path('/app/myprofile/'+pro.id);
       });
-      console.log(' || CLICK : ' + pro.id);
-      $scope.sliceProfile($scope.profile);
-	     $location.path('/app/myprofile/'+pro.id);
-
   };
 
   $scope.onSubmit = function() {

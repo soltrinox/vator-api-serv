@@ -12,9 +12,9 @@
       <a href="#" class="btn btn-info" ng-click="toggleBase()"><i class="fa fa-plus"></i>Add / Edit Profile</a>
       <div class="row tab-pane"   ng-hide="hideBase">
         <!--  contact for email here ??? -->
-        <formly-form result="profile.user" fields="formFields" id="userForm" options="formOptions" ng-submit="onSubmit()"></formly-form>
+        <formly-form result="profile.profile.user" fields="formFields" id="userForm" options="formOptions" ng-submit="onSubmit()"></formly-form>
         <pre>
-          {{ profile.user | json}}
+          {{ profile.profile.user | json}}
 
           {{ $scope.currentUser | json}}
 
