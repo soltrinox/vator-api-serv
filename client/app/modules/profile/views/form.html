@@ -120,17 +120,7 @@
     <tab heading="{{ 'Profile' | translate }}">
       <div class="row tab-pane">
         <!--  contact for email here ??? -->
-        <form >
-          <ul class="dropdown-menu">
-        <li ng-repeat="choice in itemsDrop">
-          <a href>{{choice}}</a>
-        </li>
-      </ul>
-        </form>
-
-
-
-
+        <formly-form result="profile.profile.user" fields="formFields" id="userForm" options="formOptions" ng-submit="onSubmit()"></formly-form>
         <pre>
           {{ profile.profile.user | json}}
 

@@ -112,13 +112,6 @@ console.log('UID: '+ $scope.currentUser.id );
 //  'id': 'objectid',
 //  'profileId': 'objectid'
 
-$scope.itemsDrop = [
-    'The first choice!',
-    'And another choice for you.',
-    'but wait! A third!'
-  ];
-
-
       $scope.formFields3 =
         [
             {
