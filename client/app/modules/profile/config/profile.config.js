@@ -1,5 +1,5 @@
 'use strict';
-var app = angular.module('com.module.myprofile');
+var app = angular.module('com.module.profile');
 
 app.run(function($rootScope, Profile, gettextCatalog) {
   $rootScope.addMenu(gettextCatalog.getString('Profile'), 'app.myprofile.list',
