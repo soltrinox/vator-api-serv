@@ -39,15 +39,15 @@ console.log('UID: '+ $scope.currentUser.id );
     $scope.contacts = [] ;
 
     $scope.sliceProfile = function (pro){
-      console.log('inProfile' + pro.profile);
+      console.log('inProfile' + pro.user.id);
       if(pro){
-        $scope.educations = pro.profile.profile.edu;        // ---------
-        $scope.portfolio = pro.profile.profile.companies ;  // ---------
-        $scope.medias = pro.profile.profile.medias ;        // ---------
-        $scope.workhistory = pro.profile.profile.work ;     // ---------
-        $scope.socials = pro.profile.profile.social ;        // ---------
-        $scope.credentials = pro.profile.profile.creds ;    // ---------
-        $scope.contacts = pro.profile.profile.contact ;      // ---------
+        $scope.educations = pro.edu;        // ---------
+        $scope.portfolio = pro.companies ;  // ---------
+        $scope.medias = pro.medias ;        // ---------
+        $scope.workhistory = pro.work ;     // ---------
+        $scope.socials = pro.social ;        // ---------
+        $scope.credentials = pro.creds ;    // ---------
+        $scope.contacts = pro.contact ;      // ---------
         // $scope. = $scope.profiles. ;
       }else{
         console.log('missing profile for slice');
