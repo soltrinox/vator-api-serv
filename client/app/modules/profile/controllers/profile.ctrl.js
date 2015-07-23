@@ -283,7 +283,7 @@ console.log('UID: '+ $scope.currentUser.id );
       //   // $location.path('/app/myprofile/'+pro.id);
       // });
 
-      console.log('PROFILE: '+ $scope.SelectedProfile.user.id + ' || CLICK : ' + pro.id);
+      console.log('PROFILE: '+ $scope.SelectedProfile.profile.user.id + ' || CLICK : ' + pro.id);
 	     $location.path('/app/myprofile/'+pro.id);
 
   };
