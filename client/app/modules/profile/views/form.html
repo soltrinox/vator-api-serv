@@ -225,11 +225,11 @@
       <div class="row tab-pane">
 
         <formly-form result="WorkRecord" fields="formFields3" options="formOptions" ng-submit="onSubmit3()"></formly-form>
-        <pre>
+        <!-- <pre>
 
           {{ WorkRecord | json }}
           {{ profile.profile.work | json}}
-        </pre>
+        </pre> -->
         <div class="controls">
           <button class="btn btn-primary btn-success" ng-click="onSubmit3()" translate>Add Experience </button>
         </div>
@@ -239,10 +239,10 @@
         <thead>
           <tr>
             <td class="text-center"><i class="fa fa-trash"></i></td>
-            <td>Position</td>
+            <td></td>
             <td>Dates</td>
-            <td>Name</td>
-            <td>URL</td>
+            <td>Company</td>
+            <td>Position</td>
             <td></td>
           </tr>
         </thead>
@@ -254,13 +254,26 @@
                 <label for="checkbox1"></label>
               </div>
             </td>
-            <td>Fulltme - Senior Computer Engineer</td>
+            <td>Employee</td>
             <td>2003-2008</td>
             <td>IBM</td>
-            <td>http://www.ibm.com</td>
+            <td>Engineer</td>
             <td> <a href="#" class="btn btn-warning ">Edit</a> </td>
           </tr>
 
+          <tr ng-repeat="work in profile.profile.work" class="list-group-item">
+            <td class="text-center">
+              <div class="checkbox margin-t-0">
+                <input id="checkbox1" type="checkbox">
+                <label for="checkbox1"></label>
+              </div>
+            </td>
+            <td>{{work.Type}}</td>
+            <td>{{work.datestart}} to {{work.dateend}}</td>
+            <td>{{work.companyname}}</td>
+            <td>{{work.jobtitle}}</td>
+            <td> <a href="#" class="btn btn-warning ">Edit</a> </td>
+          </tr>
         </tbody>
       </table>
       <a href="#" class="btn btn-info"><i class="fa fa-check"></i>Save</a>
