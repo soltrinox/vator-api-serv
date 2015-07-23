@@ -334,8 +334,8 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $stateParams,
         // $location.path('/app/myprofile/'+pro.id);
       });
       console.log('CLICK : ' + pro.id);
-      console.log('PROFILE: '+JSON.stringify($scope.profile));
-      $scope.sliceProfile($scope.profile.profile);
+      console.log('PROFILE: '+JSON.stringify(profile));
+      $scope.sliceProfile(profile.profile);
        $location.path('/app/myprofile/'+pro.id);
   };
 
