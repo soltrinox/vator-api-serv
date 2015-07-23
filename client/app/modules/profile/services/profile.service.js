@@ -106,16 +106,16 @@ function($state, CoreService, Profile, User, Education, Social, WorkHistory, get
     });
   };
 
-  this.upsertSocial = function(creds, cb) {
-    Social.upsert(creds, function() {
+  this.upsertSocial = function(socl, cb) {
+    Social.upsert(socl, function() {
       CoreService.toastSuccess(gettextCatalog.getString(
-        'Credentials saved'), gettextCatalog.getString(
+        'Social saved'), gettextCatalog.getString(
         'Your creds is safe with us!'));
       cb();
     }, function(err) {
       CoreService.toastSuccess(gettextCatalog.getString(
-        'Error saving credentials '), gettextCatalog.getString(
-        'This creds could not be saved: ') + err);
+        'Error saving social '), gettextCatalog.getString(
+        'This social could not be saved: ') + err);
     });
   };
 
@@ -125,13 +125,13 @@ function($state, CoreService, Profile, User, Education, Social, WorkHistory, get
       function() {
         Social.deleteById(id, function() {
           CoreService.toastSuccess(gettextCatalog.getString(
-            'Creds deleted'), gettextCatalog.getString(
-            'Your creds is deleted!'));
+            'Social deleted'), gettextCatalog.getString(
+            'Your social is deleted!'));
           cb();
         }, function(err) {
           CoreService.toastError(gettextCatalog.getString(
-            'Error deleting creds'), gettextCatalog.getString(
-            'Your creds is not deleted! ') + err);
+            'Error deleting social'), gettextCatalog.getString(
+            'Your social is not deleted! ') + err);
         });
       },
       function() {

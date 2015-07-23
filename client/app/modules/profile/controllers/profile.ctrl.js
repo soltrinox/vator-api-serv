@@ -8,7 +8,15 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $stateParams,
 console.log('UID: '+ $scope.currentUser.id );
 
     $scope.SchoolRecord = {};
-    $scope.SocialRecord = {};
+    $scope.SocialRecord = {
+      Type : '',
+      Value : '',
+      URL : '',
+      created : '',
+      status : 1,
+      verified : false,
+      profileId : ''
+    };
     $scope.WorkRecord = {
       companyname: '',
       jobtitle : '',
@@ -109,14 +117,6 @@ console.log('UID: '+ $scope.currentUser.id );
         label: gettextCatalog.getString('UUID'),
         required: true
       }];
-
-
-//     'companyname': '',
-//  'jobtitle': '',
-//  'datestart': '',
-//  'dateend': '',
-//  'id': 'objectid',
-//  'profileId': 'objectid'
 
       $scope.formFields3 =
         [
@@ -225,10 +225,16 @@ console.log('UID: '+ $scope.currentUser.id );
               type: 'text',
               label: 'username / acct#',
               required: true
+            },{
+              key: 'URL',
+              type: 'text',
+              label: 'Link',
+              required: true
             },
             {
               key: 'created',
               type: 'hidden',
+              default : '2015-01-01',
               required: true
             },
             {
@@ -239,14 +245,13 @@ console.log('UID: '+ $scope.currentUser.id );
             },
             {
               key: 'verified',
-              type: 'text',
+              type: 'hidden',
               default : false,
               required: true
             },
             {
               key: 'profileId',
               type: 'hidden',
-              label: gettextCatalog.getString('UUID'),
               required: true
             }
         ];
@@ -342,7 +347,7 @@ console.log('UID: '+ $scope.currentUser.id );
 
   };
 
-// ==============  EDUCATION ====================
+// ==============  SOCIAL ====================
 
   $scope.delete4 = function(id) {
     ProfileService.deleteSocial(id, function() {
@@ -350,13 +355,23 @@ console.log('UID: '+ $scope.currentUser.id );
     });
   };
   $scope.onSubmit4 = function() {
+
+
+
+    console.log('TYPE : '+ $scope.SocialRecord.Type + '\n VAL : ' + $scope.SocialRecord.URL +' - ' + $scope.SocialRecord.Value);
+    console.log('UUID BEFORE UPSERT: '+ $scope.SocialRecord.profileId);
+
     ProfileService.upsertSocial($scope.SocialRecord, function() {
-      $scope.profiles = ProfileService.getProfile($scope.profile.id);
-      $state.go('^.view');
+
     });
+
+    $scope.profile = ProfileService.getProfile($scope.SocialRecord.profileId);
+    //$state.go('^.view({id: $scope.MyProfile.UUID})');
+    $location.path('/app/myprofile/'+$scope.SocialRecord.profileId+'/edit');
+
   };
 
-// declared now
+// ==============  GRAB PROFILES ON LOAD ====================
 
   setTimeout(function () {
       $scope.$apply(function() {

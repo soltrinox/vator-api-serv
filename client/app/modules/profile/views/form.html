@@ -247,20 +247,6 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td class="text-center">
-              <div class="checkbox margin-t-0">
-                <input id="checkbox1" type="checkbox">
-                <label for="checkbox1"></label>
-              </div>
-            </td>
-            <td>Employee</td>
-            <td>2003-2008</td>
-            <td>IBM</td>
-            <td>Engineer</td>
-            <td> <a href="#" class="btn btn-warning ">Edit</a> </td>
-          </tr>
-
           <tr ng-repeat="work in profile.profile.work" class="list-group-item">
             <td class="text-center">
               <div class="checkbox margin-t-0">
@@ -286,10 +272,8 @@
         <pre>
           {{ profile.profile.social | json}}
 
-+++++
+<!-- +++++
 
-"social": [
-  {
     "Type": "FB",
     "Value": "123567890",
     "URL": "",
@@ -297,19 +281,8 @@
     "status": 0,
     "verified": true,
     "id": "559b8b1fe5e4c98b19559ba9",
-    "profileId": "5579f4309e40ffe41be7da47"
-  },
-  {
-    "Type": "FB",
-    "Value": "123567890",
-    "URL": "new001",
-    "created": "2015-01-01T00:00:00.000Z",
-    "status": 1,
-    "verified": true,
-    "id": "559b8b34e5e4c98b19559baa",
-    "profileId": "5579f4309e40ffe41be7da47"
-  }
-]
+    "profileId": "5579f4309e40ffe41be7da47" -->
+
         </pre>
         <div class="controls">
           <button class="btn btn-primary btn-success" ng-click="onSubmit4()" translate>Add Contact / Social Account</button>
@@ -323,11 +296,26 @@
             <td class="text-center"><i class="fa fa-trash"></i></td>
             <td></td>
             <td>Site</td>
-
             <td></td>
           </tr>
         </thead>
         <tbody>
+
+
+
+           <tr  ng-repeat="social in profile.profile.social" class="list-group-item">
+             <td class="text-center">
+               <div class="checkbox margin-t-0">
+                 <input id="checkbox1" type="checkbox">
+                 <label for="checkbox1"></label>
+               </div>
+             </td>
+             <td><{{social.Type}} : {{social.Value}}</td>
+             <td>{{social.URL}}</td>
+             <td> <a href="#" class="btn btn-warning ">Edit</a> </td>
+           </tr>
+           <tr>
+
           <tr>
             <td class="text-center">
               <div class="checkbox margin-t-0">
