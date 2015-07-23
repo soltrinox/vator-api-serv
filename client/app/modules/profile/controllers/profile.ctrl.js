@@ -305,11 +305,31 @@ console.log('UID: '+ $scope.currentUser.id );
     });
   };
 
+
+  //     'companyname': '',
+  //  'jobtitle': '',
+  //  'datestart': '',
+  //  'dateend': '',
+  //  'id': 'objectid',
+  //  'profileId': 'objectid'
+
   $scope.onSubmit3 = function() {
-    ProfileService.upsertWorkHistory($scope.WorkRecord, function() {
-      $scope.profile = ProfileService.getProfile($scope.profile.id);
-      $state.go('^.view');
+
+//     $scope.WorkRecord.companyname = $scope.profile.profile.user.Name;
+//     $scope.WorkRecord.jobtitle = $scope.profile.profile.user.Bio;
+//     $scope.WorkRecord.datestart = $scope.profile.profile.user.UUID;
+//     $scope.WorkRecord.dateend = $scope.profile.profile.user.UUID;
+ $scope.WorkRecord.profileId =  $scope.profile.profile.user.id;
+
+    console.log('COMPANY : '+ $scope.WorkRecord.companyname + '\n TITLE : ' + $scope.WorkRecord.jobtitle );
+    console.log('UUID BEFORE UPSERT: '+ $scope.WorkRecord.profileId);
+
+    ProfileService.upsertWorkHistory($scope.profile.profile.user, function() {
+      $scope.profile = ProfileService.getProfile($scope.profile.profile.user.id);
+      //$state.go('^.view({id: $scope.MyProfile.UUID})');
+      $location.path('/app/myprofile/'+$scope.profile.profile.user.id);
     });
+
   };
 
 // ==============  EDUCATION ====================
