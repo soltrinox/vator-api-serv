@@ -333,10 +333,12 @@ console.log('UID: '+ $scope.currentUser.id );
     console.log('UUID BEFORE UPSERT: '+ $scope.WorkRecord.profileId);
 
     ProfileService.upsertWorkHistory($scope.WorkRecord, function() {
-      $scope.profile = ProfileService.getProfile($scope.SelectedProfile.user.id);
-      //$state.go('^.view({id: $scope.MyProfile.UUID})');
-      $location.path('/app/myprofile/'+$scope.SelectedProfile.user.id);
+
     });
+
+    $scope.profile = ProfileService.getProfile($scope.SelectedProfile.user.id);
+    //$state.go('^.view({id: $scope.MyProfile.UUID})');
+    $location.path('/app/myprofile/'+$scope.SelectedProfile.user.id+'/edit');
 
   };
 
