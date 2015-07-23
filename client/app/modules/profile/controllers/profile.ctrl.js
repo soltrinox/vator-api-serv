@@ -265,13 +265,13 @@ console.log('UID: '+ $scope.currentUser.id );
   };
 
   $scope.onSubmit = function() {
-    $scope.MyProfile.Name = $scope.formFields.Name;
-    $scope.MyProfile.Bio = $scope.formFields.Bio;
-    $scope.MyProfile.UUID = $scope.formFields.UUID;
+    $scope.MyProfile.Name = $scope.profile.profile.user.Name;
+    $scope.MyProfile.Bio = $scope.profile.profile.user.Bio;
+    $scope.MyProfile.UUID = $scope.profile.profile.user.UUID;
 
 
-    console.log('form fields\n name : '+ $scope.formFields.Name + '\n Bio' + $scope.formFields.Bio );
-    console.log('UUID BEFORE UPSERT: '+$scope.formFields.UUID);
+    console.log('form fields\n name : '+ $scope.profile.profile.user.Name + '\n Bio' + $scope.profile.profile.user.Bio );
+    console.log('UUID BEFORE UPSERT: '+$scope.profile.profile.user.UUID);
 
     ProfileService.upsertProfile($scope.profile, function() {
       //console.log('UUID IN UPSERT: '+$scope.MyProfile.UUID);
