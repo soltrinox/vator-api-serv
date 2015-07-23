@@ -30,18 +30,26 @@ console.log('UID: '+ $scope.currentUser.id );
     $scope.SelectedProfile = {};
     $scope.profiles = {};
 
+    $scope.educations = [];        // ---------
+    $scope.portfolio = [];  // ---------
+    $scope.medias = [] ;        // ---------
+    $scope.workhistory = [] ;     // ---------
+    $scope.socials = [] ;        // ---------
+    $scope.credentials = [] ;    // ---------
+    $scope.contacts = [] ;
+
     $scope.sliceProfile = function (inProfile){
       if(inProfile){
-
-      }else{
-        $scope.educations = $scope.profile.edu;        // ---------
-        $scope.portfolio = $scope.profile.companies ;  // ---------
-        $scope.medias = $scope.profile.medias ;        // ---------
-        $scope.workhistory = $scope.profile.work ;     // ---------
-        $scope.social = $scope.profile.social ;        // ---------
-        $scope.credentials = $scope.profile.creds ;    // ---------
-        $scope.contacts = $scope.profile.contact ;      // ---------
+        $scope.educations = inProfile.profile.edu;        // ---------
+        $scope.portfolio = inProfile.profile.companies ;  // ---------
+        $scope.medias = inProfile.profile.medias ;        // ---------
+        $scope.workhistory = inProfile.profile.work ;     // ---------
+        $scope.socials = inProfile.profile.social ;        // ---------
+        $scope.credentials = inProfile.profile.creds ;    // ---------
+        $scope.contacts = inProfile.profile.contact ;      // ---------
         // $scope. = $scope.profiles. ;
+      }else{
+        console.log('missing profile for slice');
       }
     };
 
