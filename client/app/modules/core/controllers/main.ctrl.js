@@ -21,6 +21,8 @@ angular.module('com.module.core')
 	});
 
     $scope.menuoptions = $rootScope.menu;
+    console.log('CURRENT UID: ' + $scope.currentUser.id);
+
 
     $scope.logout = function() {
       User.logout(function() {
