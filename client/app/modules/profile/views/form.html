@@ -5,115 +5,6 @@
 </h4>
 
 
-<!-- {
-  "user": {
-    "Created": "2015-01-01T00:00:00.000Z",
-    "Name": "Danny Boy",
-    "Bio": "LOTS OF Ohhhh THE THINGS....",
-    "id": "5579f4309e40ffe41be7da47"
-  },
-  "companies": [
-    {
-      "Name": "Company #1",
-      "URL": "NONE",
-      "id": "559b5793701d33fc0e934061"
-    }
-  ],
-  "medias": [
-    {
-      "Name": "PROFILEPIC",
-      "URI": "https://tctechcrunch2011.files.wordpress.com/2015/07/lexus.jpeg?w=738",
-      "SIZE": 0,
-      "Created": "2015-01-01T00:00:00.000Z",
-      "Type": 1,
-      "id": "559c7e0e5cfe0e8f21cee3f7",
-      "profileId": "5579f4309e40ffe41be7da47"
-    },
-    {
-      "Name": "PROFILEPIC",
-      "URI": "https://tctechcrunch2011.files.wordpress.com/2015/07/lexus.jpeg?w=738",
-      "SIZE": 0,
-      "Created": "2015-01-01T00:00:00.000Z",
-      "Type": 1,
-      "id": "559f684c778d7a3c3f05a244",
-      "profileId": "5579f4309e40ffe41be7da47"
-    }
-  ],
-  "work": [
-    {
-      "companyname": "IBM",
-      "jobtitle": "ENGINEER",
-      "datestart": "2001-01-01T00:00:00.000Z",
-      "dateend": "2004-01-01T00:00:00.000Z",
-      "id": "55a5566addad5276560eb462",
-      "profileId": "5579f4309e40ffe41be7da47"
-    }
-  ],
-  "social": [
-    {
-      "Type": "FB",
-      "Value": "123567890",
-      "URL": "",
-      "created": "2015-01-01T00:00:00.000Z",
-      "status": 0,
-      "verified": true,
-      "id": "559b8b1fe5e4c98b19559ba9",
-      "profileId": "5579f4309e40ffe41be7da47"
-    },
-    {
-      "Type": "FB",
-      "Value": "123567890",
-      "URL": "new001",
-      "created": "2015-01-01T00:00:00.000Z",
-      "status": 1,
-      "verified": true,
-      "id": "559b8b34e5e4c98b19559baa",
-      "profileId": "5579f4309e40ffe41be7da47"
-    }
-  ],
-  "contact": [
-    {
-      "id": "559b75b790d190d21674c8aa",
-      "profileId": "5579f4309e40ffe41be7da47",
-      "emailAddress": "second.email@me.com"
-    },
-    {
-      "id": "559b75bf90d190d21674c8ab",
-      "profileId": "5579f4309e40ffe41be7da47",
-      "emailAddress": "third.email@me.com"
-    }
-  ],
-  "edu": [
-    {
-      "School": "Berkeley",
-      "URL": "www.berkeley.edu",
-      "Major": "Physics",
-      "Degree": "PHD",
-      "Date": "1999-06-01",
-      "id": "559b5c21eafb4b2910654251",
-      "profileId": "5579f4309e40ffe41be7da47"
-    },
-    {
-      "School": "Stanford",
-      "URL": "www.stanford.edu",
-      "Major": "Math",
-      "Degree": "PHD",
-      "Date": "1999-06-01",
-      "id": "559b632f5b2c7fa910b09c84",
-      "profileId": "5579f4309e40ffe41be7da47"
-    }
-  ],
-  "creds": [
-    {
-      "kname": "Entrepreneur",
-      "link": "",
-      "type": "ROLE",
-      "parent": "",
-      "id": "559b6c4c846418d310596622"
-    }
-  ]
-} -->
-
 <div class="container col-lg-12 col-md-12">
   <div class="alert alert-danger" ng-if="addError" translate>Could not add profile!</div>
   <tabset class="nav-tabs-custom">
@@ -122,12 +13,12 @@
       <div class="row tab-pane"   ng-hide="hideBase">
         <!--  contact for email here ??? -->
         <formly-form result="profile.profile.user" fields="formFields" id="userForm" options="formOptions" ng-submit="onSubmit()"></formly-form>
-        <!-- <pre>
+        <pre>
           {{ profile.profile.user | json}}
 
           {{ $scope.currentUser | json}}
 
-+++++++++
+<!-- +++++++++
 
 "contact": [
   {
@@ -140,8 +31,8 @@
     "profileId": "5579f4309e40ffe41be7da47",
     "emailAddress": "third.email@me.com"
   }
-],
-        </pre> -->
+], -->
+        </pre>
         <div class="controls">
           <button class="btn btn-primary btn-success" ng-click="onSubmit()" translate>Submit</button>
         </div>
