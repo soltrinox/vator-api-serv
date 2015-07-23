@@ -36,9 +36,9 @@ msgid "Actions"
 msgstr ""
 
 #: client/app/modules/events/views/main.html:2
-#: client/app/modules/myprofile/views/main.html:3
 #: client/app/modules/pages/views/main.html:2
 #: client/app/modules/posts/views/main.html:2
+#: client/app/modules/profile/views/main.html:3
 #: client/app/modules/settings/views/main.html:2
 #: client/app/modules/users/views/main.html:3
 msgid "Add"
@@ -60,7 +60,7 @@ msgstr ""
 msgid "Add a new post"
 msgstr ""
 
-#: client/app/modules/myprofile/views/form.html:3
+#: client/app/modules/profile/views/form.html:3
 msgid "Add a new profile"
 msgstr ""
 
@@ -68,23 +68,11 @@ msgstr ""
 msgid "Add a new setting"
 msgstr ""
 
-<<<<<<< HEAD
-#: client/app/modules/myprofile/views/form.html:300
+#: client/app/modules/profile/views/form.html:300
 msgid "Add Contact / Social Account"
 msgstr ""
 
-#: client/app/modules/myprofile/views/form.html:232
-=======
-#: client/app/modules/profile/views/form.html:102
-msgid "Add Contact / Social Account"
-msgstr ""
-
-#: client/app/modules/profile/views/form.html:24
-msgid "Add Credials"
-msgstr ""
-
-#: client/app/modules/profile/views/form.html:62
->>>>>>> cc6eef06ff5536e256a8f9d5f3a346fcde69300c
+#: client/app/modules/profile/views/form.html:232
 msgid "Add Experience"
 msgstr ""
 
@@ -103,33 +91,22 @@ msgstr ""
 #: client/app/modules/core/helpers/FormHelper.js:23
 #: client/app/modules/events/controllers/events.ctrl.js:50
 #: client/app/modules/files/controllers/files.ctrl.js:14
-#: client/app/modules/myprofile/services/myprofile.service.js:123
-#: client/app/modules/myprofile/services/myprofile.service.js:170
-#: client/app/modules/myprofile/services/myprofile.service.js:31
 #: client/app/modules/notes/services/notes.service.js:32
 #: client/app/modules/pages/controllers/pages.ctrl.js:33
 #: client/app/modules/posts/services/posts.service.js:22
 #: client/app/modules/products/controllers/products.ctrl.js:42
-<<<<<<< HEAD
-=======
 #: client/app/modules/profile/services/education.service.js:32
-#: client/app/modules/profile/services/profile.service.js:125
-#: client/app/modules/profile/services/profile.service.js:172
-#: client/app/modules/profile/services/profile.service.js:33
-#: client/app/modules/profile/services/profile.service.js:79
+#: client/app/modules/profile/services/profile.service.js:123
+#: client/app/modules/profile/services/profile.service.js:170
+#: client/app/modules/profile/services/profile.service.js:31
 #: client/app/modules/profile/services/social.service.js:32
 #: client/app/modules/profile/services/workhistory.service.js:32
->>>>>>> cc6eef06ff5536e256a8f9d5f3a346fcde69300c
 #: client/app/modules/settings/controllers/settings.ctrl.js:28
 #: client/app/modules/users/controllers/users.ctrl.js:26
 msgid "Are you sure?"
 msgstr ""
 
-<<<<<<< HEAD
-#: client/app/modules/myprofile/controllers/myprofile.ctrl.js:47
-=======
 #: client/app/modules/profile/controllers/profile.ctrl.js:48
->>>>>>> cc6eef06ff5536e256a8f9d5f3a346fcde69300c
 msgid "Bio"
 msgstr ""
 
@@ -185,7 +162,8 @@ msgstr ""
 msgid "Click <a href=\"\" ui-sref=\"^.add\">here</a> to add a setting!"
 msgstr ""
 
-#: client/app/modules/myprofile/views/list.html:23
+#: client/app/modules/profile/views/edu.list.html:20
+#: client/app/modules/profile/views/list.html:23
 msgid "Click <a href=\"\" ui-sref=\"^.add\">here</a> to create a profile!"
 msgstr ""
 
@@ -226,11 +204,7 @@ msgstr ""
 msgid "Could not add post!"
 msgstr ""
 
-<<<<<<< HEAD
-#: client/app/modules/myprofile/views/form.html:118
-=======
-#: client/app/modules/profile/views/form.html:8
->>>>>>> cc6eef06ff5536e256a8f9d5f3a346fcde69300c
+#: client/app/modules/profile/views/form.html:118
 msgid "Could not add profile!"
 msgstr ""
 
@@ -246,36 +220,21 @@ msgstr ""
 msgid "Create pages with rich content!"
 msgstr ""
 
-<<<<<<< HEAD
-#: client/app/modules/myprofile/views/form.html:182
-msgid "Credentials"
-msgstr ""
-
-#: client/app/modules/myprofile/services/myprofile.service.js:111
-msgid "Credentials saved"
-msgstr ""
-
-#: client/app/modules/myprofile/services/myprofile.service.js:127
-#: client/app/modules/myprofile/services/myprofile.service.js:174
-=======
-#: client/app/modules/profile/views/form.html:19
+#: client/app/modules/profile/views/form.html:182
 msgid "Credentials"
 msgstr ""
 
 #: client/app/modules/profile/services/education.service.js:20
-#: client/app/modules/profile/services/profile.service.js:113
-#: client/app/modules/profile/services/profile.service.js:67
+#: client/app/modules/profile/services/profile.service.js:111
 #: client/app/modules/profile/services/social.service.js:20
 msgid "Credentials saved"
 msgstr ""
 
 #: client/app/modules/profile/services/education.service.js:36
-#: client/app/modules/profile/services/profile.service.js:129
-#: client/app/modules/profile/services/profile.service.js:176
-#: client/app/modules/profile/services/profile.service.js:83
+#: client/app/modules/profile/services/profile.service.js:127
+#: client/app/modules/profile/services/profile.service.js:174
 #: client/app/modules/profile/services/social.service.js:36
 #: client/app/modules/profile/services/workhistory.service.js:36
->>>>>>> cc6eef06ff5536e256a8f9d5f3a346fcde69300c
 msgid "Creds deleted"
 msgstr ""
 
@@ -297,23 +256,16 @@ msgstr ""
 #: client/app/modules/core/helpers/FormHelper.js:24
 #: client/app/modules/events/controllers/events.ctrl.js:51
 #: client/app/modules/files/controllers/files.ctrl.js:15
-#: client/app/modules/myprofile/services/myprofile.service.js:124
-#: client/app/modules/myprofile/services/myprofile.service.js:171
-#: client/app/modules/myprofile/services/myprofile.service.js:32
 #: client/app/modules/notes/services/notes.service.js:33
 #: client/app/modules/pages/controllers/pages.ctrl.js:34
 #: client/app/modules/posts/services/posts.service.js:23
 #: client/app/modules/products/controllers/products.ctrl.js:43
-<<<<<<< HEAD
-=======
 #: client/app/modules/profile/services/education.service.js:33
-#: client/app/modules/profile/services/profile.service.js:126
-#: client/app/modules/profile/services/profile.service.js:173
-#: client/app/modules/profile/services/profile.service.js:34
-#: client/app/modules/profile/services/profile.service.js:80
+#: client/app/modules/profile/services/profile.service.js:124
+#: client/app/modules/profile/services/profile.service.js:171
+#: client/app/modules/profile/services/profile.service.js:32
 #: client/app/modules/profile/services/social.service.js:33
 #: client/app/modules/profile/services/workhistory.service.js:33
->>>>>>> cc6eef06ff5536e256a8f9d5f3a346fcde69300c
 #: client/app/modules/settings/controllers/settings.ctrl.js:29
 #: client/app/modules/users/controllers/users.ctrl.js:27
 msgid "Deleting this cannot be undone"
@@ -353,7 +305,7 @@ msgstr ""
 msgid "Edit post"
 msgstr ""
 
-#: client/app/modules/myprofile/views/form.html:4
+#: client/app/modules/profile/views/form.html:4
 msgid "Edit profile"
 msgstr ""
 
@@ -387,17 +339,11 @@ msgstr ""
 msgid "Error deleting category"
 msgstr ""
 
-<<<<<<< HEAD
-#: client/app/modules/myprofile/services/myprofile.service.js:132
-#: client/app/modules/myprofile/services/myprofile.service.js:179
-=======
 #: client/app/modules/profile/services/education.service.js:41
-#: client/app/modules/profile/services/profile.service.js:134
-#: client/app/modules/profile/services/profile.service.js:181
-#: client/app/modules/profile/services/profile.service.js:88
+#: client/app/modules/profile/services/profile.service.js:132
+#: client/app/modules/profile/services/profile.service.js:179
 #: client/app/modules/profile/services/social.service.js:41
 #: client/app/modules/profile/services/workhistory.service.js:41
->>>>>>> cc6eef06ff5536e256a8f9d5f3a346fcde69300c
 msgid "Error deleting creds"
 msgstr ""
 
@@ -422,11 +368,7 @@ msgstr ""
 msgid "Error deleting product"
 msgstr ""
 
-<<<<<<< HEAD
-#: client/app/modules/myprofile/services/myprofile.service.js:40
-=======
-#: client/app/modules/profile/services/profile.service.js:42
->>>>>>> cc6eef06ff5536e256a8f9d5f3a346fcde69300c
+#: client/app/modules/profile/services/profile.service.js:40
 msgid "Error deleting profile"
 msgstr ""
 
@@ -442,14 +384,9 @@ msgstr ""
 msgid "Error registering!"
 msgstr ""
 
-<<<<<<< HEAD
-#: client/app/modules/myprofile/services/myprofile.service.js:116
-=======
 #: client/app/modules/profile/services/education.service.js:25
-#: client/app/modules/profile/services/profile.service.js:118
-#: client/app/modules/profile/services/profile.service.js:72
+#: client/app/modules/profile/services/profile.service.js:116
 #: client/app/modules/profile/services/social.service.js:25
->>>>>>> cc6eef06ff5536e256a8f9d5f3a346fcde69300c
 msgid "Error saving credentials"
 msgstr ""
 
@@ -457,11 +394,7 @@ msgstr ""
 msgid "Error saving note"
 msgstr ""
 
-<<<<<<< HEAD
-#: client/app/modules/myprofile/services/myprofile.service.js:24
-=======
-#: client/app/modules/profile/services/profile.service.js:26
->>>>>>> cc6eef06ff5536e256a8f9d5f3a346fcde69300c
+#: client/app/modules/profile/services/profile.service.js:24
 #: client/app/modules/users/controllers/profile.ctrl.js:45
 msgid "Error saving profile"
 msgstr ""
@@ -470,12 +403,8 @@ msgstr ""
 msgid "Error saving user:"
 msgstr ""
 
-<<<<<<< HEAD
-#: client/app/modules/myprofile/services/myprofile.service.js:163
-=======
-#: client/app/modules/profile/services/profile.service.js:165
+#: client/app/modules/profile/services/profile.service.js:163
 #: client/app/modules/profile/services/workhistory.service.js:25
->>>>>>> cc6eef06ff5536e256a8f9d5f3a346fcde69300c
 msgid "Error saving WorkHistory"
 msgstr ""
 
@@ -500,11 +429,7 @@ msgstr ""
 msgid "Events"
 msgstr ""
 
-<<<<<<< HEAD
-#: client/app/modules/myprofile/views/form.html:224
-=======
-#: client/app/modules/profile/views/form.html:57
->>>>>>> cc6eef06ff5536e256a8f9d5f3a346fcde69300c
+#: client/app/modules/profile/views/form.html:224
 msgid "Experience"
 msgstr ""
 
@@ -591,7 +516,7 @@ msgstr ""
 msgid "Manage your posts here!"
 msgstr ""
 
-#: client/app/modules/myprofile/views/main.html:2
+#: client/app/modules/profile/views/main.html:2
 msgid "Manage your profile here!"
 msgstr ""
 
@@ -609,13 +534,9 @@ msgstr ""
 
 #: client/app/modules/events/controllers/events.ctrl.js:80
 #: client/app/modules/files/views/upload.html:56
-#: client/app/modules/myprofile/controllers/myprofile.ctrl.js:42
 #: client/app/modules/products/controllers/categories.ctrl.js:23
 #: client/app/modules/products/controllers/products.ctrl.js:82
-<<<<<<< HEAD
-=======
 #: client/app/modules/profile/controllers/profile.ctrl.js:43
->>>>>>> cc6eef06ff5536e256a8f9d5f3a346fcde69300c
 msgid "Name"
 msgstr ""
 
@@ -686,31 +607,17 @@ msgid "Product saved"
 msgstr ""
 
 #: client/app/modules/core/views/elements/navbar.html:40
-<<<<<<< HEAD
-#: client/app/modules/myprofile/config/myprofile.config.js:5
-#: client/app/modules/myprofile/views/form.html:120
-#: client/app/modules/myprofile/views/main.html:1
-msgid "Profile"
-msgstr ""
-
-#: client/app/modules/myprofile/services/myprofile.service.js:35
-msgid "Profile deleted"
-msgstr ""
-
-#: client/app/modules/myprofile/services/myprofile.service.js:19
-=======
 #: client/app/modules/profile/config/profile.config.js:5
-#: client/app/modules/profile/views/form.html:10
+#: client/app/modules/profile/views/form.html:120
 #: client/app/modules/profile/views/main.html:1
 msgid "Profile"
 msgstr ""
 
-#: client/app/modules/profile/services/profile.service.js:37
+#: client/app/modules/profile/services/profile.service.js:35
 msgid "Profile deleted"
 msgstr ""
 
-#: client/app/modules/profile/services/profile.service.js:21
->>>>>>> cc6eef06ff5536e256a8f9d5f3a346fcde69300c
+#: client/app/modules/profile/services/profile.service.js:19
 #: client/app/modules/users/controllers/profile.ctrl.js:41
 msgid "Profile saved"
 msgstr ""
@@ -768,11 +675,7 @@ msgstr ""
 msgid "Size"
 msgstr ""
 
-<<<<<<< HEAD
-#: client/app/modules/myprofile/views/form.html:267
-=======
-#: client/app/modules/profile/views/form.html:97
->>>>>>> cc6eef06ff5536e256a8f9d5f3a346fcde69300c
+#: client/app/modules/profile/views/form.html:267
 msgid "Social"
 msgstr ""
 
@@ -794,14 +697,10 @@ msgstr ""
 
 #: client/app/modules/events/views/form.html:20
 #: client/app/modules/events/views/form.html:28
-#: client/app/modules/myprofile/views/form.html:145
 #: client/app/modules/posts/views/form.html:17
 #: client/app/modules/products/views/categoryform.html:13
 #: client/app/modules/products/views/form.html:19
-<<<<<<< HEAD
-=======
-#: client/app/modules/profile/views/form.html:15
->>>>>>> cc6eef06ff5536e256a8f9d5f3a346fcde69300c
+#: client/app/modules/profile/views/form.html:145
 #: client/app/modules/settings/views/form.html:21
 msgid "Submit"
 msgstr ""
@@ -826,14 +725,9 @@ msgstr ""
 msgid "There are no settings"
 msgstr ""
 
-<<<<<<< HEAD
-#: client/app/modules/myprofile/services/myprofile.service.js:117
-=======
 #: client/app/modules/profile/services/education.service.js:26
-#: client/app/modules/profile/services/profile.service.js:119
-#: client/app/modules/profile/services/profile.service.js:73
+#: client/app/modules/profile/services/profile.service.js:117
 #: client/app/modules/profile/services/social.service.js:26
->>>>>>> cc6eef06ff5536e256a8f9d5f3a346fcde69300c
 msgid "This creds could not be saved:"
 msgstr ""
 
@@ -841,11 +735,7 @@ msgstr ""
 msgid "This note could no be saved:"
 msgstr ""
 
-<<<<<<< HEAD
-#: client/app/modules/myprofile/services/myprofile.service.js:25
-=======
-#: client/app/modules/profile/services/profile.service.js:27
->>>>>>> cc6eef06ff5536e256a8f9d5f3a346fcde69300c
+#: client/app/modules/profile/services/profile.service.js:25
 msgid "This profile could not be saved:"
 msgstr ""
 
@@ -853,12 +743,8 @@ msgstr ""
 msgid "This user is save!"
 msgstr ""
 
-<<<<<<< HEAD
-#: client/app/modules/myprofile/services/myprofile.service.js:164
-=======
-#: client/app/modules/profile/services/profile.service.js:166
+#: client/app/modules/profile/services/profile.service.js:164
 #: client/app/modules/profile/services/workhistory.service.js:26
->>>>>>> cc6eef06ff5536e256a8f9d5f3a346fcde69300c
 msgid "This work history could not be saved:"
 msgstr ""
 
@@ -909,17 +795,10 @@ msgstr ""
 msgid "Users"
 msgstr ""
 
-<<<<<<< HEAD
-#: client/app/modules/myprofile/controllers/myprofile.ctrl.js:102
-#: client/app/modules/myprofile/controllers/myprofile.ctrl.js:168
-#: client/app/modules/myprofile/controllers/myprofile.ctrl.js:242
-#: client/app/modules/myprofile/controllers/myprofile.ctrl.js:52
-=======
 #: client/app/modules/profile/controllers/profile.ctrl.js:103
 #: client/app/modules/profile/controllers/profile.ctrl.js:169
 #: client/app/modules/profile/controllers/profile.ctrl.js:243
 #: client/app/modules/profile/controllers/profile.ctrl.js:53
->>>>>>> cc6eef06ff5536e256a8f9d5f3a346fcde69300c
 msgid "UUID"
 msgstr ""
 
@@ -935,12 +814,8 @@ msgstr ""
 msgid "Welcome {{$scope.currentUser.name}}!"
 msgstr ""
 
-<<<<<<< HEAD
-#: client/app/modules/myprofile/services/myprofile.service.js:158
-=======
-#: client/app/modules/profile/services/profile.service.js:160
+#: client/app/modules/profile/services/profile.service.js:158
 #: client/app/modules/profile/services/workhistory.service.js:20
->>>>>>> cc6eef06ff5536e256a8f9d5f3a346fcde69300c
 msgid "WorkHistory saved"
 msgstr ""
 
@@ -965,7 +840,8 @@ msgstr ""
 msgid "You can just drag them in this window!"
 msgstr ""
 
-#: client/app/modules/myprofile/views/list.html:20
+#: client/app/modules/profile/views/edu.list.html:17
+#: client/app/modules/profile/views/list.html:20
 msgid "You have no profile <i class=\"fa fa-frown-o\"></i>  !"
 msgstr ""
 
@@ -986,36 +862,21 @@ msgstr ""
 msgid "Your category is safe with us!"
 msgstr ""
 
-<<<<<<< HEAD
-#: client/app/modules/myprofile/services/myprofile.service.js:128
-msgid "Your creds is deleted!"
-msgstr ""
-
-#: client/app/modules/myprofile/services/myprofile.service.js:133
-msgid "Your creds is not deleted!"
-msgstr ""
-
-#: client/app/modules/myprofile/services/myprofile.service.js:112
-=======
 #: client/app/modules/profile/services/education.service.js:37
-#: client/app/modules/profile/services/profile.service.js:130
-#: client/app/modules/profile/services/profile.service.js:84
+#: client/app/modules/profile/services/profile.service.js:128
 #: client/app/modules/profile/services/social.service.js:37
 msgid "Your creds is deleted!"
 msgstr ""
 
 #: client/app/modules/profile/services/education.service.js:42
-#: client/app/modules/profile/services/profile.service.js:135
-#: client/app/modules/profile/services/profile.service.js:89
+#: client/app/modules/profile/services/profile.service.js:133
 #: client/app/modules/profile/services/social.service.js:42
 msgid "Your creds is not deleted!"
 msgstr ""
 
 #: client/app/modules/profile/services/education.service.js:21
-#: client/app/modules/profile/services/profile.service.js:114
-#: client/app/modules/profile/services/profile.service.js:68
+#: client/app/modules/profile/services/profile.service.js:112
 #: client/app/modules/profile/services/social.service.js:21
->>>>>>> cc6eef06ff5536e256a8f9d5f3a346fcde69300c
 msgid "Your creds is safe with us!"
 msgstr ""
 
@@ -1092,19 +953,11 @@ msgstr ""
 msgid "Your profile"
 msgstr ""
 
-<<<<<<< HEAD
-#: client/app/modules/myprofile/services/myprofile.service.js:36
+#: client/app/modules/profile/services/profile.service.js:36
 msgid "Your profile is deleted!"
 msgstr ""
 
-#: client/app/modules/myprofile/services/myprofile.service.js:41
-=======
-#: client/app/modules/profile/services/profile.service.js:38
-msgid "Your profile is deleted!"
-msgstr ""
-
-#: client/app/modules/profile/services/profile.service.js:43
->>>>>>> cc6eef06ff5536e256a8f9d5f3a346fcde69300c
+#: client/app/modules/profile/services/profile.service.js:41
 msgid "Your profile is not deleted!"
 msgstr ""
 
@@ -1112,11 +965,7 @@ msgstr ""
 msgid "Your profile is not saved:"
 msgstr ""
 
-<<<<<<< HEAD
-#: client/app/modules/myprofile/services/myprofile.service.js:20
-=======
-#: client/app/modules/profile/services/profile.service.js:22
->>>>>>> cc6eef06ff5536e256a8f9d5f3a346fcde69300c
+#: client/app/modules/profile/services/profile.service.js:20
 msgid "Your profile is safe with us!"
 msgstr ""
 
@@ -1140,29 +989,17 @@ msgstr ""
 msgid "Your user is not deleted:"
 msgstr ""
 
-<<<<<<< HEAD
-#: client/app/modules/myprofile/services/myprofile.service.js:175
-msgid "Your work history is deleted!"
-msgstr ""
-
-#: client/app/modules/myprofile/services/myprofile.service.js:180
-msgid "Your work history is not deleted!"
-msgstr ""
-
-#: client/app/modules/myprofile/services/myprofile.service.js:159
-=======
-#: client/app/modules/profile/services/profile.service.js:177
+#: client/app/modules/profile/services/profile.service.js:175
 #: client/app/modules/profile/services/workhistory.service.js:37
 msgid "Your work history is deleted!"
 msgstr ""
 
-#: client/app/modules/profile/services/profile.service.js:182
+#: client/app/modules/profile/services/profile.service.js:180
 #: client/app/modules/profile/services/workhistory.service.js:42
 msgid "Your work history is not deleted!"
 msgstr ""
 
-#: client/app/modules/profile/services/profile.service.js:161
+#: client/app/modules/profile/services/profile.service.js:159
 #: client/app/modules/profile/services/workhistory.service.js:21
->>>>>>> cc6eef06ff5536e256a8f9d5f3a346fcde69300c
 msgid "Your work history is safe with us!"
 msgstr ""
