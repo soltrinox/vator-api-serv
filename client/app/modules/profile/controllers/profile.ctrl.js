@@ -332,7 +332,8 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $stateParams,
 
       $scope.profile = ProfileService.getProfile(pro.id, function(){
         // $location.path('/app/myprofile/'+pro.id);
-        console.log(' || CLICK : ' + pro.id);
+        console.log('CLICK : ' + pro.id);
+        console.log('PROFILE: '+angular.toJSON($scope.profile));
         $scope.sliceProfile($scope.profile.profile);
   	     $location.path('/app/myprofile/'+pro.id);
       });
