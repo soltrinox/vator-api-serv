@@ -435,6 +435,13 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $stateParams,
           });
   }, 100);
 
+  $scope.$on('$viewContentLoaded', function(){
+    //Here your view content is fully loaded !!
+      if($scope.currentUser){
+        console.log('LOGGED IN UID: '+ $scope.currentUser.id );
+      }
+  });
+
   if ($stateParams.id) {
     $scope.profile = ProfileService.getProfile($stateParams.id);
     // $scope.sliceProfile($scope.MyProfile);
