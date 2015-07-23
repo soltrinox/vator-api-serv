@@ -1,7 +1,6 @@
 /*================================================================================
   Item Name: vator
   Description: Premium Bootstrap Admin Template
-  Author: Egemen Kapusuz
   Author URL: http://www.themeforest.net/user/vator
 ================================================================================*/
 
@@ -496,7 +495,7 @@ Sidebar
   top: 0px;
   left: 0;
   font-family: 'Montserrat', sans-serif;
-
+  background: #3d464d;
   z-index: 0;
   font-size: 13px;
   font-weight: normal;
@@ -878,7 +877,7 @@ Content
   padding-left: 30px;
   padding-right: 30px;
   padding-top: 80px;
-  margin-left: 0px;
+  margin-left: 250px;
   background: #f5f5f5;
 }
 /* =================================================================================
