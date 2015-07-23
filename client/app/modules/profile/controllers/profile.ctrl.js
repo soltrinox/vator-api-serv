@@ -40,14 +40,14 @@ console.log('UID: '+ $scope.currentUser.id );
 
     $scope.sliceProfile = function (pro){
       console.log('inProfile' + pro);
-      if(inProfile){
-        $scope.educations = $scope.profile.edu;        // ---------
-        $scope.portfolio = $scope.profile.companies ;  // ---------
-        $scope.medias = $scope.profile.medias ;        // ---------
-        $scope.workhistory = $scope.profile.work ;     // ---------
-        $scope.socials = $scope.profile.social ;        // ---------
-        $scope.credentials = $scope.profile.creds ;    // ---------
-        $scope.contacts = $scope.profile.contact ;      // ---------
+      if(pro){
+        $scope.educations = pro.profile.edu;        // ---------
+        $scope.portfolio = pro.profile.companies ;  // ---------
+        $scope.medias = pro.profile.medias ;        // ---------
+        $scope.workhistory = pro.profile.work ;     // ---------
+        $scope.socials = pro.profile.social ;        // ---------
+        $scope.credentials = pro.profile.creds ;    // ---------
+        $scope.contacts = pro.profile.contact ;      // ---------
         // $scope. = $scope.profiles. ;
       }else{
         console.log('missing profile for slice');
