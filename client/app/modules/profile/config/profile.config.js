@@ -4,7 +4,7 @@ var app = angular.module('com.module.profile');
 app.run(function($rootScope,  Profile, gettextCatalog) {
 
 
-  console.log('currentUser ID : ' + $scope.currentUser.id );
+
 
   $rootScope.addMenu(gettextCatalog.getString('Profile'), 'app.myprofile.list',
     'fa-rocket');
