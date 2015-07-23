@@ -2,8 +2,7 @@
 var app = angular.module('com.module.profile');
 
 app.controller('MyProfileCtrl',function($scope, $location, $state, $stateParams,
-  ProfileService, WorkHistoryService, EducationService, SocialService,
-  gettextCatalog) {
+  ProfileService, gettextCatalog) {
 
 
 console.log('UID: '+ $scope.currentUser.id );
