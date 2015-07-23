@@ -276,14 +276,14 @@ console.log('UID: '+ $scope.currentUser.id );
       $scope.profile = ProfileService.getProfile(pro.id, function(){
         // $location.path('/app/myprofile/'+pro.id);
       });
-      // $scope.SelectedProfile = $scope.profile;
+       $scope.SelectedProfile = $scope.profile;
       // $scope.sliceProfile($scope.SelectedProfile.profile);
 
       // ProfileService.getProfile(pro.id, function(){
       //   // $location.path('/app/myprofile/'+pro.id);
       // });
 
-      console.log('PROFILE: '+ $scope.profile.profile.user.id + ' || CLICK : ' + pro.id);
+      // console.log('PROFILE: '+ $scope.profile.user.id + ' || CLICK : ' + pro.id);
 	     $location.path('/app/myprofile/'+pro.id);
 
   };
