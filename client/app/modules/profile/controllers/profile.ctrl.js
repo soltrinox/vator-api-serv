@@ -30,17 +30,25 @@ console.log('UID: '+ $scope.currentUser.id );
     $scope.SelectedProfile = {};
     $scope.profiles = {};
 
+    $scope.educations = [];
+    $scope.portfolio = [];  // ---------
+    $scope.medias = [];        // ---------
+    $scope.workhistory = [];     // ---------
+    $scope.socials = [];       // ---------
+    $scope.credentials = [];   // ---------
+    $scope.contacts = [];      // ---------
+
     $scope.sliceProfile = function (inProfile){
       if(inProfile){
 
       }else{
-        $scope.educations = $scope.profile.edu;        // ---------
-        $scope.portfolio = $scope.profile.companies ;  // ---------
-        $scope.medias = $scope.profile.medias ;        // ---------
-        $scope.workhistory = $scope.profile.work ;     // ---------
-        $scope.social = $scope.profile.social ;        // ---------
-        $scope.credentials = $scope.profile.creds ;    // ---------
-        $scope.contacts = $scope.profile.contact ;      // ---------
+        $scope.educations = inProfile.edu;        // ---------
+        $scope.portfolio = inProfile.companies ;  // ---------
+        $scope.medias = inProfile.medias ;        // ---------
+        $scope.workhistory = inProfile.work ;     // ---------
+        $scope.socials = inProfile.social ;        // ---------
+        $scope.credentials = inProfile.creds ;    // ---------
+        $scope.contacts = inProfile.contact ;      // ---------
         // $scope. = $scope.profiles. ;
       }
     };
@@ -269,10 +277,13 @@ console.log('UID: '+ $scope.currentUser.id );
         // $location.path('/app/myprofile/'+pro.id);
       });
 
-      $scope.profile = ProfileService.getProfile(pro.id, function(){
-        // $location.path('/app/myprofile/'+pro.id);
-      });
-      console.log('PROFILE: '+ $scope.SelectedProfile.id + ' || CLICK : ' + pro.id);
+        $scope.sliceProfile($scope.SelectedProfile.profile);
+
+      $scope.profile = $scope.SelectedProfile;
+      // ProfileService.getProfile(pro.id, function(){
+      //   // $location.path('/app/myprofile/'+pro.id);
+      // });
+      console.log('PROFILE: '+ $scope.SelectedProfile.profile.user.id + ' || CLICK : ' + pro.id);
 	     $location.path('/app/myprofile/'+pro.id);
 
   };
