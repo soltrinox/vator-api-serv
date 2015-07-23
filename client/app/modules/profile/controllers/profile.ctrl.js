@@ -299,8 +299,8 @@ console.log('UID: '+ $scope.currentUser.id );
 
   // link to images module
 
-//  $location.path('/app/files/');
-$state.go('app.files');
+  $location.path('/app/files/list');
+  //$state.go('app.files.list');
 
   }
 
