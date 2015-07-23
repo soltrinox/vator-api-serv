@@ -148,17 +148,26 @@
 
       <table class="table table-hover">
         <tbody>
-          <tr ng-repeat="email in contacts" class="list-group-item">
+          <tr>
             <td class="text-center">
               <div class="checkbox margin-t-0">
                 <input id="checkbox1" type="checkbox">
                 <label for="checkbox1"></label>
               </div>
             </td>
-            <td>{{email.emailAddress}}</td>
+            <td>me@facebook.com</td>
             <td> <a href="#" class="btn btn-warning ">Edit</a> </td>
           </tr>
-
+          <tr>
+            <td class="text-center">
+              <div class="checkbox margin-t-0">
+                <input id="checkbox1" type="checkbox">
+                <label for="checkbox1"></label>
+              </div>
+            </td>
+            <td>test@gmail.com</td>
+            <td> <a href="#" class="btn btn-warning ">Edit</a> </td>
+          </tr>
         </tbody>
       </table>
 
@@ -209,13 +218,11 @@
       <div class="row tab-pane">
 
         <formly-form result="WorkRecord" fields="formFields3" options="formOptions" ng-submit="onSubmit3()"></formly-form>
-        <!--
-        <pre>
+        <!-- <pre>
 
           {{ WorkRecord | json }}
           {{ profile.profile.work | json}}
-        </pre>
-         -->
+        </pre> -->
         <div class="controls">
           <button class="btn btn-primary btn-success" ng-click="onSubmit3()" translate>Add Experience </button>
         </div>
@@ -223,7 +230,7 @@
 
       <table class="table table-hover">
         <tbody>
-          <tr ng-repeat="work in workhistory" class="list-group-item">
+          <tr ng-repeat="work in profile.profile.work" class="list-group-item">
             <td class="text-center">
               <div class="checkbox margin-t-0">
                 <input id="checkbox1" type="checkbox">
@@ -268,7 +275,7 @@
 
       <table class="table table-hover">
         <tbody>
-           <tr  ng-repeat="social in socials" class="list-group-item">
+           <tr  ng-repeat="social in profile.profile.social" class="list-group-item">
              <td class="text-center">
                <div class="checkbox margin-t-0">
                  <input id="checkbox1" type="checkbox">

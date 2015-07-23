@@ -30,26 +30,18 @@ console.log('UID: '+ $scope.currentUser.id );
     $scope.SelectedProfile = {};
     $scope.profiles = {};
 
-    $scope.educations = [];
-    $scope.portfolio = [];  // ---------
-    $scope.medias = [];        // ---------
-    $scope.workhistory = [];     // ---------
-    $scope.socials = [];       // ---------
-    $scope.credentials = [];   // ---------
-    $scope.contacts = [];      // ---------
-
     $scope.sliceProfile = function (inProfile){
       if(inProfile){
-        $scope.educations = inProfile.edu;        // ---------
-        $scope.portfolio = inProfile.companies ;  // ---------
-        $scope.medias = inProfile.medias ;        // ---------
-        $scope.workhistory = inProfile.work ;     // ---------
-        $scope.socials = inProfile.social ;        // ---------
-        $scope.credentials = inProfile.creds ;    // ---------
-        $scope.contacts = inProfile.contact ;      // ---------
-        // $scope. = $scope.profiles. ;
+
       }else{
-        console.log('missing profile');
+        $scope.educations = $scope.profile.edu;        // ---------
+        $scope.portfolio = $scope.profile.companies ;  // ---------
+        $scope.medias = $scope.profile.medias ;        // ---------
+        $scope.workhistory = $scope.profile.work ;     // ---------
+        $scope.social = $scope.profile.social ;        // ---------
+        $scope.credentials = $scope.profile.creds ;    // ---------
+        $scope.contacts = $scope.profile.contact ;      // ---------
+        // $scope. = $scope.profiles. ;
       }
     };
 
@@ -273,17 +265,14 @@ console.log('UID: '+ $scope.currentUser.id );
   $scope.getMe = function(pro){
       console.log('CLICK :'+pro.id);
 
+      $scope.SelectedProfile = ProfileService.getProfile(pro.id, function(){
+        // $location.path('/app/myprofile/'+pro.id);
+      });
+
       $scope.profile = ProfileService.getProfile(pro.id, function(){
         // $location.path('/app/myprofile/'+pro.id);
       });
-       $scope.SelectedProfile = $scope.profile;
-      // $scope.sliceProfile($scope.SelectedProfile.profile);
-
-      // ProfileService.getProfile(pro.id, function(){
-      //   // $location.path('/app/myprofile/'+pro.id);
-      // });
-
-      // console.log('PROFILE: '+ $scope.profile.user.id + ' || CLICK : ' + pro.id);
+      console.log('PROFILE: '+ $scope.SelectedProfile.id + ' || CLICK : ' + pro.id);
 	     $location.path('/app/myprofile/'+pro.id);
 
   };
@@ -391,8 +380,8 @@ console.log('UID: '+ $scope.currentUser.id );
   }, 100);
 
   if ($stateParams.id) {
-    // $scope.profile = ProfileService.getProfile($stateParams.id);
-    // $scope.sliceProfile($scope.profile.profile);
+    $scope.profile = ProfileService.getProfile($stateParams.id);
+    $scope.sliceProfile($scope.MyProfile);
   } else {
     $scope.profile = {};
   }
