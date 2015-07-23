@@ -326,15 +326,11 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $stateParams,
   $scope.getMe = function(pro){
       console.log('GET ME :'+pro.id);
 
-      $scope.SelectedProfile = ProfileService.getProfile(pro.id, function(){
-        // $location.path('/app/myprofile/'+pro.id);
-      });
-console.log('SelectedProfile: '+ JSON.stringify( $scope.SelectedProfile ));
-      $scope.profile = ProfileService.getProfile(pro.id, function(){
-        // $location.path('/app/myprofile/'+pro.id);
-      });
+      $scope.SelectedProfile = ProfileService.getProfile(pro.id);
+      console.log('SelectedProfile: '+ JSON.stringify( $scope.SelectedProfile ));
+      $scope.profile = ProfileService.getProfile(pro.id);
       console.log('CLICK : ' + pro.id);
-      console.log('PROFILE: '+ JSON.stringify( pro ));
+      console.log('PRO : '+ JSON.stringify( pro ));
       $scope.sliceProfile($scope.SelectedProfile);
        $location.path('/app/myprofile/'+pro.id);
   };
