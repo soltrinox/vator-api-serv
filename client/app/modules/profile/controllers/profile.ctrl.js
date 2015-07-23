@@ -1,8 +1,9 @@
 'use strict';
-var app = angular.module('com.module.myprofile');
+var app = angular.module('com.module.profile');
 
 app.controller('MyProfileCtrl',function($scope, $location, $state, $stateParams,
-  ProfileService,  gettextCatalog) {
+  ProfileService, WorkHistoryService, EducationService, SocialService,
+  gettextCatalog) {
 
 
 console.log('UID: '+ $scope.currentUser.id );
@@ -282,13 +283,13 @@ console.log('UID: '+ $scope.currentUser.id );
 // ==============  EDUCATION ====================
 
   // $scope.delete2 = function(id) {
-  //   ProfileService.deleteEducation(id, function() {
+  //   EducationService.deleteEducation(id, function() {
   //     $scope.profile = ProfileService.getProfile($scope.profile.id);
   //   });
   // };
   //
   // $scope.onSubmit2 = function() {
-  //   ProfileService.upsertEducation($scope.SchoolRecord, function() {
+  //   EducationService.upsertEducation($scope.SchoolRecord, function() {
   //     $scope.profile = ProfileService.getProfile($scope.profile.id);
   //     $state.go('^.view');
   //   });
@@ -297,8 +298,8 @@ console.log('UID: '+ $scope.currentUser.id );
 // ==============  WORKHISTORY ====================
 
   $scope.delete3 = function(id) {
-    ProfileService.deleteWorkHistory(id, function() {
-      $scope.msg = ProfileService.deleteWorkHistory($scope.profile.id, function(){
+    WorkHistoryService.deleteWorkHistory(id, function() {
+      $scope.msg = WorkHistoryService.deleteWorkHistory($scope.profile.id, function(){
 
       });
       console.log('MSG RESPONSE DELETE WORK: '+   $scope.msg);
