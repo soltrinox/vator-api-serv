@@ -224,10 +224,10 @@
     <tab heading="{{ 'Experience' | translate }}">
       <div class="row tab-pane">
 
-        <formly-form result="$scope.WorkRecord" fields="formFields3" options="formOptions" ng-submit="onSubmit3()"></formly-form>
+        <formly-form result="WorkRecord" fields="formFields3" options="formOptions" ng-submit="onSubmit3()"></formly-form>
         <pre>
 
-          {{ $scope.WorkRecord | json }}
+          {{ WorkRecord | json }}
           {{ profile.profile.work | json}}
         </pre>
         <div class="controls">

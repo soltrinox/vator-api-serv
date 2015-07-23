@@ -10,7 +10,13 @@ console.log('UID: '+ $scope.currentUser.id );
 
     $scope.SchoolRecord = {};
     $scope.SocialRecord = {};
-    $scope.WorkRecord = {};
+    $scope.WorkRecord = {
+      companyname: '',
+      jobtitle : '',
+      datestart : '',
+      dateend : '',
+      profileId : ''
+    };
     $scope.MediaRecord = {};
     $scope.CompanyRecord = {};
     $scope.MyProfile = {};
