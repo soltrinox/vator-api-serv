@@ -271,11 +271,11 @@ console.log('UID: '+ $scope.currentUser.id );
   }
   $scope.hideWork = true;
   $scope.toggleWork = function(id) {
-    scope.hideWork = $scope.hideWork === false ? true: false;
+    $scope.hideWork = $scope.hideWork === false ? true: false;
   }
   $scope.hideSocial = true;
   $scope.toggleSocial = function(id) {
-    scope.hideSocial = $scope.hideSocial === false ? true: false;
+    $scope.hideSocial = $scope.hideSocial === false ? true: false;
   }
 
   $scope.delete = function(id) {
@@ -311,6 +311,7 @@ console.log('UID: '+ $scope.currentUser.id );
 
     ProfileService.upsertProfile($scope.profile.profile.user, function() {
       //$state.go('^.view({id: $scope.MyProfile.UUID})');
+        $scope.hideBase = true;
       $location.path('/app/myprofile/'+$scope.profile.profile.user.id+ '/edit');
     });
   };
@@ -366,6 +367,7 @@ console.log('UID: '+ $scope.currentUser.id );
 
     $scope.profile = ProfileService.getProfile($scope.WorkRecord.profileId);
     //$state.go('^.view({id: $scope.MyProfile.UUID})');
+      $scope.hideWork = true;
     $location.path('/app/myprofile/'+$scope.WorkRecord.profileId+'/edit');
 
   };
@@ -390,6 +392,7 @@ console.log('UID: '+ $scope.currentUser.id );
 
     $scope.profile = ProfileService.getProfile($scope.SocialRecord.profileId);
     //$state.go('^.view({id: $scope.MyProfile.UUID})');
+      $scope.hideSocial = true;
     $location.path('/app/myprofile/'+$scope.SocialRecord.profileId +'/edit');
 
   };
