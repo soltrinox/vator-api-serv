@@ -280,12 +280,12 @@ console.log('UID: '+ $scope.currentUser.id );
 
 
 
-  $scope.company = function(id){
+  $scope.companyAction = function(id){
     // break open the comapnies and allow auto completes
   }
 
 
-  $scope.images = function(id){
+  $scope.imageAction = function(id){
     // "medias": [
     //       {
     //         "Name": "PROFILEPIC",
@@ -299,8 +299,8 @@ console.log('UID: '+ $scope.currentUser.id );
 
   // link to images module
 
-  $location.path('/app/files/');
-
+//  $location.path('/app/files/');
+$state.go('app.files');
 
   }
 
