@@ -336,9 +336,9 @@ console.log('UID: '+ $scope.currentUser.id );
 
     });
 
-    $scope.profile = ProfileService.getProfile($scope.SelectedProfile.user.id);
+    $scope.profile = ProfileService.getProfile($scope.WorkRecord.profileId);
     //$state.go('^.view({id: $scope.MyProfile.UUID})');
-    $location.path('/app/myprofile/'+$scope.SelectedProfile.user.id+'/edit');
+    $location.path('/app/myprofile/'+$scope.WorkRecord.profileId+'/edit');
 
   };
 
