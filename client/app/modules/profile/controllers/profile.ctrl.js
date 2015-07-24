@@ -82,7 +82,6 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $stateParams,
       key: 'UUID',
       type: 'hidden',
       label: '',
-      default : $scope.profile.profile.user,
       id : 'user.uuid',
       required: true
     }, {
