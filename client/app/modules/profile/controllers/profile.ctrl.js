@@ -576,8 +576,10 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
 
         if($scope.currentUser){
           console.log('LOGGED IN UID: '+ $scope.currentUser.id );
+            $scope.getMyNewProfile($scope.currentUser.id);
         }
               $scope.profiles = ProfileService.getProfiles();
+
           });
   }, 100);
 
@@ -590,12 +592,12 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
       if($scope.currentUser){
         console.log('LOGGED IN UID: '+ $scope.currentUser.id );
         console.log('CURRENT USER : '+JSON.stringify( $scope.currentUser ));
-        $scope.getMyNewProfile($scope.currentUser.id);
+
         if($scope.profile === undefined){
             console.log('NO CURRENT PROFILE');
+            $scope.getMyNewProfile($scope.currentUser.id);
         }else{
-          console.log('CURRENT PROFILE : '+JSON.stringify( $scope.currentUser ));
-
+          console.log('CURRENT PROFILE : '+JSON.stringify( $scope.profile ));
         }
 
       }
