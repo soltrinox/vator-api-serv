@@ -321,7 +321,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $stateParams,
 
   $scope.hideBase = true;
   $scope.toggleBase = function(id) {
-    if( ($scope.profile  === undefined) && ( $scope.UserRecord.UUID  === undefined) ){
+    if( ($scope.profile  === undefined) && ( $scope.UserRecord.UUID  === '') ){
       console.log('scope.profile and user rec undefined');
       $scope.UserRecord.UUID = $scope.currentUser.id;
       $scope.UserRecord.Name = $scope.currentUser.username;
