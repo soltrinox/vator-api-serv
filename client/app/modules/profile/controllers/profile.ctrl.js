@@ -412,7 +412,15 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
           console.log('FOUND FULL PROFILE : '  + JSON.stringify($scope.profile));
           $scope.profileId = response.profile.user.id;
           // $location.path('/app/myprofile/'+pro.id);
-          $scope.sliceProfile($scope.profile);
+
+          $scope.UserRecord.Name = response.profile.user.Name;
+            $scope.UserRecord.Bio = response.profile.user.Bio;
+            $scope.UserRecord.UUID = response.profile.user.UUID;
+            $scope.UserRecord.ProfilePic = response.profile.user.ProfilePic;
+            $scope.UserRecord.CoverPic = response.profile.user.CoverPic;
+            $scope.UserRecord.id = response.profile.user.id;
+          };
+          $scope.sliceProfile(response.profile);
         });
       }
 
