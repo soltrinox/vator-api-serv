@@ -64,26 +64,32 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $stateParams,
       key: 'Name',
       type: 'text',
       label: gettextCatalog.getString('Name'),
+      id : 'user.name',
       required: true
     }, {
       key: 'Bio',
       type: 'textarea',
       label: gettextCatalog.getString('Bio'),
+      lines : 4,
+      id : 'user.bio',
       required: true
     }, {
       key: 'UUID',
       type: 'hidden',
       label: '',
+      id : 'user.uuid',
       required: true
     }, {
       key: 'ProfilePic',
       type: 'text',
       label: 'Profile Pic URL',
+      id : 'user.profilepic',
       required: false
     }, {
       key: 'CoverPic',
       type: 'text',
       label: 'Cover Pic URL',
+      id : 'user.coverpic',
       required: false
     }
 
@@ -183,7 +189,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $stateParams,
                 required: true
               }, {
                 key: 'dateend',
-                type: 'text',
+                type: 'date',
                 label: 'End Date',
                 required: false
               },{
