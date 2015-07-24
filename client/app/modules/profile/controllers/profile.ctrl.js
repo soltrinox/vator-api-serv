@@ -394,14 +394,27 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
   };
 
   $scope.getMe = function(pro){
-      console.log('GET ME :'+ JSON.stringify(pro) );
-      ProfileService.getProfile(pro.id, function(response){
-        console.log('NEW PROFILE : '  + JSON.stringify(response));
-        $scope.profile = response.profile;
-        $scope.profileId = response.profile.user.id;
-        // $location.path('/app/myprofile/'+pro.id);
-        $scope.sliceProfile($scope.profile);
-      });
+      console.log('GET ME :'+ JSON.stringify($scope.profileId) );
+      var theId = '';
+      if(($scope.profileId === '') && (pro.id === '')){
+
+      }else if(($scope.profileId === '') && (pro.id != '')){
+        theId = pro.id;
+      }else if(($scope.profileId != '') && (pro.id === '')){
+        theId = $scope.profileId;
+      }
+      if(theId === ''){
+        console.log('NO ID');
+      }else{
+        ProfileService.getProfile(theId, function(response){
+          console.log('NEW PROFILE : '  + JSON.stringify(response));
+          $scope.profile = response.profile;
+          $scope.profileId = response.profile.user.id;
+          // $location.path('/app/myprofile/'+pro.id);
+          $scope.sliceProfile($scope.profile);
+        });
+      }
+
 
   };
 
