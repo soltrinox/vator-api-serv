@@ -485,13 +485,13 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $stateParams,
 
     console.log('getting members');
     $scope.thisCompanyMembers = ProfileService.getCompanyMembers($scope.CompanyRecord);
-    
+    console.log($scope.thisCompanyMembers.toString());
 
-    angular.forEach($scope.thisCompanyMembers, function(value) {
-        angular.forEach(value, function(key, val) {
-          console.log(key + ' : ' + value);
-        });
-    });
+    // angular.forEach($scope.thisCompanyMembers, function(value) {
+    //     angular.forEach(value, function(key, val) {
+    //       console.log(key + ' : ' + value);
+    //     });
+    // });
 
     // console.log('COMPANY LISTED' + $scope.thisCompanyMembers[0].Name);
     // now upsert the record
