@@ -22,10 +22,10 @@
     <pre>{{profiles | json}}</pre>
     </div>
   </div>
-  <div ng-show="!profiles.length" class="list-group-item">
+  <div ng-show="!profiles" class="list-group-item">
     <h4 class="list-group-item-heading" translate>
       You have no profile <i class="fa fa-frown-o"></i>  !
     </h4>
-    <!-- <p class="list-group-item-text" translate>Click <a href="" ui-sref="^.add">here</a> to create a profile!</p> -->
+    <p class="list-group-item-text" translate>Click <a href="" ui-sref="^.add">here</a> to create a profile!</p>
   </div>
 </div>
