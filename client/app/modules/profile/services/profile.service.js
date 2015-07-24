@@ -15,8 +15,11 @@ function($state, CoreService, Profile, User, Education, Social, WorkHistory, Tea
   };
 
   this.getProfileByUUID = function(id) {
-    console.log('fund by UUID : '+id);
-    return Profile.findOne({where: {UUID:id}});
+    console.log('find by UUID : '+id);
+    var tt = new Profile();
+    tt =  Profile.findOne({where: {UUID:id}});
+    console.log('tt : '+ tt);
+    return tt;
   };
 
   this.upsertProfile = function(profile, cb) {
