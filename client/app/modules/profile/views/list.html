@@ -19,8 +19,8 @@
       {{profiles.id}}
     </h4>
     <div>
-      <img ng-show="profile.CoverPic" width="100%" src="{{profiles.CoverPic}}" >
-      <img ng-show="profile.ProfilePic" src="{{profiles.ProfilePic}}" >
+      <img ng-show="!profile.CoverPic" width="100%" src="{{profiles.CoverPic}}" >
+      <img ng-show="!profile.ProfilePic" src="{{profiles.ProfilePic}}" >
     </div>
     <p class="list-group-item-text">{{profiles.Bio}}</p>
     <div>
