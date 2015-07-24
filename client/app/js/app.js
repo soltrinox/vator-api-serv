@@ -44,8 +44,10 @@ angular.module('loopbackApp', [
     'com.module.settings',
     'com.module.profile',
     'com.module.users'
-  ])
-  .run(function($rootScope, $cookies, gettextCatalog) {
+  ]).config(['$routeProvider', function($routeProvider) {
+    
+
+  }]).run(function($rootScope, $cookies, gettextCatalog) {
 
     $rootScope.locales = {
 
@@ -94,6 +96,6 @@ angular.module('loopbackApp', [
             $templateCache.remove(current.templateUrl);
         }
     });
-    
+
 
   });

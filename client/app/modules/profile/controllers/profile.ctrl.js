@@ -420,8 +420,13 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
 
   $scope.getMyNewProfile = function(UUID){
       console.log('GET ME :'+ UUID );
-      $scope.tempprofile = ProfileService.getProfileByUUID(UUID);
-        console.log('GET THE ID : '+$scope.tempprofile.id);
+      ProfileService.getProfileByUUID(UUID, function(response){
+
+          $scope.profileId = response.id;
+          $scope.getMe($scope.profileId);
+
+      });
+
   };
 
   $scope.onSubmit = function() {
@@ -588,7 +593,8 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
         if($scope.profile === undefined){
             console.log('NO CURRENT PROFILE');
         }else{
-          console.log('CURRENT PROFILE : '+JSON.stringify( $scope.profile ));
+          console.log('CURRENT PROFILE : '+JSON.stringify( $scope.currentUser ));
+          $scope.getMyNewProfile($scope.currentUser.id);
         }
 
       }
