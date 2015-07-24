@@ -16,7 +16,7 @@ function($state, CoreService, Profile, User, Education, Social, WorkHistory, Tea
 
   this.getProfileByUUID = function(id) {
     console.log('fund by UUID : '+id);
-    return Profile.find({where: {UUID:id}});
+    return Profile.findOne({where: {UUID:id}});
   };
 
   this.upsertProfile = function(profile, cb) {
