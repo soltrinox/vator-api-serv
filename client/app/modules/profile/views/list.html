@@ -1,31 +1,31 @@
 <div class='list-group'>
-  <div ng-repeat="item in profiles" class="list-group-item">
+  <div class="list-group-item">
     <span class="pull-right btn-group" style="margin-top: 7px;">
-      <a href="" class="btn btn-sm btn-default" ui-sref="^.edit({id: item.id})">
+      <a href="" class="btn btn-sm btn-default" ui-sref="^.edit({id: profiles.id})">
         <i class="fa fa-pencil"></i>
       </a>
-      <a href="" class="btn btn-sm btn-default" ng-click="imageAction({id: item.id})">
+      <a href="" class="btn btn-sm btn-default" ng-click="imageAction({id: profiles.id})">
         <i class="fa fa-image"></i>
       </a>
-      <a href="" class="btn btn-sm btn-default" ng-click="companyAction({id: item.id})">
+      <a href="" class="btn btn-sm btn-default" ng-click="companyAction({id: profiles.id})">
         <i class="fa fa-rocket"></i>
       </a>
-      <a href="" class="btn btn-sm btn-default" ng-click="delete({id: item.id})">
+      <a href="" class="btn btn-sm btn-default" ng-click="delete({id: profiles.id})">
         <i class="fa fa-trash-o"></i>
       </a>
     </span>
     <h4 class="list-group-item-heading">
-      <a href="" ng-click="getMe({id: item.id})" >{{item.Name}} - {{item.id}}</a>
+      <a href="" ng-click="getMe({id: profiles.id})" >{{profiles.Name}} - {{profiles.id}}</a>
     </h4>
-    <p class="list-group-item-text">{{item.Bio}}</p>
+    <p class="list-group-item-text">{{profiles.Bio}}</p>
     <div>
-    <pre>{{item | json}}</pre>
+    <pre>{{profiles | json}}</pre>
     </div>
   </div>
   <div ng-show="!profiles.length" class="list-group-item">
     <h4 class="list-group-item-heading" translate>
       You have no profile <i class="fa fa-frown-o"></i>  !
     </h4>
-    <p class="list-group-item-text" translate>Click <a href="" ui-sref="^.add">here</a> to create a profile!</p>
+    <!-- <p class="list-group-item-text" translate>Click <a href="" ui-sref="^.add">here</a> to create a profile!</p> -->
   </div>
 </div>
