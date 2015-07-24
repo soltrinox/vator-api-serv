@@ -321,15 +321,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $stateParams,
 
   $scope.hideBase = true;
   $scope.toggleBase = function(id) {
-    if( ($scope.profile  === undefined) && ( $scope.UserRecord.UUID  === '') ){
-      console.log('scope.profile and user rec undefined');
-      $scope.UserRecord.UUID = $scope.currentUser.id;
-      $scope.UserRecord.Name = $scope.currentUser.username;
-      if(!(($scope.currentUser.firstname === undefined) && ($scope.currentUser.lastname === undefined))){
-        $scope.UserRecord.Name = $scope.currentUser.firstname +' '+ $scope.currentUser.lastname;
-      }
-
-    }else if( ( $scope.profile ) && ( $scope.UserRecord.UUID  === undefined) ){
+    if( ( $scope.profile ) && ( $scope.UserRecord.UUID  === undefined) ){
       console.log('scope.profile is valid and user rec undefined');
       $scope.UserRecord.Name = $scope.profile.profile.user.Name;
       $scope.UserRecord.UUID = $scope.profile.profile.user.UUID;
@@ -337,6 +329,14 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $stateParams,
       $scope.UserRecord.Bio = $scope.profile.profile.user.Bio;
       $scope.UserRecord.ProfilePic = $scope.profile.profile.user.ProfilePic;
       $scope.UserRecord.CoverPic = $scope.profile.profile.user.CoverPic;
+    }else if( ($scope.profile  === undefined) && ( $scope.UserRecord.UUID  === '') ){
+      console.log('scope.profile and user rec undefined');
+      $scope.UserRecord.UUID = $scope.currentUser.id;
+      $scope.UserRecord.Name = $scope.currentUser.username;
+      if(!(($scope.currentUser.firstname === undefined) && ($scope.currentUser.lastname === undefined))){
+        $scope.UserRecord.Name = $scope.currentUser.firstname +' '+ $scope.currentUser.lastname;
+      }
+
     }
     // else if((!$scope.profile.profile.user.UUID ) && ($scope.UserRecord.UUID))
     $scope.editUser($scope.UserRecord);
