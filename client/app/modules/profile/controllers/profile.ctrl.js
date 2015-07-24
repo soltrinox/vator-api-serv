@@ -1,7 +1,7 @@
 'use strict';
 var app = angular.module('com.module.profile');
 
-app.controller('MyProfileCtrl',function($scope, $location, $state, $stateParams,
+app.controller('MyProfileCtrl',function($scope, $location, $state, $rote, $stateParams,
   ProfileService, gettextCatalog) {
 
     $scope.UserRecord = {
