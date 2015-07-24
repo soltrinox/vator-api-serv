@@ -465,12 +465,30 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $stateParams,
 
   };
 
+  // ==============  TEAM ====================
+
+    $scope.delete5 = function(id) {
+      // delete team record from array
+    };
+
+    $scope.onSubmit5 = function() {
+      // edit or create team record from array
+    };
+
+  // ==============  EDIT TABLES ====================
 
   $scope.editCompany = function(comp) = {
 
-    console.log('editing comp : '+ comp.Name +' : ' + comp.URL);
+    console.log('editing comp : '+ comp.Name +' : ' + comp.URL +' : '  );
     $scope.CompanyRecord.Name = comp.Name;
     $scope.CompanyRecord.URL = comp.URL;
+
+    console.log('getting members');
+    $scope.thisCompanyMembers = ProfileService.getCompanyMembers($scope.CompanyRecord),
+    console.log('COMPANY LISTED' + $scope.thisCompanyMembers[0].Name);
+    // now upsert the record
+    //ProfileService.upsertCompany
+
   };
 
 

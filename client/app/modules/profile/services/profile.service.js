@@ -2,7 +2,7 @@
 var app = angular.module('com.module.profile');
 
 app.service('ProfileService', ['$state', 'CoreService', 'Profile', 'User',
-'Education', 'Social', 'WorkHistory',  'gettextCatalog',
+'Education', 'Social', 'WorkHistory', 'Team',  'gettextCatalog',
 function($state, CoreService, Profile, User, Education, Social, WorkHistory, gettextCatalog) {
 
   this.getProfiles = function() {
@@ -189,7 +189,34 @@ function($state, CoreService, Profile, User, Education, Social, WorkHistory, get
 
 // =========================================================
 
+this.getCompanyMembers = function (comp){
+  // INTERNAL. Use Team.members.link() instead.
+  // "::link::Team::members": {
+  //   params: {
+  //   'fk': '@fk'
+  //   },
+  //   url: urlBase + "/Teams/:id/members/rel/:fk",
+  //   method: "PUT"
+  // }
 
 
+  //  Team.members.link()
+
+  return ProfileService.Team.members({id: '55b1a2f141ed6e575486928e'});
+
+}
+
+this.upsertCompany = function(company, cb) {
+  WorkHistory.upsert(workhistory, function() {
+    CoreService.toastSuccess(gettextCatalog.getString(
+      'WorkHistory saved'), gettextCatalog.getString(
+      'Your work history is safe with us!'));
+    cb();
+  }, function(err) {
+    CoreService.toastSuccess(gettextCatalog.getString(
+      'Error saving WorkHistory '), gettextCatalog.getString(
+      'This work history could not be saved: ') + err);
+  });
+};
 
 }]);
