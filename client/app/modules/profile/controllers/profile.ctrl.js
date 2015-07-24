@@ -10,7 +10,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $stateParams,
       UUID:'',
       ProfilePic:'',
       CoverPic:'',
-      uid:''
+      id:''
     };
 
 
@@ -321,6 +321,20 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $stateParams,
 
   $scope.hideBase = true;
   $scope.toggleBase = function(id) {
+    if((!$scope.profile.profile.user.UUID ) && (!$scope.UserRecord.UUID)){
+      $scope.UserRecord.UUID = $scope.currentUser.id;
+      $scope.UserRecord.Name = $scope.currentUser.username;
+      $scope.UserRecord.Bio = $scope.currentUser.name.givenName +' '+ $scope.currentUser.name.familyName;
+    }else if(($scope.profile.profile.user.UUID ) && (!$scope.UserRecord.UUID)){
+      $scope.UserRecord.Name = $scope.profile.profile.user.Name;
+      $scope.UserRecord.UUID = $scope.profile.profile.user.UUID;
+      $scope.UserRecord.id = $scope.profile.profile.user.id;
+      $scope.UserRecord.Bio = $scope.profile.profile.user.Bio;
+      $scope.UserRecord.ProfilePic = $scope.profile.profile.user.ProfilePic;
+      $scope.UserRecord.CoverPic = $scope.profile.profile.user.CoverPic;
+    }
+    // else if((!$scope.profile.profile.user.UUID ) && ($scope.UserRecord.UUID))
+    $scope.editUser($scope.UserRecord);
     $scope.hideBase = $scope.hideBase === false ? true: false;
   }
 
@@ -416,31 +430,15 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $stateParams,
   };
 
 
-  //     'companyname': '',
-  //  'jobtitle': '',
-  //  'datestart': '',
-  //  'dateend': '',
-  //  'id': 'objectid',
-  //  'profileId': 'objectid'
 
   $scope.onSubmit3 = function() {
 
-//     $scope.WorkRecord.companyname = $scope.profile.profile.user.Name;
-//     $scope.WorkRecord.jobtitle = $scope.profile.profile.user.Bio;
-//     $scope.WorkRecord.datestart = $scope.profile.profile.user.UUID;
-//     $scope.WorkRecord.dateend = $scope.profile.profile.user.UUID;
     $scope.WorkRecord.profileId =  $scope.profile.profile.user.id;
-
     console.log('COMPANY : '+ $scope.WorkRecord.companyname + '\n TITLE : ' + $scope.WorkRecord.Type +' - ' + $scope.WorkRecord.jobtitle);
     console.log('UUID BEFORE UPSERT: '+ $scope.WorkRecord.profileId);
-
-    ProfileService.upsertWorkHistory($scope.WorkRecord, function() {
-
-    });
-
+    ProfileService.upsertWorkHistory($scope.WorkRecord, function() {});
     $scope.profile = ProfileService.getProfile($scope.WorkRecord.profileId);
-    //$state.go('^.view({id: $scope.MyProfile.UUID})');
-      $scope.hideWork = true;
+    $scope.hideWork = true;
     $location.path('/app/myprofile/'+$scope.WorkRecord.profileId+'/edit');
 
   };
@@ -542,15 +540,21 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $stateParams,
     //Here your view content is fully loaded !!
       if($scope.currentUser){
         console.log('LOGGED IN UID: '+ $scope.currentUser.id );
-        console.log('PROFILE 2 : '+JSON.stringify( $scope.SelectedProfile ));
+        console.log('CURRENT USER : '+JSON.stringify( $scope.currentUser ));
+        if($scope.profile.profile){
+          console.log('CURRENT PROFILE : '+JSON.stringify( $scope.profile.profile ));
+        }else{
+          console.log('NO CURRENT PROFILE');
+        }
+
       }
   });
 
   if ($stateParams.id) {
-    $scope.profile = ProfileService.getProfile($stateParams.id);
+    //$scope.profile = ProfileService.getProfile($stateParams.id);
     // $scope.sliceProfile($scope.MyProfile);
   } else {
-    $scope.profile = {};
+    //$scope.profile = {};
   }
 
 });
