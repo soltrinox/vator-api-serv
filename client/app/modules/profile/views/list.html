@@ -15,7 +15,8 @@
       </a>
     </span>
     <h4 class="list-group-item-heading">
-      <a href="" ng-click="getMe({id: profiles.id})" >{{profiles.Name}} - {{profiles.id}}</a>
+      <a href="" ui-sref="^.edit({id: profiles.id})" >{{profiles.Name}}</a><br/>
+      {{profiles.id}}
     </h4>
     <p class="list-group-item-text">{{profiles.Bio}}</p>
     <div>

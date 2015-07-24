@@ -471,6 +471,10 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
     $scope.profiles = ProfileService.getProfiles($scope.currentUser.id);
   };
 
+  $scope.getUUIDProfile = function(){
+    $scope.profiles = ProfileService.getProfiles($scope.currentUser.id);
+  }
+
 // ==============  EDUCATION ====================
 
 
