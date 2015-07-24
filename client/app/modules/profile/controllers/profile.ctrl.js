@@ -396,11 +396,11 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
   $scope.getMe = function(pro){
       console.log('GET ME :'+ JSON.stringify($scope.profileId) );
       var theId = '';
-      if(($scope.profileId === '') && (pro.id === '')){
+      if((!$scope.profileId || 0 === $scope.profileId.length) && (!pro.id || 0 === pro.id.length)){
 
-      }else if(($scope.profileId === '') && (pro.id != '')){
+      }else if((!$scope.profileId || 0 === $scope.profileId.length) && (pro.id || 0 < pro.id.length)){
         theId = pro.id;
-      }else if(($scope.profileId != '') && (pro.id === '')){
+      }else if(($scope.profileId || 0 < $scope.profileId.length) && (!pro.id || 0 === pro.id.length)){
         theId = $scope.profileId;
       }
       if(theId === ''){
