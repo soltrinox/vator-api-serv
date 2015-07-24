@@ -4,7 +4,14 @@ var app = angular.module('com.module.profile');
 app.controller('MyProfileCtrl',function($scope, $location, $state, $stateParams,
   ProfileService, gettextCatalog) {
 
-
+    $scope.UserRecord = {
+      Name:'',
+      Bio:'',
+      UUID:'',
+      ProfilePic:'',
+      CoverPic:'',
+      uid:''
+    };
 
 
     $scope.SchoolRecord = {};
@@ -371,18 +378,14 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $stateParams,
   };
 
   $scope.onSubmit = function() {
-    $scope.MyProfile.Name = $scope.profile.profile.user.Name;
-    $scope.MyProfile.Bio = $scope.profile.profile.user.Bio;
-    $scope.MyProfile.UUID = $scope.profile.profile.user.UUID;
 
+    console.log('Name : '+ $scope.UserRecord.Name + '\n Bio : ' + $scope.UserRecord.Bio );
+    console.log('UUID BEFORE UPSERT: '+ $scope.UserRecord.id );
 
-    console.log('Name : '+ $scope.profile.profile.user.Name + '\n Bio : ' + $scope.profile.profile.user.Bio );
-    console.log('UUID BEFORE UPSERT: '+$scope.profile.profile.user.id);
-
-    ProfileService.upsertProfile($scope.profile.profile.user, function() {
+    ProfileService.upsertProfile($scope.UserRecord, function() {
       //$state.go('^.view({id: $scope.MyProfile.UUID})');
         $scope.hideBase = true;
-      $location.path('/app/myprofile/'+$scope.profile.profile.user.id+ '/edit');
+      $location.path('/app/myprofile/'+$scope.UserRecord.id+ '/edit');
     });
   };
 
@@ -478,6 +481,15 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $stateParams,
     };
 
   // ==============  EDIT TABLES ====================
+
+  $scope.editUser = function(user){
+    $scope.UserRecord.Name = user.Name;
+    $scope.UserRecord.Bio = user.Bio;
+    $scope.UserRecord.UUID = user.UUID;
+    $scope.UserRecord.ProfilePic = user.ProfilePic;
+    $scope.UserRecord.CoverPic = user.CoverPic;
+    $scope.UserRecord.id = user.id;
+  };
 
   $scope.editCompany = function(comp)  {
 

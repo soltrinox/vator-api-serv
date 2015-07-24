@@ -6,10 +6,10 @@
 
 <div>
   <div>
-    <img src="profile.profile.user.CoverPic" id="" class="" />
+    <img src="{{profile.profile.user.CoverPic}}" id="" class="" />
   </div>
   <div>
-    <img src="profile.profile.user.ProfilePic" id="" class="" />
+    <img src="{{profile.profile.user.ProfilePic}}" id="" class="" />
   </div>
 </div>
 
@@ -17,10 +17,10 @@
   <div class="alert alert-danger" ng-if="addError" translate>Could not add profile!</div>
   <tabset class="nav-tabs-custom">
     <tab heading="{{ 'Who' | translate }}">
-      <button class="btn btn-info fa fa-plus" ng-click="toggleBase()">Add / Edit Profile</button>
+      <button class="btn btn-info fa fa-plus" ng-click="toggleBase(profile.profile.user)">Add / Edit Profile</button>
       <div class="row tab-pane"   ng-hide="hideBase">
         <!--  contact for email here ??? -->
-        <formly-form result="profile.profile.user" fields="formFields" id="userForm" options="formOptions" ng-submit="onSubmit()"></formly-form>
+        <formly-form result="UserRecord" fields="formFields" id="userForm" options="formOptions" ng-submit="onSubmit()"></formly-form>
         <pre>
           {{ profile.profile.user | json}}
 
