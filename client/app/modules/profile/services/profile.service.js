@@ -11,9 +11,11 @@ function($state, CoreService, Profile, User, Education, Social, WorkHistory, Tea
 
   this.getProfile = function(id, cb) {
     console.log('get Entire Pro : '+id);
-    var response =  Profile.getEntireProfile({id:id});
-    console.log('DATA GET ENTIRE : '+JSON.stringify(response));
-    cb(response);
+    var response =  Profile.getEntireProfile({id:id}, function(){
+      console.log('DATA GET ENTIRE : '+JSON.stringify(response));
+      cb(response);
+    });
+
   };
 
   this.getProfileByUUID = function(id) {
@@ -36,7 +38,6 @@ function($state, CoreService, Profile, User, Education, Social, WorkHistory, Tea
         'Error saving profile '), gettextCatalog.getString(
         'This profile could not be saved: ') + err);
     });
-    console.log('upsert DATA : '+ response);
   };
 
   this.deleteProfile = function(id, cb) {
