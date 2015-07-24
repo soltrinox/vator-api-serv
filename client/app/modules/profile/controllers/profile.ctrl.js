@@ -477,7 +477,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $stateParams,
 
   // ==============  EDIT TABLES ====================
 
-  $scope.editCompany = function(comp) = {
+  $scope.editCompany = function(comp)  {
 
     console.log('editing comp : '+ comp.Name +' : ' + comp.URL +' : '  );
     $scope.CompanyRecord.Name = comp.Name;
