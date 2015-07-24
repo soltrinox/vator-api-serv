@@ -416,9 +416,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
     }
     ProfileService.upsertProfile($scope.UserRecord, function(response) {
       console.log('Updated new profile on UUID'  + JSON.stringify(response));
-
         $scope.getMe(response);
-            // console.log('PROFILE NEW AFTER UPSERT : '  + JSON.stringify(response));
     });
 
     $scope.hideBase = true;
@@ -460,17 +458,24 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
     console.log('COMPANY : '+ $scope.WorkRecord.companyname + '\n TITLE : ' + $scope.WorkRecord.Type +' - ' + $scope.WorkRecord.jobtitle);
     console.log('UUID BEFORE UPSERT: '+ $scope.WorkRecord.profileId);
     ProfileService.upsertWorkHistory($scope.WorkRecord, function() {});
-    $scope.profile = ProfileService.getProfile($scope.WorkRecord.profileId);
+    ProfileService.getProfile($scope.WorkRecord.profileId,function(response){
+      console.log('NEW WORK : '  + JSON.stringify(response));
+      $scope.profile = response;
+    });
     $scope.hideWork = true;
-    $location.path('/app/myprofile/'+$scope.WorkRecord.profileId+'/edit');
-
+    // $location.path('/app/myprofile/'+$scope.WorkRecord.profileId+'/edit');
+    
   };
 
 // ==============  SOCIAL ====================
 
   $scope.delete4 = function(id) {
     ProfileService.deleteSocial(id, function() {
-      $scope.profile = ProfileService.getProfile($scope.profile.id);
+      ProfileService.getProfile($scope.profile.id, function(response){
+        console.log('delete social : '  + JSON.stringify(response));
+        $scope.profile = response;
+        // $location.path('/app/myprofile/'+pro.id);
+      });
     });
   };
   $scope.onSubmit4 = function() {
@@ -484,10 +489,13 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
 
     });
 
-    $scope.profile = ProfileService.getProfile($scope.SocialRecord.profileId);
-    //$state.go('^.view({id: $scope.MyProfile.UUID})');
-      $scope.hideSocial = true;
-    $location.path('/app/myprofile/'+$scope.SocialRecord.profileId +'/edit');
+    ProfileService.getProfile($scope.SocialRecord.profileId, function(response){
+      console.log('NEW SOCIAL : '  + JSON.stringify(response));
+      $scope.profile = response;
+    });
+
+    $scope.hideSocial = true;
+    //$location.path('/app/myprofile/'+$scope.SocialRecord.profileId +'/edit');
 
   };
 

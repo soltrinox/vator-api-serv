@@ -6,10 +6,10 @@
 
 <div>
   <div>
-    <img src="{{profile.profile.user.CoverPic}}" id="" class="" />
+    <img src="{{profile.user.CoverPic}}" id="" class="" />
   </div>
   <div>
-    <img src="{{profile.profile.user.ProfilePic}}" id="" class="" />
+    <img src="{{profile.user.ProfilePic}}" id="" class="" />
   </div>
 </div>
 
@@ -17,7 +17,7 @@
   <div class="alert alert-danger" ng-if="addError" translate>Could not add profile!</div>
   <tabset class="nav-tabs-custom">
     <tab heading="{{ 'Who' | translate }}">
-      <button class="btn btn-info fa fa-plus" ng-click="toggleBase(profile.profile.user)">Add / Edit Profile</button>
+      <button class="btn btn-info fa fa-plus" ng-click="toggleBase(profile.user)">Add / Edit Profile</button>
       <div class="row tab-pane"   ng-hide="hideBase">
         <!--  contact for email here ??? -->
         <formly-form result="UserRecord" fields="formFields" id="userForm" options="formOptions" ng-submit="onSubmit()"></formly-form>
@@ -31,7 +31,7 @@
 
       <table class="table table-hover">
         <tbody>
-          <tr  ng-repeat="contact in profile.profile.contact" class="list-group-item">
+          <tr  ng-repeat="contact in profile.contact" class="list-group-item">
             <td class="text-center">
               <div class="checkbox margin-t-0">
                 <input id="checkbox1" type="checkbox">
@@ -47,9 +47,9 @@
     <!-- <tab heading="{{ 'Credentials' | translate }}">
       <div class="row tab-pane">
 
-        <formly-form result="profile.profile.edu" fields="formFields2" options="formOptions" ng-submit="onSubmit2()"></formly-form>
+        <formly-form result="profile.edu" fields="formFields2" options="formOptions" ng-submit="onSubmit2()"></formly-form>
         <pre>
-          {{ profile.profile.edu | json}}
+          {{ profile.edu | json}}
         </pre>
 
         <div class="controls">
@@ -94,7 +94,7 @@
         <!-- <pre>
 
           {{ WorkRecord | json }}
-          {{ profile.profile.work | json}}
+          {{ profile.work | json}}
         </pre> -->
         <div class="controls">
           <button class="btn btn-primary btn-success" ng-click="onSubmit3()" translate>Add New Experience </button>
@@ -103,7 +103,7 @@
 
       <table class="table table-hover">
         <tbody>
-          <tr ng-repeat="work in profile.profile.work" class="list-group-item">
+          <tr ng-repeat="work in profile.work" class="list-group-item">
             <td class="text-center">
               <div class="checkbox margin-t-0">
                 <input id="checkbox1" type="checkbox">
@@ -132,7 +132,7 @@
 
       <table class="table table-hover">
         <tbody>
-           <tr  ng-repeat="social in profile.profile.social" class="list-group-item">
+           <tr  ng-repeat="social in profile.social" class="list-group-item">
              <td class="text-center">
                <div class="checkbox margin-t-0">
                  <input id="checkbox1" type="checkbox">
@@ -161,7 +161,7 @@
 
       <table class="table table-hover">
         <tbody>
-           <tr  ng-repeat="company in profile.profile.companies" class="list-group-item">
+           <tr  ng-repeat="company in profile.companies" class="list-group-item">
              <td class="text-center">
                <div class="checkbox margin-t-0">
                  <input id="checkbox1" type="checkbox">
