@@ -417,7 +417,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
       console.log('Updated new profile on UUID'  + JSON.stringify(response));
         $scope.profile = response;
         $scope.getMe($scope.profile);
-            console.log('PROFILE NEW AFTER UPSERT : '  + JSON.stringify(profile));
+            console.log('PROFILE NEW AFTER UPSERT : '  + JSON.stringify($scope.profile));
     });
 
     $scope.hideBase = true;
