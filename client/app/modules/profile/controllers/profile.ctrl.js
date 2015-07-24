@@ -411,10 +411,12 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $stateParams,
     ProfileService.upsertProfile($scope.UserRecord, function() {
       console.log('Updated new profile on UUID');
       //$state.go('^.view({id: $scope.MyProfile.UUID})');
-        $scope.hideBase = true;
-        $scope.getMyNewProfile($scope.UserRecord.UUID);
-        $scope.profiles = ProfileService.getProfiles();
+
     });
+
+    $scope.hideBase = true;
+    $scope.getMyNewProfile($scope.UserRecord.UUID);
+    $scope.profiles = ProfileService.getProfiles();
   };
 
 // ==============  EDUCATION ====================
