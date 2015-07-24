@@ -395,9 +395,9 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
       console.log('GET ME :'+ JSON.stringify(pro) );
       ProfileService.getProfile(pro.id, function(response){
         console.log('NEW PROFILE : '  + JSON.stringify(response));
-        $scope.profile = response;
+        $scope.profile = response.profile;
         // $location.path('/app/myprofile/'+pro.id);
-        $scope.sliceProfile($scope.profile.profile);
+        $scope.sliceProfile($scope.profile);
       });
 
   };
