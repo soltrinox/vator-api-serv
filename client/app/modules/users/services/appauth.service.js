@@ -79,8 +79,8 @@ angular.module('com.module.users')
               cb({});
             });
         } else {
-          console.log('Using cached current user.');
-          cb(self.currentUser);
+          //console.log('Using cached current user.');
+          //cb(self.currentUser);
         }
       }
     };
