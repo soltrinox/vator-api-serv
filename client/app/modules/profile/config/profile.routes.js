@@ -5,7 +5,7 @@ app.config(function($stateProvider) {
   $stateProvider.state('app.myprofile', {
     abstract: true,
     url: '/myprofile',
-    templateUrl: 'modules/profile/views/main.html'
+    templateUrl: 'modules/profile/views/form.html'
   }).state('app.myprofile.list', {
     url: '',
     templateUrl: 'modules/profile/views/list.html',
@@ -20,7 +20,7 @@ app.config(function($stateProvider) {
     controller: 'MyProfileCtrl'
   }).state('app.myprofile.view', {
     url: '/:id',
-    templateUrl: 'modules/profile/views/view.html',
+    templateUrl: 'modules/profile/views/form.html',
     controller: 'MyProfileCtrl'
   });
 });
