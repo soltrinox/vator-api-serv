@@ -407,8 +407,9 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
         console.log('NO ID');
       }else{
         ProfileService.getProfile(theId, function(response){
-          console.log('NEW PROFILE : '  + JSON.stringify(response));
+          console.log('FOUND FULL PROFILE : '  + JSON.stringify(response));
           $scope.profile = response.profile;
+          console.log('FOUND FULL PROFILE : '  + JSON.stringify($scope.profile));
           $scope.profileId = response.profile.user.id;
           // $location.path('/app/myprofile/'+pro.id);
           $scope.sliceProfile($scope.profile);
@@ -421,10 +422,8 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
   $scope.getMyNewProfile = function(UUID){
       console.log('GET ME :'+ UUID );
       ProfileService.getProfileByUUID(UUID, function(response){
-
           $scope.profileId = response.id;
           $scope.getMe($scope.profileId);
-
       });
 
   };
