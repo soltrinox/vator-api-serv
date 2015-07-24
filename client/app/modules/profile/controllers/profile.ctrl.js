@@ -393,7 +393,10 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
 
   $scope.getMe = function(pro){
       console.log('GET ME :'+pro.id);
-      $scope.profile = ProfileService.getProfile(pro.id);
+      $scope.profile = ProfileService.getProfile(pro.id, function(){
+        console.log('NEW PROFILE : '  + JSON.stringify(response));
+        $scope.profile = response;
+      });
       $location.path('/app/myprofile/'+pro.id);
   };
 
@@ -412,12 +415,13 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
     }
     ProfileService.upsertProfile($scope.UserRecord, function(response) {
       console.log('Updated new profile on UUID'  + JSON.stringify(response));
-      //$state.go('^.view({id: $scope.MyProfile.UUID})');
         $scope.profile = response;
+        $scope.getMe(profile);
+            console.log('PROFILE NEW AFTER UPSERT : '  + JSON.stringify(profile));
     });
 
     $scope.hideBase = true;
-    $scope.getMyNewProfile($scope.UserRecord.UUID);
+    //$scope.getMyNewProfile($scope.UserRecord.UUID);
     $scope.profiles = ProfileService.getProfiles();
   };
 

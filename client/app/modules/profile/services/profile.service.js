@@ -9,9 +9,11 @@ function($state, CoreService, Profile, User, Education, Social, WorkHistory, Tea
     return Profile.find();
   };
 
-  this.getProfile = function(id) {
+  this.getProfile = function(id, cb) {
     console.log('get Entire Pro : '+id);
-    return Profile.getEntireProfile({id:id});
+    var response =  Profile.getEntireProfile({id:id});
+    console.log('DATA GET ENTIRE : '+JSON.stringify(response));
+    cb(response);
   };
 
   this.getProfileByUUID = function(id) {
