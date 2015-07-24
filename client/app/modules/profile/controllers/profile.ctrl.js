@@ -397,8 +397,8 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $stateParams,
 
   $scope.getMyNewProfile = function(UUID){
       console.log('GET ME :'+ UUID );
-      $scope.profile = ProfileService.getProfileByUUID(UUID);
-        console.log('GET THE ID : '+$scope.profile.id);
+      $scope.tempprofile = ProfileService.getProfileByUUID(UUID);
+        console.log('GET THE ID : '+$scope.tempprofile.id);
   };
 
   $scope.onSubmit = function() {
