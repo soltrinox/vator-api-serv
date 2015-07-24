@@ -391,9 +391,13 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $stateParams,
 
   $scope.getMe = function(pro){
       console.log('GET ME :'+pro.id);
-      ProfileService.getProfile(pro.id);
-      console.log('CLICK : ' + pro.id);
+      $scope.profile = ProfileService.getProfile(pro.id);
       $location.path('/app/myprofile/'+pro.id);
+  };
+
+  $scope.getMyNewProfile = function(UUID){
+      console.log('GET ME :'+ UUID );
+      $scope.profile = ProfileService.getProfileByUUID(UUID);
   };
 
   $scope.onSubmit = function() {
@@ -404,9 +408,11 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $stateParams,
       delete $scope.UserRecord.id;
     }
     ProfileService.upsertProfile($scope.UserRecord, function() {
+      console.log('Updated new profile on UUID');
       //$state.go('^.view({id: $scope.MyProfile.UUID})');
         $scope.hideBase = true;
-      $location.path('/app/myprofile/'+$scope.UserRecord.id+ '/edit');
+        $scope.profile $scope.getMyNewProfile($scope.UserRecord.UUID);
+        $scope.profiles = ProfileService.getProfiles();
     });
   };
 

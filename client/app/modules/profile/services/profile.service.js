@@ -10,8 +10,13 @@ function($state, CoreService, Profile, User, Education, Social, WorkHistory, Tea
   };
 
   this.getProfile = function(id) {
-    console.log('getPro : '+id);
+    console.log('get Entire Pro : '+id);
     return Profile.getEntireProfile({id:id});
+  };
+
+  this.getProfileByUUID = function(id) {
+    console.log('fund by UUID : '+id);
+    return Profile.find({where: {UUID:id}});
   };
 
   this.upsertProfile = function(profile, cb) {
@@ -207,7 +212,7 @@ this.getCompanyMembers = function (comp){
 }
 
 this.upsertCompany = function(company, cb) {
-  
+
   Team.members.link(company, function() {
     CoreService.toastSuccess(gettextCatalog.getString(
       'Assoc saved'), gettextCatalog.getString(
