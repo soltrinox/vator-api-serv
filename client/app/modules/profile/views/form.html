@@ -92,7 +92,7 @@
 
     </tab> -->
     <tab heading="{{ 'Experience' | translate }}">
-      <a href="#" class="btn btn-info" ng-click="toggleWork()"><i class="fa fa-plus"></i>Add / Edit Experience</a>
+        <button class="btn btn-info fa fa-plus" ng-click="toggleWork()">Add / Edit Experience</button>
       <div class="row tab-pane"   ng-hide="hideWork">
 
         <formly-form result="WorkRecord" fields="formFields3" options="formOptions" ng-submit="onSubmit3()"></formly-form>
@@ -102,7 +102,7 @@
           {{ profile.profile.work | json}}
         </pre> -->
         <div class="controls">
-          <button class="btn btn-primary btn-success" ng-click="onSubmit3()" translate>Add Experience </button>
+          <button class="btn btn-primary btn-success" ng-click="onSubmit3()" translate>Add New Experience </button>
         </div>
       </div>
 
@@ -125,7 +125,7 @@
       </table>
     </tab>
     <tab heading="{{ 'Social' | translate }}">
-      <a href="#" class="btn btn-info" ng-click="toggleSocial()"><i class="fa fa-plus"></i>Add / Edit Social</a>
+        <button class="btn btn-info fa fa-plus" ng-click="toggleSocial()">Add New Social</button>
       <div class="row tab-pane "  ng-hide="hideSocial">
         <!--  contact for email here too -->
         <formly-form result="SocialRecord" fields="formFields4" options="formOptions" ng-submit="onSubmit4()"></formly-form>
@@ -152,5 +152,35 @@
         </tbody>
       </table>
     </tab>
+
+    <tab heading="{{ 'Companies' | translate }}">
+        <button class="btn btn-info fa fa-plus" ng-click="toggleCompany()">Add New Social</button>
+      <div class="row tab-pane "  ng-hide="hideCompany">
+        <!--  contact for email here too -->
+        <formly-form result="CompanyRecord" fields="formFields5" options="formOptions" ng-submit="onSubmit5()"></formly-form>
+
+        <div class="controls">
+          <button class="btn btn-primary btn-success" ng-click="onSubmit5()" translate>Add Company Relations</button>
+        </div>
+      </div>
+
+      <table class="table table-hover">
+        <tbody>
+           <tr  ng-repeat="company in profile.profile.companies" class="list-group-item">
+             <td class="text-center">
+               <div class="checkbox margin-t-0">
+                 <input id="checkbox1" type="checkbox">
+                 <label for="checkbox1"></label>
+               </div>
+             </td>
+             <td>{{company.Name}} </td>
+             <td>{{company.URL}}</td>
+             <td> <button class="btn btn-warning"   ng-click="editCompany({{company}})" >Edit</button> </td>
+           </tr>
+           <tr>
+        </tbody>
+      </table>
+    </tab>
+
   </tabset>
 </div>

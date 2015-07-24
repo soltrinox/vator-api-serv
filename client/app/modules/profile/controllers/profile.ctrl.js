@@ -25,7 +25,10 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $stateParams,
       profileId : ''
     };
     $scope.MediaRecord = {};
-    $scope.CompanyRecord = {};
+    $scope.CompanyRecord = {
+      Name: '',
+      URL: ''
+    };
     $scope.MyProfile = {};
     $scope.SelectedProfile = {};
     $scope.profiles = {};
@@ -284,10 +287,39 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $stateParams,
             }
         ];
 
+
+        $scope.formFields5 = [ {
+            key: 'Name',
+            type: 'text',
+            label: gettextCatalog.getString('Name'),
+            id : 'company.name',
+            required: true
+          }, {
+            key: 'URL',
+            type: 'textarea',
+            label: gettextCatalog.getString('URL'),
+            lines : 4,
+            id : 'company.url',
+            required: true
+          }, {
+            key: 'UUID',
+            type: 'hidden',
+            label: '',
+            id : 'company.uuid',
+            required: true
+          }
+        ];
+
   $scope.hideBase = true;
   $scope.toggleBase = function(id) {
     $scope.hideBase = $scope.hideBase === false ? true: false;
   }
+
+  $scope.hideCompany = true;
+  $scope.toggleCompany = function(id) {
+    $scope.hideCompany = $scope.hideCompany === false ? true: false;
+  }
+
   $scope.hideWork = true;
   $scope.toggleWork = function(id) {
     $scope.hideWork = $scope.hideWork === false ? true: false;
@@ -432,6 +464,16 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $stateParams,
     $location.path('/app/myprofile/'+$scope.SocialRecord.profileId +'/edit');
 
   };
+
+
+  $scope.editCompany = function(comp) = {
+
+    console.log('editing comp : '+ comp.Name +' : ' + comp.URL);
+    $scope.CompanyRecord.Name = comp.Name;
+    $scope.CompanyRecord.URL = comp.URL;
+  };
+
+
 
 // ==============  GRAB PROFILES ON LOAD ====================
 
