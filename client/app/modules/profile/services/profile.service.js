@@ -202,7 +202,7 @@ this.getCompanyMembers = function (comp){
 
   //  Team.members.link()
 
-  return ProfileService.Team.members({id: '55b1a2f141ed6e575486928e'});
+  return Team.members({id: '55b1a2f141ed6e575486928e'});
 
 }
 
