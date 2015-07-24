@@ -18,7 +18,7 @@ function($state, CoreService, Profile, User, Education, Social, WorkHistory, Tea
     console.log('find by UUID : '+id);
     var tt = new Profile();
     tt =  Profile.findOne({where: {UUID:id}});
-    console.log('tt : '+ tt);
+    console.log('tt : '+ JSON.stringify(tt));
     return tt;
   };
 
@@ -27,13 +27,14 @@ function($state, CoreService, Profile, User, Education, Social, WorkHistory, Tea
       CoreService.toastSuccess(gettextCatalog.getString(
         'Profile saved'), gettextCatalog.getString(
         'Your profile is safe with us!'));
+        console.log('DATA UPSERT : '+JSON.stringify(response));
       cb();
     }, function(err) {
       CoreService.toastSuccess(gettextCatalog.getString(
         'Error saving profile '), gettextCatalog.getString(
         'This profile could not be saved: ') + err);
     });
-    console.log('upsert profile : '+response);
+    console.log('upsert DATA : '+ response);
   };
 
   this.deleteProfile = function(id, cb) {
