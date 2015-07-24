@@ -410,10 +410,10 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
     if($scope.UserRecord.id === ''){
       delete $scope.UserRecord.id;
     }
-    ProfileService.upsertProfile($scope.UserRecord, function() {
-      console.log('Updated new profile on UUID');
+    ProfileService.upsertProfile($scope.UserRecord, function(response) {
+      console.log('Updated new profile on UUID'  + JSON.stringify(response));
       //$state.go('^.view({id: $scope.MyProfile.UUID})');
-
+        $scope.profile = response;
     });
 
     $scope.hideBase = true;

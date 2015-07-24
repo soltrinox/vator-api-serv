@@ -28,7 +28,7 @@ function($state, CoreService, Profile, User, Education, Social, WorkHistory, Tea
         'Profile saved'), gettextCatalog.getString(
         'Your profile is safe with us!'));
         console.log('DATA UPSERT : '+JSON.stringify(response));
-      cb();
+      cb(response);
     }, function(err) {
       CoreService.toastSuccess(gettextCatalog.getString(
         'Error saving profile '), gettextCatalog.getString(
