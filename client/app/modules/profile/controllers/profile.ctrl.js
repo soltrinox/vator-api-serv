@@ -444,24 +444,13 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
 
 // ==============  EDUCATION ====================
 
-  // $scope.delete2 = function(id) {
-  //   EducationService.deleteEducation(id, function() {
-  //     $scope.profile = ProfileService.getProfile($scope.profile.id);
-  //   });
-  // };
-  //
-  // $scope.onSubmit2 = function() {
-  //   EducationService.upsertEducation($scope.SchoolRecord, function() {
-  //     $scope.profile = ProfileService.getProfile($scope.profile.id);
-  //     $state.go('^.view');
-  //   });
-  // };
+
 
 // ==============  WORKHISTORY ====================
 
   $scope.delete3 = function(id) {
     WorkHistoryService.deleteWorkHistory(id, function() {
-      $scope.msg = WorkHistoryService.deleteWorkHistory($scope.profile.id, function(){
+      $scope.msg = WorkHistoryService.deleteWorkHistory($scope.profileId, function(){
 
       });
       console.log('MSG RESPONSE DELETE WORK: '+   $scope.msg);
@@ -476,7 +465,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
     console.log('COMPANY : '+ $scope.WorkRecord.companyname + '\n TITLE : ' + $scope.WorkRecord.Type +' - ' + $scope.WorkRecord.jobtitle);
     console.log('UUID BEFORE UPSERT: '+ $scope.WorkRecord.profileId);
     ProfileService.upsertWorkHistory($scope.WorkRecord, function() {});
-    ProfileService.getProfile($scope.profile.id,function(response){
+    ProfileService.getProfile($scope.profileId,function(response){
       console.log('NEW WORK : '  + JSON.stringify(response));
       // $scope.profile = response;
         $scope.getMe($scope.profile);
@@ -490,7 +479,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
 
   $scope.delete4 = function(id) {
     ProfileService.deleteSocial(id, function() {
-      ProfileService.getProfile($scope.profile.id, function(response){
+      ProfileService.getProfile($scope.profileId, function(response){
         console.log('delete social : '  + JSON.stringify(response));
         $scope.profile = response;
         // $location.path('/app/myprofile/'+pro.id);
@@ -508,7 +497,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
 
     });
 
-    ProfileService.getProfile($scope.profile.id, function(response){
+    ProfileService.getProfile($scope.profileId, function(response){
       console.log('NEW SOCIAL : '  + JSON.stringify(response));
         //$scope.profile = response;
         $scope.getMe($scope.profile);
