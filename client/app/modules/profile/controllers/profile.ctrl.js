@@ -399,7 +399,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $stateParams,
   $scope.onSubmit = function() {
 
     console.log('Name : '+ $scope.UserRecord.Name + '\n Bio : ' + $scope.UserRecord.Bio );
-    console.log('UUID BEFORE UPSERT: '+ $scope.UserRecord.id );
+    console.log('object ID BEFORE UPSERT: '+ $scope.UserRecord.id +' = UUID : ' + $scope.UserRecord.UUID);
     if($scope.UserRecord.id === ''){
       delete $scope.UserRecord.id;
     }
