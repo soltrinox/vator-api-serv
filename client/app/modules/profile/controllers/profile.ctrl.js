@@ -325,12 +325,12 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
     // console.log( 'PARAMS : ' + JSON.stringify($route));
     if( ( $scope.profile ) && ( $scope.UserRecord.UUID  === undefined) ){
       console.log('scope.profile is valid and user rec undefined');
-      $scope.UserRecord.Name = $scope.profile.profile.user.Name;
-      $scope.UserRecord.UUID = $scope.profile.profile.user.UUID;
-      $scope.UserRecord.id = $scope.profile.profile.user.id;
-      $scope.UserRecord.Bio = $scope.profile.profile.user.Bio;
-      $scope.UserRecord.ProfilePic = $scope.profile.profile.user.ProfilePic;
-      $scope.UserRecord.CoverPic = $scope.profile.profile.user.CoverPic;
+      $scope.UserRecord.Name = $scope.profile.user.Name;
+      $scope.UserRecord.UUID = $scope.profile.user.UUID;
+      $scope.UserRecord.id = $scope.profile.user.id;
+      $scope.UserRecord.Bio = $scope.profile.user.Bio;
+      $scope.UserRecord.ProfilePic = $scope.profile.user.ProfilePic;
+      $scope.UserRecord.CoverPic = $scope.profile.user.CoverPic;
     }else if( ($scope.profile  === undefined) && ( $scope.UserRecord.UUID  === '') ){
       console.log('scope.profile and user rec undefined');
       $scope.UserRecord.UUID = $scope.currentUser.id;
@@ -340,7 +340,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
       }
 
     }
-    // else if((!$scope.profile.profile.user.UUID ) && ($scope.UserRecord.UUID))
+    // else if((!$scope.profile.user.UUID ) && ($scope.UserRecord.UUID))
     $scope.editUser($scope.UserRecord);
     $scope.hideBase = $scope.hideBase === false ? true: false;
   }
@@ -455,7 +455,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
 
   $scope.onSubmit3 = function() {
 
-    $scope.WorkRecord.profileId =  $scope.profile.profile.user.id;
+    $scope.WorkRecord.profileId =  $scope.profile.user.id;
     console.log('COMPANY : '+ $scope.WorkRecord.companyname + '\n TITLE : ' + $scope.WorkRecord.Type +' - ' + $scope.WorkRecord.jobtitle);
     console.log('UUID BEFORE UPSERT: '+ $scope.WorkRecord.profileId);
     ProfileService.upsertWorkHistory($scope.WorkRecord, function() {});
@@ -482,7 +482,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
   };
   $scope.onSubmit4 = function() {
 
-    $scope.SocialRecord.profileId = $scope.profile.profile.user.id;
+    $scope.SocialRecord.profileId = $scope.profile.user.id;
 
     console.log('TYPE : '+ $scope.SocialRecord.Type + '\n VAL : ' + $scope.SocialRecord.URL +' - ' + $scope.SocialRecord.Value);
     console.log('UUID BEFORE UPSERT: '+ $scope.SocialRecord.profileId);
@@ -578,7 +578,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
         if($scope.profile === undefined){
             console.log('NO CURRENT PROFILE');
         }else{
-          console.log('CURRENT PROFILE : '+JSON.stringify( $scope.profile.profile ));
+          console.log('CURRENT PROFILE : '+JSON.stringify( $scope.profile ));
         }
 
       }
