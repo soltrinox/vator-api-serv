@@ -325,7 +325,10 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $stateParams,
       console.log('scope.profile and user rec undefined');
       $scope.UserRecord.UUID = $scope.currentUser.id;
       $scope.UserRecord.Name = $scope.currentUser.username;
-      $scope.UserRecord.Bio = $scope.currentUser.name.givenName +' '+ $scope.currentUser.name.familyName;
+      if(!(($scope.currentUser.firstname === undefined) && ($scope.currentUser.lastname === undefined))){
+        $scope.UserRecord.Name = $scope.currentUser.firstname +' '+ $scope.currentUser.lastname;
+      }
+
     }else if( ( $scope.profile ) && ( $scope.UserRecord.UUID  === undefined) ){
       console.log('scope.profile is valid and user rec undefined');
       $scope.UserRecord.Name = $scope.profile.profile.user.Name;
