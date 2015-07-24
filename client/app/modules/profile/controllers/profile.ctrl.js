@@ -401,7 +401,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $stateParams,
     console.log('Name : '+ $scope.UserRecord.Name + '\n Bio : ' + $scope.UserRecord.Bio );
     console.log('UUID BEFORE UPSERT: '+ $scope.UserRecord.id );
     if($scope.UserRecord.id === ''){
-      delete $scope.UserRecord[id];
+      delete $scope.UserRecord.id;
     }
     ProfileService.upsertProfile($scope.UserRecord, function() {
       //$state.go('^.view({id: $scope.MyProfile.UUID})');
