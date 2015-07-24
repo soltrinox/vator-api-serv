@@ -321,11 +321,11 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $stateParams,
 
   $scope.hideBase = true;
   $scope.toggleBase = function(id) {
-    if( ($scope.isUndefined($scope.profile)) && ($scope.isUndefined($scope.UserRecord.UUID)) ){
+    if( ($scope.profile  === 'undefined') && ( $scope.UserRecord.UUID  === 'undefined') ){
       $scope.UserRecord.UUID = $scope.currentUser.id;
       $scope.UserRecord.Name = $scope.currentUser.username;
       $scope.UserRecord.Bio = $scope.currentUser.name.givenName +' '+ $scope.currentUser.name.familyName;
-    }else if( ($scope.isDefined($scope.profile)) && ($scope.isUndefined($scope.UserRecord.UUID)) ){
+    }else if( ( $scope.profile ) && ( $scope.UserRecord.UUID  === 'undefined') ){
       $scope.UserRecord.Name = $scope.profile.profile.user.Name;
       $scope.UserRecord.UUID = $scope.profile.profile.user.UUID;
       $scope.UserRecord.id = $scope.profile.profile.user.id;
@@ -541,7 +541,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $stateParams,
       if($scope.currentUser){
         console.log('LOGGED IN UID: '+ $scope.currentUser.id );
         console.log('CURRENT USER : '+JSON.stringify( $scope.currentUser ));
-        if(!$scope.profile){
+        if($scope.profile === 'undefined'){
             console.log('NO CURRENT PROFILE');
         }else{
           console.log('CURRENT PROFILE : '+JSON.stringify( $scope.profile.profile ));
