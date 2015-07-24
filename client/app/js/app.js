@@ -89,4 +89,11 @@ angular.module('loopbackApp', [
 
     gettextCatalog.setCurrentLanguage($rootScope.locale.lang);
 
+    $rootScope.$on('$routeChangeStart', function(event, next, current) {
+        if (typeof(current) !== 'undefined'){
+            $templateCache.remove(current.templateUrl);
+        }
+    });
+    
+
   });

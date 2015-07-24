@@ -27,7 +27,9 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $stateParams,
     $scope.MediaRecord = {};
     $scope.CompanyRecord = {
       Name: '',
-      URL: ''
+      URL: '',
+      profileId : '',
+      teamId : ''
     };
     $scope.MyProfile = {};
     $scope.SelectedProfile = {};
@@ -80,6 +82,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $stateParams,
       key: 'UUID',
       type: 'hidden',
       label: '',
+      default : $scope.profile.profile.user,
       id : 'user.uuid',
       required: true
     }, {
@@ -482,14 +485,17 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $stateParams,
     console.log('editing comp : '+ comp.Name +' : ' + comp.URL +' : '  );
     $scope.CompanyRecord.Name = comp.Name;
     $scope.CompanyRecord.URL = comp.URL;
+    $scope.CompanyRecord.profileId = '';
+    $scope.CompanyRecord.teamId = '';
 
-    console.log('getting members');
-    $scope.thisCompanyMembers = ProfileService.getCompanyMembers($scope.CompanyRecord);
-    console.log('MEMBERS : ' + $scope.thisCompanyMembers );
+
+    // console.log('getting members');
+    // $scope.thisCompanyMembers = ProfileService.getCompanyMembers($scope.CompanyRecord);
+    // console.log('MEMBERS : ' + $scope.thisCompanyMembers );
 
     // console.log('COMPANY LISTED' + $scope.thisCompanyMembers[0].Name);
     // now upsert the record
-    //ProfileService.upsertCompany
+    ProfileService.upsertCompany($scope.CompanyRecord);
 
   };
 

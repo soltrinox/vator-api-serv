@@ -207,15 +207,16 @@ this.getCompanyMembers = function (comp){
 }
 
 this.upsertCompany = function(company, cb) {
-  WorkHistory.upsert(workhistory, function() {
+  
+  Team.members.link(company, function() {
     CoreService.toastSuccess(gettextCatalog.getString(
-      'WorkHistory saved'), gettextCatalog.getString(
-      'Your work history is safe with us!'));
+      'Assoc saved'), gettextCatalog.getString(
+      'Your assoc is safe with us!'));
     cb();
   }, function(err) {
     CoreService.toastSuccess(gettextCatalog.getString(
-      'Error saving WorkHistory '), gettextCatalog.getString(
-      'This work history could not be saved: ') + err);
+      'Error saving Assoc '), gettextCatalog.getString(
+      'This assoc could not be saved: ') + err);
   });
 };
 

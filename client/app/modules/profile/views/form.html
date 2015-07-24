@@ -4,11 +4,19 @@
   <span ng-show="profile.id" translate>Edit profile</span>
 </h4>
 
+<div>
+  <div>
+    <img src="profile.profile.user.CoverPic" id="" class="" />
+  </div>
+  <div>
+    <img src="profile.profile.user.ProfilePic" id="" class="" />
+  </div>
+</div>
 
 <div class="container col-lg-12 col-md-12">
   <div class="alert alert-danger" ng-if="addError" translate>Could not add profile!</div>
   <tabset class="nav-tabs-custom">
-    <tab heading="{{ 'Profile' | translate }}">
+    <tab heading="{{ 'Who' | translate }}">
       <button class="btn btn-info fa fa-plus" ng-click="toggleBase()">Add / Edit Profile</button>
       <div class="row tab-pane"   ng-hide="hideBase">
         <!--  contact for email here ??? -->
@@ -114,7 +122,7 @@
         </tbody>
       </table>
     </tab>
-    <tab heading="{{ 'Social' | translate }}">
+    <tab heading="{{ 'Profiles' | translate }}">
         <button class="btn btn-info fa fa-plus" ng-click="toggleSocial()">Add New Social</button>
       <div class="row tab-pane "  ng-hide="hideSocial">
         <!--  contact for email here too -->
