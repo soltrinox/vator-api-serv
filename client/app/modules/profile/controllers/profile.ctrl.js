@@ -468,11 +468,13 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
 
     $scope.hideBase = true;
     //$scope.getMyNewProfile($scope.UserRecord.UUID);
-    $scope.profiles = ProfileService.getProfiles($scope.currentUser.id);
+    $scope.profiles =   $scope.getMyNewProfile($scope.currentUser.id);
+    // ProfileService.getProfiles($scope.currentUser.id);
   };
 
   $scope.getUUIDProfile = function(){
-    $scope.profiles = ProfileService.getProfiles($scope.currentUser.id);
+    $scope.profiles =   $scope.getMyNewProfile($scope.currentUser.id);
+    //ProfileService.getProfiles($scope.currentUser.id);
   }
 
 // ==============  EDUCATION ====================
@@ -605,7 +607,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
         if($scope.currentUser){
           console.log('LOGGED IN UID: '+ $scope.currentUser.id );
             $scope.getMyNewProfile($scope.currentUser.id);
-            $scope.profiles = ProfileService.getProfiles($scope.currentUser.id);
+            $scope.profiles =   $scope.getMyNewProfile($scope.currentUser.id); //ProfileService.getProfiles($scope.currentUser.id);
         }
 
 
