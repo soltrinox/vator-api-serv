@@ -419,7 +419,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
             $scope.UserRecord.ProfilePic = response.profile.user.ProfilePic;
             $scope.UserRecord.CoverPic = response.profile.user.CoverPic;
             $scope.UserRecord.id = response.profile.user.id;
-          };
+        
           $scope.sliceProfile(response.profile);
         });
       }
