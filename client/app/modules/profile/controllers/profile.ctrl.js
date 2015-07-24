@@ -51,7 +51,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
     $scope.contacts = [] ;
 
     $scope.sliceProfile = function (pro){
-      // console.log('inProfile' + pro.user.id);
+      console.log('inProfile' + JSON.stringify(pro.user.id));
       if(pro){
         $scope.educations = pro.edu;        // ---------
         $scope.portfolio = pro.companies ;  // ---------
@@ -397,6 +397,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
         console.log('NEW PROFILE : '  + JSON.stringify(response));
         $scope.profile = response;
         // $location.path('/app/myprofile/'+pro.id);
+        $scope.sliceProfile($scope.profile.profile);
       });
 
   };
@@ -458,13 +459,14 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
     console.log('COMPANY : '+ $scope.WorkRecord.companyname + '\n TITLE : ' + $scope.WorkRecord.Type +' - ' + $scope.WorkRecord.jobtitle);
     console.log('UUID BEFORE UPSERT: '+ $scope.WorkRecord.profileId);
     ProfileService.upsertWorkHistory($scope.WorkRecord, function() {});
-    ProfileService.getProfile($scope.WorkRecord.profileId,function(response){
+    ProfileService.getProfile($scope.profile.id,function(response){
       console.log('NEW WORK : '  + JSON.stringify(response));
-      $scope.profile = response;
+      // $scope.profile = response;
+        $scope.getMe($scope.profile);
     });
     $scope.hideWork = true;
     // $location.path('/app/myprofile/'+$scope.WorkRecord.profileId+'/edit');
-    
+
   };
 
 // ==============  SOCIAL ====================
@@ -489,9 +491,10 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
 
     });
 
-    ProfileService.getProfile($scope.SocialRecord.profileId, function(response){
+    ProfileService.getProfile($scope.profile.id, function(response){
       console.log('NEW SOCIAL : '  + JSON.stringify(response));
-      $scope.profile = response;
+        //$scope.profile = response;
+        $scope.getMe($scope.profile);
     });
 
     $scope.hideSocial = true;
@@ -582,10 +585,9 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
   });
 
   if ($stateParams.id) {
-    //$scope.profile = ProfileService.getProfile($stateParams.id);
-    // $scope.sliceProfile($scope.MyProfile);
+
   } else {
-    //$scope.profile = {};
+
   }
 
 });
