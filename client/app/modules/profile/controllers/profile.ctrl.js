@@ -178,7 +178,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $stateParams,
                 required: true
               }, {
                 key: 'datestart',
-                type: 'text',
+                type: 'date',
                 label: 'Start Date',
                 required: true
               }, {
@@ -325,13 +325,9 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $stateParams,
 
   $scope.getMe = function(pro){
       console.log('GET ME :'+pro.id);
-
-
-      $scope.MyProfile = ProfileService.getProfile(pro.id);
+      ProfileService.getProfile(pro.id);
       console.log('CLICK : ' + pro.id);
-      console.log('PRO : '+ JSON.stringify( $scope.MyProfile));
-      $scope.sliceProfile($scope.MyProfile);
-       $location.path('/app/myprofile/'+pro.id);
+      $location.path('/app/myprofile/'+pro.id);
   };
 
   $scope.onSubmit = function() {
