@@ -416,7 +416,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
     ProfileService.upsertProfile($scope.UserRecord, function(response) {
       console.log('Updated new profile on UUID'  + JSON.stringify(response));
         $scope.profile = response;
-        $scope.getMe(profile);
+        $scope.getMe($scope.profile);
             console.log('PROFILE NEW AFTER UPSERT : '  + JSON.stringify(profile));
     });
 
