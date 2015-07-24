@@ -578,6 +578,10 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
 
   $scope.$on('$viewContentLoaded', function(){
     //Here your view content is fully loaded !!
+
+    var inID = $routeParams.id;
+    console.log('inID : ' + inID);
+
       if($scope.currentUser){
         console.log('LOGGED IN UID: '+ $scope.currentUser.id );
         console.log('CURRENT USER : '+JSON.stringify( $scope.currentUser ));
