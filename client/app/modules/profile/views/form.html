@@ -22,9 +22,7 @@
         <!--  contact for email here ??? -->
         <formly-form result="UserRecord" fields="formFields" id="userForm" options="formOptions" ng-submit="onSubmit()"></formly-form>
         <pre>
-          {{ profile.profile.user | json}}
-
-          {{ $scope.currentUser | json}}
+          {{ UserRecord | json}}
 
         </pre>
         <div class="controls">
