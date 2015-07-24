@@ -360,7 +360,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
       jobtitle : '',
       datestart : '',
       dateend : '',
-      profileId : $scope.profileId;
+      profileId : $scope.profileId
     };
 
   }
@@ -374,7 +374,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
       created : '',
       status : 1,
       verified : false,
-      profileId : $scope.profileId;
+      profileId : $scope.profileId
     };
   }
 
