@@ -590,20 +590,21 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
       if($scope.currentUser){
         console.log('LOGGED IN UID: '+ $scope.currentUser.id );
         console.log('CURRENT USER : '+JSON.stringify( $scope.currentUser ));
+        $scope.getMyNewProfile($scope.currentUser.id);
         if($scope.profile === undefined){
             console.log('NO CURRENT PROFILE');
         }else{
           console.log('CURRENT PROFILE : '+JSON.stringify( $scope.currentUser ));
-          $scope.getMyNewProfile($scope.currentUser.id);
+
         }
 
       }
   });
 
-  if ($stateParams.id) {
-
-  } else {
-
-  }
+  // if ($stateParams.id) {
+  //
+  // } else {
+  //
+  // }
 
 });
