@@ -23,7 +23,7 @@ function($state, CoreService, Profile, User, Education, Social, WorkHistory, Tea
   };
 
   this.upsertProfile = function(profile, cb) {
-    Profile.upsert(profile, function() {
+    var response = Profile.upsert(profile, function() {
       CoreService.toastSuccess(gettextCatalog.getString(
         'Profile saved'), gettextCatalog.getString(
         'Your profile is safe with us!'));
@@ -33,6 +33,7 @@ function($state, CoreService, Profile, User, Education, Social, WorkHistory, Tea
         'Error saving profile '), gettextCatalog.getString(
         'This profile could not be saved: ') + err);
     });
+    console.log('upsert profile : '+response);
   };
 
   this.deleteProfile = function(id, cb) {
