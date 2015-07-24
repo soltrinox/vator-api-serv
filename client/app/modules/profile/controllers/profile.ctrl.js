@@ -541,10 +541,10 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $stateParams,
       if($scope.currentUser){
         console.log('LOGGED IN UID: '+ $scope.currentUser.id );
         console.log('CURRENT USER : '+JSON.stringify( $scope.currentUser ));
-        if($scope.profile.profile){
-          console.log('CURRENT PROFILE : '+JSON.stringify( $scope.profile.profile ));
+        if($scope.isUndefined($scope.profile.profile)){
+            console.log('NO CURRENT PROFILE');
         }else{
-          console.log('NO CURRENT PROFILE');
+          console.log('CURRENT PROFILE : '+JSON.stringify( $scope.profile.profile ));
         }
 
       }
