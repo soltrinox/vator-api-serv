@@ -355,10 +355,27 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
   $scope.hideWork = true;
   $scope.toggleWork = function(id) {
     $scope.hideWork = $scope.hideWork === false ? true: false;
+    $scope.WorkRecord = {
+      companyname: '',
+      jobtitle : '',
+      datestart : '',
+      dateend : '',
+      profileId : $scope.profileId;
+    };
+
   }
   $scope.hideSocial = true;
   $scope.toggleSocial = function(id) {
     $scope.hideSocial = $scope.hideSocial === false ? true: false;
+    $scope.SocialRecord = {
+      Type : '',
+      Value : '',
+      URL : '',
+      created : '',
+      status : 1,
+      verified : false,
+      profileId : $scope.profileId;
+    };
   }
 
 
@@ -419,7 +436,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
             $scope.UserRecord.ProfilePic = response.profile.user.ProfilePic;
             $scope.UserRecord.CoverPic = response.profile.user.CoverPic;
             $scope.UserRecord.id = response.profile.user.id;
-        
+
           $scope.sliceProfile(response.profile);
         });
       }
