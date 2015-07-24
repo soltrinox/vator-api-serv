@@ -38,6 +38,8 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
       profileId : '',
       teamId : ''
     };
+
+    $scope.profileId = '';
     $scope.MyProfile = {};
     $scope.SelectedProfile = {};
     $scope.profiles = {};
@@ -396,6 +398,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
       ProfileService.getProfile(pro.id, function(response){
         console.log('NEW PROFILE : '  + JSON.stringify(response));
         $scope.profile = response.profile;
+        $scope.profileId = response.profile.user.id;
         // $location.path('/app/myprofile/'+pro.id);
         $scope.sliceProfile($scope.profile);
       });
@@ -417,7 +420,8 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
     }
     ProfileService.upsertProfile($scope.UserRecord, function(response) {
       console.log('Updated new profile on UUID'  + JSON.stringify(response));
-        $scope.getMe(response);
+      $scope.profileId = response.id;
+        $scope.getMe($scope.profileId);
     });
 
     $scope.hideBase = true;
