@@ -447,8 +447,24 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
   $scope.getMyNewProfile = function(UUID){
       console.log('GET ME :'+ UUID );
       ProfileService.getProfileByUUID(UUID, function(response){
+
+        console.log('@@@@@@@ = profile response for UUID'  + JSON.stringify(response));
+
+        if(response.id === undefined){
+          console.log('Name : '+ $scope.UserRecord.Name + '\n Bio : ' + $scope.UserRecord.Bio );
+          console.log('object ID BEFORE UPSERT: '+ $scope.UserRecord.id +' = UUID : ' + $scope.UserRecord.UUID);
+          if($scope.UserRecord.id === ''){
+            delete $scope.UserRecord.id;
+          }
+          ProfileService.upsertProfile($scope.UserRecord, function(response) {
+            console.log('Updated new profile on UUID'  + JSON.stringify(response));
+            $scope.profileId = response.id;
+              $scope.getMe($scope.profileId);
+          });
+        }else{
           $scope.profileId = response.id;
           $scope.getMe($scope.profileId);
+        }
       });
 
   };
@@ -607,7 +623,8 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
         if($scope.currentUser){
           console.log('LOGGED IN UID: '+ $scope.currentUser.id );
             $scope.getMyNewProfile($scope.currentUser.id);
-            $scope.profiles =   $scope.getMyNewProfile($scope.currentUser.id); //ProfileService.getProfiles($scope.currentUser.id);
+            //$scope.profile =   $scope.getMyNewProfile($scope.currentUser.id);
+            //ProfileService.getProfiles($scope.currentUser.id);
         }
 
 
