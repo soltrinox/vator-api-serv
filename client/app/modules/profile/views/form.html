@@ -3,14 +3,7 @@
 
 </h4>
 
-<div>
-  <div>
-    <img src="{{profile.user.CoverPic}}" id="" class="" />
-  </div>
-  <div>
-    <img src="{{profile.user.ProfilePic}}" id="" class="" />
-  </div>
-</div>
+
 
 <div class="container col-lg-12 col-md-12">
   <div class="alert alert-danger" ng-if="addError" translate>Could not add profile!</div>
@@ -42,6 +35,16 @@
           </tr>
         </tbody>
       </table>
+
+      <div>
+        <div>
+          <img src="{{profile.user.CoverPic}}" id="" class="" />
+        </div>
+        <div>
+          <img src="{{profile.user.ProfilePic}}" id="" class="" />
+        </div>
+      </div>
+
     </tab>
     <!-- <tab heading="{{ 'Credentials' | translate }}">
       <div class="row tab-pane">
