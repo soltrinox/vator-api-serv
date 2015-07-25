@@ -360,6 +360,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
         sensor: false
       }
     }).then(function(response){
+      console.log('LOCATION : ' + JSON.stringify()response);
       return response.data.results.map(function(item){
         return item.formatted_address;
       });
