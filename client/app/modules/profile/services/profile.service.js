@@ -23,6 +23,8 @@ function($state, CoreService, Profile, User, Education, Social, WorkHistory, Tea
     var response =  Profile.find({where: {UUID:id}}, function(){
       console.log('GOT BY UUID : '+ JSON.stringify(response));
       cb(response);
+    }, function(err) {
+        cb(null);
     });
 
   };
