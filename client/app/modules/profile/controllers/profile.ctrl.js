@@ -453,7 +453,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
         if(response.id === undefined){
           console.log('Name : '+ $scope.UserRecord.Name + '\n Bio : ' + $scope.UserRecord.Bio );
           console.log('object ID BEFORE UPSERT: '+ $scope.UserRecord.id +' = UUID : ' + $scope.UserRecord.UUID);
-          $scope.UserRecord.Name = $scope.currentUser.name;
+          $scope.UserRecord.Name = $scope.currentUser.firstname + ' ' + $scope.currentUser.lastname ;
           $scope.UserRecord.UUID = $scope.currentUser.id;
 
 
