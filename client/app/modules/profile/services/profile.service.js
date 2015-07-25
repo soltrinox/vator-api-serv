@@ -24,7 +24,8 @@ function($state, CoreService, Profile, User, Education, Social, WorkHistory, Tea
       console.log('GOT BY UUID : '+ JSON.stringify(response));
       cb(response);
     }, function(err) {
-        cb(null);
+        console.log('NO PROFILE WITH UUID : '+ JSON.stringify(id));
+        cb(response);
     });
 
   };

@@ -450,14 +450,14 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
 
         console.log('@@@@@@@ = profile response for UUID'  + JSON.stringify(response));
 
-        if(response.id === undefined){
+        if(!response.id || 0 === response.id.length){
           console.log('Name : '+ $scope.UserRecord.Name + '\n Bio : ' + $scope.UserRecord.Bio );
           console.log('object ID BEFORE UPSERT: '+ $scope.UserRecord.id +' = UUID : ' + $scope.UserRecord.UUID);
           $scope.UserRecord.Name = $scope.currentUser.username ;
           $scope.UserRecord.UUID = $scope.currentUser.id;
 
 
-          if($scope.UserRecord.id === ''){
+          if(!$scope.UserRecord.id || 0 === $scope.UserRecord.id){
             delete $scope.UserRecord.id;
           }
 
