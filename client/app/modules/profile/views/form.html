@@ -92,10 +92,12 @@
         <button class="btn btn-info fa fa-plus" ng-click="toggleWork()">Add Experience</button>
       <div class="row tab-pane"   ng-hide="hideWork">
 
-        <h4>Asynchronous results</h4>
+        <h4>Company results</h4>
    <pre>Model: {{asyncSelected | json}}</pre>
-   <input type="text" ng-model="asyncSelected" placeholder="Locations loaded via $http" typeahead="address for address in getLocation($viewValue)" typeahead-loading="loadingLocations" class="form-control">
-   <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
+   <input type="text" ng-model="asyncSelected" placeholder="Companies loaded via $http"
+   typeahead="item for data in getLocation($viewValue)"
+   typeahead-loading="loadingCompanies" class="form-control">
+   <i ng-show="loadingCompanies" class="glyphicon glyphicon-refresh"></i>
 
         <formly-form result="WorkRecord" fields="formFields3" options="formOptions" ng-submit="onSubmit3()"></formly-form>
         <!-- <pre>

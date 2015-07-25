@@ -367,8 +367,8 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
       }
     }).then(function(response){
       console.log('Company : ' + JSON.stringify(response));
-      return response.data.results.map(function(item){
-        return item.formatted_address;
+      return response(function(item){
+        return item.Name;
       });
     });
   };
