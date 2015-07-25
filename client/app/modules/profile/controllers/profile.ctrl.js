@@ -352,15 +352,21 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
     $scope.hideCompany = $scope.hideCompany === false ? true: false;
   }
 
+//  http://api.vator.co/api/Teams?filter={%20%22where%22%20:%20{%20%22Name%22%20:%20{%22like%22%20:%22Co%22%20}%20}%20}
 
   $scope.getLocation = function(val) {
-    return $http.get('//maps.googleapis.com/maps/api/geocode/json', {
+    return $http.get('//api.vator.co/api/Teams', {
       params: {
-        address: val,
-        sensor: false
+        filter: {
+            where : {
+              Name : {
+                like : val
+              }
+            }
+        }
       }
     }).then(function(response){
-      console.log('LOCATION : ' + JSON.stringify(response));
+      console.log('Company : ' + JSON.stringify(response));
       return response.data.results.map(function(item){
         return item.formatted_address;
       });
