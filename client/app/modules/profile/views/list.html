@@ -15,16 +15,16 @@
       </a>
     </span>
     <h4 class="list-group-item-heading">
-      <div  style="float:left">
-        <img ng-show="!profile.ProfilePic" src="{{profiles.ProfilePic}}" >
+      <div ng-show="profile.ProfilePic" style="float:left">
+        <img  src="{{profiles.ProfilePic}}" >
       </div>
       <div  style="float:left">
         <a href="" ui-sref="^.edit({id: profiles.id})" >{{profiles.Name}}</a><br/>
         {{profiles.id}}
       </div>
     </h4>
-    <div>
-      <img ng-show="!profile.CoverPic" width="100%" src="{{profiles.CoverPic}}" >
+    <div ng-show="profile.CoverPic">
+      <img  width="100%" src="{{profiles.CoverPic}}" >
 
     </div>
     <p class="list-group-item-text">{{profiles.Bio}}</p>
