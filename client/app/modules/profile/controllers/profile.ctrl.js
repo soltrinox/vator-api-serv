@@ -352,6 +352,21 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
     $scope.hideCompany = $scope.hideCompany === false ? true: false;
   }
 
+
+  $scope.getLocation = function(val) {
+    return $http.get('//maps.googleapis.com/maps/api/geocode/json', {
+      params: {
+        address: val,
+        sensor: false
+      }
+    }).then(function(response){
+      return response.data.results.map(function(item){
+        return item.formatted_address;
+      });
+    });
+  };
+
+
   $scope.hideWork = true;
   $scope.toggleWork = function(id) {
     $scope.hideWork = $scope.hideWork === false ? true: false;
