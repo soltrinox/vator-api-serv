@@ -1,2 +1,2 @@
 'use strict';
-angular.module('com.module.profile', [ 'ui.bootstrap' ] );
+angular.module('com.module.profile', [ ] );
