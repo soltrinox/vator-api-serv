@@ -6,7 +6,7 @@ app.service('ProfileService', ['$state', 'CoreService', 'Profile', 'User',
 function($state, CoreService, Profile, User, Education, Social, WorkHistory, Team, gettextCatalog) {
 
   this.getProfiles = function(id) {
-    return Profile.findOne({where: {UUID:id}});
+    return Profile.find({where: {UUID:id}});
   };
 
   this.getProfile = function(id, cb) {
