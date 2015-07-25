@@ -1,38 +1,38 @@
 <div class='list-group'>
   <div class="list-group-item">
     <span class="pull-right btn-group" style="margin-top: 7px;">
-      <a href="" class="btn btn-sm btn-default" ui-sref="^.edit({id: profiles.id})">
+      <a href="" class="btn btn-sm btn-default" ui-sref="^.edit({id: profile.id})">
         <i class="fa fa-pencil"></i>
       </a>
-      <a href="" class="btn btn-sm btn-default" ng-click="imageAction({id: profiles.id})">
+      <a href="" class="btn btn-sm btn-default" ng-click="imageAction({id: profile.id})">
         <i class="fa fa-image"></i>
       </a>
-      <a href="" class="btn btn-sm btn-default" ng-click="companyAction({id: profiles.id})">
+      <a href="" class="btn btn-sm btn-default" ng-click="companyAction({id: profile.id})">
         <i class="fa fa-rocket"></i>
       </a>
-      <a href="" class="btn btn-sm btn-default" ng-click="delete({id: profiles.id})">
+      <a href="" class="btn btn-sm btn-default" ng-click="delete({id: profile.id})">
         <i class="fa fa-trash-o"></i>
       </a>
     </span>
     <h4 class="list-group-item-heading">
       <div ng-show="profile.ProfilePic" style="float:left">
-        <img  src="{{profiles.ProfilePic}}" >
+        <img  src="{{profile.ProfilePic}}" >
       </div>
       <div  style="float:left">
-        <a href="" ui-sref="^.edit({id: profiles.id})" >{{profiles.Name}}</a><br/>
-        {{profiles.id}}
+        <a href="" ui-sref="^.edit({id: profile.id})" >{{profile.Name}}</a><br/>
+        {{profile.id}}
       </div>
     </h4>
     <div ng-show="profile.CoverPic">
-      <img  width="100%" src="{{profiles.CoverPic}}" >
+      <img  width="100%" src="{{profile.CoverPic}}" >
 
     </div>
-    <p class="list-group-item-text">{{profiles.Bio}}</p>
+    <p class="list-group-item-text">{{profile.Bio}}</p>
     <div>
-    <pre>{{profiles | json}}</pre>
+    <pre>{{profile | json}}</pre>
     </div>
   </div>
-  <div ng-show="!profiles" class="list-group-item">
+  <div ng-show="!profile" class="list-group-item">
     <h4 class="list-group-item-heading" translate>
       You have no profile <i class="fa fa-frown-o"></i>  !
     </h4>
