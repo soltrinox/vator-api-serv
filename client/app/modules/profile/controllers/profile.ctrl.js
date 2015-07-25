@@ -453,14 +453,14 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
         if(response.id === undefined){
           console.log('Name : '+ $scope.UserRecord.Name + '\n Bio : ' + $scope.UserRecord.Bio );
           console.log('object ID BEFORE UPSERT: '+ $scope.UserRecord.id +' = UUID : ' + $scope.UserRecord.UUID);
-          $scope.UserRecord.Name = $scope.currentUser.firstname + ' ' + $scope.currentUser.lastname ;
+          $scope.UserRecord.Name = $scope.currentUser.username ;
           $scope.UserRecord.UUID = $scope.currentUser.id;
 
 
           if($scope.UserRecord.id === ''){
             delete $scope.UserRecord.id;
           }
-          
+
           ProfileService.upsertProfile($scope.UserRecord, function(response) {
             console.log('Updated new profile on UUID'  + JSON.stringify(response));
             $scope.profileId = response.id;
