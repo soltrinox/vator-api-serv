@@ -2,7 +2,7 @@
 var app = angular.module('com.module.profile');
 
 app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $routeParams, $stateParams,
-  ProfileService, gettextCatalog) {
+  ProfileService, gettextCatalog, $http) {
 
     $scope.UserRecord = {
       Name:'',
@@ -162,7 +162,12 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
 
       $scope.formFields3 =
         [
-            {
+          {
+              key: 'companyname',
+              type: 'text',
+              label: 'Company',
+              required: true
+            },  {
               key: 'Type',
               type: 'select',
               label: 'Type',
@@ -191,12 +196,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
                   }
               ]
             },
-            {
-                key: 'companyname',
-                type: 'text',
-                label: 'Company',
-                required: true
-              }, {
+             {
                 key: 'datestart',
                 type: 'date',
                 label: 'Start Date',

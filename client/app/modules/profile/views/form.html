@@ -9,15 +9,15 @@
   <div class="alert alert-danger" ng-if="addError" translate>Could not add profile!</div>
   <tabset class="nav-tabs-custom">
     <tab heading="{{ 'Who' | translate }}">
-      <button class="btn btn-info fa fa-plus" ng-click="toggleBase(profile.user)">Add / Edit Profile</button>
-      <div class="row tab-pane"   ng-hide="hideBase">
+
+      <div class="row tab-pane"  >
         <!--  contact for email here ??? -->
         <formly-form result="UserRecord" fields="formFields" id="userForm" options="formOptions" ng-submit="onSubmit()"></formly-form>
         <pre>
           {{ UserRecord | json}}
         </pre>
         <div class="controls">
-          <button class="btn btn-primary btn-success" ng-click="onSubmit()" translate>Submit</button>
+          <button class="btn btn-primary btn-success" ng-click="onSubmit()" translate>Update</button>
         </div>
       </div>
 
@@ -89,8 +89,13 @@
 
     </tab> -->
     <tab heading="{{ 'Experience' | translate }}">
-        <button class="btn btn-info fa fa-plus" ng-click="toggleWork()">Add / Edit Experience</button>
+        <button class="btn btn-info fa fa-plus" ng-click="toggleWork()">Add Experience</button>
       <div class="row tab-pane"   ng-hide="hideWork">
+
+        <h4>Asynchronous results</h4>
+   <pre>Model: {{asyncSelected | json}}</pre>
+   <input type="text" ng-model="asyncSelected" placeholder="Locations loaded via $http" typeahead="address for address in getLocation($viewValue)" typeahead-loading="loadingLocations" class="form-control">
+   <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
 
         <formly-form result="WorkRecord" fields="formFields3" options="formOptions" ng-submit="onSubmit3()"></formly-form>
         <!-- <pre>
