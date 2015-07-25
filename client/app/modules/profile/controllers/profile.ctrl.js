@@ -460,6 +460,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
           if($scope.UserRecord.id === ''){
             delete $scope.UserRecord.id;
           }
+          
           ProfileService.upsertProfile($scope.UserRecord, function(response) {
             console.log('Updated new profile on UUID'  + JSON.stringify(response));
             $scope.profileId = response.id;
@@ -487,15 +488,9 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
     });
 
     $scope.hideBase = true;
-    //$scope.getMyNewProfile($scope.UserRecord.UUID);
-    // $scope.profiles =   $scope.getMyNewProfile($scope.currentUser.id);
-    // ProfileService.getProfiles($scope.currentUser.id);
   };
 
-  $scope.getUUIDProfile = function(){
-    $scope.profiles =   $scope.getMyNewProfile($scope.currentUser.id);
-    //ProfileService.getProfiles($scope.currentUser.id);
-  }
+
 
 // ==============  EDUCATION ====================
 
@@ -621,14 +616,15 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
 
 // ==============  GRAB PROFILES ON LOAD ====================
 
+$scope.firstTime = 0;
+
   setTimeout(function () {
       $scope.$apply(function() {
 
         if($scope.currentUser){
           console.log('LOGGED IN UID: '+ $scope.currentUser.id );
             $scope.getMyNewProfile($scope.currentUser.id);
-            //$scope.profile =   $scope.getMyNewProfile($scope.currentUser.id);
-            //ProfileService.getProfiles($scope.currentUser.id);
+            $scope.firstTime = 1;
         }
 
 
@@ -636,12 +632,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
   }, 100);
 
   $scope.$on('$viewContentLoaded', function(){
-    //Here your view content is fully loaded !!
-
-    var inID = $routeParams.id;
-    console.log('inID : ' + inID);
-
-      if($scope.currentUser){
+      if(($scope.currentUser ) && ($scope.firstTime === 1)){
         console.log('LOGGED IN UID: '+ $scope.currentUser.id );
         console.log('CURRENT USER : '+JSON.stringify( $scope.currentUser ));
 
@@ -655,10 +646,5 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
       }
   });
 
-  // if ($stateParams.id) {
-  //
-  // } else {
-  //
-  // }
 
 });
