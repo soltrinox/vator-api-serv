@@ -166,11 +166,13 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
               key: 'companyname',
               type: 'text',
               label: 'Company',
+              id : 'work.companyname',
               required: true
             },  {
               key: 'Type',
               type: 'select',
               label: 'Type',
+              id : 'work.type',
               required: true,
               options:
               [
@@ -200,21 +202,24 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
                 key: 'datestart',
                 type: 'date',
                 label: 'Start Date',
+                id : 'work.datestart',
                 required: true
               }, {
                 key: 'dateend',
                 type: 'date',
                 label: 'End Date',
+                id : 'work.dateend',
                 required: false
               },{
                 key: 'jobtitle',
                 type: 'text',
-                label: 'Role',
+                id : 'work.title',
+                label: 'Title',
                 required: false
               },{
                 key: 'profileId',
                 type: 'hidden',
-                label: gettextCatalog.getString('UUID'),
+                id : 'work.profileid',
                 required: true
               }
       ];
