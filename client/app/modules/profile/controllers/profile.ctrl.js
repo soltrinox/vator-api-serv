@@ -389,8 +389,8 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
 
   $scope.workLookUp = '';
 
-  $scope.lookCompany = function(){
-      $scope.prettyPrint($scope.workLookUp, 'COMPANY');
+  $scope.lookCompany = function(val){
+      $scope.prettyPrint(val, 'COMPANY');
   }
 
 
