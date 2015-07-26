@@ -384,7 +384,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
     if(!msg || 0 === msg.length ){
         msg = 'DATA' ;
     }
-      console.log( msg + ' : ' + JSON.stringify(item.Name));
+      console.log( msg + ' : ' + JSON.stringify(obj));
   }
 
   $scope.lookCompany = function(obj){
