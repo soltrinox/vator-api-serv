@@ -393,7 +393,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
       $scope.prettyPrint(val, 'COMPANY');
 
       var myEl = angular.element( document.querySelector( '#work.companyname' ) );
-      $scope.prettyPrint(myEl.value, 'hidden');
+      $scope.prettyPrint(myEl, 'hidden');
   }
 
 
