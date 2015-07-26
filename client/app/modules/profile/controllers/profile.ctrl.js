@@ -164,7 +164,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
         [
           {
               key: 'companyname',
-              type: 'text',
+              type: 'hidden',
               label: 'Company',
               id : 'work.companyname',
               required: true
@@ -374,11 +374,22 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
       // console.log('Company : ' + JSON.stringify(response));
       return response.data.map(function(item){
         //console.log('ITEM : ' + JSON.stringify(item) );
-        console.log('ITEM.NAME : ' + JSON.stringify(item.Name) );
+        //console.log('ITEM.NAME : ' + JSON.stringify(item.Name) );
         return item.Name;
       });
     });
   };
+
+  $scope.prettyPrint = function(obj, msg){
+    if(!msg || 0 === msg.length ){
+        msg = 'DATA' ;
+    }
+      console.log( msg + ' : ' + JSON.stringify(item.Name));
+  }
+
+  $scope.lookCompany = function(obj){
+      $scope.prettyPrint(obj, 'COMPANY');
+  }
 
 
   $scope.hideWork = true;
