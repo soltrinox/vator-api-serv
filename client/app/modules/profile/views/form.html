@@ -93,10 +93,10 @@
       <div class="row tab-pane"   ng-hide="hideWork">
 
         <h4>Company results</h4>
-   <pre>Model: {{asyncSelected | json}}</pre>
-   <input type="text" ng-model="asyncSelected" placeholder="Companies loaded via $http"
+   <pre>Model: {{$scope.workLookUp | json}}</pre>
+   <input type="text" ng-model="$scope.workLookUp" placeholder="Companies loaded via $http"
    typeahead="item for item in getLocation($viewValue)" id="work.companylookup"
-   typeahead-loading="loadingCompanies" class="form-control"  ng-change="lookCompany(this)">
+   typeahead-loading="loadingCompanies" class="form-control"  ng-change="lookCompany()">
    <i ng-show="loadingCompanies" class="glyphicon glyphicon-refresh"></i>
 
         <formly-form result="WorkRecord" fields="formFields3" options="formOptions" ng-submit="onSubmit3()"></formly-form>

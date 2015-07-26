@@ -387,8 +387,10 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
       console.log( msg + ' : ' + JSON.stringify(obj));
   }
 
-  $scope.lookCompany = function(obj){
-      $scope.prettyPrint(obj, 'COMPANY');
+  $scope.workLookUp = '';
+
+  $scope.lookCompany = function(){
+      $scope.prettyPrint($scope.workLookUp, 'COMPANY');
   }
 
 
