@@ -370,7 +370,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
       return response.data.map(function(item){
         console.log('ITEM : ' + JSON.stringify(item) );
         // console.log('ITEM.NAME : ' + JSON.stringify(item.Name) );
-        return item;
+        return item.Name;
       });
     });
   };
