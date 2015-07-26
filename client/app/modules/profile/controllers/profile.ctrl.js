@@ -368,9 +368,9 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
     }).then(function(response){
       // console.log('Company : ' + JSON.stringify(response));
       return response.data.map(function(item){
-        // console.log('ITEM : ' + JSON.stringify(item) );
-        console.log('ITEM.NAME : ' + JSON.stringify(item.Name) );
-        return item.Name;
+        console.log('ITEM : ' + JSON.stringify(item) );
+        // console.log('ITEM.NAME : ' + JSON.stringify(item.Name) );
+        return item;
       });
     });
   };
