@@ -391,6 +391,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
   $scope.workLookUp = '';
 
   $scope.lookCompany = function(val){
+    $scope.workLookUp = val;
       $scope.prettyPrint(val, 'COMPANY');
 
       var myEl = angular.element( document.querySelector( '#work.companyname' ) );
