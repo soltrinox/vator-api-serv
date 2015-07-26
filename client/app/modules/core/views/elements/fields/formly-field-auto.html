@@ -12,7 +12,7 @@
 		   aria-describedby="{{options.id}}_description"
 		   ng-required="options.required"
 		   ng-disabled="options.disabled"
-		   ng-model="result[options.key || index]">
+		   ng-model="options.data">
    <p id="{{options.id}}_description" class="help-block"
    ng-if="options.description">{{options.description}}</p>
 </div>

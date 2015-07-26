@@ -167,6 +167,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
               type: 'auto',
               label: 'Company',
               id : 'work.companyname',
+              data : '$scope.workLookUp',
               required: true
             },  {
               key: 'Type',
