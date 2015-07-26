@@ -1,5 +1,5 @@
 <div class="form-group" ng-class="{'has-error': options.formField.$invalid}">
-	<label for="{{id}}">
+	<label for="{{options.id}}">
 		{{options.label || 'Select'}}
 		{{options.required ? '*' : ''}}
 	</label>
@@ -7,11 +7,11 @@
 			id="{{options.id}}"
             formly-dynamic-name="options.key"
             formly-custom-validation="options.validators"
-			aria-describedby="{{id}}_description"
+			aria-describedby="{{options.id}}_description"
 			ng-model="result[options.key || index]"
 			ng-required="options.required"
 			ng-disabled="options.disabled"
 			ng-options="option.value as option.name group by option.group for option in options.options">
 	</select>
-   <p id="{{id}}_description" class="help-block" ng-if="options.description">{{options.description}}</p>
+   <p id="{{options.id}}_description" class="help-block" ng-if="options.description">{{options.description}}</p>
 </div>

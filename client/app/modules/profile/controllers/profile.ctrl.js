@@ -164,7 +164,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
         [
           {
               key: 'companyname',
-              type: 'hidden',
+              type: 'auto',
               label: 'Company',
               id : 'work.companyname',
               required: true

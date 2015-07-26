@@ -4,12 +4,12 @@
                id="{{options.id}}"
                formly-dynamic-name="options.key"
                formly-custom-validation="options.validators"
-			   aria-describedby="{{id}}_description"
+			   aria-describedby="{{options.id}}_description"
 			   ng-required="options.required"
 			   ng-disabled="options.disabled"
 			   ng-model="result[options.key || index]">
 		{{options.label || 'Checkbox'}}
 		{{options.required ? '*' : ''}}
 	</label>
-   <p id="{{id}}_description" class="help-block" ng-if="options.description">{{options.description}}</p>
+   <p id="{{options.id}}_description" class="help-block" ng-if="options.description">{{options.description}}</p>
 </div>

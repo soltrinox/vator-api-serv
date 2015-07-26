@@ -82,7 +82,8 @@ app.config(function(formlyConfigProvider) {
     'radio',
     'select',
     'text',
-    'textarea'
+    'textarea',
+    'auto'
   ];
 
   angular.forEach(fields, function(val) {
