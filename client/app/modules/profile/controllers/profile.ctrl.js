@@ -701,8 +701,8 @@ $scope.firstTime = 0;
       }
   });
 
-  scope.$watch("$viewContentLoaded", function() {
-   scope.$evalAsync(
+  $scope.$on("$viewContentLoaded", function() {
+   $scope.$evalAsync(
 
      $(function () {
         $( "div.work-datestart_date" ).parentsUntil( "formly-field" ).css( "background-color", "red" )
