@@ -242,6 +242,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
                 label: 'Start Date',
                 id : 'work-datestart',
                 uniqueFormId : 'work-datestart-box',
+                hide : true,
                 required: true
               }, {
                 key: 'dateend',
@@ -249,6 +250,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
                 label: 'End Date',
                 id : 'work-dateend',
                 uniqueFormId : 'work-dateend-box',
+                hide : true,
                 required: false
               },{
                 key: 'profileId',
