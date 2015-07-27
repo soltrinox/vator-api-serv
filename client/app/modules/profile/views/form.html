@@ -163,8 +163,8 @@
       </table>
     </tab>
     <tab heading="{{ 'Profiles' | translate }}">
-        <button class="btn btn-info fa fa-plus" ng-click="toggleSocial()">Add New Social</button>
-      <div class="row tab-pane "  ng-hide="hideSocial">
+        <!-- <button class="btn btn-info fa fa-plus" ng-click="toggleSocial()">Add New Social</button> -->
+      <div class="row tab-pane " >
         <!--  contact for email here too -->
         <formly-form result="SocialRecord" fields="formFields4" options="formOptions" ng-submit="onSubmit4()"></formly-form>
 
@@ -172,6 +172,12 @@
           <button class="btn btn-primary btn-success" ng-click="onSubmit4()" translate>Add Contact / Social Account</button>
         </div>
       </div>
+
+      <pre>
+
+        {{ SocialRecord | json }}
+        <!-- {{ profile.work | json}} -->
+      </pre>
 
       <table class="table table-hover">
         <tbody>

@@ -342,10 +342,10 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
 
 $scope.formFields4 = [
   {
-      key: 'Blog',
+      key: 'LinkedIn',
       type: 'text',
-      label: 'Blog',
-      id : 'social-blog'
+      label: 'LinkedIn',
+      id : 'social-linkedin'
     },
     {
         key: 'Facebook',
