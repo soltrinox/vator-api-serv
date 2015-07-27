@@ -166,14 +166,14 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
               key: 'companyname',
               type: 'auto',
               label: 'Company',
-              id : 'work.companyname',
+              id : 'work-companyname',
               data : '$scope.workLookUp',
               required: true
             },  {
               key: 'Type',
               type: 'select',
               label: 'Type',
-              id : 'work.type',
+              id : 'work-type',
               required: true,
               options:
               [
@@ -203,24 +203,24 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
                 key: 'datestart',
                 type: 'date',
                 label: 'Start Date',
-                id : 'work.datestart',
+                id : 'work-datestart',
                 required: true
               }, {
                 key: 'dateend',
                 type: 'date',
                 label: 'End Date',
-                id : 'work.dateend',
+                id : 'work-dateend',
                 required: false
               },{
                 key: 'jobtitle',
                 type: 'text',
-                id : 'work.title',
+                id : 'work-title',
                 label: 'Title',
                 required: false
               },{
                 key: 'profileId',
                 type: 'hidden',
-                id : 'work.profileid',
+                id : 'work-profileid',
                 required: true
               }
       ];
@@ -309,20 +309,20 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
             key: 'Name',
             type: 'text',
             label: gettextCatalog.getString('Name'),
-            id : 'company.name',
+            id : 'company-name',
             required: true
           }, {
             key: 'URL',
             type: 'textarea',
             label: gettextCatalog.getString('URL'),
             lines : 4,
-            id : 'company.url',
+            id : 'company-url',
             required: true
           }, {
             key: 'UUID',
             type: 'hidden',
             label: '',
-            id : 'company.uuid',
+            id : 'company-uuid',
             required: true
           }
         ];
@@ -360,7 +360,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
 
 //  http://api.vator.co/api/Teams?filter={%20%22where%22%20:%20{%20%22Name%22%20:%20{%22like%22%20:%22Co%22%20}%20}%20}
 
-  $scope.getLocation = function(val) {
+  $scope.getTeams = function(val) {
     return $http.get('//api.vator.co/api/Teams', {
       params: {
         filter: {
