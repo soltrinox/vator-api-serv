@@ -683,8 +683,18 @@ $scope.firstTime = 0;
         }
 
 
-          });
+        });
   }, 100);
+
+  setTimeout(function () {
+      $scope.$apply(function() {
+
+        $( "div.work-datestart_date" ).parentsUntil( "formly-field" ).css( "background-color", "red" )
+        $( "div.work-dateend_date" ).parentsUntil( "formly-field" ).css( "background-color", "blue" )
+
+      });
+  }, 100);
+
 
   $scope.$on('$viewContentLoaded', function(){
       if(($scope.currentUser ) && ($scope.firstTime === 1)){
