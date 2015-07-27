@@ -1,4 +1,4 @@
-<div class="form-group" ng-class="{'has-error': options.formField.$invalid}">
+<div class="form-group {{options.id}}_time" ng-class="{'has-error': options.formField.$invalid}">
   <label for="{{options.id}}">
     {{options.label || 'Text'}}
     {{options.required ? '*' : ''}}
@@ -8,6 +8,7 @@
      minute-step="options.mstep || 5"
      show-meridian="ismeridian"
      id="{{options.id}}"
+     class="form-control form_vator_input_time {{options.id}}_input_time"
      formly-dynamic-name="options.key"
      formly-custom-validation="options.validators"
      placeholder="{{options.placeholder}}"

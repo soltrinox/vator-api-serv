@@ -1,10 +1,10 @@
-<div class="form-group" ng-class="{'has-error': options.formField.$invalid}">
+<div class="form-group {{options.id}}_textarea" ng-class="{'has-error': options.formField.$invalid}">
 	<label for="{{options.id}}">
 		{{options.label || 'Text'}}
 		{{options.required ? '*' : ''}}
 	</label>
 	<textarea type="text"
-			  class="form-control msd-elastic"
+			  class="form-control form_vator_input_textarea msd-elastic {{options.id}}_input_textarea"
 			  id="{{options.id}}"
               formly-dynamic-name="options.key"
               formly-custom-validation="options.validators"
