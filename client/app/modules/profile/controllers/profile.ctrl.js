@@ -1,5 +1,28 @@
 'use strict';
-var app = angular.module('com.module.profile');
+var app = angular.module('com.module.profile')
+.directive('moveChildren',
+    function() {
+      return {
+        restrict: 'EAC',
+        link: function(scope, element, attrs) {
+
+            var ttt = angular.element(element[0].querySelector('.work-datestart_date'));
+            var parttt = ttt.parent();
+            //var remttt = ttt.clone();
+
+            var zzz = angular.element(element[0].querySelector('.work-dateend_date'));
+            var parzzz = zzz.parent();
+           // var remzzz = zzz.clone();
+
+           var ddd =  angular.element('<div id="love" ></div>');
+            ddd.insertBefore(parttt);
+           ddd.append(parttt);
+           ddd.append(parzzz);
+
+        }
+      };
+    }
+  );
 
 app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $routeParams, $stateParams,
   ProfileService, gettextCatalog, $http) {
@@ -689,9 +712,10 @@ $scope.firstTime = 0;
   setTimeout(function () {
       $scope.$apply(function() {
 
-        $( ".work-datestart_date" ).parentsUntil( "formly-field" ).css( "background-color", "red" );
-        $( ".work-dateend_date" ).parentsUntil( "formly-field" ).css( "background-color", "blue" );
-
+        $scope.$evalAsync( function () {
+             $angular.element( "work-datestart_date" ).parentsUntil( "formly-field" ).css( "background-color", "red" )
+             $( "div.work-dateend_date" ).parentsUntil( "formly-field" ).css( "background-color", "blue" )
+           })
       });
   }, 100);
 
