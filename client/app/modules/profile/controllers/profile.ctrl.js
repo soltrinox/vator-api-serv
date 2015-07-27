@@ -196,7 +196,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
             },  {
               key: 'Type',
               type: 'select',
-              label: 'Type',
+              label: 'Role',
               id : 'work-type',
               uniqueFormId : 'work-type-box',
               required: true,
@@ -204,23 +204,28 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
               [
                   {
                       name: 'Employee',
-                      value : '001'
+                      value : '001',
+                      id: 'work-type-001'
                   },
                   {
                       name: 'Founder',
-                      value : '002'
+                      value : '002',
+                      id: 'work-type-002'
                   },
                   {
                       name: 'Investor',
-                      value : '003'
+                      value : '003',
+                      id: 'work-type-003'
                   },
                   {
                       name: 'Advisor',
-                      value : '004'
+                      value : '004',
+                      id: 'work-type-004'
                   },
                   {
                       name: 'Board Member',
-                      value : '005'
+                      value : '005',
+                      id: 'work-type-005'
                   }
               ]
             },
