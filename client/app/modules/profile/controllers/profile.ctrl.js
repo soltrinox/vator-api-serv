@@ -1,6 +1,6 @@
 'use strict';
 var app = angular.module('com.module.profile')
-.directive('moveChildren',
+.directive('mychildren',
     function() {
       return {
         restrict: 'EAC',
