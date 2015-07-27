@@ -390,7 +390,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
 
   $scope.workLookUp = '';
 
-  $scope.onCompanySelect = function($item, $model, $label){
+  $scope.onCompanySelect = function(item, model, label){
 
     console.log('ITEM'+ JSON.stringify(item)  +' \n MODEL : '+ JSON.stringify(model) );
 
