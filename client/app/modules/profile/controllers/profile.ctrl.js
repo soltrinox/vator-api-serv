@@ -6,13 +6,13 @@ var app = angular.module('com.module.profile')
         restrict: 'EAC',
         link: function(scope, element, attrs) {
 
-            var ttt = angular.element(element[0].querySelector('.work-datestart_date'));
+            var ttt = angular.element(element[0].querySelectorAll('.work-datestart_date'));
             var parttt = ttt.parent();
-            //var remttt = ttt.clone();
+            console.log('.work-datestart_date' + ttt.);
 
-            var zzz = angular.element(element[0].querySelector('.work-dateend_date'));
+            var zzz = angular.element(element[0].querySelectorAll('.work-dateend_date'));
             var parzzz = zzz.parent();
-           // var remzzz = zzz.clone();
+           console.log('.work-dateend_date' + zzz.id );
 
            var ddd =  angular.element('<div id="love" ></div>');
             ddd.insertBefore(parttt);
