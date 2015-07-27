@@ -689,8 +689,8 @@ $scope.firstTime = 0;
   setTimeout(function () {
       $scope.$apply(function() {
 
-        $( "div.work-datestart_date" ).parentsUntil( "formly-field" ).css( "background-color", "red" )
-        $( "div.work-dateend_date" ).parentsUntil( "formly-field" ).css( "background-color", "blue" )
+        $( ".work-datestart_date" ).parentsUntil( "formly-field" ).css( "background-color", "red" );
+        $( ".work-dateend_date" ).parentsUntil( "formly-field" ).css( "background-color", "blue" );
 
       });
   }, 100);
