@@ -701,5 +701,20 @@ $scope.firstTime = 0;
       }
   });
 
+  scope.$watch("$viewContentLoaded", function() {
+   scope.$evalAsync(
+     var div1 = $( "div.work-datestart_date" )
+       .parentsUntil( "formly-field" );
+
+     var div2 = $( "div.work-dateend_date" )
+         .parentsUntil( "formly-field" );
+
+
+         $(div1).css( "background-color", "red" );
+     $(div2).css( "background-color", "blue" );
+
+   );
+});
+
 
 });
