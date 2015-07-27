@@ -398,10 +398,8 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
 
   $scope.lookCompany = function(val){
     $scope.workLookUp = val;
-      $scope.prettyPrint(val, 'COMPANY');
-
-      var myEl = angular.element( document.querySelector( '#work.companyname' ) );
-      $scope.prettyPrint(myEl, 'hidden');
+      $scope.prettyPrint($scope.workLookUp, 'COMPANY');
+      $scope.WorkRecord.companyname = $scope.workLookUp;
   }
 
 
