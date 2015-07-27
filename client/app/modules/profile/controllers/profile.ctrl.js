@@ -705,10 +705,10 @@ $scope.firstTime = 0;
    scope.$evalAsync(
 
      $(function () {
-        $( "div.work-datestart_date" ).parentsUntil( "formly-field" ).css( "background-color", "red" );
-        $( "div.work-dateend_date" ).parentsUntil( "formly-field" ).css( "background-color", "blue" );
-      });
-   );
+        $( "div.work-datestart_date" ).parentsUntil( "formly-field" ).css( "background-color", "red" )
+        $( "div.work-dateend_date" ).parentsUntil( "formly-field" ).css( "background-color", "blue" )
+      })
+   )
 });
 
 
