@@ -228,6 +228,13 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
                       id: 'work-type-005'
                   }
               ]
+            }, {
+              key: 'jobtitle',
+              type: 'text',
+              id : 'work-title',
+              uniqueFormId : 'work-title-box',
+              label: 'Title',
+              required: false
             },
              {
                 key: 'datestart',
@@ -244,13 +251,6 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
                 uniqueFormId : 'work-dateend-box',
                 required: false
               },{
-                key: 'jobtitle',
-                type: 'text',
-                id : 'work-title',
-                uniqueFormId : 'work-title-box',
-                label: 'Title',
-                required: false
-              },{
                 key: 'profileId',
                 type: 'hidden',
                 id : 'work-profileid',
@@ -258,6 +258,8 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
                 required: true
               }
       ];
+
+//      $scope.$watch(function expression(field, theScope) {}, function listener(field, newValue, oldValue, theScope) {});
 
 // Type (string, optional),
 // Value (string, optional),
