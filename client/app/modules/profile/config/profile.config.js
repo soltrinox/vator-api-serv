@@ -7,7 +7,7 @@ app.run(function($rootScope,  Profile, gettextCatalog) {
 
 
   $rootScope.addMenu(gettextCatalog.getString('Profile'), 'app.myprofile.list',
-    'fa-rocket');
+    'fa-user');
   //
   // Profile.find(function(data) {
   //   $rootScope.addDashboardBox(gettextCatalog.getString('Profiles'),

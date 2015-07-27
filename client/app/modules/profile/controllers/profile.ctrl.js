@@ -263,7 +263,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
 // profileId (objectid, optional)
 
 
-        $scope.formFields4 =
+        $scope.formFieldsXX =
         [
             {
             key: 'Type',
@@ -332,6 +332,47 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
               required: true
             }
         ];
+
+
+
+$scope.formFields4 = [
+  {
+      key: 'Blog',
+      type: 'text',
+      label: 'Blog',
+      id : 'social-blog'
+    },
+    {
+        key: 'Facebook',
+        type: 'text',
+        label: 'Facebook',
+        id : 'social-facebook'
+    },
+    {
+        key: 'Twitter',
+        type: 'text',
+        label: 'Twitter',
+        id : 'social-twitter'
+    },
+    {
+        key: 'Github',
+        type: 'text',
+        label: 'Github',
+        id : 'social-github'
+    },
+    {
+        key: 'Google',
+        type: 'text',
+        label: 'Google',
+        id : 'social-google'
+    },
+    {
+        key: 'Website',
+        type: 'text',
+        label: 'Website',
+        id : 'social-web'
+    }
+];
 
 
         $scope.formFields5 = [ {
