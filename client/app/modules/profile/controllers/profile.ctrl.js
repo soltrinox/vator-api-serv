@@ -168,12 +168,14 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
               label: 'Company',
               id : 'work-companyname',
               data : '$scope.workLookUp',
+              uniqueFormId : 'work-companyname-box',
               required: true
             },  {
               key: 'Type',
               type: 'select',
               label: 'Type',
               id : 'work-type',
+              uniqueFormId : 'work-type-box',
               required: true,
               options:
               [
@@ -204,23 +206,27 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
                 type: 'date',
                 label: 'Start Date',
                 id : 'work-datestart',
+                uniqueFormId : 'work-datestart-box',
                 required: true
               }, {
                 key: 'dateend',
                 type: 'date',
                 label: 'End Date',
                 id : 'work-dateend',
+                uniqueFormId : 'work-dateend-box',
                 required: false
               },{
                 key: 'jobtitle',
                 type: 'text',
                 id : 'work-title',
+                uniqueFormId : 'work-title-box',
                 label: 'Title',
                 required: false
               },{
                 key: 'profileId',
                 type: 'hidden',
                 id : 'work-profileid',
+                uniqueFormId : 'work-profileid-box',
                 required: true
               }
       ];
