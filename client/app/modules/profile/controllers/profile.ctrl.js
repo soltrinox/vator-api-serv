@@ -390,18 +390,19 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
 
   $scope.workLookUp = '';
 
-  $scope.onCompanySelect = function(item, model, label){
+  $scope.onCompanySelect = function( model){
 
-    console.log('ITEM'+ JSON.stringify(item)  +' \n ' +  label + ' : '+ JSON.stringify(model) );
-
+    console.log('ITEM SELECTED: '+ JSON.stringify(model) );
+    var myEl = angular.element( document.querySelector( '#work.companyname' ) );
   }
 
   $scope.lookCompany = function(val){
     $scope.workLookUp = val;
       $scope.prettyPrint(val, 'COMPANY');
 
-      var myEl = angular.element( document.querySelector( '#work.companyname' ) );
-      $scope.prettyPrint(myEl, 'hidden');
+      $scope.workLookUp = angular.element( document.querySelector( '#work.companyname' ) );
+
+      $scope.prettyPrint($scope.workLookUp, 'scope.workLookUp');
   }
 
 
