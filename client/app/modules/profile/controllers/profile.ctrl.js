@@ -8,11 +8,11 @@ var app = angular.module('com.module.profile')
 
             var ttt = angular.element(element[0].querySelectorAll('.work-datestart_date'));
             var parttt = ttt.parent();
-            console.log('.work-datestart_date' + JSON.stringify(ttt));
+            console.log('.work-datestart_date' + JSON.stringify(parttt));
 
             var zzz = angular.element(element[0].querySelectorAll('.work-dateend_date'));
             var parzzz = zzz.parent();
-           console.log('.work-dateend_date' + SON.stringify(zzz) );
+           console.log('.work-dateend_date' + SON.stringify(parzzz) );
 
            var ddd =  angular.element('<div id="love" ></div>');
             ddd.insertBefore(parttt);
