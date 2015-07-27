@@ -12,7 +12,7 @@ var app = angular.module('com.module.profile')
 
             var zzz = angular.element(element[0].querySelectorAll('.work-dateend_date'));
             var parzzz = zzz.parent();
-           console.log('.work-dateend_date' + SON.stringify(parzzz) );
+           console.log('.work-dateend_date' + JSON.stringify(parzzz) );
 
            var ddd =  angular.element('<div id="love" ></div>');
             ddd.insertBefore(parttt);
