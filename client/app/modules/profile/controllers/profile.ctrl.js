@@ -703,13 +703,11 @@ $scope.firstTime = 0;
 
   scope.$watch("$viewContentLoaded", function() {
    scope.$evalAsync(
-     $( "div.work-datestart_date" )
-       .parentsUntil( "formly-field" ).css( "background-color", "red" );
 
-     $( "div.work-dateend_date" )
-         .parentsUntil( "formly-field" ).css( "background-color", "blue" );
-
-
+     $(function () {
+        $( "div.work-datestart_date" ).parentsUntil( "formly-field" ).css( "background-color", "red" );
+        $( "div.work-dateend_date" ).parentsUntil( "formly-field" ).css( "background-color", "blue" );
+      });
    );
 });
 
