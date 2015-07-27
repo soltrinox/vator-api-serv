@@ -391,14 +391,12 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
   $scope.workLookUp = '';
 
   $scope.onCompanySelect = function(item, model, label){
-
-    console.log('ITEM'+ JSON.stringify(item)  +' \n MODEL : '+ JSON.stringify(model) );
-
+      $scope.prettyPrint(model, 'MODEL');
+      $scope.WorkRecord.companyname = model;
   }
 
   $scope.lookCompany = function(val){
-    $scope.workLookUp = val;
-      $scope.prettyPrint($scope.workLookUp, 'COMPANY');
+      $scope.workLookUp = val;
       $scope.WorkRecord.companyname = $scope.workLookUp;
   }
 
