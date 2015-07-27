@@ -4,8 +4,18 @@
 </h4>
 <style>
 .vator_form_box{
-  width:80%;
+  width:90%;
   margin:0 auto;
+}
+.work-datestart_date{
+  width:32%;
+  float:left;
+  margin-right:10px;
+}
+.work-dateend_date{
+  width:32%;
+  float:left;
+  margin-left:10px;
 }
 
 </style>
@@ -110,7 +120,7 @@
           typeahead-loading="loadingCompanies" class="form-control work_companylookup_input"  ng-change="lookCompany($scope.workLookUp)">
           <i ng-show="loadingCompanies" class="glyphicon glyphicon-refresh"></i>
            <!-- ngIf: options.description -->
-           <button ng-click="" class="btn btn-info fa fa-rocket">Add New Company</button>
+           <button ng-click="" class="btn btn-info fa fa-rocket"> &nbsp; Add New Company</button>
         </div>
 
 
