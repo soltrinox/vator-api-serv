@@ -709,15 +709,6 @@ $scope.firstTime = 0;
         });
   }, 100);
 
-  setTimeout(function () {
-      $scope.$apply(function() {
-
-        $scope.$evalAsync( function () {
-             $angular.element( "work-datestart_date" ).parentsUntil( "formly-field" ).css( "background-color", "red" )
-             $( "div.work-dateend_date" ).parentsUntil( "formly-field" ).css( "background-color", "blue" )
-           })
-      });
-  }, 100);
 
 
   $scope.$on('$viewContentLoaded', function(){
@@ -735,15 +726,7 @@ $scope.firstTime = 0;
       }
   });
 
-  $scope.$on("$viewContentLoaded", function() {
-   $scope.$evalAsync(
 
-     $(function () {
-        $( "div.work-datestart_date" ).parentsUntil( "formly-field" ).css( "background-color", "red" )
-        $( "div.work-dateend_date" ).parentsUntil( "formly-field" ).css( "background-color", "blue" )
-      })
-   )
-});
 
 
 });
