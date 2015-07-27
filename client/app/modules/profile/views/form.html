@@ -101,11 +101,11 @@
    <i ng-show="loadingCompanies" class="glyphicon glyphicon-refresh"></i>
 
         <formly-form result="WorkRecord" fields="formFields3" options="formOptions" ng-submit="onSubmit3()"></formly-form>
-        <!-- <pre>
+        <pre>
 
           {{ WorkRecord | json }}
-          {{ profile.work | json}}
-        </pre> -->
+          <!-- {{ profile.work | json}} -->
+        </pre>
         <div class="controls">
           <button class="btn btn-primary btn-success" ng-click="onSubmit3()" translate>Add New Experience </button>
         </div>
