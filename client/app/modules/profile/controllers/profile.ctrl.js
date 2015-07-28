@@ -516,7 +516,7 @@ $scope.formFields4 = [
 
   $scope.hideWork = true;
   $scope.addWorkButton = false;
-  
+
   $scope.toggleWork = function(id) {
     $scope.hideWork = $scope.hideWork === false ? true: false;
     $scope.addWorkButton = $scope.addWorkButton === false ? true: false;
@@ -530,8 +530,8 @@ $scope.formFields4 = [
   }
 
   $scope.cancelWork = function(id) {
-    $scope.hideWork = $scope.hideWork === false ? true: false;
-    $scope.addWorkButton = $scope.addWorkButton === false ? true: false;
+     $scope.hideWork = false; //$scope.hideWork === false ? true: false;
+     $scope.addWorkButton = true; = $scope.addWorkButton === false ? true: false;
     $scope.WorkRecord = {
       companyname: '',
       jobtitle : '',
