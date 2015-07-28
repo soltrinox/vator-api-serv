@@ -12,16 +12,16 @@ function($state, CoreService, Profile, User, Education, Social, WorkHistory, Tea
   this.getProfile = function(id, cb) {
     console.log('get Entire Pro : '+id);
     var response =  Profile.getEntireProfile({id:id}, function(){
-      console.log('DATA GET ENTIRE : '+JSON.stringify(response));
+    //  console.log('DATA GET ENTIRE : '+JSON.stringify(response));
       cb(response);
     });
 
   };
 
   this.getProfileByUUID = function(id, cb) {
-    console.log('find by UUID : '+id);
+    //console.log('find by UUID : '+id);
     var response =  Profile.findOne({ filter:{where: {UUID: id}}}, function(){
-      console.log('GOT BY UUID : '+ JSON.stringify(response));
+      //console.log('GOT BY UUID : '+ JSON.stringify(response));
       cb(response);
     }, function(err) {
         console.log('NO PROFILE WITH UUID : '+ JSON.stringify(id));
@@ -35,9 +35,10 @@ function($state, CoreService, Profile, User, Education, Social, WorkHistory, Tea
       CoreService.toastSuccess(gettextCatalog.getString(
         'Profile saved'), gettextCatalog.getString(
         'Your profile is safe with us!'));
-        console.log('DATA UPSERT : '+JSON.stringify(response));
+        //console.log('DATA UPSERT : '+JSON.stringify(response));
       cb(response);
     }, function(err) {
+      console.log('!!  DATA UPSERT FAILED : '+ JSON.stringify(err));
       CoreService.toastSuccess(gettextCatalog.getString(
         'Error saving profile '), gettextCatalog.getString(
         'This profile could not be saved: ') + err);
@@ -48,16 +49,22 @@ function($state, CoreService, Profile, User, Education, Social, WorkHistory, Tea
     CoreService.confirm(gettextCatalog.getString('Are you sure?'),
       gettextCatalog.getString('Deleting this cannot be undone'),
       function() {
-        Profile.deleteById(id, function() {
-          CoreService.toastSuccess(gettextCatalog.getString(
-            'Profile deleted'), gettextCatalog.getString(
-            'Your profile is deleted!'));
-          cb();
-        }, function(err) {
-          CoreService.toastError(gettextCatalog.getString(
-            'Error deleting profile'), gettextCatalog.getString(
-            'Your profile is not deleted! ') + err);
-        });
+
+        CoreService.toastSuccess(gettextCatalog.getString(
+            'Profile deletion disable at Service Level'),
+            gettextCatalog.getString(
+            'Your profile is still alive!'));
+
+        // Profile.deleteById(id, function() {
+        //   CoreService.toastSuccess(gettextCatalog.getString(
+        //     'Profile deleted'), gettextCatalog.getString(
+        //     'Your profile is deleted!'));
+        //   cb();
+        // }, function(err) {
+        //   CoreService.toastError(gettextCatalog.getString(
+        //     'Error deleting profile'), gettextCatalog.getString(
+        //     'Your profile is not deleted! ') + err);
+        // });
       },
       function() {
         return false;

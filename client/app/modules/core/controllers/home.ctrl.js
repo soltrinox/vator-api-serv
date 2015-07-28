@@ -14,9 +14,9 @@ angular.module('com.module.core')
     $scope.boxes = $rootScope.dashboardBox;
 
     $scope.$on('$viewContentLoaded', function(){
-      //Here your view content is fully loaded !!
         if($scope.currentUser){
-          console.log('LOGGED IN UID: '+ $scope.currentUser.id );
+
+            console.log('CURRENT USER' + JSON.stringify($scope.currentUser));
         }
     });
 

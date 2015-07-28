@@ -24,7 +24,7 @@ angular.module('com.module.core')
 
 
     if($scope.currentUser){
-      console.log('CURRENT UID: '+ $scope.currentUser.id );
+      console.log('CURRENT USER' + JSON.stringify($scope.currentUser));
     }
 
 

@@ -143,7 +143,7 @@ angular.module('com.module.products')
     }
 
 $scope.UUID = '';
-$scope.UserRecord = {
+$scope.ProfileRecord = {
   Name:'',
   Bio:'',
   UUID:'',
@@ -153,25 +153,33 @@ $scope.UserRecord = {
 };
 
     $scope.onSubmit = function() {
-      if(!$scope.currentUser.id || 0 === $scope.currentUser.id.length){
-        console.log('NO UUID : ' );
+
+      console.log('CURRENT USER PROFILE'  + JSON.stringify($scope.currentUser));
+
+
+      if(!$scope.currentUser.id || 0 === $scope.currentUser.id.length ||  ){
+        console.log('THE UUID MISSING : ' + );
+        console.log('THE PID MISSING : ' + );
       }else{
 
-
-        $scope.UUID = $scope.currentUser.id;
+        if(!$scope.currentUser.pid){
+          $scope.UUID = $scope.currentUser.id;
           console.log('currUsr UUID : ' + $scope.UUID );
-        ProfileService.getProfileByUUID($scope.UUID, function(response){
-          $scope.UserRecord.Name= response.Name;
-          $scope.UserRecord.Bio= response.Bio;
-          $scope.UserRecord.UUID = response.UUID;
-          $scope.UserRecord.ProfilePic = response.ProfilePic;
-          $scope.UserRecord.CoverPic = response.CoverPic;
-          $scope.UserRecord.id = response.id;
+          ProfileService.getProfileByUUID($scope.UUID, function(response){
+            console.log('@@@@@@@ FOUND THE PROFILEbyUUID : '  + JSON.stringify(response));
+            $scope.ProfileRecord.Name= response.Name;
+            $scope.ProfileRecord.Bio= response.Bio;
+            $scope.ProfileRecord.UUID = response.UUID;
+            $scope.ProfileRecord.ProfilePic = response.ProfilePic;
+            $scope.ProfileRecord.CoverPic = response.CoverPic;
+            $scope.ProfileRecord.id = response.id;
+            // be sure to set the global user object
+            $scope.currentUser.pid = response.id;
+            $scope.CompanyRecord.profileId = response.id;
+          });
+        }else{
 
-          console.log('@@@@@@@ = profile for UUID'  + JSON.stringify(response));
-          $scope.CompanyRecord.profileId = response.id;
-        });
-
+        }
 
         $scope.CompanyRecord.categoryId =  categoryId;
         $scope.CompanyRecord.tags = $scope.tags;

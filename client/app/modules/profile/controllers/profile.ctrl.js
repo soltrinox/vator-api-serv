@@ -1,30 +1,5 @@
 'use strict';
-var app = angular.module('com.module.profile')
-.directive('mychildren',
-    function( $document) {
-      return {
-        restrict: 'EAC',
-        link: function(scope, element, attrs) {
-
-          // var ttt = angular.element($document[0].querySelector(".work-datestart_date")).css("background", "grey");
-          // //  var ttt = angular.element(element[0].querySelectorAll('.work-datestart_date'));
-          //   var parttt = ttt.parent();
-          //   console.log('.work-datestart_date' + JSON.stringify(parttt));
-          //
-          //   var zzz  = angular.element($document[0].querySelector(".work-dateend_date")).css("background", "blue");
-          //   // var zzz = angular.element(element[0].querySelectorAll('.work-dateend_date'));
-          //   var parzzz = zzz.parent();
-          //  console.log('.work-dateend_date' + JSON.stringify(parzzz) );
-          //
-          //  var ddd =  angular.element('<div id="love" ></div>');
-          //   ddd.insertBefore(parttt);
-          //  ddd.append(parttt);
-          //  ddd.append(parzzz);
-
-        }
-      };
-    }
-  );
+var app = angular.module('com.module.profile');
 
 app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $routeParams, $stateParams,  $document,
   ProfileService, gettextCatalog, $http) {
@@ -37,18 +12,6 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
       CoverPic:'',
       id:''
     };
-
-
-    // $scope.SchoolRecord = {};
-    // $scope.SocialRecord = {
-    //   Type : '',
-    //   Value : '',
-    //   URL : '',
-    //   created : '',
-    //   status : 1,
-    //   verified : false,
-    //   profileId : ''
-    // };
 
 
     $scope.SocialArray = { };
@@ -647,28 +610,36 @@ $scope.formFields4 = [
 
   $scope.getMyNewProfile = function(UUID){
       console.log('GET ME :'+ UUID );
+      // look for the user by their vator auth UUID
       ProfileService.getProfileByUUID(UUID, function(response){
 
         console.log('@@@@@@@ = profile response for UUID'  + JSON.stringify(response));
-
+        // if we can detect a correct PROFILE.ID than move forward
+        // with the correct assignment and getting the full object
         if(!response.id || 0 === response.id.length){
-          console.log('Name : '+ $scope.UserRecord.Name + '\n Bio : ' + $scope.UserRecord.Bio );
-          console.log('object ID BEFORE UPSERT: '+ $scope.UserRecord.id +' = UUID : ' + $scope.UserRecord.UUID);
+          console.log('USER.RECORD : '+ JSON.stringify($scope.UserRecord) );
           $scope.UserRecord.Name = $scope.currentUser.username ;
           $scope.UserRecord.UUID = $scope.currentUser.id;
 
-
+          // if the user is new and no PROFILE record exists
+          // we need to delete the empty ID in order to create
           if(!$scope.UserRecord.id || 0 === $scope.UserRecord.id){
             delete $scope.UserRecord.id;
           }
-
+          // add the UUID for the current user here
           ProfileService.upsertProfile($scope.UserRecord, function(response) {
-            console.log('Updated new profile on UUID'  + JSON.stringify(response));
+            console.log('UPSERT RESPONSE'  + JSON.stringify(response));
             $scope.profileId = response.id;
-              $scope.getMe($scope.profileId);
+            // write to global current user object
+            $scope.currentUser.pid = response.id;
+            // now go get the entire user object and move along
+            $scope.getMe($scope.profileId);
           });
         }else{
+          // lets set our scope id references here
           $scope.profileId = response.id;
+          $scope.currentUser.pid = response.id;
+          // fetch the full object and move along
           $scope.getMe($scope.profileId);
         }
       });
@@ -676,18 +647,19 @@ $scope.formFields4 = [
   };
 
   $scope.onSubmit = function() {
-
-    console.log('Name : '+ $scope.UserRecord.Name + '\n Bio : ' + $scope.UserRecord.Bio );
-    console.log('object ID BEFORE UPSERT: '+ $scope.UserRecord.id +' = UUID : ' + $scope.UserRecord.UUID);
+    console.log('UPSERT USER.RECORD : '+ JSON.stringify($scope.UserRecord) );
+    // verify its not a new record
     if($scope.UserRecord.id === ''){
       delete $scope.UserRecord.id;
     }
+    // send the object on down the road to server
     ProfileService.upsertProfile($scope.UserRecord, function(response) {
-      console.log('Updated new profile on UUID'  + JSON.stringify(response));
-      $scope.profileId = response.id;
+    console.log('UPSERT RESPONSE W/ UUID'  + JSON.stringify(response));
+        $scope.profileId = response.id;
+        $scope.currentUser.pid = response.id;
         $scope.getMe($scope.profileId);
     });
-
+    $scope.addWorkButton = false;
     $scope.hideBase = true;
   };
 
