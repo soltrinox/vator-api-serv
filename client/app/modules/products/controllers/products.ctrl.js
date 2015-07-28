@@ -170,7 +170,7 @@ $scope.UserRecord = {
 
       $scope.CompanyRecord.categoryId =  categoryId;
       $scope.CompanyRecord.tags = $scope.tags;
-      $scope.CompanyRecord.companyId = $scope.companyId;
+    //  $scope.CompanyRecord.companyId = $scope.companyId;
 
       if($scope.CompanyRecord.id === ''){
         delete $scope.CompanyRecord.id;
@@ -178,7 +178,7 @@ $scope.UserRecord = {
 
       console.log('Comp Rec: ' + JSON.stringify($scope.CompanyRecord) );
         if(!$scope.CompanyRecord.profileId || 0 === $scope.CompanyRecord.profileId.length){
-
+            console.log('NO OWNER');
         }else{
           Product.upsert($scope.CompanyRecord, function(response) {
 
