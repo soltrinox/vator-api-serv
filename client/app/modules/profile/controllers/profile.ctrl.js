@@ -244,7 +244,6 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
                 label: 'Start Date',
                 id : 'work-datestart',
                 uniqueFormId : 'work-datestart-box',
-                hide : true,
                 required: true
               }, {
                 key: 'dateend',
@@ -252,7 +251,6 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
                 label: 'End Date',
                 id : 'work-dateend',
                 uniqueFormId : 'work-dateend-box',
-                hide : true,
                 required: false
               },{
                 key: 'profileId',
@@ -265,16 +263,16 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
 
 
 
-      $scope.$watch($scope.WorkRecord, function (scope) {
-          console.log('FIRST WATCH' + JSON.stringify($scope.WorkRecord ));
-    	});
-
-      $scope.$watch(function(scope) { return $scope.WorkRecord.type; },
-              function(newValue, oldValue) {
-                  console.log('OLD: ' + oldValue);
-                  console.log('NEW: ' + newValue);
-              }
-      );
+      // $scope.$watch($scope.WorkRecord, function (scope) {
+      //     console.log('FIRST WATCH' + JSON.stringify($scope.WorkRecord ));
+    	// });
+      //
+      // $scope.$watch(function(scope) { return $scope.WorkRecord.type; },
+      //         function(newValue, oldValue) {
+      //             console.log('OLD: ' + oldValue);
+      //             console.log('NEW: ' + newValue);
+      //         }
+      // );
 
 
             //  ,
