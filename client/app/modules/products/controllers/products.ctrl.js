@@ -116,7 +116,7 @@ angular.module('com.module.products')
       submitCopy: gettextCatalog.getString('Save')
     };
 
-    $scope.newTagValue = function(){
+    $scope.newTagValue = function($tag){
       console.log('NEW TAG: ' + JSON.stringify($tag) );
     }
 
