@@ -1,6 +1,16 @@
 'use strict';
 angular.module('com.module.products')
-  .controller('ProductsCtrl', function($scope, $state, $stateParams, $http,
+.filter('getById', function() {
+  return function(input, id) {
+    var i=0, len=input.length;
+    for (; i<len; i++) {
+      if (+input[i].id == +id) {
+        return input[i];
+      }
+    }
+    return null;
+  }
+}).controller('ProductsCtrl', function($scope, $filter, $state, $stateParams, $http,
     CoreService, gettextCatalog, Product, Category, Profile, User) {
 
     var productId = $stateParams.id;
@@ -116,9 +126,17 @@ angular.module('com.module.products')
       submitCopy: gettextCatalog.getString('Save')
     };
 
+    $scope.showdetails = function($tag){
+        var found = $filter('getById')($scope.tags, $tag.name);
+        console.log('FOUND:' + JSON.stringify(found););
+    }
+
     $scope.newTagValue = function($tag){
       console.log('NEW TAG: ' + JSON.stringify($tag) );
+      $scope.showdetails($tag);
     }
+
+
 
     $scope.onSubmit = function() {
 
@@ -157,7 +175,7 @@ angular.module('com.module.products')
        { name: "Brazil", flag: "Brazil.png" }
      ];
 
-     $scope.loadCountries = function($query) {
+     $scope.loadCats = function($query) {
        return $http.get('/test.json', { cache: true}).then(function(response) {
          var countries = response.data;
          return countries.filter(function(country) {

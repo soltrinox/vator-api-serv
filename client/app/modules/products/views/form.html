@@ -16,12 +16,13 @@
 
     <tags-input ng-model="tags"
                 display-property="name"
-                placeholder="Add a country"
+                placeholder="Add a category"
+                min-length="3"
                 on-tag-added="newTagValue($tag)"
                 replace-spaces-with-dashes="false"
                 template="tag-template">
-      <auto-complete source="loadCountries($query)"
-                     min-length="2"
+      <auto-complete source="loadCats($query)"
+                     min-length="3"
                      load-on-focus="true"
                      load-on-empty="true"
                      max-results-to-show="4"
