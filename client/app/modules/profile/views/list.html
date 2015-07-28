@@ -15,7 +15,7 @@
       </a>
     </span>
     <h4 class="list-group-item-heading">
-      <div ng-show="profile.user.ProfilePic" style="float:left">
+      <div ng-hide="!profile.user.ProfilePic" style="float:left">
         <img  src="{{profile.user.ProfilePic}}" >
       </div>
       <div  style="float:left">
@@ -24,12 +24,12 @@
           {{profile.user.Bio}}</h3>
       </div>
     </h4>
-    <div ng-show="profile.user.CoverPic">
+    <div ng-hide="!profile.user.CoverPic">
       <img  width="100%" src="{{profile.user.CoverPic}}" >
     </div>
 
     <div style="clear:both; margin-top:10px;">
-    <br/><pre>{{profile | json}}</pre>
+    <!-- <br/><pre>{{profile | json}}</pre> -->
     </div>
   </div>
   <div ng-show="!profile.user" class="list-group-item">
