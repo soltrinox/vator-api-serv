@@ -153,45 +153,53 @@ $scope.UserRecord = {
 };
 
     $scope.onSubmit = function() {
-      $scope.UUID = $scope.currentUser.id;
-        console.log('currUsr UUID : ' + $scope.UUID );
-      ProfileService.getProfileByUUID($scope.UUID, function(response){
-        $scope.UserRecord.Name= response.Name;
-        $scope.UserRecord.Bio= response.Bio;
-        $scope.UserRecord.UUID = response.UUID;
-        $scope.UserRecord.ProfilePic = response.ProfilePic;
-        $scope.UserRecord.CoverPic = response.CoverPic;
-        $scope.UserRecord.id = response.id;
-
-        console.log('@@@@@@@ = profile for UUID'  + JSON.stringify(response));
-        $scope.CompanyRecord.profileId = response.id;
-      });
+      if(!$scope.currentUser.id || 0 === $scope.currentUser.id.length){
+        console.log('NO UUID : ' );
+      }else{
 
 
-      $scope.CompanyRecord.categoryId =  categoryId;
-      $scope.CompanyRecord.tags = $scope.tags;
-    //  $scope.CompanyRecord.companyId = $scope.companyId;
+        $scope.UUID = $scope.currentUser.id;
+          console.log('currUsr UUID : ' + $scope.UUID );
+        ProfileService.getProfileByUUID($scope.UUID, function(response){
+          $scope.UserRecord.Name= response.Name;
+          $scope.UserRecord.Bio= response.Bio;
+          $scope.UserRecord.UUID = response.UUID;
+          $scope.UserRecord.ProfilePic = response.ProfilePic;
+          $scope.UserRecord.CoverPic = response.CoverPic;
+          $scope.UserRecord.id = response.id;
 
-      if($scope.CompanyRecord.id === ''){
-        delete $scope.CompanyRecord.id;
+          console.log('@@@@@@@ = profile for UUID'  + JSON.stringify(response));
+          $scope.CompanyRecord.profileId = response.id;
+        });
+
+
+        $scope.CompanyRecord.categoryId =  categoryId;
+        $scope.CompanyRecord.tags = $scope.tags;
+      //  $scope.CompanyRecord.companyId = $scope.companyId;
+
+        if($scope.CompanyRecord.id === ''){
+          delete $scope.CompanyRecord.id;
+        }
+
+        console.log('Comp Rec: ' + JSON.stringify($scope.CompanyRecord) );
+          if(!$scope.CompanyRecord.profileId || 0 === $scope.CompanyRecord.profileId.length){
+              console.log('NO OWNER');
+          }else{
+            Product.upsert($scope.CompanyRecord, function(response) {
+
+              console.log('NEW COMP REC: '  + JSON.stringify(response));
+
+              CoreService.toastSuccess(gettextCatalog.getString(
+                'Company saved'), gettextCatalog.getString(
+                'Your comapny record is safe with us!'));
+              // $state.go('^.list');
+            }, function(err) {
+              console.log(err);
+            });
+          }
+
       }
 
-      console.log('Comp Rec: ' + JSON.stringify($scope.CompanyRecord) );
-        if(!$scope.CompanyRecord.profileId || 0 === $scope.CompanyRecord.profileId.length){
-            console.log('NO OWNER');
-        }else{
-          Product.upsert($scope.CompanyRecord, function(response) {
-
-            console.log('NEW COMP REC: '  + JSON.stringify(response));
-
-            CoreService.toastSuccess(gettextCatalog.getString(
-              'Company saved'), gettextCatalog.getString(
-              'Your comapny record is safe with us!'));
-            // $state.go('^.list');
-          }, function(err) {
-            console.log(err);
-          });
-        }
 
     };
 
