@@ -171,6 +171,10 @@ function($state, CoreService, Profile, User, Education, Social, WorkHistory, Tea
   };
 
   this.upsertWorkHistory = function(workhistory, cb) {
+
+    console.log('##### EXPR workhistory : ' + JSON.stringify(workhistory));
+
+
     WorkHistory.upsert(workhistory, function() {
       CoreService.toastSuccess(gettextCatalog.getString(
         'WorkHistory saved'), gettextCatalog.getString(

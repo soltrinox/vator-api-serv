@@ -39,16 +39,31 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
     };
 
 
-    $scope.SchoolRecord = {};
+    // $scope.SchoolRecord = {};
+    // $scope.SocialRecord = {
+    //   Type : '',
+    //   Value : '',
+    //   URL : '',
+    //   created : '',
+    //   status : 1,
+    //   verified : false,
+    //   profileId : ''
+    // };
+
+
+    $scope.SocialArray = { };
     $scope.SocialRecord = {
-      Type : '',
-      Value : '',
-      URL : '',
-      created : '',
-      status : 1,
-      verified : false,
-      profileId : ''
-    };
+      profileId : '',
+      id : '',
+      LinkedIn : '',
+      Facebook : '',
+      Twitter : '',
+      Github : '',
+      Google : '',
+      Website : ''
+    }
+
+
     $scope.WorkRecord = {
       companyname: '',
       jobtitle : '',
@@ -56,7 +71,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
       dateend : '',
       profileId : '',
       achieve : '',
-      achievements: [],
+      achievements: [{'value':0}],
       id: ''
     };
     $scope.MediaRecord = {};
@@ -380,6 +395,9 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
 
 
 
+
+
+
 $scope.formFields4 = [
   {
       key: 'LinkedIn',
@@ -693,15 +711,15 @@ $scope.formFields4 = [
 
 
   $scope.onSubmit3 = function() {
+    console.log('$scope.WorkRecord : ' + JSON.stringify($scope.WorkRecord) );
+
+    $scope.WorkRecord.profileId =  $scope.profile.user.id;
+    $scope.WorkRecord.achievements =  { value : $scope.WorkRecord.achieve };
+
   if( !$scope.profile.user.id || 0 ===  $scope.profile.user.id.length ){
         console.log('MISSING USER ACCOUNT RESTART APP');
   }else{
-    $scope.WorkRecord.profileId =  $scope.profile.user.id;
-    console.log('COMPANY : '+ $scope.WorkRecord.companyname + '\n TITLE : '
-    + $scope.WorkRecord.Type +' - ' + $scope.WorkRecord.jobtitle);
-    console.log('UUID BEFORE UPSERT: '+ $scope.WorkRecord.profileId);
 
-    $scope.WorkRecord.achievements =  { value : $scope.WorkRecord.achieve };
 
     ProfileService.upsertWorkHistory($scope.WorkRecord, function() {});
     ProfileService.getProfile($scope.profileId,function(response){
