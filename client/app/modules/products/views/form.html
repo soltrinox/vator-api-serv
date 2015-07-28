@@ -11,7 +11,7 @@
   <div class="col-md-4">
     <div class="alert alert-danger" ng-if="addError" translate>
       Could not add company!</div>
-    <formly-form result="product" fields="formFields" options="formOptions"
+    <formly-form result="CompanyRecord" fields="formFields" options="formOptions"
     ng-submit="onSubmit()"></formly-form>
 
     <tags-input ng-model="tags"
@@ -20,10 +20,10 @@
                 replace-spaces-with-dashes="false"
                 template="tag-template">
       <auto-complete source="loadCountries($query)"
-                     min-length="0"
+                     min-length="2"
                      load-on-focus="true"
                      load-on-empty="true"
-                     max-results-to-show="32"
+                     max-results-to-show="4"
                      template="autocomplete-template"></auto-complete>
     </tags-input>
 

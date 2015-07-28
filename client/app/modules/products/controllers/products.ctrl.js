@@ -74,7 +74,10 @@ angular.module('com.module.products')
 
     $scope.CompanyRecord = {
       name: '',
+      id : '',
       categoryId : '',
+      companyId: '',
+      profileId: '',
       pitch : '',
       website : '',
       founded : '',
@@ -93,7 +96,7 @@ angular.module('com.module.products')
       required: true
     }, {
       key: 'pitch',
-      type: 'text',
+      type: 'textarea',
       label: gettextCatalog.getString('Brief Pitch')
     },{
       key: 'website',
@@ -102,9 +105,7 @@ angular.module('com.module.products')
       label: gettextCatalog.getString('Website URL')
     },{
       key: 'founded',
-      type: 'number',
-      "min": 1999,
-      "max": 2016,
+      type: 'date',
       label: gettextCatalog.getString('Year Founded'),
       required: true
     }];
@@ -116,10 +117,23 @@ angular.module('com.module.products')
     };
 
     $scope.onSubmit = function() {
-      Product.upsert($scope.product, function() {
+
+      // $scope.CompanyRecord.name = '',
+      // $scope.CompanyRecord.categoryId = '',
+      // $scope.CompanyRecord.profileId = '',
+      // $scope.CompanyRecord.pitch = '',
+      // $scope.CompanyRecord.website = '',
+      // $scope.CompanyRecord.founded = '',
+      $scope.CompanyRecord.tags = $scope.tags;
+
+      if($scope.CompanyRecord.id === ''){
+        delete $scope.CompanyRecord.id;
+      }
+
+      Product.upsert($scope.CompanyRecord, function() {
         CoreService.toastSuccess(gettextCatalog.getString(
-          'Product saved'), gettextCatalog.getString(
-          'Your product is safe with us!'));
+          'Company saved'), gettextCatalog.getString(
+          'Your comapny record is safe with us!'));
         $state.go('^.list');
       }, function(err) {
         console.log(err);
