@@ -130,14 +130,20 @@ angular.module('com.module.products')
         delete $scope.CompanyRecord.id;
       }
 
-      Product.upsert($scope.CompanyRecord, function() {
-        CoreService.toastSuccess(gettextCatalog.getString(
-          'Company saved'), gettextCatalog.getString(
-          'Your comapny record is safe with us!'));
-        $state.go('^.list');
-      }, function(err) {
-        console.log(err);
-      });
+      console.log('Comp Rec: ' + $scope.CompanyRecord);
+        if($scope.CompanyRecord.profileId === ''){
+
+        }else{
+          Product.upsert($scope.CompanyRecord, function() {
+            CoreService.toastSuccess(gettextCatalog.getString(
+              'Company saved'), gettextCatalog.getString(
+              'Your comapny record is safe with us!'));
+            // $state.go('^.list');
+          }, function(err) {
+            console.log(err);
+          });
+        }
+
     };
 
     $scope.tags = [
