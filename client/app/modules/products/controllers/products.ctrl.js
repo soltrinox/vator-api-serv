@@ -130,7 +130,7 @@ angular.module('com.module.products')
         delete $scope.CompanyRecord.id;
       }
 
-      console.log('Comp Rec: ' + $scope.CompanyRecord);
+      console.log('Comp Rec: ' + JSON.stringify($scope.CompanyRecord) );
         if($scope.CompanyRecord.profileId === ''){
 
         }else{
