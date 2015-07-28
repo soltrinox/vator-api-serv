@@ -1,6 +1,6 @@
 'use strict';
 angular.module('com.module.products')
-  .controller('ProductsCtrl', function($scope, $state, $stateParams,
+  .controller('ProductsCtrl', function($scope, $state, $stateParams, $http,
     CoreService, gettextCatalog, Product, Category) {
 
     var productId = $stateParams.id;
