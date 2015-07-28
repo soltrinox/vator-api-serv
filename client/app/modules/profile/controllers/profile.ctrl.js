@@ -6,20 +6,20 @@ var app = angular.module('com.module.profile')
         restrict: 'EAC',
         link: function(scope, element, attrs) {
 
-          var ttt = angular.element($document[0].querySelector(".work-datestart_date")).css("background", "grey");
-          //  var ttt = angular.element(element[0].querySelectorAll('.work-datestart_date'));
-            var parttt = ttt.parent();
-            console.log('.work-datestart_date' + JSON.stringify(parttt));
-
-            var zzz  = angular.element($document[0].querySelector(".work-dateend_date")).css("background", "blue");
-            // var zzz = angular.element(element[0].querySelectorAll('.work-dateend_date'));
-            var parzzz = zzz.parent();
-           console.log('.work-dateend_date' + JSON.stringify(parzzz) );
-
-           var ddd =  angular.element('<div id="love" ></div>');
-            ddd.insertBefore(parttt);
-           ddd.append(parttt);
-           ddd.append(parzzz);
+          // var ttt = angular.element($document[0].querySelector(".work-datestart_date")).css("background", "grey");
+          // //  var ttt = angular.element(element[0].querySelectorAll('.work-datestart_date'));
+          //   var parttt = ttt.parent();
+          //   console.log('.work-datestart_date' + JSON.stringify(parttt));
+          //
+          //   var zzz  = angular.element($document[0].querySelector(".work-dateend_date")).css("background", "blue");
+          //   // var zzz = angular.element(element[0].querySelectorAll('.work-dateend_date'));
+          //   var parzzz = zzz.parent();
+          //  console.log('.work-dateend_date' + JSON.stringify(parzzz) );
+          //
+          //  var ddd =  angular.element('<div id="love" ></div>');
+          //   ddd.insertBefore(parttt);
+          //  ddd.append(parttt);
+          //  ddd.append(parzzz);
 
         }
       };
