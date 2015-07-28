@@ -531,7 +531,7 @@ $scope.UserRecord = {
                for(var i = 0; i < $scope.catsList.length; i++ ){
 
                 $scope.cat =  $scope.catsList[i];
-                  console.log('SCOPE: '+ JSON.stringify(  cat ));
+                  console.log('SCOPE: '+ JSON.stringify(  $scope.cat ));
                  $scope.CategoryModel = {
                    name : '',
                    type : '',
@@ -540,10 +540,10 @@ $scope.UserRecord = {
                    id : ''
                  }
 
-                 $scope.CategoryModel.name = cat.name;
-                 $scope.CategoryModel.parent = cat.parent;
-                 $scope.CategoryModel.seo  = cat.seo;
-                 $scope.CategoryModel.type = cat.type;
+                 $scope.CategoryModel.name = $scope.cat.name;
+                 $scope.CategoryModel.parent = $scope.cat.parent;
+                 $scope.CategoryModel.seo  = $scope.cat.seo;
+                 $scope.CategoryModel.type = $scope.cat.type;
 
                  if((!$scope.CategoryModel.id ) || ($scope.CategoryModel.id === '')){
                    delete $scope.CategoryModel.id;
