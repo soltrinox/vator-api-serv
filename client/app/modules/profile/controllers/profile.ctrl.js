@@ -192,7 +192,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
       $scope.hideDateEnd = true;
       $scope.hideTitle = true;
 
-      $scope.$watch($scope.WorkRecord.Type, function(newValue, oldValue){
+      $scope.$watchCollection($scope.WorkRecord, function(newValue, oldValue){
         console.log(JSON.stringify($scope.WorkRecord));
         console.log('OLD: ' + JSON.stringify(oldValue) +'\n NEW: ' + JSON.stringify(newValue) );
           $scope.hideTitle = $scope.hideTitle === false ? true: false;
