@@ -23,6 +23,7 @@ angular.module('loopbackApp', [
     'ngResource',
     'ngRoute',
     'ngSanitize',
+    'ngTagsInput',
     'ngTouch',
     'ui.bootstrap',
     'ui.codemirror',
@@ -45,7 +46,7 @@ angular.module('loopbackApp', [
     'com.module.profile',
     'com.module.users'
   ]).config(['$routeProvider', function($routeProvider) {
-    
+
 
   }]).run(function($rootScope, $cookies, gettextCatalog) {
 
