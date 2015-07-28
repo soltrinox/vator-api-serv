@@ -49,6 +49,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
     };
     $scope.WorkRecord = {
       companyname: '',
+      type : '',
       jobtitle : '',
       datestart : '',
       dateend : '',
@@ -194,12 +195,24 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
               uniqueFormId : 'work-companyname-box',
               required: true
             },  {
-              key: 'Type',
+              key: 'type',
               type: 'select',
               label: 'Role',
               id : 'work-type',
               uniqueFormId : 'work-type-box',
               required: true,
+              watch: {
+        				expression: function(field) {
+                  console.log(field);
+        					return false;
+        				},
+        				listener: function(field, _new) {
+                  console.log('FIELD : ' + field + '\nBOOL: ' + _new);
+        					datestart.hide = _new;
+                  dateend.hide = _new;
+                  jobtitle.hide = _new;
+        				}
+      			   },
               options:
               [
                   {
@@ -260,6 +273,18 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
                 required: true
               }
       ];
+
+
+
+      $scope.$watch('$scope.WorkRecord.', function onOptionsUpdated(newValue) {
+		      try {
+    			$scope.formFields3 = $parse(newValue)({});
+    			$scope.formFields[seeWhatYouTypeIndex].validators = seeWhatYouTypeValidators;
+    			$scope.formFieldsError = false;
+    		  } catch (e) {
+    			$scope.formFieldsError = true;
+    		  }
+    	});
 
 //      $scope.$watch(function expression(field, theScope) {}, function listener(field, newValue, oldValue, theScope) {});
 
