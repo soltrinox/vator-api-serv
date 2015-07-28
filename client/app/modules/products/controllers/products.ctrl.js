@@ -162,17 +162,13 @@ $scope.UserRecord = {
         $scope.UserRecord.ProfilePic = response.ProfilePic;
         $scope.UserRecord.CoverPic = response.CoverPic;
         $scope.UserRecord.id = response.id;
-        
+
         console.log('@@@@@@@ = profile for UUID'  + JSON.stringify(response));
         $scope.CompanyRecord.profileId = response.id;
       });
 
-      // $scope.CompanyRecord.name = '',
-      // $scope.CompanyRecord.categoryId = '',
-      // $scope.CompanyRecord.profileId = '',
-      // $scope.CompanyRecord.pitch = '',
-      // $scope.CompanyRecord.website = '',
-      // $scope.CompanyRecord.founded = '',
+
+      $scope.CompanyRecord.categoryId =  categoryId;
       $scope.CompanyRecord.tags = $scope.tags;
       $scope.CompanyRecord.companyId = $scope.companyId;
 
