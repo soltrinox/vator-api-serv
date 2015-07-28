@@ -3,22 +3,21 @@ var app = angular.module('com.module.profile')
 .directive('mychildren',
     function() {
       return {
-        restrict: 'EA',
+        restrict: 'EAC',
         link: function(scope, element, attrs) {
 
-            // var ttt = element[0].querySelector('.work-datestart_date');
-            var ttt = angular.element(angular.element(element).find(".work-datestart_date")[0]);
+            var ttt = angular.element(element[0].querySelectorAll('.work-datestart_date'));
             var parttt = ttt.parent();
             console.log('.work-datestart_date' + JSON.stringify(parttt));
-            var zzz = angular.element(angular.element(element).find(".work-dateend_date")[0])
-            //var zzz = element[0].querySelector('.work-dateend_date');
+
+            var zzz = angular.element(element[0].querySelectorAll('.work-dateend_date'));
             var parzzz = zzz.parent();
            console.log('.work-dateend_date' + JSON.stringify(parzzz) );
 
-          //  var ddd =  angular.element('<div id="love" ></div>');
-          // ddd.insertBefore(parttt);
-          //  ddd.append(parttt);
-          //  ddd.append(parzzz);
+           var ddd =  angular.element('<div id="love" ></div>');
+            ddd.insertBefore(parttt);
+           ddd.append(parttt);
+           ddd.append(parzzz);
 
         }
       };
@@ -50,7 +49,6 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
     };
     $scope.WorkRecord = {
       companyname: '',
-      type : '',
       jobtitle : '',
       datestart : '',
       dateend : '',
@@ -196,7 +194,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
               uniqueFormId : 'work-companyname-box',
               required: true
             },  {
-              key: 'type',
+              key: 'Type',
               type: 'select',
               label: 'Role',
               id : 'work-type',
@@ -244,6 +242,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
                 label: 'Start Date',
                 id : 'work-datestart',
                 uniqueFormId : 'work-datestart-box',
+                hide : true,
                 required: true
               }, {
                 key: 'dateend',
@@ -251,6 +250,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
                 label: 'End Date',
                 id : 'work-dateend',
                 uniqueFormId : 'work-dateend-box',
+                hide : true,
                 required: false
               },{
                 key: 'profileId',
@@ -261,33 +261,15 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
               }
       ];
 
+//      $scope.$watch(function expression(field, theScope) {}, function listener(field, newValue, oldValue, theScope) {});
 
-
-      // $scope.$watch($scope.WorkRecord, function (scope) {
-      //     console.log('FIRST WATCH' + JSON.stringify($scope.WorkRecord ));
-    	// });
-      //
-      // $scope.$watch(function(scope) { return $scope.WorkRecord.type; },
-      //         function(newValue, oldValue) {
-      //             console.log('OLD: ' + oldValue);
-      //             console.log('NEW: ' + newValue);
-      //         }
-      // );
-
-
-            //  ,
-            //  watch: {
-            //    expression: function(field) {
-            //      console.log(field);
-            //      return false;
-            //    },
-            //    listener: function(field, _new) {
-            //      console.log('FIELD : ' + field + '\nBOOL: ' + _new);
-            //      $scope.formFields3.datestart.hide = _new;
-            //      $scope.formFields3.dateend.hide = _new;
-            //      $scope.formFields3.jobtitle.hide = _new;
-            //    }
-            //   },
+// Type (string, optional),
+// Value (string, optional),
+// URL (string, optional),
+// created (string, optional),
+// status (number, optional),
+// verified (boolean, optional),
+// profileId (objectid, optional)
 
 
         $scope.formFieldsXX =

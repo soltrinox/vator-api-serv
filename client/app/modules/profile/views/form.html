@@ -110,8 +110,8 @@
 
     </tab> -->
     <tab heading="{{ 'Experience' | translate }}">
-        <button class="btn btn-info fa fa-plus" ng-hide="true" ng-click="toggleWork()">Add Experience</button>
-      <div class="row tab-pane"   ng-hide="hideWork"  >
+        <button class="btn btn-info fa fa-plus" ng-click="toggleWork()">Add Experience</button>
+      <div class="row tab-pane"   ng-hide="hideWork" mychildren  >
 
 
 
@@ -125,13 +125,17 @@
           typeahead-loading="loadingCompanies" class="form-control work_companylookup_input"  ng-change="lookCompany($scope.workLookUp)">
           <i ng-show="loadingCompanies" class="glyphicon glyphicon-refresh"></i>
            <!-- ngIf: options.description -->
-           <button ng-click="" class="btn btn-info fa fa-rocket"> &nbsp; Create New Company</button>
+           <button ng-click="" class="btn btn-info fa fa-rocket"> &nbsp; Add New Company</button>
         </div>
 
-<mychildren>
-        <formly-form  id="formlyWorkForm" result="WorkRecord" fields="formFields3" options="formOptions" ng-submit="onSubmit3()"></formly-form>
-</mychildren>
+
+
+
+
+
+        <formly-form result="WorkRecord" fields="formFields3" options="formOptions" ng-submit="onSubmit3()"></formly-form>
         <pre>
+
           {{ WorkRecord | json }}
           <!-- {{ profile.work | json}} -->
         </pre>
@@ -168,7 +172,7 @@
           <button class="btn btn-primary btn-success" ng-click="onSubmit4()" translate>Add Contact / Social Account</button>
         </div>
       </div>
-
+      
       <pre>
 
         {{ SocialRecord | json }}
