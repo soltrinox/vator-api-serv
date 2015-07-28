@@ -13,6 +13,45 @@
       Could not add company!</div>
     <formly-form result="product" fields="formFields" options="formOptions"
     ng-submit="onSubmit()"></formly-form>
+
+    <tags-input ng-model="tags"
+                display-property="name"
+                placeholder="Add a country"
+                replace-spaces-with-dashes="false"
+                template="tag-template">
+      <auto-complete source="loadCountries($query)"
+                     min-length="0"
+                     load-on-focus="true"
+                     load-on-empty="true"
+                     max-results-to-show="32"
+                     template="autocomplete-template"></auto-complete>
+    </tags-input>
+
+    <script type="text/ng-template" id="tag-template">
+      <div class="tag-template">
+        <div class="left-panel">
+          <img ng-src="http://mbenford.github.io/ngTagsInput/images/flags/{{data.flag}}" ng-if="data.flag"/>
+        </div>
+        <div class="right-panel">
+          <span>{{$getDisplayText()}}</span>
+          <a class="remove-button" ng-click="$removeTag()">&#10006;</a>
+        </div>
+      </div>
+    </script>
+
+    <script type="text/ng-template" id="autocomplete-template">
+      <div class="autocomplete-template">
+        <div class="left-panel">
+          <img ng-src="http://mbenford.github.io/ngTagsInput/images/flags/{{data.flag}}" />
+        </div>
+        <div class="right-panel">
+          <span ng-bind-html="$highlight($getDisplayText())"></span>
+          <span>({{data.rank}})</span>
+          <span>{{data.confederation}}</span>
+        </div>
+      </div>
+    </script>
+
   </div>
 </div>
 <div class="controls">
