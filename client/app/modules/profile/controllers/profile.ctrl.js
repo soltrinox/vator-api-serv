@@ -529,18 +529,18 @@ $scope.formFields4 = [
     };
   }
 
-  $scope.cancelWork = function(id) {
-     $scope.hideWork = false; //$scope.hideWork === false ? true: false;
-     $scope.addWorkButton = true; //= $scope.addWorkButton === false ? true: false;
-    $scope.WorkRecord = {
-      companyname: '',
-      jobtitle : '',
-      datestart : '',
-      dateend : '',
-      profileId : $scope.profileId
-    };
-
-  }
+  // $scope.cancelWork = function(id) {
+  //    $scope.hideWork = false; //$scope.hideWork === false ? true: false;
+  //    $scope.addWorkButton = true; //= $scope.addWorkButton === false ? true: false;
+  //   $scope.WorkRecord = {
+  //     companyname: '',
+  //     jobtitle : '',
+  //     datestart : '',
+  //     dateend : '',
+  //     profileId : $scope.profileId
+  //   };
+  //
+  // }
 
   $scope.hideSocial = true;
   $scope.toggleSocial = function(id) {
@@ -699,6 +699,7 @@ $scope.formFields4 = [
         $scope.getMe($scope.profile);
     });
     $scope.hideWork = true;
+    $scope.addWorkButton = false;
     // $location.path('/app/myprofile/'+$scope.WorkRecord.profileId+'/edit');
 
   };
