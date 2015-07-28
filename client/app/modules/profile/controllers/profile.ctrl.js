@@ -3,14 +3,14 @@ var app = angular.module('com.module.profile')
 .directive('mychildren',
     function() {
       return {
-        restrict: 'EAC',
+        restrict: 'E',
         link: function(scope, element, attrs) {
 
-            var ttt = angular.element(element[0].querySelectorAll('.work-datestart_date'));
+            var ttt = element[0].querySelector('.work-datestart_date');
             var parttt = ttt.parent();
             console.log('.work-datestart_date' + JSON.stringify(parttt));
 
-            var zzz = angular.element(element[0].querySelectorAll('.work-dateend_date'));
+            var zzz = element[0].querySelector('.work-dateend_date');
             var parzzz = zzz.parent();
            console.log('.work-dateend_date' + JSON.stringify(parzzz) );
 
