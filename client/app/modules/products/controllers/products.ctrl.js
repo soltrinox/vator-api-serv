@@ -531,7 +531,7 @@ $scope.UserRecord = {
                for(var i = 0; i < $scope.catsList.length; i++ ){
 
                 $scope.cat =  $scope.catsList[i];
-                  console.log('SCOPE: '+ JSON.stringify(  $cat ));
+                  console.log('SCOPE: '+ JSON.stringify(  cat ));
                  $scope.CategoryModel = {
                    name : '',
                    type : '',
