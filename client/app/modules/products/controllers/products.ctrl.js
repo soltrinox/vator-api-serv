@@ -128,7 +128,7 @@ angular.module('com.module.products')
 
     $scope.showdetails = function($tag){
         var found = $filter('getById')($scope.tags, $tag.name);
-        console.log('FOUND:' + JSON.stringify(found););
+        console.log('FOUND:' + JSON.stringify(found) );
     }
 
     $scope.newTagValue = function($tag){
