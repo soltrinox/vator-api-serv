@@ -115,7 +115,7 @@ tags-input[disabled] .tags .input {
 
 tags-input .autocomplete {
   margin-top: 5px;
-  position: absolute;
+  position: relative;
   padding: 5px 0;
   z-index: 999;
   width: 100%;
