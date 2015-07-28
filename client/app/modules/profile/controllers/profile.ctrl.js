@@ -276,15 +276,16 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
 
 
 
-      $scope.$watch('$scope.WorkRecord.', function onOptionsUpdated(newValue) {
-		      try {
-    			$scope.formFields3 = $parse(newValue)({});
-    			$scope.formFields[seeWhatYouTypeIndex].validators = seeWhatYouTypeValidators;
-    			$scope.formFieldsError = false;
-    		  } catch (e) {
-    			$scope.formFieldsError = true;
-    		  }
+      $scope.$watch('$scope.WorkRecord.type', function (scope) {
+          console.log('FIRST WATCH');
     	});
+
+      $scope.$watch(function(scope) { return $scope.WorkRecord.type; },
+              function(newValue, oldValue) {
+                  console.log('OLD: ' + oldValue);
+                  console.log('NEW: ' + newValue);
+              }
+             );
 
 //      $scope.$watch(function expression(field, theScope) {}, function listener(field, newValue, oldValue, theScope) {});
 
