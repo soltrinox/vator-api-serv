@@ -8,19 +8,24 @@
   margin:0 auto;
 }
 .work-datestart_date{
+  display: none;
   width:32%;
   float:left;
   margin-right:10px;
   margin-left:40px;
 }
 .work-dateend_date{
+  display: none;
   width:32%;
   float:left;
   margin-left:10px;
 }
 .work-title_text{
   clear:both !important;
-
+  display: none;
+}
+.work-achievement_text{
+  display: none;
 }
 
 </style>
@@ -172,7 +177,7 @@
           <button class="btn btn-primary btn-success" ng-click="onSubmit4()" translate>Add Contact / Social Account</button>
         </div>
       </div>
-      
+
       <pre>
 
         {{ SocialRecord | json }}

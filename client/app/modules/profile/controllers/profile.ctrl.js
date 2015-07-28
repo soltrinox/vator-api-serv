@@ -1,7 +1,7 @@
 'use strict';
 var app = angular.module('com.module.profile')
 .directive('mychildren',
-    function() {
+    function( $document) {
       return {
         restrict: 'EAC',
         link: function(scope, element, attrs) {
@@ -26,7 +26,7 @@ var app = angular.module('com.module.profile')
     }
   );
 
-app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $routeParams, $stateParams,
+app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $routeParams, $stateParams,  $document,
   ProfileService, gettextCatalog, $http) {
 
     $scope.UserRecord = {
@@ -194,10 +194,22 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
 
       $scope.$watchCollection('WorkRecord', function(newValue, oldValue){
         console.log(JSON.stringify($scope.WorkRecord));
+        var xnx = $scope.WorkRecord.Type;
+        if((xnx === '001') || (xnx === '002')){
+          angular.element($document[0].querySelector(".work-datestart_date")).css("display", "inherit");
+          angular.element($document[0].querySelector(".work-dateend_date")).css("display", "inherit");
+          angular.element($document[0].querySelector(".work-achievement_text")).css("display", "inherit");
+        }else{
+          angular.element($document[0].querySelector(".work-datestart_date")).css("display", "none");
+          angular.element($document[0].querySelector(".work-dateend_date")).css("display", "none");
+          angular.element($document[0].querySelector(".work-type_select")).css("display", "none");
+          angular.element($document[0].querySelector(".work-achievement_text")).css("display", "none");
+        }
+
         console.log('OLD: ' + JSON.stringify(oldValue) +'\n NEW: ' + JSON.stringify(newValue) );
-          $scope.hideTitle = $scope.hideTitle === false ? true: false;
-         $scope.hideDateStart = $scope.hideDateStart === false ? true: false;
-         $scope.hideDateEnd =  $scope.hideDateEnd  === false ? true: false;
+        //  $scope.hideTitle = $scope.hideTitle === false ? true: false;
+        //  $scope.hideDateStart = $scope.hideDateStart === false ? true: false;
+        //  $scope.hideDateEnd =  $scope.hideDateEnd  === false ? true: false;
       });
 
 
@@ -252,7 +264,6 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
               id : 'work-title',
               uniqueFormId : 'work-title-box',
               label: 'Title',
-              hide : '$scope.hideTitle',
               required: false
             },
              {
@@ -261,7 +272,6 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
                 label: 'Start Date',
                 id : 'work-datestart',
                 uniqueFormId : 'work-datestart-box',
-                hide : '$scope.hideDateStart',
                 required: true
               }, {
                 key: 'dateend',
@@ -269,7 +279,13 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
                 label: 'End Date',
                 id : 'work-dateend',
                 uniqueFormId : 'work-dateend-box',
-                hide : '$scope.hideDateEnd',
+                required: false
+              },{
+                key: 'achievements',
+                type: 'text',
+                label: 'Achievements',
+                id : 'work-achievement',
+                uniqueFormId : 'work-achievement-box',
                 required: false
               },{
                 key: 'profileId',
