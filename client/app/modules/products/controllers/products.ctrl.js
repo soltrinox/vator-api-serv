@@ -1,7 +1,7 @@
 'use strict';
 angular.module('com.module.products')
   .controller('ProductsCtrl', function($scope, $state, $stateParams, $http,
-    CoreService, gettextCatalog, Product, Category) {
+    CoreService, gettextCatalog, Product, Category, Profile, User) {
 
     var productId = $stateParams.id;
     var categoryId = $stateParams.categoryId;
@@ -134,7 +134,10 @@ angular.module('com.module.products')
         if($scope.CompanyRecord.profileId === ''){
 
         }else{
-          Product.upsert($scope.CompanyRecord, function() {
+          Product.upsert($scope.CompanyRecord, function(response) {
+
+            console.log('NEW COMP REC: '  + JSON.stringify(response));
+
             CoreService.toastSuccess(gettextCatalog.getString(
               'Company saved'), gettextCatalog.getString(
               'Your comapny record is safe with us!'));
