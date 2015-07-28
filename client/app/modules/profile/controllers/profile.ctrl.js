@@ -6,11 +6,13 @@ var app = angular.module('com.module.profile')
         restrict: 'EAC',
         link: function(scope, element, attrs) {
 
-            var ttt = angular.element(element[0].querySelectorAll('.work-datestart_date'));
+          var ttt = angular.element($document[0].querySelector(".work-datestart_date")).css("background", "grey");
+          //  var ttt = angular.element(element[0].querySelectorAll('.work-datestart_date'));
             var parttt = ttt.parent();
             console.log('.work-datestart_date' + JSON.stringify(parttt));
 
-            var zzz = angular.element(element[0].querySelectorAll('.work-dateend_date'));
+            var zzz  = angular.element($document[0].querySelector(".work-dateend_date")).css("background", "blue");
+            // var zzz = angular.element(element[0].querySelectorAll('.work-dateend_date'));
             var parzzz = zzz.parent();
            console.log('.work-dateend_date' + JSON.stringify(parzzz) );
 
@@ -52,7 +54,8 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
       jobtitle : '',
       datestart : '',
       dateend : '',
-      profileId : ''
+      profileId : '',
+      type : ''
     };
     $scope.MediaRecord = {};
     $scope.CompanyRecord = {
@@ -183,6 +186,19 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
         required: true
       }];
 
+
+
+      $scope.hideDateStart = true;
+      $scope.hideDateEnd = true;
+      $scope.hideTitle = true;
+
+      $scope.$watch("$scope.WorkRecord.type", function(newValue, oldValue){
+          $scope.hideTitle = $scope.hideTitle === false ? true: false;
+         $scope.hideDateStart = $scope.hideDateStart === false ? true: false;
+         $scope.hideDateEnd =  $scope.hideDateEnd  === false ? true: false;
+      });
+
+
       $scope.formFields3 =
         [
           {
@@ -234,6 +250,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
               id : 'work-title',
               uniqueFormId : 'work-title-box',
               label: 'Title',
+              hide : '$scope.hideTitle',
               required: false
             },
              {
@@ -242,7 +259,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
                 label: 'Start Date',
                 id : 'work-datestart',
                 uniqueFormId : 'work-datestart-box',
-                hide : true,
+                hide : '$scope.hideDateStart',
                 required: true
               }, {
                 key: 'dateend',
@@ -250,7 +267,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
                 label: 'End Date',
                 id : 'work-dateend',
                 uniqueFormId : 'work-dateend-box',
-                hide : true,
+                hide : '$scope.hideDateEnd',
                 required: false
               },{
                 key: 'profileId',
@@ -765,6 +782,14 @@ $scope.firstTime = 0;
       if(($scope.currentUser ) && ($scope.firstTime === 1)){
         console.log('LOGGED IN UID: '+ $scope.currentUser.id );
         console.log('CURRENT USER : '+JSON.stringify( $scope.currentUser ));
+
+
+        if(! || 0 === $scope.WorkRecord.type.length  ){
+          var zzz  = angular.element($document[0].querySelector(".work-dateend_date"));
+
+        }else{
+
+        }
 
         if($scope.profile === undefined){
             console.log('NO CURRENT PROFILE');
