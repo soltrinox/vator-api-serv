@@ -201,18 +201,6 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
               id : 'work-type',
               uniqueFormId : 'work-type-box',
               required: true,
-              watch: {
-        				expression: function(field) {
-                  console.log(field);
-        					return false;
-        				},
-        				listener: function(field, _new) {
-                  console.log('FIELD : ' + field + '\nBOOL: ' + _new);
-        					datestart.hide = _new;
-                  dateend.hide = _new;
-                  jobtitle.hide = _new;
-        				}
-      			   },
               options:
               [
                   {
@@ -276,8 +264,8 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
 
 
 
-      $scope.$watch('$scope.WorkRecord.type', function (scope) {
-          console.log('FIRST WATCH');
+      $scope.$watch($scope.WorkRecord, function (scope) {
+          console.log('FIRST WATCH' + JSON.stringify($scope.WorkRecord ));
     	});
 
       $scope.$watch(function(scope) { return $scope.WorkRecord.type; },
@@ -285,17 +273,22 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
                   console.log('OLD: ' + oldValue);
                   console.log('NEW: ' + newValue);
               }
-             );
+      );
 
-//      $scope.$watch(function expression(field, theScope) {}, function listener(field, newValue, oldValue, theScope) {});
 
-// Type (string, optional),
-// Value (string, optional),
-// URL (string, optional),
-// created (string, optional),
-// status (number, optional),
-// verified (boolean, optional),
-// profileId (objectid, optional)
+            //  ,
+            //  watch: {
+            //    expression: function(field) {
+            //      console.log(field);
+            //      return false;
+            //    },
+            //    listener: function(field, _new) {
+            //      console.log('FIELD : ' + field + '\nBOOL: ' + _new);
+            //      $scope.formFields3.datestart.hide = _new;
+            //      $scope.formFields3.dateend.hide = _new;
+            //      $scope.formFields3.jobtitle.hide = _new;
+            //    }
+            //   },
 
 
         $scope.formFieldsXX =
