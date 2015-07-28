@@ -76,6 +76,7 @@ angular.module('com.module.users')
       if (result.count > 0) {
         AuthProvider.find(function(result) {
           $scope.authProviders = result;
+          $scope.authProviders.slice(0, 3);
         });
       }
     });
