@@ -784,12 +784,7 @@ $scope.firstTime = 0;
         console.log('CURRENT USER : '+JSON.stringify( $scope.currentUser ));
 
 
-        if(! || 0 === $scope.WorkRecord.type.length  ){
-          var zzz  = angular.element($document[0].querySelector(".work-dateend_date"));
 
-        }else{
-
-        }
 
         if($scope.profile === undefined){
             console.log('NO CURRENT PROFILE');
