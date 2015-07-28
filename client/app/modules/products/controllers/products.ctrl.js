@@ -116,6 +116,10 @@ angular.module('com.module.products')
       submitCopy: gettextCatalog.getString('Save')
     };
 
+    $scope.newTagValue = function(){
+      console.log('NEW TAG: ' + JSON.stringify($tag) );
+    }
+
     $scope.onSubmit = function() {
 
       // $scope.CompanyRecord.name = '',
@@ -150,10 +154,7 @@ angular.module('com.module.products')
     };
 
     $scope.tags = [
-       { name: "Brazil", flag: "Brazil.png" },
-       { name: "Italy", flag: "Italy.png" },
-       { name: "Spain", flag: "Spain.png" },
-       { name: "Germany", flag: "Germany.png" },
+       { name: "Brazil", flag: "Brazil.png" }
      ];
 
      $scope.loadCountries = function($query) {

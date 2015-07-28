@@ -17,6 +17,7 @@
     <tags-input ng-model="tags"
                 display-property="name"
                 placeholder="Add a country"
+                on-tag-added="newTagValue()"
                 replace-spaces-with-dashes="false"
                 template="tag-template">
       <auto-complete source="loadCountries($query)"
