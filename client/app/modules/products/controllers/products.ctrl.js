@@ -1,10 +1,10 @@
 'use strict';
 angular.module('com.module.products')
-.filter('getById', function() {
-  return function(input, id) {
+.filter('getByName', function() {
+  return function(input, name) {
     var i=0, len=input.length;
     for (; i<len; i++) {
-      if (+input[i].id == +id) {
+      if (input[i].name === name) {
         return input[i];
       }
     }
@@ -127,8 +127,14 @@ angular.module('com.module.products')
     };
 
     $scope.showdetails = function($tag){
-        var found = $filter('getById')($scope.tags, $tag.name);
-        console.log('FOUND:' + JSON.stringify(found) );
+        var found = $filter('getByName')($scope.tags, $tag.name);
+        if(!found){
+            console.log($tag.name + ' NOT FOUND');
+        }else{
+
+            console.log('FOUND:' + JSON.stringify(found) );
+        }
+
     }
 
     $scope.newTagValue = function($tag){
@@ -172,7 +178,8 @@ angular.module('com.module.products')
     };
 
     $scope.tags = [
-       { name: "Brazil", flag: "Brazil.png" }
+       { name: "Brazil", flag: "Brazil.png" },
+        {name:"United States",flag:"United-States.png"}
      ];
 
      $scope.loadCats = function($query) {
