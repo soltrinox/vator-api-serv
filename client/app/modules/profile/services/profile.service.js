@@ -171,7 +171,7 @@ function($state, CoreService, Profile, User, Education, Social, WorkHistory, Tea
   };
 
   this.upsertWorkHistory = function(workhistory, cb) {
-    Profile.experience.create(workhistory, function() {
+    WorkHistory.upsert(workhistory, function() {
       CoreService.toastSuccess(gettextCatalog.getString(
         'WorkHistory saved'), gettextCatalog.getString(
         'Your work history is safe with us!'));

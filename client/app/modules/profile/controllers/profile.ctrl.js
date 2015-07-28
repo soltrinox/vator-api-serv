@@ -55,7 +55,9 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
       datestart : '',
       dateend : '',
       profileId : '',
-      type : ''
+      achievements: [{ 'value' : ''}],
+      id: ''
+      },
     };
     $scope.MediaRecord = {};
     $scope.CompanyRecord = {
@@ -525,6 +527,8 @@ $scope.formFields4 = [
       jobtitle : '',
       datestart : '',
       dateend : '',
+      achievements: [ { 'value': '' } ],
+      id:'',
       profileId : $scope.profileId
     };
   }
@@ -688,7 +692,9 @@ $scope.formFields4 = [
 
 
   $scope.onSubmit3 = function() {
-
+  if( !$scope.profile.user.id || 0 ===  $scope.profile.user.id.length ){
+        console.log('MISSING USER ACCOUNT RESTART APP');
+  }else{
     $scope.WorkRecord.profileId =  $scope.profile.user.id;
     console.log('COMPANY : '+ $scope.WorkRecord.companyname + '\n TITLE : ' + $scope.WorkRecord.Type +' - ' + $scope.WorkRecord.jobtitle);
     console.log('UUID BEFORE UPSERT: '+ $scope.WorkRecord.profileId);
@@ -701,6 +707,8 @@ $scope.formFields4 = [
     $scope.hideWork = true;
     $scope.addWorkButton = false;
     // $location.path('/app/myprofile/'+$scope.WorkRecord.profileId+'/edit');
+  }
+
 
   };
 
