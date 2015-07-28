@@ -233,7 +233,7 @@ $scope.UserRecord = {
                      }
                    }
                  ]
-               }
+              }
            }
          }
        }).then(function(response){
