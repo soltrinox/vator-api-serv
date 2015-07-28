@@ -146,7 +146,7 @@ $scope.UUID = '';
     $scope.onSubmit = function() {
       $scope.UUID = $scope.currentUser.id;
         console.log('currUsr UUID : ' + $scope.UUID );
-      ProfileService.getProfileByUUID(UUID, function(response){
+      ProfileService.getProfileByUUID($scope.UUID, function(response){
 
         console.log('@@@@@@@ = profile for UUID'  + JSON.stringify(response));
 
