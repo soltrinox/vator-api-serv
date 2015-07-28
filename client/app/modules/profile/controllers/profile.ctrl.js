@@ -528,6 +528,7 @@ $scope.formFields4 = [
       datestart : '',
       dateend : '',
       achievements: [ { 'value': '' } ],
+      achieve : '',
       id:'',
       profileId : $scope.profileId
     };
@@ -700,7 +701,7 @@ $scope.formFields4 = [
     + $scope.WorkRecord.Type +' - ' + $scope.WorkRecord.jobtitle);
     console.log('UUID BEFORE UPSERT: '+ $scope.WorkRecord.profileId);
 
-    $scope.WorkRecord.achievements[0].value =  $scope.WorkRecord.achieve;
+    $scope.WorkRecord.achievements =  { value : $scope.WorkRecord.achieve };
 
     ProfileService.upsertWorkHistory($scope.WorkRecord, function() {});
     ProfileService.getProfile($scope.profileId,function(response){
