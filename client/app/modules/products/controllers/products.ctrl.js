@@ -162,7 +162,7 @@ $scope.UserRecord = {
         $scope.UserRecord.ProfilePic = response.ProfilePic;
         $scope.UserRecord.CoverPic = response.CoverPic;
         $scope.UserRecord.id = response.id;
-        };
+        
         console.log('@@@@@@@ = profile for UUID'  + JSON.stringify(response));
         $scope.CompanyRecord.profileId = response.id;
       });
