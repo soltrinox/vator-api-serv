@@ -120,15 +120,23 @@
 
         <div class="form-group vator_form_box work-companylookup-box" ng-class="{'has-error': options.formField.$invalid}">
         	<label for="work.title" class="ng-binding">
-        		Start typing below to find a Company
+        		Enter Your Work History
         	</label>
-          <input type="text" ng-model="$scope.workLookUp" placeholder="Companies loaded via $http"
-          typeahead="item for item in getTeams($viewValue)" id="work-companylookup"
-          typeahead-on-select="onCompanySelect(item, $scope.workLookUp, work.companylookup )"
-          typeahead-loading="loadingCompanies" class="form-control work_companylookup_input"  ng-change="lookCompany($scope.workLookUp)">
-          <i ng-show="loadingCompanies" class="glyphicon glyphicon-refresh"></i>
+          <div>
+
+          <div style="width:70%;float:left;">
+            <input type="text" ng-model="$scope.workLookUp" placeholder="Companies loaded via $http"
+            typeahead="item for item in getTeams($viewValue)" id="work-companylookup"
+            typeahead-on-select="onCompanySelect(item, $scope.workLookUp, work.companylookup )"
+            typeahead-loading="loadingCompanies" class="form-control work_companylookup_input"  ng-change="lookCompany($scope.workLookUp)">
+            <i ng-show="loadingCompanies" class="glyphicon glyphicon-refresh"></i>
+          </div>
+          <div style="width:30%; float:left">
+            <button ng-click="" class="btn btn-info fa fa-rocket"> &nbsp; Add New Company</button>
+          </div>
+        </div>
            <!-- ngIf: options.description -->
-           <button ng-click="" class="btn btn-info fa fa-rocket"> &nbsp; Add New Company</button>
+
         </div>
 
 
@@ -141,7 +149,8 @@
           {{ WorkRecord | json }}
         </pre> -->
         <div class="controls">
-          <button class="btn btn-primary btn-success" ng-click="onSubmit3()" translate>Add New Experience </button>
+            <button class="btn btn-primary btn-info" ng-click="onCancel3()" translate>Cancel </button>
+            <button class="btn btn-primary btn-success" ng-click="onSubmit3()" translate>Add New Experience </button>
         </div>
       </div>
 
