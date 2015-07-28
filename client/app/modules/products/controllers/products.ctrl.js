@@ -10,7 +10,8 @@ angular.module('com.module.products')
     }
     return null;
   }
-}).controller('ProductsCtrl', function($scope, $filter, $state, $stateParams, $http,
+}).controller('ProductsCtrl', function($scope, $location, $route, $routeParams,
+   $document, $filter, $state, $stateParams, $http,
     CoreService, ProfileService, gettextCatalog, Product, Category, Profile, User) {
 
     var productId = $stateParams.id;
@@ -142,14 +143,28 @@ angular.module('com.module.products')
     }
 
 $scope.UUID = '';
+$scope.UserRecord = {
+  Name:'',
+  Bio:'',
+  UUID:'',
+  ProfilePic:'',
+  CoverPic:'',
+  id:''
+};
 
     $scope.onSubmit = function() {
       $scope.UUID = $scope.currentUser.id;
         console.log('currUsr UUID : ' + $scope.UUID );
       ProfileService.getProfileByUUID($scope.UUID, function(response){
-
+        $scope.UserRecord.Name= response.Name;
+        $scope.UserRecord.Bio= response.Bio;
+        $scope.UserRecord.UUID = response.UUID;
+        $scope.UserRecord.ProfilePic = response.ProfilePic;
+        $scope.UserRecord.CoverPic = response.CoverPic;
+        $scope.UserRecord.id = response.id;
+        };
         console.log('@@@@@@@ = profile for UUID'  + JSON.stringify(response));
-
+        $scope.CompanyRecord.profileId = response.id;
       });
 
       // $scope.CompanyRecord.name = '',
@@ -159,13 +174,14 @@ $scope.UUID = '';
       // $scope.CompanyRecord.website = '',
       // $scope.CompanyRecord.founded = '',
       $scope.CompanyRecord.tags = $scope.tags;
+      $scope.CompanyRecord.companyId = $scope.companyId;
 
       if($scope.CompanyRecord.id === ''){
         delete $scope.CompanyRecord.id;
       }
 
       console.log('Comp Rec: ' + JSON.stringify($scope.CompanyRecord) );
-        if($scope.CompanyRecord.profileId === ''){
+        if(!$scope.CompanyRecord.profileId || 0 === $scope.CompanyRecord.profileId.length){
 
         }else{
           Product.upsert($scope.CompanyRecord, function(response) {
@@ -184,8 +200,8 @@ $scope.UUID = '';
     };
 
     $scope.tags = [
-       { name: "Brazil", flag: "Brazil.png" },
-        {name:"United States",flag:"United-States.png"}
+       { name: "Brazil", flag: "Brazil.png", id : '5234532454325' },
+        {name:"United States",flag:"United-States.png", id : '78765967896789'}
      ];
 
      $scope.loadCats = function($query) {
