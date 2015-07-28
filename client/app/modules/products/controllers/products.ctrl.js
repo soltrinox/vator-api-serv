@@ -204,15 +204,37 @@ $scope.UserRecord = {
     };
 
     $scope.tags = [
-       { name: "Brazil", flag: "Brazil.png", id : '5234532454325' },
-        {name:"United States",flag:"United-States.png", id : '78765967896789'}
+      //  { name: "Brazil", flag: "Brazil.png", id : '5234532454325' },
+      //   {name:"United States",flag:"United-States.png", id : '78765967896789'}
      ];
 
-     $scope.loadCats = function($query) {
-       return $http.get('/test.json', { cache: true}).then(function(response) {
-         var countries = response.data;
-         return countries.filter(function(country) {
-           return country.name.toLowerCase().indexOf($query.toLowerCase()) != -1;
+    //  $scope.loadCats = function($query) {
+    //    return $http.get('/test.json', { cache: true}).then(function(response) {
+    //      var countries = response.data;
+    //      return countries.filter(function(country) {
+    //        return country.name.toLowerCase().indexOf($query.toLowerCase()) != -1;
+    //      });
+    //    });
+    //  };
+
+
+     $scope.loadCats = function(val) {
+       return $http.get('//api.vator.co/api/Categories', {
+         params: {
+           filter: {
+               where : {
+                 name : {
+                   like : val
+                 }
+               }
+           }
+         }
+       }).then(function(response){
+         // console.log('Company : ' + JSON.stringify(response));
+         return response.data.map(function(item){
+           //console.log('ITEM : ' + JSON.stringify(item) );
+           //console.log('ITEM.NAME : ' + JSON.stringify(item.Name) );
+           return item.name;
          });
        });
      };
