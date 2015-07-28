@@ -754,8 +754,11 @@ $scope.formFields4 = [
 
     $scope.SocialRecord.profileId = $scope.profile.user.id;
 
-    console.log('TYPE : '+ $scope.SocialRecord.Type + '\n VAL : ' + $scope.SocialRecord.URL +' - ' + $scope.SocialRecord.Value);
-    console.log('UUID BEFORE UPSERT: '+ $scope.SocialRecord.profileId);
+    console.log('TYPE : '+ JSON.stringify($scope.SocialRecord) );
+
+    if(!$scope.SocialRecord.id || 0 === $scope.SocialRecord.id){
+      delete $scope.SocialRecord.id;
+    }
 
     ProfileService.upsertSocial($scope.SocialRecord, function() {
 

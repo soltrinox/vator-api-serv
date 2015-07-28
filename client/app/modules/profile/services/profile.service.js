@@ -124,6 +124,8 @@ function($state, CoreService, Profile, User, Education, Social, WorkHistory, Tea
   };
 
   this.upsertSocial = function(socl, cb) {
+
+
     Social.upsert(socl, function() {
       CoreService.toastSuccess(gettextCatalog.getString(
         'Social saved'), gettextCatalog.getString(
