@@ -55,7 +55,8 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
       datestart : '',
       dateend : '',
       profileId : '',
-      achievements: [{ 'value' : ''}],
+      achieve : '',
+      achievements: [],
       id: ''
     };
     $scope.MediaRecord = {};
@@ -281,7 +282,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
                 uniqueFormId : 'work-dateend-box',
                 required: false
               },{
-                key: 'achievements',
+                key: 'achieve',
                 type: 'text',
                 label: 'Achievements',
                 id : 'work-achievement',
@@ -695,8 +696,12 @@ $scope.formFields4 = [
         console.log('MISSING USER ACCOUNT RESTART APP');
   }else{
     $scope.WorkRecord.profileId =  $scope.profile.user.id;
-    console.log('COMPANY : '+ $scope.WorkRecord.companyname + '\n TITLE : ' + $scope.WorkRecord.Type +' - ' + $scope.WorkRecord.jobtitle);
+    console.log('COMPANY : '+ $scope.WorkRecord.companyname + '\n TITLE : '
+    + $scope.WorkRecord.Type +' - ' + $scope.WorkRecord.jobtitle);
     console.log('UUID BEFORE UPSERT: '+ $scope.WorkRecord.profileId);
+
+    $scope.WorkRecord.achievements[0].value =  $scope.WorkRecord.achieve;
+
     ProfileService.upsertWorkHistory($scope.WorkRecord, function() {});
     ProfileService.getProfile($scope.profileId,function(response){
       console.log('NEW WORK : '  + JSON.stringify(response));
