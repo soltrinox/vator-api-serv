@@ -19,9 +19,12 @@
         <img  src="{{profile.user.ProfilePic}}" >
       </div>
       <div  style="float:left">
-        <h1><a href="" ui-sref="^.edit({id: profile.user.id})" >{{profile.user.Name}}</a></h1>
+        <h1><a href="" ui-sref="^.edit({id: profile.user.id})" >{{profile.user.Name}} [ click to edit ]</a></h1>
         <h3>{{profile.user.id}}<br/>
           {{profile.user.Bio}}</h3>
+          <a href="" class="btn btn-sm btn-default" ui-sref="^.edit({id: profile.user.id})">
+            <i class="fa fa-pencil fa-3x"></i> &nbsp; Edit Profile
+          </a>
       </div>
     </h4>
     <div ng-hide="!profile.user.CoverPic">
