@@ -1,3 +1,11 @@
+
+<a href="" class="btn btn-xs btn-default" ng-click="bulkCats()">
+  <i class="fa fa-list"></i> Import Cats
+</a>
+<pre>
+{{ $scope.debugOut | json }}
+</pre>
+
 <div class="panel panel-default" ng-repeat="category in categories">
     <div class="panel-heading">
         <div class="pull-right">
@@ -11,12 +19,7 @@
         <h3 class="panel-title">{{ category.name }}</h3>
     </div>
 
-    <a href="" class="btn btn-xs btn-default" ng-click="$scope.bulkCats()">
-      <i class="fa fa-list"></i> Import Cats
-</a>
-<pre>
-  {{ $scope.debugOut | json }}
-</pre>
+
 
     <table class="table table-bordered" ng-show="category.products.length">
         <tbody>
