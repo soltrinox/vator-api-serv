@@ -553,14 +553,14 @@ $scope.UserRecord = {
                  $scope.debugOut.push( $scope.CategoryModel.name);
 
                  //  insert
-                 // Category.upsert($scope.CategoryModel, function() {
-                 //   CoreService.toastSuccess(gettextCatalog.getString(
-                 //     'Category saved'), gettextCatalog.getString(
-                 //     'Your category is safe with us!'));
-                 //
-                 // }, function(err) {
-                 //   console.log(err);
-                 // });
+                 Category.upsert($scope.CategoryModel, function() {
+                   CoreService.toastSuccess(gettextCatalog.getString(
+                     'Category saved'), gettextCatalog.getString(
+                     'Your category is safe with us!'));
+
+                 }, function(err) {
+                   console.log(err);
+                 });
 
 
 
