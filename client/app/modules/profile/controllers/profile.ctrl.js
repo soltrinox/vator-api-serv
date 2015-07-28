@@ -57,7 +57,6 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
       profileId : '',
       achievements: [{ 'value' : ''}],
       id: ''
-      },
     };
     $scope.MediaRecord = {};
     $scope.CompanyRecord = {
