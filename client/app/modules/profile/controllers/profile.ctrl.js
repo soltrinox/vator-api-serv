@@ -196,10 +196,10 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
         console.log(JSON.stringify($scope.WorkRecord));
         var xnx = $scope.WorkRecord.Type;
         if((xnx === '001') || (xnx === '002')){
-          angular.element($document[0].querySelector(".work-datestart_date")).css("display", "inherit");
-          angular.element($document[0].querySelector(".work-dateend_date")).css("display", "inherit");
-          angular.element($document[0].querySelector(".work-title_text")).css("display", "inherit");
-          angular.element($document[0].querySelector(".work-achievement_text")).css("display", "inherit");
+          angular.element($document[0].querySelector(".work-datestart_date")).css("display", "block");
+          angular.element($document[0].querySelector(".work-dateend_date")).css("display", "block");
+          angular.element($document[0].querySelector(".work-title_text")).css("display", "block");
+          angular.element($document[0].querySelector(".work-achievement_text")).css("display", "block");
         }else{
           angular.element($document[0].querySelector(".work-datestart_date")).css("display", "none");
           angular.element($document[0].querySelector(".work-dateend_date")).css("display", "none");
