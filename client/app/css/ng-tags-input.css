@@ -26,7 +26,8 @@ tags-input .tags {
   background-color: #fff;
   border: 1px solid darkgray;
   box-shadow: 1px 1px 1px 0 lightgray inset;
-    height: 100px;
+
+  height: 65px;
 }
 tags-input .tags.focused {
   outline: none;
@@ -41,12 +42,12 @@ tags-input .tags .tag-list {
 }
 tags-input .tags .tag-item {
   margin: 5px 10px;
-  padding: 2px;
+  padding: 6px 6px 6px 6px;
   display: inline-block;
   float: left;
   font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
-  height: 75px;
-  line-height: 18px;
+  height: 30px;
+  line-height: 14px;
   border: 1px solid #acacac;
   border-radius: 3px;
   background: -webkit-linear-gradient(top, #f0f9ff 0%, #cbebff 47%, #a1dbff 100%);
@@ -76,7 +77,7 @@ tags-input .tags .input {
   padding: 0;
   padding-left: 5px;
   float: left;
-  height: 26px;
+  height: 30px;
   font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 tags-input .tags .input.invalid-tag {
@@ -129,7 +130,7 @@ tags-input .autocomplete .suggestion-list {
   margin: 0;
   padding: 0;
   list-style-type: none;
-  max-height: 280px;
+  max-height: 250px;
   overflow-y: auto;
   position: relative;
 }
