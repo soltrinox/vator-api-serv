@@ -11,7 +11,7 @@ angular.module('com.module.products')
     return null;
   }
 }).controller('ProductsCtrl', function($scope, $filter, $state, $stateParams, $http,
-    CoreService, gettextCatalog, Product, Category, Profile, User) {
+    CoreService, ProfileService, gettextCatalog, Product, Category, Profile, User) {
 
     var productId = $stateParams.id;
     var categoryId = $stateParams.categoryId;
@@ -131,7 +131,6 @@ angular.module('com.module.products')
         if(!found){
             console.log($tag.name + ' NOT FOUND'  );
         }else{
-
             console.log('FOUND:' + JSON.stringify(found) +' in '+  JSON.stringify($scope.tags) );
         }
 
@@ -142,9 +141,16 @@ angular.module('com.module.products')
       $scope.showdetails($tag);
     }
 
-
+$scope.UUID = '';
 
     $scope.onSubmit = function() {
+      $scope.UUID = $scope.currentUser.id;
+        console.log('currUsr UUID : ' + $scope.UUID );
+      ProfileService.getProfileByUUID(UUID, function(response){
+
+        console.log('@@@@@@@ = profile for UUID'  + JSON.stringify(response));
+
+      });
 
       // $scope.CompanyRecord.name = '',
       // $scope.CompanyRecord.categoryId = '',
