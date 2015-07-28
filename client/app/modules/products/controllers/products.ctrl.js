@@ -60,8 +60,6 @@ angular.module('com.module.products')
     };
 
     $scope.deletecategory = function(id) {
-
-
       Category.deleteById(id, function() {
         CoreService.toastSuccess(gettextCatalog.getString(
           'Category deleted'), gettextCatalog.getString(
@@ -72,8 +70,15 @@ angular.module('com.module.products')
           'Error deleting category'), gettextCatalog.getString(
           'Your category is not deleted: ') + err);
       });
+    };
 
-
+    $scope.CompanyRecord = {
+      name: '',
+      categoryId : '',
+      pitch : '',
+      website : '',
+      founded : '',
+      tags : [{name:'Company',catId:'00000000000000'}]
     };
 
     $scope.formFields = [{
@@ -87,17 +92,21 @@ angular.module('com.module.products')
       label: gettextCatalog.getString('Group'),
       required: true
     }, {
-      key: 'description',
+      key: 'pitch',
       type: 'text',
-      label: gettextCatalog.getString('Description')
-    }, {
-      key: 'percentage',
+      label: gettextCatalog.getString('Brief Pitch')
+    },{
+      key: 'website',
       type: 'text',
-      label: gettextCatalog.getString('Valuation')
-    }, {
-      key: 'price',
-      type: 'text',
-      label: gettextCatalog.getString('Year Founded')
+      placeholder : 'http://www.website.com',
+      label: gettextCatalog.getString('Website URL')
+    },{
+      key: 'founded',
+      type: 'number',
+      "min": 1999,
+      "max": 2016,
+      label: gettextCatalog.getString('Year Founded'),
+      required: true
     }];
 
     $scope.formOptions = {

@@ -132,8 +132,6 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
       id : 'user.coverpic',
       required: false
     }
-
-
   ];
 
 
@@ -517,8 +515,23 @@ $scope.formFields4 = [
 
 
   $scope.hideWork = true;
+  $scope.addWorkButton = false;
+  
   $scope.toggleWork = function(id) {
     $scope.hideWork = $scope.hideWork === false ? true: false;
+    $scope.addWorkButton = $scope.addWorkButton === false ? true: false;
+    $scope.WorkRecord = {
+      companyname: '',
+      jobtitle : '',
+      datestart : '',
+      dateend : '',
+      profileId : $scope.profileId
+    };
+  }
+
+  $scope.cancelWork = function(id) {
+    $scope.hideWork = $scope.hideWork === false ? true: false;
+    $scope.addWorkButton = $scope.addWorkButton === false ? true: false;
     $scope.WorkRecord = {
       companyname: '',
       jobtitle : '',
@@ -528,6 +541,7 @@ $scope.formFields4 = [
     };
 
   }
+
   $scope.hideSocial = true;
   $scope.toggleSocial = function(id) {
     $scope.hideSocial = $scope.hideSocial === false ? true: false;

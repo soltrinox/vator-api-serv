@@ -119,27 +119,23 @@
 
     </tab> -->
     <tab heading="{{ 'Experience' | translate }}">
-        <button class="btn btn-info fa fa-plus" ng-click="toggleWork()">Add Experience</button>
+        <button class="btn btn-info fa fa-plus" ng-hide="addWorkButton" ng-click="toggleWork()">Add Experience</button>
       <div class="row tab-pane"   ng-hide="hideWork" mychildren  >
-
-
-
-        <div class="form-group vator_form_box work-companylookup-box" ng-class="{'has-error': options.formField.$invalid}">
-        	<label for="work.title" class="ng-binding">
-        		Enter Your Work History
-        	</label>
+        <div class="form-group vator_form_box work-companylookup-box"
+        ng-class="{'has-error': options.formField.$invalid}">
+        	<label for="work.title" class="ng-binding"> Search for a company on vator </label>
           <div>
-
-          <div style="width:70%;float:left;">
-            <input type="text" ng-model="$scope.workLookUp" placeholder="Companies loaded via $http"
-            typeahead="item for item in getTeams($viewValue)" id="work-companylookup"
-            typeahead-on-select="onCompanySelect(item, $scope.workLookUp, work.companylookup )"
-            typeahead-loading="loadingCompanies" class="form-control work_companylookup_input"  ng-change="lookCompany($scope.workLookUp)">
-            <i ng-show="loadingCompanies" class="glyphicon glyphicon-refresh"></i>
-          </div>
-          <div style="width:30%; float:left">
-            <button ng-click="" class="btn btn-info fa fa-rocket"> &nbsp; Add New Company</button>
-          </div>
+            <div style="width:70%;float:left;">
+              <input type="text" ng-model="$scope.workLookUp" placeholder="Companies loaded via $http"
+              typeahead="item for item in getTeams($viewValue)" id="work-companylookup"
+              typeahead-on-select="onCompanySelect(item, $scope.workLookUp, work.companylookup )"
+              typeahead-loading="loadingCompanies" class="form-control work_companylookup_input"
+              ng-change="lookCompany($scope.workLookUp)">
+              <i ng-show="loadingCompanies" class="glyphicon glyphicon-refresh"></i>
+            </div>
+            <div style="width:30%; float:left">
+              <button ng-click="" class="btn btn-info fa fa-rocket"> &nbsp; Add New Company</button>
+            </div>
         </div>
            <!-- ngIf: options.description -->
 
@@ -153,7 +149,7 @@
           {{ WorkRecord | json }}
         </pre> -->
         <div class="controls" style="margin:20px 0px 20px 0px; clear: both !important;">
-            <button class="btn btn-primary btn-info" ng-click="onCancel3()" translate>Cancel </button> &nbsp;  &nbsp;
+            <button class="btn btn-primary btn-warning" ng-click="cancelWork()" translate>Cancel </button> &nbsp;  &nbsp;
             <button class="btn btn-primary btn-success" ng-click="onSubmit3()" translate>Submit </button>
         </div>
       </div>
