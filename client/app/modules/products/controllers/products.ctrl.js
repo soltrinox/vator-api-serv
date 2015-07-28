@@ -129,7 +129,7 @@ angular.module('com.module.products')
     $scope.showdetails = function($tag){
         var found = $filter('getByName')($scope.tags, $tag.name);
         if(!found){
-            console.log($tag.name + ' NOT FOUND' + );
+            console.log($tag.name + ' NOT FOUND'  );
         }else{
 
             console.log('FOUND:' + JSON.stringify(found) +' in '+  JSON.stringify($scope.tags) );
