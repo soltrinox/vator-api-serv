@@ -714,7 +714,11 @@ $scope.formFields4 = [
     console.log('$scope.WorkRecord : ' + JSON.stringify($scope.WorkRecord) );
 
     $scope.WorkRecord.profileId =  $scope.profile.user.id;
-    $scope.WorkRecord.achievements =  { value : $scope.WorkRecord.achieve };
+    $scope.WorkRecord.achievements =  [{ value : $scope.WorkRecord.achieve }];
+
+    if(!$scope.WorkRecord.id || 0 === $scope.WorkRecord.id){
+      delete $scope.WorkRecord.id;
+    }
 
   if( !$scope.profile.user.id || 0 ===  $scope.profile.user.id.length ){
         console.log('MISSING USER ACCOUNT RESTART APP');
