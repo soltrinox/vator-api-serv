@@ -3,14 +3,15 @@ var app = angular.module('com.module.profile')
 .directive('mychildren',
     function() {
       return {
-        restrict: 'E',
+        restrict: 'EA',
         link: function(scope, element, attrs) {
 
-            var ttt = element[0].querySelector('.work-datestart_date');
+            // var ttt = element[0].querySelector('.work-datestart_date');
+            var ttt = angular.element(angular.element("#formlyWorkForm").find(".work-datestart_date")[0]);
             var parttt = ttt.parent();
             console.log('.work-datestart_date' + JSON.stringify(parttt));
-
-            var zzz = element[0].querySelector('.work-dateend_date');
+            var zzz = angular.element(angular.element("#formlyWorkForm").find(".work-dateend_date")[0])
+            //var zzz = element[0].querySelector('.work-dateend_date');
             var parzzz = zzz.parent();
            console.log('.work-dateend_date' + JSON.stringify(parzzz) );
 
