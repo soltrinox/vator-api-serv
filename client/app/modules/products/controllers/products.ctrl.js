@@ -223,17 +223,21 @@ $scope.UserRecord = {
          params: {
            filter: {
                where : {
-                 name : {
-                   like : val
-                 }
+                 or : [
+                     {  name : {
+                        like : val
+                       }
+                     },
+                     {   seo : {
+                       like : val
+                     }
+                   }
+                 ]
                }
            }
          }
        }).then(function(response){
-         // console.log('Company : ' + JSON.stringify(response));
          return response.data.map(function(item){
-           //console.log('ITEM : ' + JSON.stringify(item) );
-           //console.log('ITEM.NAME : ' + JSON.stringify(item.Name) );
            return item.name;
          });
        });
