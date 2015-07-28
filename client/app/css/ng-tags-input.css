@@ -26,7 +26,7 @@ tags-input .tags {
   background-color: #fff;
   border: 1px solid darkgray;
   box-shadow: 1px 1px 1px 0 lightgray inset;
-  height: 100%;
+    height: 100px;
 }
 tags-input .tags.focused {
   outline: none;
@@ -40,12 +40,12 @@ tags-input .tags .tag-list {
   list-style-type: none;
 }
 tags-input .tags .tag-item {
-  margin: 2px;
+  margin: 5px;
   padding: 0 5px;
   display: inline-block;
   float: left;
   font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
-  height: 26px;
+  height: 66px;
   line-height: 25px;
   border: 1px solid #acacac;
   border-radius: 3px;
