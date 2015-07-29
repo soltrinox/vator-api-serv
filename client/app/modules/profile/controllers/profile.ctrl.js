@@ -68,7 +68,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
         $scope.socials = pro.social ;        // ---------
         $scope.credentials = pro.creds ;    // ---------
         $scope.contacts = pro.contact ;      // ---------
-        // $scope. = $scope.profiles. ;
+        console.log('SLICED ENTIRE PROFILE PID:'+ $scope.currentUser.pid );
       }else{
         console.log('missing profile for slice');
       }
@@ -574,92 +574,150 @@ $scope.formFields4 = [
     });
   };
 
-  $scope.getMe = function(pro){
-      console.log('GET ME :'+ JSON.stringify($scope.profileId) );
-      var theId = '';
-      if((!$scope.profileId || 0 === $scope.profileId.length) && (!pro.id || 0 === pro.id.length)){
+  $scope.getMe = function(profileId){
 
-      }else if((!$scope.profileId || 0 === $scope.profileId.length) && (pro.id || 0 < pro.id.length)){
-        theId = pro.id;
-      }else if(($scope.profileId || 0 < $scope.profileId.length) && (!pro.id || 0 === pro.id.length)){
+      var theId = '';
+      if((!$scope.profileId || 0 === $scope.profileId.length) && (!profileId || 0 === profileId.length)){
+          $scope.getUserRecord($scope.currentUser.id);
+      }else if((!$scope.profileId || 0 === $scope.profileId.length) && (profileId || 0 < profileId.length)){
+        console.log('SET ID');
+        theId = profileId;
+      }else if(($scope.profileId || 0 < $scope.profileId.length) && (!profileId || 0 === profileId.length)){
+        console.log('SET ID');
         theId = $scope.profileId;
+      }else if((!$scope.profileId || 0 === $scope.profileId.length)
+      && (!profileId || 0 === profileId.length)
+      && ($scope.currentUser.pid || 0 < $scope.currentUser.pid.length)){
+        console.log('SET ID');
+        theId = $scope.currentUser.pid;
       }
-      if(theId === ''){
-        console.log('NO ID');
-      }else{
-        ProfileService.getProfile(theId, function(response){
-          console.log('FOUND FULL PROFILE : '  + JSON.stringify(response));
+      if(!theId || 0 === theId.length)  {
+          console.log('NO ID');
+          $scope.getUserRecord($scope.currentUser.id);
+      }else {
+          $scope.getEntireProfile(theId);
+      }
+  };
+
+  $scope.getEntireProfile = function(theId){
+    if(!theId || 0 === theId.length)  {
+      console.log('NO ID' + JSON.stringify($scope.currentUser));
+      $scope.getUserRecord($scope.currentUser.id);
+
+    }else{
+      // get the entire profile
+      $scope.currentUser.pid = theId;
+      ProfileService.getProfile(theId, function(response){
+          console.log('FOUND FULL PROFILE : \n'  + JSON.stringify(response));
           $scope.profile = response.profile;
           $scope.profileId = response.profile.user.id;
-          // $location.path('/app/myprofile/'+pro.id);
-          
+
           $scope.UserRecord.Name = response.profile.user.Name;
-            $scope.UserRecord.Bio = response.profile.user.Bio;
-            $scope.UserRecord.UUID = response.profile.user.UUID;
-            $scope.UserRecord.ProfilePic = response.profile.user.ProfilePic;
-            $scope.UserRecord.CoverPic = response.profile.user.CoverPic;
-            $scope.UserRecord.id = response.profile.user.id;
-
+          $scope.UserRecord.Bio = response.profile.user.Bio;
+          $scope.UserRecord.UUID = response.profile.user.UUID;
+          $scope.UserRecord.ProfilePic = response.profile.user.ProfilePic;
+          $scope.UserRecord.CoverPic = response.profile.user.CoverPic;
+          $scope.UserRecord.id = response.profile.user.id;
           $scope.sliceProfile(response.profile);
-        });
-      }
 
+      });
+    }
+  }
 
-  };
-
-  $scope.getMyNewProfile = function(UUID){
+  $scope.getUserRecord = function(UUID){
       console.log('GET ME :'+ UUID );
       // look for the user by their vator auth UUID
-      ProfileService.getProfileByUUID(UUID, function(response){
 
-        console.log('@@@@@@@ = profile response for UUID'  + JSON.stringify(response));
-        // if we can detect a correct PROFILE.ID than move forward
-        // with the correct assignment and getting the full object
-        if(!response.id || 0 === response.id.length){
-          console.log('USER.RECORD : '+ JSON.stringify($scope.UserRecord) );
-          $scope.UserRecord.Name = $scope.currentUser.username ;
-          $scope.UserRecord.UUID = $scope.currentUser.id;
 
-          // if the user is new and no PROFILE record exists
-          // we need to delete the empty ID in order to create
-          if(!$scope.UserRecord.id || 0 === $scope.UserRecord.id){
-            delete $scope.UserRecord.id;
-          }
-          // add the UUID for the current user here
-          ProfileService.upsertProfile($scope.UserRecord, function(response) {
-            console.log('UPSERT RESPONSE'  + JSON.stringify(response));
+      if(!$scope.profileId|| 0 === $scope.profileId.length){
+        // go get profile or create new one....
+        ProfileService.getProfileByUUID(UUID, function(response){
+          console.log('@@@@@@@ = profile response for UUID'  + JSON.stringify(response));
+          // if we can detect a correct PROFILE.ID than move forward
+          // with the correct assignment and getting the full object
+          if(!response.id || 0 === response.id.length){
+            console.log('USER.RECORD : '+ JSON.stringify($scope.UserRecord) );
+            $scope.UserRecord.Name = $scope.currentUser.username ;
+            $scope.UserRecord.UUID = $scope.currentUser.id;
+
+            // if the user is new and no PROFILE record exists
+            // we need to delete the empty ID in order to create
+            if(!$scope.UserRecord.id || 0 === $scope.UserRecord.id.length){
+              delete $scope.UserRecord.id;
+            }
+            // add the UUID for the current user here
+            ProfileService.upsertProfile($scope.UserRecord, function(response) {
+              console.log('UPSERT RESPONSE'  + JSON.stringify(response));
+              $scope.profileId = response.id;
+              // write to global current user object
+              $scope.currentUser.pid = response.id;
+              // now go get the entire user object and move along
+              $scope.getMe($scope.profileId);
+            });
+          }else{
+            // lets set our scope id references here
             $scope.profileId = response.id;
-            // write to global current user object
             $scope.currentUser.pid = response.id;
-            // now go get the entire user object and move along
+            // fetch the full object and move along
             $scope.getMe($scope.profileId);
-          });
+          }
+        });
+      }else {
+        $scope.currentUser.pid = $scope.profileId;
+        // fetch the full object and move along
+        if ((scope.UserRecord.profileId !== $scope.profileId)
+        && ($scope.UserRecord.profileId !== $scope.currentUser.pid )) {
+          console.log('NOT SET : UserRecord.profileId \n' + JSON.stringify($scope.UserRecord));
         }else{
-          // lets set our scope id references here
-          $scope.profileId = response.id;
-          $scope.currentUser.pid = response.id;
-          // fetch the full object and move along
           $scope.getMe($scope.profileId);
         }
-      });
-
+      }
   };
 
-  $scope.onSubmit = function() {
-    console.log('UPSERT USER.RECORD : '+ JSON.stringify($scope.UserRecord) );
-    // verify its not a new record
-    if($scope.UserRecord.id === ''){
-      delete $scope.UserRecord.id;
+  $scope.upsertUserRecord = function($scope.UserRecord){
+    if ((!$scope.UserRecord.profileId) || (0 === $scope.UserRecord.profileId.length) ||
+    (!$scope.UserRecord.UUID) || (0 === $scope.UserRecord.UUID.length)) {
+      // MISSING USER REF OBJECTS
+      $scope.onSubmit();
+    }else {
+      ProfileService.upsertProfile($scope.UserRecord, function(response) {
+      console.log('SUCCESS: UPSERT RESPONSE W/ UUID\n'  + JSON.stringify(response));
+          $scope.profileId = response.id;
+          $scope.currentUser.pid = response.id;
+          $scope.getMe($scope.profileId);
+      });
     }
-    // send the object on down the road to server
-    ProfileService.upsertProfile($scope.UserRecord, function(response) {
-    console.log('UPSERT RESPONSE W/ UUID'  + JSON.stringify(response));
-        $scope.profileId = response.id;
-        $scope.currentUser.pid = response.id;
-        $scope.getMe($scope.profileId);
-    });
-    $scope.addWorkButton = false;
-    $scope.hideBase = true;
+
+
+  }
+
+  $scope.onSubmit = function() {
+    // run validation here
+    if (!$scope.currentUser.id || 0 === $scope.currentUser.id.length) {
+      console.log('MISSING BASE USER  $scope.currentUser -> LOG IN AGAIN' );
+      $location.path('/login');
+    }else if (!$scope.currentUser.pid || 0 === $scope.currentUser.pid.length) {
+      console.log('currentUser.pid NOT SET : \n'+ JSON.stringify($scope.currentUser) );
+      // get the profile by uuid
+      $scope.getUserRecord($scope.currentUser.id);
+
+    }else if (!$scope.UserRecord.profileId || 0 === $scope.UserRecord.profileId.length ) {
+      console.log('UPSERT USER RECORD ID NOT SET : \n'+ JSON.stringify($scope.UserRecord) );
+      if ($scope.profileId) {
+        $scope.UserRecord.profileId
+      }
+    }else{
+
+      // verify its not a new record
+      if($scope.UserRecord.id === ''){
+        delete $scope.UserRecord.id;
+      }
+      // send the object on down the road to server
+
+      $scope.addWorkButton = false;
+      $scope.hideBase = true;
+    }
+
   };
 
 
@@ -687,7 +745,7 @@ $scope.formFields4 = [
     $scope.WorkRecord.profileId =  $scope.profile.user.id;
     $scope.WorkRecord.achievements =  [{ value : $scope.WorkRecord.achieve }];
 
-    if(!$scope.WorkRecord.id || 0 === $scope.WorkRecord.id){
+    if(!$scope.WorkRecord.id || 0 === $scope.WorkRecord.id.length ){
       delete $scope.WorkRecord.id;
     }
 
@@ -700,7 +758,7 @@ $scope.formFields4 = [
     ProfileService.getProfile($scope.profileId,function(response){
       console.log('NEW WORK : '  + JSON.stringify(response));
       // $scope.profile = response;
-        $scope.getMe($scope.profile);
+        $scope.getMe($scope.profileId);
     });
     $scope.hideWork = true;
     $scope.addWorkButton = false;
@@ -727,7 +785,7 @@ $scope.formFields4 = [
 
     console.log('TYPE : '+ JSON.stringify($scope.SocialRecord) );
 
-    if(!$scope.SocialRecord.id || 0 === $scope.SocialRecord.id){
+    if(!$scope.SocialRecord.id || 0 === $scope.SocialRecord.id.length ){
       delete $scope.SocialRecord.id;
     }
 
@@ -738,7 +796,7 @@ $scope.formFields4 = [
     ProfileService.getProfile($scope.profileId, function(response){
       console.log('NEW SOCIAL : '  + JSON.stringify(response));
         //$scope.profile = response;
-        $scope.getMe($scope.profile);
+        $scope.getMe($scope.profileId);
     });
 
     $scope.hideSocial = true;
@@ -811,7 +869,7 @@ $scope.firstTime = 0;
 
         if($scope.currentUser){
           console.log('LOGGED IN UID: '+ $scope.currentUser.id );
-            $scope.getMyNewProfile($scope.currentUser.id);
+            $scope.getUserRecord($scope.currentUser.id);
             $scope.firstTime = 1;
         }
 
@@ -834,7 +892,7 @@ $scope.firstTime = 0;
 
         if($scope.profile === undefined){
             console.log('NO CURRENT PROFILE');
-            $scope.getMyNewProfile($scope.currentUser.id);
+            $scope.getUserRecord($scope.currentUser.id);
         }else{
           console.log('CURRENT PROFILE : '+JSON.stringify( $scope.profile ));
         }

@@ -148,73 +148,94 @@ angular.module('com.module.products')
       $scope.showdetails($tag);
     }
 
-$scope.UUID = '';
-$scope.ProfileRecord = {
-  Name:'',
-  Bio:'',
-  UUID:'',
-  ProfilePic:'',
-  CoverPic:'',
-  id:''
-};
 
-    $scope.onSubmit = function() {
-      console.log('CURRENT USER PROFILE'  + JSON.stringify($scope.currentUser));
-      if(!$scope.currentUser.id || 0 === $scope.currentUser.id.length  ){
-        console.log('MISSING MARBLES  $scope.currentUser ' );
+    $scope.tags = [];
+
+    $scope.OWNER = '';
+
+    $scope.ProfileRecord = {
+      Name:'',
+      Bio:'',
+      UUID:'',
+      ProfilePic:'',
+      CoverPic:'',
+      id:''
+    };
+
+
+    $scope.getUserRecord = function(){
+
+      if(!$scope.currentUser.id || 0 === $scope.currentUser.id.length){
+        console.log('MISSING BASE USER  $scope.currentUser -> LOG IN AGAIN' );
           $location.path('/login');
       }else{
+        ProfileService.getProfileByUUID($scope.currentUser.id, function(response){
+          $scope.ProfileRecord.Name= response.Name;
+          $scope.ProfileRecord.Bio= response.Bio;
+          $scope.ProfileRecord.UUID = response.UUID;
+          $scope.ProfileRecord.ProfilePic = response.ProfilePic;
+          $scope.ProfileRecord.CoverPic = response.CoverPic;
+          $scope.ProfileRecord.id = response.id;
+          // be sure to set the global user object
+          $scope.currentUser.pid = response.id;
+          console.log( ' CUURENT USER : ' +  JSON.stringify($scope.currentUser)
+          + ' \n COMP REC : '  + JSON.stringify($scope.CompanyRecord));
+        });
+      }
+    };
 
-        if(!$scope.currentUser.pid || 0 === $scope.currentUser.pid.length){
-          $scope.UUID = $scope.currentUser.id;
-          console.log('currUsr UUID : ' + $scope.UUID );
-          ProfileService.getProfileByUUID($scope.UUID, function(response){
-            console.log('@@@@@@@ FOUND THE PROFILEbyUUID : '  + JSON.stringify(response));
-            $scope.ProfileRecord.Name= response.Name;
-            $scope.ProfileRecord.Bio= response.Bio;
-            $scope.ProfileRecord.UUID = response.UUID;
-            $scope.ProfileRecord.ProfilePic = response.ProfilePic;
-            $scope.ProfileRecord.CoverPic = response.CoverPic;
-            $scope.ProfileRecord.id = response.id;
-            // be sure to set the global user object
-            $scope.currentUser.pid = response.id;
-            $scope.CompanyRecord.profileId = response.id;
-          });
-        }else{
-
-        }
-
-        $scope.CompanyRecord.categoryId =  categoryId;
-        $scope.CompanyRecord.tags = $scope.tags;
-      //  $scope.CompanyRecord.companyId = $scope.companyId;
-
+    $scope.saveCompany = function(  $scope.CompanyRecord ){
+      if ((!$scope.CompanyRecord.profileId ) || (0 === $scope.CompanyRecord.profileId.length )) {
+            console.log('NO OWNER -> RERUN GETBYUUID');
+            $scope.onSubmit();
+      }else {
+        console.log('YES OWNER -> RUN UPSERT');
+        console.log('Comp Rec: ' + JSON.stringify($scope.CompanyRecord) );
         if($scope.CompanyRecord.id === ''){
           delete $scope.CompanyRecord.id;
         }
 
-        console.log('Comp Rec: ' + JSON.stringify($scope.CompanyRecord) );
-          if(!$scope.CompanyRecord.profileId || 0 === $scope.CompanyRecord.profileId.length){
-              console.log('NO OWNER');
-          }else{
-            Product.upsert($scope.CompanyRecord, function(response) {
+        $scope.CompanyRecord.categoryId =  categoryId;
+        $scope.CompanyRecord.tags = $scope.tags;
+        Product.upsert($scope.CompanyRecord, function(response) {
+          console.log('NEW COMP REC: '  + JSON.stringify(response));
 
-              console.log('NEW COMP REC: '  + JSON.stringify(response));
+          CoreService.toastSuccess(gettextCatalog.getString(
+            'Company saved'), gettextCatalog.getString(
+            'Your comapny record is safe with us!'));
 
-              CoreService.toastSuccess(gettextCatalog.getString(
-                'Company saved'), gettextCatalog.getString(
-                'Your comapny record is safe with us!'));
-              // $state.go('^.list');
-            }, function(err) {
-              console.log(err);
-            });
-          }
+        }, function(err) {
+          console.log(err);
+        });
 
       }
+    };
 
+    $scope.onSubmit = function() {
+
+      if(!$scope.CompanyRecord.profileId || 0 === $scope.CompanyRecord.profileId.length  ){
+        if(!$scope.currentUser.pid || 0 === $scope.currentUser.pid.length  ){
+          if(!$scope.currentUser.id || 0 === $scope.currentUser.id.length  ){
+            console.log('MISSING BASE USER  $scope.currentUser -> LOG IN AGAIN' );
+              $location.path('/login');
+          }else {
+            console.log('MISSING PROFILEID'  + JSON.stringify($scope.currentUser));
+            $scope.getUserRecord($scope.currentUser.id);
+            $scope.CompanyRecord.profileId =  $scope.currentUser.pid;
+            $scope.saveCompany(  $scope.CompanyRecord );
+          }
+        }else {
+          $scope.CompanyRecord.profileId =  $scope.currentUser.pid;
+          $scope.saveCompany(  $scope.CompanyRecord );
+        }
+      }else {
+        $scope.saveCompany(  $scope.CompanyRecord );
+      }
 
     };
 
-    $scope.tags = [];
+
+
 
     /*   =========ASYNC CATS TYPEAHEAD ======
     *   =====================================
