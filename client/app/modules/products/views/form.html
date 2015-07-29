@@ -28,26 +28,30 @@
                 display-property="name"
                 placeholder="Select a category"
                 min-length="3"
+                add-from-autocomplete-only="true"
                 on-tag-added="newTagValue($tag)"
                 replace-spaces-with-dashes="false"
+                min-length="4"
+                maxTags="3"
                 template="tag-template">
       <auto-complete source="loadCats($query)"
-                     min-length="3"
+                     min-length="4"
                      load-on-focus="true"
-                     load-on-empty="true"
+                     load-on-empty="faslse"
                      max-results-to-show="4"
                      template="autocomplete-template"></auto-complete>
     </tags-input>
 
 
-
+<div>tags cats: {{showDetails}}</div>
 
 
 
     <script type="text/ng-template" id="tag-template">
       <div class="tag-template">
         <div class="left-panel">
-          <img ng-src="http://mbenford.github.io/ngTagsInput/images/flags/{{data.flag}}" ng-if="data.flag"/>
+          {{data.name}} : 
+            {{data.id}}
         </div>
         <div class="right-panel">
           <span>{{$getDisplayText()}}</span>
@@ -58,13 +62,8 @@
 
     <script type="text/ng-template" id="autocomplete-template">
       <div class="autocomplete-template">
-        <div class="left-panel">
-          <img ng-src="http://mbenford.github.io/ngTagsInput/images/flags/{{data.flag}}" />
-        </div>
         <div class="right-panel">
           <span ng-bind-html="$highlight($getDisplayText())"></span>
-          <span>({{data.rank}})</span>
-          <span>{{data.confederation}}</span>
         </div>
       </div>
     </script>
