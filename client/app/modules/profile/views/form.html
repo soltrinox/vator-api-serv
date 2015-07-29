@@ -358,36 +358,6 @@
               </div>
 
           </div>
-
-          <div class="col-md-9" style="margin-bottom: 40px"
-               ng-controller="FilesController" data-ng-init="load()">
-
-              <h3>Files in the container</h3>
-
-              <table class="table">
-
-                  <tbody>
-                  <tr ng-repeat="file in files">
-                      <td>
-                          <a href="/api/containers/container1/download/{{file.name}}"><strong>{{
-                              file.name }}</strong></a></td>
-                      <td>
-                      <td>
-                          <button type="button" class="btn btn-danger btn-xs"
-                                  ng-click="delete($index, file.name)"
-                                  title="Delete the file">
-                              <span class="glyphicon glyphicon-trash"></span>
-                              Remove
-                          </button>
-
-                      </td>
-                      </button>
-                      </td>
-                  </tr>
-                  </tbody>
-              </table>
-          </div>
-
       </div>
 
 

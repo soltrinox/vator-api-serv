@@ -179,8 +179,8 @@ angular.module('com.module.products')
           $scope.ProfileRecord.id = response.id;
           // be sure to set the global user object
           $scope.currentUser.pid = response.id;
-          console.log( ' CUURENT USER : ' +  JSON.stringify($scope.currentUser) +
-           ' \n COMP REC : '  + JSON.stringify($scope.CompanyRecord));
+          console.log( ' CUURENT USER : ' +  JSON.stringify($scope.currentUser)
+          + ' \n COMP REC : '  + JSON.stringify($scope.CompanyRecord));
         });
       }
     };
@@ -296,5 +296,6 @@ $scope.modd = {};
 
 
 
+ 
 
   });

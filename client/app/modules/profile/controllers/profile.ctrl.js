@@ -24,7 +24,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
       Github : '',
       Google : '',
       Website : ''
-    };
+    }
 
 
     $scope.WorkRecord = {
@@ -174,15 +174,15 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
         console.log(JSON.stringify($scope.WorkRecord));
         var xnx = $scope.WorkRecord.Type;
         if((xnx === '001') || (xnx === '002')){
-          angular.element($document[0].querySelector('.work-datestart_date')).css('display', 'block');
-          angular.element($document[0].querySelector('.work-dateend_date')).css('display', 'block');
-          angular.element($document[0].querySelector('.work-title_text')).css('display', 'block');
-          angular.element($document[0].querySelector('.work-achievement_text')).css('display', 'block');
+          angular.element($document[0].querySelector(".work-datestart_date")).css("display", "block");
+          angular.element($document[0].querySelector(".work-dateend_date")).css("display", "block");
+          angular.element($document[0].querySelector(".work-title_text")).css("display", "block");
+          angular.element($document[0].querySelector(".work-achievement_text")).css("display", "block");
         }else{
-          angular.element($document[0].querySelector('.work-datestart_date')).css('display', 'none');
-          angular.element($document[0].querySelector('.work-dateend_date')).css('display', 'none');
-          angular.element($document[0].querySelector('.work-title_text')).css('display', 'none');
-          angular.element($document[0].querySelector('.work-achievement_text')).css('display', 'none');
+          angular.element($document[0].querySelector(".work-datestart_date")).css("display", "none");
+          angular.element($document[0].querySelector(".work-dateend_date")).css("display", "none");
+          angular.element($document[0].querySelector(".work-title_text")).css("display", "none");
+          angular.element($document[0].querySelector(".work-achievement_text")).css("display", "none");
         }
       });
 
@@ -700,6 +700,11 @@ $scope.formFields4 = [
       // get the profile by uuid
       $scope.getUserRecord($scope.currentUser.id);
 
+    }else if (!$scope.UserRecord.profileId || 0 === $scope.UserRecord.profileId.length ) {
+      console.log('UPSERT USER RECORD ID NOT SET : \n'+ JSON.stringify($scope.UserRecord) );
+      if ($scope.profileId) {
+        $scope.UserRecord.profileId
+      }
     }else{
 
       // verify its not a new record
@@ -707,7 +712,7 @@ $scope.formFields4 = [
         delete $scope.UserRecord.id;
       }
       // send the object on down the road to server
-      $scope.upsertUserRecord($scope.UserRecord);
+
       $scope.addWorkButton = false;
       $scope.hideBase = true;
     }
@@ -883,10 +888,10 @@ $scope.firstTime = 0;
         console.log('LOGGED IN UID: '+ $scope.currentUser.id );
         console.log('CURRENT USER : '+JSON.stringify( $scope.currentUser ));
 
-        angular.element($document[0].querySelector('.work-datestart_date')).css('display', 'none');
-        angular.element($document[0].querySelector('.work-dateend_date')).css('display', 'none');
-        angular.element($document[0].querySelector('.work-title_text')).css('display', 'none');
-        angular.element($document[0].querySelector('.work-achievement_text')).css('display', 'none');
+        angular.element($document[0].querySelector(".work-datestart_date")).css("display", "none");
+        angular.element($document[0].querySelector(".work-dateend_date")).css("display", "none");
+        angular.element($document[0].querySelector(".work-title_text")).css("display", "none");
+        angular.element($document[0].querySelector(".work-achievement_text")).css("display", "none");
 
 
         if($scope.profile === undefined){
