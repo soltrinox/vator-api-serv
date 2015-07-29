@@ -609,7 +609,7 @@ $scope.formFields4 = [
       // get the entire profile
       $scope.currentUser.pid = theId;
       ProfileService.getProfile(theId, function(response){
-          console.log('FOUND FULL PROFILE : \n'  + JSON.stringify(response));
+          console.log('UPDATED FULL PROFILE : \n'  + JSON.stringify(response));
           $scope.profile = response.profile;
           $scope.profileId = response.profile.user.id;
 
