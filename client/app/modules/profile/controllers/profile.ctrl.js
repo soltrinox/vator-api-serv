@@ -101,13 +101,13 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
       required: true
     }, {
       key: 'ProfilePic',
-      type: 'text',
+      type: 'hidden',
       label: 'Profile Pic URL',
       id : 'user.profilepic',
       required: false
     }, {
       key: 'CoverPic',
-      type: 'text',
+      type: 'hidden',
       label: 'Cover Pic URL',
       id : 'user.coverpic',
       required: false
