@@ -24,7 +24,7 @@ function($state, CoreService, Profile, User, Education, Social, WorkHistory, Tea
       //console.log('GOT BY UUID : '+ JSON.stringify(response));
       cb(response);
     }, function(err) {
-        console.log('NO PROFILE WITH UUID : '+ JSON.stringify(id));
+        console.log('NO PROFILE WITH UUID : '+ JSON.stringify(err));
         cb(response);
     });
 
@@ -46,7 +46,7 @@ function($state, CoreService, Profile, User, Education, Social, WorkHistory, Tea
   };
 
   this.deleteProfile = function(id, cb) {
-    CoreService.confirm(gettextCatalog.getString('Are you sure?'),
+    CoreService.confirm(gettextCatalog.getString('Are you sure?' + id),
       gettextCatalog.getString('Deleting this cannot be undone'),
       function() {
 
@@ -54,7 +54,7 @@ function($state, CoreService, Profile, User, Education, Social, WorkHistory, Tea
             'Profile deletion disable at Service Level'),
             gettextCatalog.getString(
             'Your profile is still alive!'));
-
+            cb();
         // Profile.deleteById(id, function() {
         //   CoreService.toastSuccess(gettextCatalog.getString(
         //     'Profile deleted'), gettextCatalog.getString(
@@ -229,12 +229,9 @@ this.getCompanyMembers = function (comp){
   //   method: "PUT"
   // }
 
-
   //  Team.members.link()
-
   return Team.members({id: '55b1a2f141ed6e575486928e'});
-
-}
+};
 
 this.upsertCompany = function(company, cb) {
 

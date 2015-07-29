@@ -18,4 +18,4 @@ function($state, CoreService, Profile, User, Education, Social, WorkHistory, Tea
 
 
 
-});
+}]);
