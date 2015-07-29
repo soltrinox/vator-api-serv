@@ -574,13 +574,13 @@ $scope.formFields4 = [
       var theId = '';
       if((!$scope.profileId || 0 === $scope.profileId.length) && (!profileId || 0 === profileId.length)){
           $scope.getUserRecord($scope.currentUser.id);
-      }else if((!$scope.profileId || 0 === $scope.profileId.length) && (profileId || 0 < profileId.length)){
+      }else if((!$scope.currentUser.pid || 0 === $scope.currentUser.pid.length) && (profileId || 0 < profileId.length)){
         console.log('SET ID');
         theId = profileId;
-        $scope.getEntireProfile(theId);
-      }else if(($scope.profileId || 0 < $scope.profileId.length) && (!profileId || 0 === profileId.length)){
+        $scope.getEntireProfile($scope.currentUser.pid);
+      }else if(($scope.currentUser.pid || 0 < $scope.currentUser.pid.length) && (!profileId || 0 === profileId.length)){
         console.log('SET ID');
-        theId = $scope.profileId;
+        theId = $scope.currentUser.pid;
         $scope.getEntireProfile(theId);
       }else if((!$scope.profileId || 0 === $scope.profileId.length)
       && (!profileId || 0 === profileId.length)
