@@ -639,6 +639,7 @@ $scope.formFields4 = [
         // go get profile or create new one....
         ProfileService.getProfileByUUID(UUID, function(response){
           console.log('@@@@@@@ = profile response for UUID'  + JSON.stringify(response));
+          $scope.profiles = response;
           // if we can detect a correct PROFILE.ID than move forward
           // with the correct assignment and getting the full object
           if(!response.id || 0 === response.id.length){
@@ -661,6 +662,7 @@ $scope.formFields4 = [
             });
           }else{
             // lets set our scope id references here
+            $scope.profiles = response;
             $scope.profile = response;
             $scope.profileId = response.id;
             $scope.currentUser.pid = response.id;
