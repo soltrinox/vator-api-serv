@@ -663,13 +663,9 @@ $scope.formFields4 = [
         });
       }else {
         $scope.currentUser.pid = $scope.profileId;
+        $scope.UserRecord.id = $scope.profileId;
         // fetch the full object and move along
-        if (($scope.UserRecord.profileId !== $scope.profileId)
-        && ($scope.UserRecord.profileId !== $scope.currentUser.pid )) {
-          console.log('NOT SET : UserRecord.profileId \n' + JSON.stringify($scope.UserRecord));
-        }else{
           $scope.getMe($scope.profileId);
-        }
       }
   };
 
