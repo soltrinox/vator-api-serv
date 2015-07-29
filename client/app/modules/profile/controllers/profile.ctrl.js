@@ -884,9 +884,9 @@ $scope.firstTime = 0;
         console.log('CURRENT USER : '+JSON.stringify( $scope.currentUser ));
 
         angular.element($document[0].querySelector('.work-datestart_date')).css('display', 'none');
-        angular.element($document[0].querySelector('.work-dateend_date'))..css('display', 'none');
-        angular.element($document[0].querySelector('.work-title_text'))..css('display', 'none');
-        angular.element($document[0].querySelector('.work-achievement_text'))..css('display', 'none');
+        angular.element($document[0].querySelector('.work-dateend_date')).css('display', 'none');
+        angular.element($document[0].querySelector('.work-title_text')).css('display', 'none');
+        angular.element($document[0].querySelector('.work-achievement_text')).css('display', 'none');
 
 
         if($scope.profile === undefined){
