@@ -582,21 +582,27 @@ $scope.formFields4 = [
       }else if((!$scope.profileId || 0 === $scope.profileId.length) && (profileId || 0 < profileId.length)){
         console.log('SET ID');
         theId = profileId;
+        $scope.getEntireProfile(theId);
       }else if(($scope.profileId || 0 < $scope.profileId.length) && (!profileId || 0 === profileId.length)){
         console.log('SET ID');
         theId = $scope.profileId;
+        $scope.getEntireProfile(theId);
       }else if((!$scope.profileId || 0 === $scope.profileId.length)
       && (!profileId || 0 === profileId.length)
       && ($scope.currentUser.pid || 0 < $scope.currentUser.pid.length)){
         console.log('SET ID');
         theId = $scope.currentUser.pid;
+        $scope.getEntireProfile(theId);
       }
-      if(!theId || 0 === theId.length)  {
-          console.log('NO ID 1');
-          $scope.getUserRecord($scope.currentUser.id);
-      }else {
-          $scope.getEntireProfile(theId);
-      }
+
+
+
+      // if(!theId || 0 === theId.length)  {
+      //     console.log('NO ID 1');
+      //     $scope.getUserRecord($scope.currentUser.id);
+      // }else {
+      //
+      // }
   };
 
   $scope.getEntireProfile = function(theId){
