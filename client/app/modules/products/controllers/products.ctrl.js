@@ -237,9 +237,11 @@ angular.module('com.module.products')
 $scope.modd = {};
     $scope.result2 = '';
     $scope.options2 = {
-      country: 'ca',
+      watchEnter: true,
+      country: 'us',
       types: '(cities)'
-    };    $scope.details2 = '';
+    };
+    $scope.details2 = '';
 
     $scope.getLocation = function(val) {
         return $http.get('//maps.googleapis.com/maps/api/geocode/json', {
