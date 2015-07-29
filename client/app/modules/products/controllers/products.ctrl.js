@@ -151,7 +151,7 @@ angular.module('com.module.products')
 
 
     $scope.tags = [];
-    $scopeTagFirst = '0';
+    $scope.TagFirst = '0';
     $scope.OWNER = '';
 
     $scope.ProfileRecord = {
