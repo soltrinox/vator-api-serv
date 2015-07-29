@@ -289,7 +289,7 @@ $scope.modd = {};
          }
        }).then(function(response){
          return response.data.map(function(item){
-           return item.name;
+           return item;
          });
        });
      };

@@ -26,6 +26,7 @@
 
     <tags-input ng-model="tags"
                 display-property="name"
+                key-property="id"
                 placeholder="Select a category"
                 min-length="3"
                 add-from-autocomplete-only="true"
@@ -42,19 +43,12 @@
                      template="autocomplete-template"></auto-complete>
     </tags-input>
 
-
-<div>tags cats: {{showDetails}}</div>
-
-
-
     <script type="text/ng-template" id="tag-template">
       <div class="tag-template">
         <div class="left-panel">
-          {{data.name}} : 
-            {{data.id}}
+          {{data.name}}<br/>{{data.id}}
         </div>
         <div class="right-panel">
-          <span>{{data.name}}</span>
           <a class="remove-button" ng-click="$removeTag()">&#10006;</a>
         </div>
       </div>
