@@ -151,7 +151,7 @@ angular.module('com.module.products')
 
 
     $scope.tags = [];
-
+    $scopeTagFirst = '0';
     $scope.OWNER = '';
 
     $scope.ProfileRecord = {
@@ -204,7 +204,7 @@ angular.module('com.module.products')
           CoreService.toastSuccess(gettextCatalog.getString(
             'Company saved'), gettextCatalog.getString(
             'Your comapny record is safe with us!'));
-
+              $location.path('/app/myprofile');
         }, function(err) {
           console.log(err);
         });
