@@ -661,6 +661,7 @@ $scope.formFields4 = [
             });
           }else{
             // lets set our scope id references here
+            $scope.profile = response;
             $scope.profileId = response.id;
             $scope.currentUser.pid = response.id;
             // fetch the full object and move along
