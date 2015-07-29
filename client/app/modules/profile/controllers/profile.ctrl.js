@@ -590,10 +590,9 @@ $scope.formFields4 = [
         ProfileService.getProfile(theId, function(response){
           console.log('FOUND FULL PROFILE : '  + JSON.stringify(response));
           $scope.profile = response.profile;
-          console.log('FOUND FULL PROFILE : '  + JSON.stringify($scope.profile));
           $scope.profileId = response.profile.user.id;
           // $location.path('/app/myprofile/'+pro.id);
-
+          
           $scope.UserRecord.Name = response.profile.user.Name;
             $scope.UserRecord.Bio = response.profile.user.Bio;
             $scope.UserRecord.UUID = response.profile.user.UUID;
