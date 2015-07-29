@@ -1,32 +1,43 @@
-
-<a href="/#/app/products/add/55a8a1d5d41ad56657952284" class=""><i class="fa fa-3x fa-rocket "></i>Add Your Startup</a>
-<br/>
-<br/>
-<a href="#" class=""><i class="fa fa-3x fa-bank "></i>Join VIC</a>
-<br/>
-<br/><br/>
-<br/>
-
-<div class='list-group'>
-  <div class="list-group-item">
-    <span class="pull-right btn-group" style="margin-top: 7px;">
-      <a href="" class="btn btn-sm btn-default" ui-sref="^.edit({id: profile.user.id})">
-        <i class="fa fa-pencil"></i>
-      </a>
-      <a href="" class="btn btn-sm btn-default" ng-click="imageAction({id: profile.user.id})">
-        <i class="fa fa-image"></i>
-      </a>
-      <a href="" class="btn btn-sm btn-default" ng-click="companyAction({id: profile.user.id})">
-        <i class="fa fa-rocket"></i>
-      </a>
-      <a href="" class="btn btn-sm btn-default" ng-click="delete({id: profile.user.id})">
-        <i class="fa fa-trash-o"></i>
-      </a>
-    </span>
+<div class="container col-lg-12 col-md-12">
+  <row>
+    <a href="/#/app/products/add/55a8a1d5d41ad56657952284" class=""><i class="fa fa-3x fa-rocket "></i>Add Your Startup</a>
+    <br/>
+    <br/>
+    <a href="#" class=""><i class="fa fa-3x fa-bank "></i>Join VIC</a>
+    <br/>
+    <br/><br/>
+    <br/>
+  </row>
+  <row>
     <h4 class="list-group-item-heading">
+      <div ng-hide="!profile.user.CoverPic">
+        <img  width="100%" src="{{profile.user.CoverPic}}" >
+      </div>
       <div ng-hide="!profile.user.ProfilePic" style="float:left">
         <img  src="{{profile.user.ProfilePic}}" >
       </div>
+
+      <!-- menu -->
+      <div class='list-group'>
+        <div class="list-group-item">
+          <span class="pull-right btn-group" style="margin-top: 7px;">
+            <a href="" class="btn btn-sm btn-default" ui-sref="^.edit({id: profile.user.id})">
+              <i class="fa fa-pencil"></i>
+            </a>
+            <a href="" class="btn btn-sm btn-default" ng-click="imageAction({id: profile.user.id})">
+              <i class="fa fa-image"></i>
+            </a>
+            <a href="" class="btn btn-sm btn-default" ng-click="companyAction({id: profile.user.id})">
+              <i class="fa fa-rocket"></i>
+            </a>
+            <a href="" class="btn btn-sm btn-default" ng-click="delete({id: profile.user.id})">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </span>
+        </div>
+      </div>
+
+      <!-- profile details -->
       <div  style="float:left">
         <h1><a href="" ui-sref="^.edit({id: profile.user.id})" >{{profile.user.Name}} [ click to edit ]</a></h1>
         <h3>{{profile.user.id}}<br/>
@@ -36,18 +47,12 @@
           </a>
       </div>
     </h4>
-    <div ng-hide="!profile.user.CoverPic">
-      <img  width="100%" src="{{profile.user.CoverPic}}" >
-    </div>
-
+  </row>
+  <row>
     <div style="clear:both; margin-top:10px;">
-    <!-- <br/><pre>{{profile | json}}</pre> -->
+    <br/><pre>{{profile | json}}</pre>
     </div>
-  </div>
-  <div ng-show="!profile.user" class="list-group-item">
-    <h4 class="list-group-item-heading" translate>
-      You have no profile <i class="fa fa-frown-o"></i>  !
-    </h4>
-    <p class="list-group-item-text" translate>Click <a href="" ui-sref="^.add">here</a> to create a profile!</p>
-  </div>
+  </row>
+
+
 </div>

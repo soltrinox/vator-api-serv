@@ -76,48 +76,7 @@
       </div>
 
     </tab>
-    <!-- <tab heading="{{ 'Credentials' | translate }}">
-      <div class="row tab-pane">
 
-        <formly-form result="profile.edu" fields="formFields2" options="formOptions" ng-submit="onSubmit2()"></formly-form>
-        <pre>
-          {{ profile.edu | json}}
-        </pre>
-
-        <div class="controls">
-          <button class="btn btn-primary btn-success" ng-click="onSubmit2()" translate>Add Credials</button>
-        </div>
-      </div>
-
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <td class="text-center"><i class="fa fa-trash"></i></td>
-            <td>Degree</td>
-            <td>Dates</td>
-            <td>Name</td>
-            <td>Desc</td>
-            <td></td>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="text-center">
-              <div class="checkbox margin-t-0">
-                <input id="checkbox1" type="checkbox">
-                <label for="checkbox1"></label>
-              </div>
-            </td>
-            <td>BS - Computer Engineering</td>
-            <td>2002</td>
-            <td>Stanford University</td>
-            <td>http://www.stanford.edu</td>
-            <td> <button class="btn btn-warning ">Edit</button> </td>
-          </tr>
-        </tbody>
-      </table>
-
-    </tab> -->
     <tab heading="{{ 'Experience' | translate }}">
         <button class="btn btn-info fa fa-plus" ng-hide="addWorkButton" ng-click="toggleWork()">Add Experience</button>
       <div class="row tab-pane"   ng-hide="hideWork" mychildren  >
@@ -184,26 +143,12 @@
         </div>
       </div>
 
-      <!-- <pre>
-        {{ SocialRecord | json }}
-      </pre> -->
 
-      <!-- <table class="table table-hover">
-        <tbody>
-           <tr  ng-repeat="social in profile.social" class="list-group-item">
-             <td class="text-center">
-               <div class="checkbox margin-t-0">
-                 <input id="checkbox1" type="checkbox">
-                 <label for="checkbox1"></label>
-               </div>
-             </td>
-             <td>{{social.Type}} : {{social.Value}}</td>
-             <td>{{social.URL}}</td>
-             <td> <button class="btn btn-warning " ng-click="editSocial(social)">Edit</button> </td>
-           </tr>
-           <tr>
-        </tbody>
-      </table> -->
+      <pre>
+        {{ SocialRecord | json }}
+      </pre>
+
+
     </tab>
 
     <!-- <tab heading="{{ 'Companies' | translate }}">
