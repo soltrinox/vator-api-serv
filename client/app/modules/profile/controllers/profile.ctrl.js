@@ -503,16 +503,7 @@ $scope.formFields4 = [
   $scope.toggleWork = function(id) {
     $scope.hideWork = $scope.hideWork === false ? true: false;
     $scope.addWorkButton = $scope.addWorkButton === false ? true: false;
-    $scope.WorkRecord = {
-      companyname: '',
-      jobtitle : '',
-      datestart : '',
-      dateend : '',
-      achievements: [ { 'value': '' } ],
-      achieve : '',
-      id:'',
-      profileId : $scope.profileId
-    };
+
   }
 
   // $scope.cancelWork = function(id) {
@@ -531,15 +522,7 @@ $scope.formFields4 = [
   $scope.hideSocial = true;
   $scope.toggleSocial = function(id) {
     $scope.hideSocial = $scope.hideSocial === false ? true: false;
-    $scope.SocialRecord = {
-      Type : '',
-      Value : '',
-      URL : '',
-      created : '',
-      status : 1,
-      verified : false,
-      profileId : $scope.profileId
-    };
+
   }
 
 
@@ -564,9 +547,8 @@ $scope.formFields4 = [
   // link to images module
 
   $location.path('/app/files/list');
-  //$state.go('app.files.list');
-
   }
+
 
   $scope.delete = function(id) {
     ProfileService.deleteProfile(id, function() {
@@ -576,49 +558,48 @@ $scope.formFields4 = [
 
   $scope.getMe = function(profileId){
 
-      var theId = '';
-      if((!$scope.profileId || 0 === $scope.profileId.length) && (!profileId || 0 === profileId.length)){
-          $scope.getUserRecord($scope.currentUser.id);
-      }else if((!$scope.currentUser.pid || 0 === $scope.currentUser.pid.length) && (profileId || 0 < profileId.length)){
-        console.log('SET ID');
-        theId = profileId;
-        $scope.getEntireProfile($scope.currentUser.pid);
-      }else if(($scope.currentUser.pid || 0 < $scope.currentUser.pid.length) && (!profileId || 0 === profileId.length)){
-        console.log('SET ID');
-        theId = $scope.currentUser.pid;
-        $scope.getEntireProfile(theId);
-      }else if((!$scope.profileId || 0 === $scope.profileId.length)
-      && (!profileId || 0 === profileId.length)
-      && ($scope.currentUser.pid || 0 < $scope.currentUser.pid.length)){
-        console.log('SET ID');
-        theId = $scope.currentUser.pid;
-        $scope.getEntireProfile(theId);
-      }
+     if((!profileId || 0 === $profileId.length){
+       var theId = profileId;
+       $scope.getEntireProfile(theId);
+     }else{
+
+     }
+
+
+      // if((!$scope.profileId || 0 === $scope.profileId.length) && (!$scope.profileId || 0 === $scope.profileId.length)){
+      //     $scope.getUserRecord($scope.currentUser.id);
+      // }else if((!$scope.currentUser.pid || 0 === $scope.currentUser.pid.length) && ($scope.profileId || 0 < $scope.profileId.length)){
+      //   console.log('SET ID');
+      //   theId = profileId;
+      //   $scope.getEntireProfile($scope.currentUser.pid);
+      // }else if(($scope.currentUser.pid || 0 < $scope.currentUser.pid.length) && (!$scope.profileId || 0 === $scope.profileId.length)){
+      //   console.log('SET ID');
+      //   theId = $scope.currentUser.pid;
+      //   $scope.getEntireProfile(theId);
+      // }else if((!$scope.profileId || 0 === $scope.profileId.length)
+      // && (!$scope.profileId || 0 === $scope.profileId.length)
+      // && ($scope.currentUser.pid || 0 < $scope.currentUser.pid.length)){
+      //   console.log('SET ID');
+      //   theId = $scope.currentUser.pid;
+      //   $scope.getEntireProfile(theId);
+      // }
   };
 
-  $scope.getEntireProfile = function(theId){
-    if(!theId || 0 === theId.length)  {
-      console.log('NO ID 2' + JSON.stringify($scope.currentUser));
-      $scope.getUserRecord($scope.currentUser.id);
+  $scope.getEntireProfile = function(thepId){
+    ProfileService.getProfile(thepId, function(response){
+        console.log('UPDATED FULL PROFILE : \n'  + JSON.stringify(response));
+        $scope.profile = response.profile;
+        $scope.profileId = response.profile.user.id;
+        $scope.currentUser.pid = response.profile.user.id;
+        $scope.UserRecord.Name = response.profile.user.Name;
+        $scope.UserRecord.Bio = response.profile.user.Bio;
+        $scope.UserRecord.UUID = response.profile.user.UUID;
+        $scope.UserRecord.ProfilePic = response.profile.user.ProfilePic;
+        $scope.UserRecord.CoverPic = response.profile.user.CoverPic;
+        $scope.UserRecord.id = response.profile.user.id;
+        $scope.sliceProfile(response.profile);
 
-    }else{
-      // get the entire profile
-      $scope.currentUser.pid = theId;
-      ProfileService.getProfile(theId, function(response){
-          console.log('UPDATED FULL PROFILE : \n'  + JSON.stringify(response));
-          $scope.profile = response.profile;
-          $scope.profileId = response.profile.user.id;
-
-          $scope.UserRecord.Name = response.profile.user.Name;
-          $scope.UserRecord.Bio = response.profile.user.Bio;
-          $scope.UserRecord.UUID = response.profile.user.UUID;
-          $scope.UserRecord.ProfilePic = response.profile.user.ProfilePic;
-          $scope.UserRecord.CoverPic = response.profile.user.CoverPic;
-          $scope.UserRecord.id = response.profile.user.id;
-          $scope.sliceProfile(response.profile);
-
-      });
-    }
+    });
   }
 
   $scope.getUserRecord = function(UUID){
@@ -645,11 +626,19 @@ $scope.formFields4 = [
             // add the UUID for the current user here
             ProfileService.upsertProfile($scope.UserRecord, function(response) {
               console.log('UPSERT RESPONSE'  + JSON.stringify(response));
-              $scope.profileId = response.id;
+               ;
               // write to global current user object
-              $scope.currentUser.pid = response.id;
-              // now go get the entire user object and move along
-              $scope.getMe($scope.profileId);
+              if(!response.id || 0 === response.id.length){
+                CoreService.toastSuccess(gettextCatalog.getString(
+                  'missing profile '), gettextCatalog.getString(
+                  'Error please relogin ') + err);
+                  console.log('MISSING PROFILE FOR CURRENT USER  $scope.currentUser -> LOG IN AGAIN' );
+                  $location.path('/login');
+              }else{
+                $scope.currentUser.pid = response.id;
+                $scope.getEntireProfile($scope.currentUser.pid)
+              }
+
             });
           }else{
             // lets set our scope id references here
@@ -867,50 +856,48 @@ $scope.formFields4 = [
 
 $scope.firstTime = 0;
 
-  setTimeout(function () {
-      $scope.$apply(function() {
-
-        if($scope.currentUser){
-          console.log('LOGGED IN UID: '+ $scope.currentUser.id );
-            if(!$scope.currentUser.pid || 0 === $scope.currentUser.pid.length ){
-              $scope.getUserRecord($scope.currentUser.id);
-            }else{
-              $scope.getEntireProfile($scope.currentUser.pid);
-            }
-
-            $scope.firstTime = 1;
-        }
-
-
-        });
-  }, 100);
+  // setTimeout(function () {
+  //     $scope.$apply(function() {
+  //
+  //       if($scope.currentUser){
+  //         console.log('LOGGED IN UID: '+ $scope.currentUser.id );
+  //           if(!$scope.currentUser.pid || 0 === $scope.currentUser.pid.length ){
+  //             $scope.getUserRecord($scope.currentUser.id);
+  //           }else{
+  //             $scope.getEntireProfile($scope.currentUser.pid);
+  //           }
+  //
+  //           $scope.firstTime = 1;
+  //       }
+  //
+  //
+  //       });
+  // }, 100);
 
 
 
   $scope.$on('$viewContentLoaded', function(){
-      if(($scope.currentUser ) && ($scope.firstTime === 1)){
-        console.log('LOGGED IN UID: '+ $scope.currentUser.id );
-        console.log('CURRENT USER : '+JSON.stringify( $scope.currentUser ));
 
-        angular.element($document[0].querySelector(".work-datestart_date")).css("display", "none");
-        angular.element($document[0].querySelector(".work-dateend_date")).css("display", "none");
-        angular.element($document[0].querySelector(".work-title_text")).css("display", "none");
-        angular.element($document[0].querySelector(".work-achievement_text")).css("display", "none");
-
-
-        if($scope.profile === undefined){
+        if(!$scope.profile ||   0 === $scope.profile.length){
             console.log('NO CURRENT PROFILE');
-            if(!$scope.currentUser.pid || 0 === $scope.currentUser.pid.length ){
+            if((!$scope.currentUser.pid || 0 === $scope.currentUser.pid.length ) ||
+            (!$scope.profileId || 0 === $scope.profileId.length )){
               $scope.getUserRecord($scope.currentUser.id);
             }else{
               $scope.getEntireProfile($scope.currentUser.pid);
             }
 
-        }else{
-          console.log('CURRENT PROFILE : '+JSON.stringify( $scope.profile ));
-        }
 
-      }
+        }else{
+          console.log('CURRENT PROFILE : '+JSON.stringify( $scope.currentUser ));
+          $scope.getEntireProfile($scope.currentUser.pid);
+        }
+        $scope.firstTime = 1;
+
+      angular.element($document[0].querySelector(".work-datestart_date")).css("display", "none");
+      angular.element($document[0].querySelector(".work-dateend_date")).css("display", "none");
+      angular.element($document[0].querySelector(".work-title_text")).css("display", "none");
+      angular.element($document[0].querySelector(".work-achievement_text")).css("display", "none");
   });
 
   //  @@@@@@@@@@@@@@@@@@@@@@@@@@@@ need uploading
