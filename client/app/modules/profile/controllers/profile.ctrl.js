@@ -592,7 +592,7 @@ $scope.formFields4 = [
         theId = $scope.currentUser.pid;
       }
       if(!theId || 0 === theId.length)  {
-          console.log('NO ID');
+          console.log('NO ID 1');
           $scope.getUserRecord($scope.currentUser.id);
       }else {
           $scope.getEntireProfile(theId);
@@ -601,7 +601,7 @@ $scope.formFields4 = [
 
   $scope.getEntireProfile = function(theId){
     if(!theId || 0 === theId.length)  {
-      console.log('NO ID' + JSON.stringify($scope.currentUser));
+      console.log('NO ID 2' + JSON.stringify($scope.currentUser));
       $scope.getUserRecord($scope.currentUser.id);
 
     }else{
@@ -639,7 +639,6 @@ $scope.formFields4 = [
             console.log('USER.RECORD : '+ JSON.stringify($scope.UserRecord) );
             $scope.UserRecord.Name = $scope.currentUser.username ;
             $scope.UserRecord.UUID = $scope.currentUser.id;
-
             // if the user is new and no PROFILE record exists
             // we need to delete the empty ID in order to create
             if(!$scope.UserRecord.id || 0 === $scope.UserRecord.id.length){
