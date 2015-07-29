@@ -184,11 +184,6 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
           angular.element($document[0].querySelector(".work-title_text")).css("display", "none");
           angular.element($document[0].querySelector(".work-achievement_text")).css("display", "none");
         }
-
-        console.log('OLD: ' + JSON.stringify(oldValue) +'\n NEW: ' + JSON.stringify(newValue) );
-        //  $scope.hideTitle = $scope.hideTitle === false ? true: false;
-        //  $scope.hideDateStart = $scope.hideDateStart === false ? true: false;
-        //  $scope.hideDateEnd =  $scope.hideDateEnd  === false ? true: false;
       });
 
 
@@ -873,7 +868,10 @@ $scope.firstTime = 0;
 
         if($scope.currentUser){
           console.log('LOGGED IN UID: '+ $scope.currentUser.id );
-            $scope.getUserRecord($scope.currentUser.id);
+            if(!$scope.currentUser.pid || 0 === $scope.currentUser.pid.length ){
+              $scope.getUserRecord($scope.currentUser.id);
+            }
+
             $scope.firstTime = 1;
         }
 
@@ -896,7 +894,10 @@ $scope.firstTime = 0;
 
         if($scope.profile === undefined){
             console.log('NO CURRENT PROFILE');
-            $scope.getUserRecord($scope.currentUser.id);
+            if(!$scope.currentUser.pid || 0 === $scope.currentUser.pid.length ){
+              $scope.getUserRecord($scope.currentUser.id);
+            }
+
         }else{
           console.log('CURRENT PROFILE : '+JSON.stringify( $scope.profile ));
         }
