@@ -161,7 +161,7 @@ $scope.ProfileRecord = {
     $scope.onSubmit = function() {
       console.log('CURRENT USER PROFILE'  + JSON.stringify($scope.currentUser));
       if(!$scope.currentUser.id || 0 === $scope.currentUser.id.length  ){
-        console.log('MISSING MARBLES  : ' + );
+        console.log('MISSING MARBLES  $scope.currentUser ' );
           $location.path('/login');
       }else{
 
