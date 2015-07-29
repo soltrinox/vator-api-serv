@@ -22,7 +22,7 @@
         <input type="text" id="Autocomplete" class="form-control" placeholder="Select a city" ng-autocomplete
         ng-model="$scope.CompanyRecord.location" details="details2" options="options2"/>
     </div>
-    <!-- <div>result: {{result2}}</div> -->
+    <div>result: {{CompanyRecord}}</div>
 
     <tags-input ng-model="tags"
                 display-property="name"
@@ -32,11 +32,11 @@
                 add-from-autocomplete-only="true"
                 on-tag-added="newTagValue($tag)"
                 replace-spaces-with-dashes="false"
-                min-length="4"
+                min-length="3"
                 maxTags="3"
                 template="tag-template">
       <auto-complete source="loadCats($query)"
-                     min-length="4"
+                     min-length="3"
                      load-on-focus="true"
                      load-on-empty="faslse"
                      max-results-to-show="4"

@@ -77,29 +77,29 @@ angular.module('com.module.products')
     };
 
     $scope.deletecategory = function(id) {
-      Category.deleteById(id, function() {
-        CoreService.toastSuccess(gettextCatalog.getString(
-          'Category deleted'), gettextCatalog.getString(
-          'Your category is deleted!'));
-        loadItems();
-      }, function(err) {
-        CoreService.toastError(gettextCatalog.getString(
-          'Error deleting category'), gettextCatalog.getString(
-          'Your category is not deleted: ') + err);
-      });
+      // Category.deleteById(id, function() {
+      //   CoreService.toastSuccess(gettextCatalog.getString(
+      //     'Category deleted'), gettextCatalog.getString(
+      //     'Your category is deleted!'));
+      //   loadItems();
+      // }, function(err) {
+      //   CoreService.toastError(gettextCatalog.getString(
+      //     'Error deleting category'), gettextCatalog.getString(
+      //     'Your category is not deleted: ') + err);
+      // });
     };
 
     $scope.CompanyRecord = {
       name: '',
       id : '',
-      categoryId : '',
+      categoryId : '55a8a1d5d41ad56657952284',
       companyId: '',
       profileId: '',
       location: '',
       pitch : '',
       website : '',
       founded : '',
-      tags : [{name:'Company',catId:'00000000000000'}]
+      tags : [{id:'55a8a1d5d41ad56657952284'}]
     };
 
     $scope.formFields = [{
