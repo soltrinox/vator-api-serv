@@ -101,7 +101,7 @@ angular.module('com.module.users')
           CoreService.toastSuccess(gettextCatalog.getString('Logged in'),
             gettextCatalog.getString('You are logged in!'));
           if (next === '/login') {
-            next = '/';
+            next = '/app/myprofile';
           }
           $location.path(next);
 
