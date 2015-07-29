@@ -1,41 +1,41 @@
 <div class='list-group'>
   <div class="list-group-item">
     <span class="pull-right btn-group" style="margin-top: 7px;">
-      <a href="" class="btn btn-sm btn-default" ui-sref="^.edit({id: profile.id})">
+      <a href="" class="btn btn-sm btn-default" ui-sref="^.edit({id: profile.user.id})">
         <i class="fa fa-pencil"></i>
       </a>
-      <a href="" class="btn btn-sm btn-default" ng-click="imageAction({id: profile.id})">
+      <a href="" class="btn btn-sm btn-default" ng-click="imageAction({id: profile.user.id})">
         <i class="fa fa-image"></i>
       </a>
-      <a href="" class="btn btn-sm btn-default" ng-click="companyAction({id: profile.id})">
+      <a href="" class="btn btn-sm btn-default" ng-click="companyAction({id: profile.user.id})">
         <i class="fa fa-rocket"></i>
       </a>
-      <a href="" class="btn btn-sm btn-default" ng-click="delete({id: profile.id})">
+      <a href="" class="btn btn-sm btn-default" ng-click="delete({id: profile.user.id})">
         <i class="fa fa-trash-o"></i>
       </a>
     </span>
     <h4 class="list-group-item-heading">
-      <div ng-hide="!profile.ProfilePic" style="float:left">
-        <img  src="{{profile.ProfilePic}}" >
+      <div ng-hide="!profile.user.ProfilePic" style="float:left">
+        <img  src="{{profile.user.ProfilePic}}" >
       </div>
       <div  style="float:left">
-        <h1><a href="" ui-sref="^.edit({id: profile.id})" >{{profile.Name}} [ click to edit ]</a></h1>
-        <h3>{{profile.id}}<br/>
-          {{profile.Bio}}</h3>
-          <a href="" class="btn btn-sm btn-default" ui-sref="^.edit({id: profile.id})">
+        <h1><a href="" ui-sref="^.edit({id: profile.user.id})" >{{profile.user.Name}} [ click to edit ]</a></h1>
+        <h3>{{profile.user.id}}<br/>
+          {{profile.user.Bio}}</h3>
+          <a href="" class="btn btn-sm btn-default" ui-sref="^.edit({id: profile.user.id})">
             <i class="fa fa-pencil fa-3x"></i> &nbsp; Edit Profile
           </a>
       </div>
     </h4>
-    <div ng-hide="!profile.CoverPic">
-      <img  width="100%" src="{{profile.CoverPic}}" >
+    <div ng-hide="!profile.user.CoverPic">
+      <img  width="100%" src="{{profile.user.CoverPic}}" >
     </div>
 
     <div style="clear:both; margin-top:10px;">
     <!-- <br/><pre>{{profile | json}}</pre> -->
     </div>
   </div>
-  <div ng-show="!profile" class="list-group-item">
+  <div ng-show="!profile.user" class="list-group-item">
     <h4 class="list-group-item-heading" translate>
       You have no profile <i class="fa fa-frown-o"></i>  !
     </h4>
