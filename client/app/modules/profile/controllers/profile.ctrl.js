@@ -870,6 +870,8 @@ $scope.firstTime = 0;
           console.log('LOGGED IN UID: '+ $scope.currentUser.id );
             if(!$scope.currentUser.pid || 0 === $scope.currentUser.pid.length ){
               $scope.getUserRecord($scope.currentUser.id);
+            }else{
+              $scope.getEntireProfile($scope.currentUser.pid);
             }
 
             $scope.firstTime = 1;
@@ -896,6 +898,8 @@ $scope.firstTime = 0;
             console.log('NO CURRENT PROFILE');
             if(!$scope.currentUser.pid || 0 === $scope.currentUser.pid.length ){
               $scope.getUserRecord($scope.currentUser.id);
+            }else{
+              $scope.getEntireProfile($scope.currentUser.pid);
             }
 
         }else{
