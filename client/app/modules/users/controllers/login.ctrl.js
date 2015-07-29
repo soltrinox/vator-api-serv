@@ -23,7 +23,7 @@ angular.module('com.module.users')
 
     if (CoreService.env.name === 'development') {
       $scope.credentials.email = 'admin@admin.com';
-      $scope.credentials.password = 'admin';
+      $scope.credentials.password = 'xxxxxx';
     }
 
     $scope.schema = [{
