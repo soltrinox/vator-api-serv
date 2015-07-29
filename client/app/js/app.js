@@ -24,6 +24,7 @@ angular.module('loopbackApp', [
     'ngRoute',
     'ngSanitize',
     'ngTagsInput',
+    'ngAutocomplete',
     'ngTouch',
     'ui.bootstrap',
     'ui.codemirror',
