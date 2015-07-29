@@ -594,15 +594,6 @@ $scope.formFields4 = [
         theId = $scope.currentUser.pid;
         $scope.getEntireProfile(theId);
       }
-
-
-
-      // if(!theId || 0 === theId.length)  {
-      //     console.log('NO ID 1');
-      //     $scope.getUserRecord($scope.currentUser.id);
-      // }else {
-      //
-      // }
   };
 
   $scope.getEntireProfile = function(theId){
@@ -679,8 +670,8 @@ $scope.formFields4 = [
   };
 
   $scope.upsertUserRecord = function( UserRecord){
-    if ((!$scope.UserRecord.profileId) || (0 === $scope.UserRecord.profileId.length) ||
-    (!$scope.UserRecord.UUID) || (0 === $scope.UserRecord.UUID.length)) {
+    if (((!$scope.UserRecord.id) || (0 === $scope.UserRecord.id.length)) ||
+    ((!$scope.UserRecord.UUID) || (0 === $scope.UserRecord.UUID.length))) {
       // MISSING USER REF OBJECTS
       $scope.onSubmit();
     }else {
@@ -705,19 +696,27 @@ $scope.formFields4 = [
       // get the profile by uuid
       $scope.getUserRecord($scope.currentUser.id);
 
-    }else if (!$scope.UserRecord.profileId || 0 === $scope.UserRecord.profileId.length ) {
+    }else if (((!$scope.UserRecord.id) || (0 === $scope.UserRecord.id.length)) &&  $scope.profileId.length > 0 ) {
       console.log('UPSERT USER RECORD ID NOT SET : \n'+ JSON.stringify($scope.UserRecord) );
-      if ($scope.profileId) {
-        $scope.UserRecord.profileId
+
+      if($scope.currentUser.pid){
+        $scope.UserRecord.id = $scope.currentUser.pid;
       }
+      if ($scope.profileId) {
+        $scope.UserRecord.id = $scope.profileId;
+      }
+
+        $scope.upsertUserRecord($scope.UserRecord);
+        $scope.addWorkButton = false;
+        $scope.hideBase = true;
     }else{
 
       // verify its not a new record
-      if($scope.UserRecord.id === ''){
+      if(($scope.UserRecord.id.length === 0) || (!$scope.UserRecord.id)){
         delete $scope.UserRecord.id;
       }
       // send the object on down the road to server
-
+      $scope.upsertUserRecord($scope.UserRecord);
       $scope.addWorkButton = false;
       $scope.hideBase = true;
     }

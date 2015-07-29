@@ -10,7 +10,7 @@
  **/
 angular.module('com.module.users')
   .controller('LoginCtrl', function($scope, $routeParams, $location,
-    CoreService, User, AppAuth, AuthProvider, gettextCatalog) {
+    CoreService, ProfileService, Profile, User, AppAuth, AuthProvider, gettextCatalog) {
 
     var TWO_WEEKS = 1000 * 60 * 60 * 24 * 7 * 2;
 

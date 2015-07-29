@@ -10,7 +10,7 @@
  **/
 angular.module('com.module.users')
   .controller('RegisterCtrl', function($scope, $routeParams, $location, $filter,
-    CoreService, User, AppAuth, gettextCatalog) {
+    CoreService, ProfileService, Profile, User, AppAuth, gettextCatalog) {
 
     $scope.registration = {
       firstName: '',
