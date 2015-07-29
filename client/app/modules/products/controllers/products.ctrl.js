@@ -184,7 +184,7 @@ angular.module('com.module.products')
       }
     };
 
-    $scope.saveCompany = function(  $scope.CompanyRecord ){
+    $scope.saveCompany = function(  CompanyRecord ){
       if ((!$scope.CompanyRecord.profileId ) || (0 === $scope.CompanyRecord.profileId.length )) {
             console.log('NO OWNER -> RERUN GETBYUUID');
             $scope.onSubmit();
@@ -231,7 +231,6 @@ angular.module('com.module.products')
       }else {
         $scope.saveCompany(  $scope.CompanyRecord );
       }
-
     };
 
 

@@ -674,7 +674,7 @@ $scope.formFields4 = [
       }
   };
 
-  $scope.upsertUserRecord = function($scope.UserRecord){
+  $scope.upsertUserRecord = function( UserRecord){
     if ((!$scope.UserRecord.profileId) || (0 === $scope.UserRecord.profileId.length) ||
     (!$scope.UserRecord.UUID) || (0 === $scope.UserRecord.UUID.length)) {
       // MISSING USER REF OBJECTS
