@@ -180,9 +180,9 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
           angular.element($document[0].querySelector('.work-achievement_text')).css('display', 'block');
         }else{
           angular.element($document[0].querySelector('.work-datestart_date')).css('display', 'none');
-          angular.element($document[0].querySelector('.work-dateend_date'))..css('display', 'none');
-          angular.element($document[0].querySelector('.work-title_text'))..css('display', 'none');
-          angular.element($document[0].querySelector('.work-achievement_text'))..css('display', 'none');
+          angular.element($document[0].querySelector('.work-dateend_date')).css('display', 'none');
+          angular.element($document[0].querySelector('.work-title_text')).css('display', 'none');
+          angular.element($document[0].querySelector('.work-achievement_text')).css('display', 'none');
         }
       });
 
@@ -707,7 +707,7 @@ $scope.formFields4 = [
         delete $scope.UserRecord.id;
       }
       // send the object on down the road to server
-      $scope.upsertUserRecord($scope.UserRecord); 
+      $scope.upsertUserRecord($scope.UserRecord);
       $scope.addWorkButton = false;
       $scope.hideBase = true;
     }
