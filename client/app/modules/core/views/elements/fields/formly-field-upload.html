@@ -1,0 +1,18 @@
+<div class="form-group vator_form_box {{options.id}}_auto" ng-class="{'has-error': options.formField.$invalid}" ng-hide="true">
+	<label for="{{options.id}}">
+		{{options.label || 'Text'}}
+		{{options.required ? '*' : ''}}
+	</label>
+	<input type="text"
+		   class="form-control form_vator_input_auto {{options.id}}_input_date"
+		   id="{{options.id}}"
+       formly-dynamic-name="options.key"
+       formly-custom-validation="options.validators"
+		   placeholder="{{options.placeholder}}"
+		   aria-describedby="{{options.id}}_description"
+		   ng-required="options.required"
+		   ng-disabled="options.disabled"
+		   ng-model="options.data">
+   <p id="{{options.id}}_description" class="help-block"
+   ng-if="options.description">{{options.description}}</p>
+</div>

@@ -1,5 +1,7 @@
 <div class="checkbox {{options.id}}_checkbox" ng-class="{'has-error': options.formField.$invalid}">
-	<label>
+	<label>		{{options.label || 'Checkbox'}}
+			{{options.required ? '*' : ''}}
+		</label>
 		<input type="checkbox"
         id="{{options.id}}"
 				class="form-control form_vator_input_checkbox {{options.id}}_input_checkbox"
@@ -9,8 +11,6 @@
 			   ng-required="options.required"
 			   ng-disabled="options.disabled"
 			   ng-model="result[options.key || index]">
-		{{options.label || 'Checkbox'}}
-		{{options.required ? '*' : ''}}
-	</label>
+
    <p id="{{options.id}}_description" class="help-block" ng-if="options.description">{{options.description}}</p>
 </div>

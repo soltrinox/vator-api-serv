@@ -313,8 +313,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
                 key: 'profileId',
                 type: 'hidden',
                 id : 'work-profileid',
-                uniqueFormId : 'work-profileid-box',
-                required: true
+                uniqueFormId : 'work-profileid-box'
               }
       ];
 
@@ -333,61 +332,72 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
               type: 'date',
               id : 'invest-date',
               uniqueFormId : 'invest-date-box',
-              label: 'Date'
+              label: 'Date',
+              required: false
             },{
               key: 'roundtotal',
               type: 'text',
               id : 'invest-roundtotal',
               uniqueFormId : 'invest-roundtotal-box',
-              label: 'Round  Total'
+              label: 'Round  Total',
+              required: false
             },
             {
               key: 'valuation',
               type: 'text',
               id : 'invest-valuation',
               uniqueFormId : 'invest-valuation-box',
-              label: 'Valuation'
+              label: 'Valuation',
+              required: false
             },{
               key: 'isipo',
               type: 'checkbox',
               id : 'isipo',
+              default: false,
+              disabled: false,
               uniqueFormId : 'invest-isipo-box',
-              label: 'Aquired / IPO'
+              label: 'Aquired / IPO',
+              required: false
             },
             {
               key: 'transaction',
               type: 'text',
               id : 'invest-transaction',
               uniqueFormId : 'invest-transaction-box',
-              label: 'Transaction'
+              label: 'Transaction',
+              required: false
             },
             {
               key: 'exitdate',
               type: 'date',
               id : 'invest-exitdate',
               uniqueFormId : 'invest-exitdate-box',
-              label:'exit date'
+              label:'exit date',
+              required: false
             },
             {
               key: 'amount2',
               type: 'text',
               id : 'invest-amount2',
               uniqueFormId : 'invest-amount2-box',
-              label:'Amount'
+              label:'Amount',
+              required: false
             },
             {
               key: 'aquirer',
               type: 'text',
               id : 'invest-aquirer',
               uniqueFormId : 'invest-aquirer-box',
-              label:'Aquirer'
+              label:'Aquirer',
+              required: false
             },
             {
               key: 'press',
               type: 'text',
               id : 'invest-press',
               uniqueFormId : 'invest-press-box',
-              label:'Press'
+              label:'Press',
+              required: false
             }
         ];
 
@@ -666,7 +676,7 @@ $scope.formFields4 = [
       };
 
 
-  $scope.upsertUserRecord = function( UserRecord){
+  $scope.upsertUserRecord = function( userRecord){
     if ((!$scope.UserRecord.UUID) || (0 === $scope.UserRecord.UUID.length)) {
       $scope.UserRecord.UUID =   $scope.currentUser.id;
     }
@@ -678,6 +688,7 @@ $scope.formFields4 = [
           $scope.getEntireProfile($scope.currentUser.pid );
       });
     }
+    userRecord = null;
   };
 
   $scope.onSubmit = function() {
@@ -797,16 +808,6 @@ $scope.formFields4 = [
 
   };
 
-  // ==============  TEAM ====================
-
-    $scope.delete5 = function(id) {
-      // delete team record from array
-    };
-
-    $scope.onSubmit5 = function() {
-      // edit or create team record from array
-    };
-
   // ==============  EDIT TABLES ====================
 
   $scope.editUser = function(user){
@@ -837,16 +838,16 @@ $scope.formFields4 = [
 
   };
 
-    $scope.editEmail = function(comp){
+    $scope.editEmail = function(){
       console.log('edit email');
     };
 
 
-    $scope.editWork = function(comp){
+    $scope.editWork = function(){
       console.log('edit work');
     };
 
-    $scope.editSocial = function(comp){
+    $scope.editSocial = function(){
       console.log('edit social');
     };
 
@@ -909,74 +910,74 @@ $scope.fullMeal = true;
 
   // create a uploader with options
 
-  $scope.creds = {
-    bucket: 'your_bucket',
-    access_key: 'your_access_key',
-    secret_key: 'your_secret_key'
-  }
-
-  $scope.sizeLimit      = 10585760; // 10MB in Bytes
-  $scope.uploadProgress = 0;
-  $scope.creds          = {};
-
-  $scope.upload = function() {
-    AWS.config.update({ accessKeyId: $scope.creds.access_key, secretAccessKey: $scope.creds.secret_key });
-    AWS.config.region = 'us-east-1';
-    var bucket = new AWS.S3({ params: { Bucket: $scope.creds.bucket } });
-
-    if($scope.file) {
-        // Perform File Size Check First
-        var fileSize = Math.round(parseInt($scope.file.size));
-        if (fileSize > $scope.sizeLimit) {
-          toastr.error('Sorry, your attachment is too big. <br/> Maximum '  + $scope.fileSizeLabel() + ' file attachment allowed','File Too Large');
-          return false;
-        }
-        // Prepend Unique String To Prevent Overwrites
-        var uniqueFileName = $scope.uniqueString() + '-' + $scope.file.name;
-
-        var params = { Key: uniqueFileName, ContentType: $scope.file.type, Body: $scope.file, ServerSideEncryption: 'AES256' };
-
-        bucket.putObject(params, function(err, data) {
-          if(err) {
-            toastr.error(err.message,err.code);
-            return false;
-          }
-          else {
-            // Upload Successfully Finished
-            toastr.success('File Uploaded Successfully', 'Done');
-
-            // Reset The Progress Bar
-            setTimeout(function() {
-              $scope.uploadProgress = 0;
-              $scope.$digest();
-            }, 4000);
-          }
-        })
-        .on('httpUploadProgress',function(progress) {
-          $scope.uploadProgress = Math.round(progress.loaded / progress.total * 100);
-          $scope.$digest();
-        });
-      }
-      else {
-        // No File Selected
-        toastr.error('Please select a file to upload');
-      }
-    }
-
-    $scope.fileSizeLabel = function() {
-    // Convert Bytes To MB
-    return Math.round($scope.sizeLimit / 1024 / 1024) + 'MB';
-  };
-
-  $scope.uniqueString = function() {
-    var text     = "";
-    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-
-    for( var i=0; i < 8; i++ ) {
-      text += possible.charAt(Math.floor(Math.random() * possible.length));
-    }
-    return text;
-  }
+  // $scope.creds = {
+  //   bucket: 'vatorprofiles',
+  //   access_key: 'your_access_key',
+  //   secret_key: 'your_secret_key'
+  // };
+  //
+  // $scope.sizeLimit      = 10585760; // 10MB in Bytes
+  // $scope.uploadProgress = 0;
+  // $scope.creds          = {};
+  //
+  // $scope.upload = function() {
+  //   AWS.config.update({ accessKeyId: $scope.creds.access_key, secretAccessKey: $scope.creds.secret_key });
+  //   AWS.config.region = 'us-east-1';
+  //   var bucket = new AWS.S3({ params: { Bucket: $scope.creds.bucket } });
+  //
+  //   if($scope.file) {
+  //       // Perform File Size Check First
+  //       var fileSize = Math.round(parseInt($scope.file.size));
+  //       if (fileSize > $scope.sizeLimit) {
+  //         toastr.error('Sorry, your attachment is too big. <br/> Maximum '  + $scope.fileSizeLabel() + ' file attachment allowed','File Too Large');
+  //         return false;
+  //       }
+  //       // Prepend Unique String To Prevent Overwrites
+  //       var uniqueFileName = $scope.uniqueString() + '-' + $scope.file.name;
+  //
+  //       var params = { Key: uniqueFileName, ContentType: $scope.file.type, Body: $scope.file, ServerSideEncryption: 'AES256' };
+  //
+  //       bucket.putObject(params, function(err, data) {
+  //         if(err) {
+  //           toastr.error(err.message,err.code);
+  //           return false;
+  //         }
+  //         else {
+  //           // Upload Successfully Finished
+  //           toastr.success('File Uploaded Successfully', 'Done');
+  //
+  //           // Reset The Progress Bar
+  //           setTimeout(function() {
+  //             $scope.uploadProgress = 0;
+  //             $scope.$digest();
+  //           }, 4000);
+  //         }
+  //       })
+  //       .on('httpUploadProgress',function(progress) {
+  //         $scope.uploadProgress = Math.round(progress.loaded / progress.total * 100);
+  //         $scope.$digest();
+  //       });
+  //     }
+  //     else {
+  //       // No File Selected
+  //       toastr.error('Please select a file to upload');
+  //     }
+  //   };
+  //
+  //   $scope.fileSizeLabel = function() {
+  //   // Convert Bytes To MB
+  //   return Math.round($scope.sizeLimit / 1024 / 1024) + 'MB';
+  // };
+  //
+  // $scope.uniqueString = function() {
+  //   var text     = '';
+  //   var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  //
+  //   for( var i=0; i < 8; i++ ) {
+  //     text += possible.charAt(Math.floor(Math.random() * possible.length));
+  //   }
+  //   return text;
+  // }
 
 
 

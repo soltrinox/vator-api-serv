@@ -81,8 +81,14 @@
           <label for="work.title" class="ng-binding"> Search for a company on vator </label>
           <div>
             <div style="width:60%;float:left;">
-              <input type="text" ng-model="$scope.workLookUp" placeholder="Search for a company" typeahead="item for item in getTeams($viewValue)" id="work-companylookup" typeahead-on-select="onCompanySelect(item, $scope.workLookUp, work.companylookup )" typeahead-loading="loadingCompanies"
-              class="form-control work_companylookup_input" ng-change="lookCompany($scope.workLookUp)">
+              <input type="text" ng-model="$scope.workLookUp"
+              placeholder="Search for a company"
+              typeahead="item for item in getTeams($viewValue)"
+              id="work-companylookup"
+              typeahead-on-select="onCompanySelect(item, $scope.workLookUp, work.companylookup )" 
+              typeahead-loading="loadingCompanies"
+              class="form-control work_companylookup_input"
+              ng-change="lookCompany($scope.workLookUp)">
               <i ng-show="loadingCompanies" class="glyphicon glyphicon-refresh"></i>
             </div>
             <div style="width:20%; margin-left:5px; float:left">
@@ -151,29 +157,10 @@
 </div>
 
   <div class="row">
-    <div class="">
-      <input name="file" type="file" file />
-    </div>
-
-    <div class="" style="margin-bottom: 40px" data-ng-init="load()">
-      <h3>Files in the container</h3>
-      <table class="table">
-        <tbody>
-          <tr ng-repeat="file in files">
-            <td>
-              <a href="http://api.vator.co/api/containers/files/download/{{file.name}}"><strong>{{
-                              file.name }}</strong></a></td>
-            <td>
-              <td>
-                <button type="button" class="btn btn-danger btn-xs" ng-click="delete($index, file.name)" title="Delete the file">
-                  <span class="glyphicon glyphicon-trash"></span> Remove
-                </button>
-              </td>
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="uploads-box">
+      <input id="profilepic" name="profilepic" type="file" file />
+      </br>
+      <input id="coverpic" name="coverpic" type="file" file />
     </div>
 
   </div>
