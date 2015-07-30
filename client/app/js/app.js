@@ -79,7 +79,7 @@ angular.module('loopbackApp', [
         country: 'FR',
         name: gettextCatalog.getString('Français')
       }
-    }
+    };
 
     var lang = $cookies.lang || navigator.language || navigator.userLanguage;
 

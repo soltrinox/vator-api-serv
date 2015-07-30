@@ -28,7 +28,7 @@ angular.module('com.module.products')
         // handle in case of valid response
       }, function(product) {
         $scope.CompanyRecord = product;
-        $scope.tags = product.tags;
+        $scope.tags2 = product.tags;
         // add the product tot he category
         product.category = Product.category({
           id: product.id
@@ -144,6 +144,7 @@ angular.module('com.module.products')
 
 
     $scope.tags = [];
+    $scope.tags2 = [];
     $scope.TagFirst = '0';
     $scope.OWNER = '';
 
@@ -190,8 +191,8 @@ angular.module('com.module.products')
         }
 
         $scope.CompanyRecord.categoryId =  categoryId;
-
-        $scope.CompanyRecord.tags = $scope.tags;
+        scope.CompanyRecord.tags = $scope.tags2.concat($scope.tags);
+        // $scope.CompanyRecord.tags = $scope.tags2;
         Product.upsert($scope.CompanyRecord, function(response) {
           console.log('NEW COMP REC: '  + JSON.stringify(response));
 

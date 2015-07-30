@@ -43,6 +43,19 @@
                      template="autocomplete-template"></auto-complete>
     </tags-input>
 
+    <div>
+      Prior Selected Tags
+      <ul>
+        <li ng-repeat="tag in tags">
+          {{tag.name}} -   <a class="remove-button" ng-click="$removeTag()">&#10006;</a>
+        </li>
+      </ul>
+    </div>
+
+    <pre>
+      {{tags | json}}
+    </pre>
+
     <script type="text/ng-template" id="tag-template">
       <div class="tag-template">
         <div class="left-panel" style="float:left">
