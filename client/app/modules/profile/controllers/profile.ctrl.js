@@ -20,7 +20,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
       profileId:'',
       roundtotal:'',
       valuation:'',
-      isipo:'',
+      isipo:'no',
       id:'',
       transaction:'',
       exitdate:'',
@@ -142,17 +142,18 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
       console.log('WORK new value \n'+JSON.stringify(newValue));
         var xnx = $scope.WorkRecord.isipo;
         if(xnx === 'yes' ){
-            angular.element($document[0].querySelector('.invest-transaction_text')).css('display', 'block');
-            angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', 'block');
-            angular.element($document[0].querySelector('.invest-amount2_text')).css('display', 'block');
-            angular.element($document[0].querySelector('.invest-aquirer_text')).css('display', 'block');
-            angular.element($document[0].querySelector('.invest-press_text')).css('display', 'block');
+          console.log('RADIO IS IPO :' + $scope.WorkRecord.isipo);
+            angular.element($document[0].querySelector('.invest-transaction_input_text')).css('display', 'block');
+            angular.element($document[0].querySelector('.invest-exitdate_input_date')).css('display', 'block');
+            angular.element($document[0].querySelector('.invest-amount2_input_text')).css('display', 'block');
+            angular.element($document[0].querySelector('.invest-aquirer_input_text')).css('display', 'block');
+            angular.element($document[0].querySelector('.invest-press_input_text')).css('display', 'block');
         }else{
-            angular.element($document[0].querySelector('.invest-transaction_text')).css('display', 'none');
-            angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', 'none');
-            angular.element($document[0].querySelector('.invest-amount2_text')).css('display', 'none');
-            angular.element($document[0].querySelector('.invest-aquirer_text')).css('display', 'none');
-            angular.element($document[0].querySelector('.invest-press_text')).css('display', 'none');
+            angular.element($document[0].querySelector('.invest-transaction_input_text')).css('display', 'none');
+            angular.element($document[0].querySelector('.invest-exitdate_input_date')).css('display', 'none');
+            angular.element($document[0].querySelector('.invest-amount2_input_text')).css('display', 'none');
+            angular.element($document[0].querySelector('.invest-aquirer_input_text')).css('display', 'none');
+            angular.element($document[0].querySelector('.invest-press_input_text')).css('display', 'none');
         }
       });
 
@@ -868,12 +869,12 @@ $scope.fullMeal = true;
       angular.element($document[0].querySelector('.work-achievement_text')).css('display', 'none');
       angular.element($document[0].querySelector('.investorForm')).css('display', 'none');
 
-      angular.element($document[0].querySelector('.invest-transaction_text')).css('display', 'none');
-      angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', 'none');
-      angular.element($document[0].querySelector('.invest-amount2_text')).css('display', 'none');
-      angular.element($document[0].querySelector('.invest-aquirer_text')).css('display', 'none');
-      angular.element($document[0].querySelector('.invest-press_text')).css('display', 'none');
-      
+      angular.element($document[0].querySelector('.invest-transaction_input_text')).css('display', 'none');
+      angular.element($document[0].querySelector('.invest-exitdate_input_date')).css('display', 'none');
+      angular.element($document[0].querySelector('.invest-amount2_input_text')).css('display', 'none');
+      angular.element($document[0].querySelector('.invest-aquirer_input_text')).css('display', 'none');
+      angular.element($document[0].querySelector('.invest-press_input_text')).css('display', 'none');
+
   });
 
   //  @@@@@@@@@@@@@@@@@@@@@@@@@@@@ need uploading

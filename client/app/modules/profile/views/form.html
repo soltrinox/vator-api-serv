@@ -85,7 +85,7 @@
               placeholder="Search for a company"
               typeahead="item for item in getTeams($viewValue)"
               id="work-companylookup"
-              typeahead-on-select="onCompanySelect(item, $scope.workLookUp, work.companylookup )" 
+              typeahead-on-select="onCompanySelect(item, $scope.workLookUp, work.companylookup )"
               typeahead-loading="loadingCompanies"
               class="form-control work_companylookup_input"
               ng-change="lookCompany($scope.workLookUp)">
@@ -107,9 +107,12 @@
           <formly-form result="InvestorRecord" fields="investFields" id="investForm" options="formOptions" ng-submit="onSubmit()"></formly-form>
         </div>
 
-        <!-- <pre>
+        <pre>
+          {{InvestorRecord | JSON}}
           {{ WorkRecord | json }}
-        </pre> -->
+        </pre>
+
+        
         <div class="controls" style="margin:20px 0px 20px 0px; clear: both !important;">
           <button class="btn btn-primary btn-warning" ng-click="cancelWork()" translate>Cancel </button> &nbsp; &nbsp;
           <button class="btn btn-primary btn-success" ng-click="onSubmit3()" translate>Submit </button>
