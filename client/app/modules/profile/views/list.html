@@ -20,7 +20,7 @@
       <div ng-hide="!fullprofile.user.fullprofilePic" style="float:left">
         <img src="{{fullprofile.user.fullprofilePic}}">
       </div>
-      <div style="float:left">
+      <div ng-hide="!fullprofile" >
         <h1><a href="" ui-sref="^.edit({id: fullprofile.user.id})" >{{fullprofile.user.Name}} [ click to edit ]</a></h1>
         <h3>{{fullprofile.user.id}}<br/>
           {{fullprofile.user.Bio}}</h3>
