@@ -617,7 +617,7 @@ $scope.formFields4 = [
             $scope.profile = response;
             $scope.currentUser.pid = response.id;
             // fetch the full object and move along
-            if(!$scope.fullprofile.user.id || 0 === $scope.fullprofile.user.id.length){
+            if(!$scope.fullprofile.user || 0 === $scope.fullprofile.user.length){
               $scope.getEntireProfile($scope.currentUser.pid);
             }
           }
