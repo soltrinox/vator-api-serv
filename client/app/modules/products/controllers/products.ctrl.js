@@ -28,6 +28,7 @@ angular.module('com.module.products')
         // handle in case of valid response
       }, function(product) {
         $scope.CompanyRecord = product;
+        $scope.tags = product.tags;
         // add the product tot he category
         product.category = Product.category({
           id: product.id

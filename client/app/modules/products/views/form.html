@@ -22,7 +22,7 @@
         <input type="text" id="Autocomplete" class="form-control" placeholder="Select a city" ng-autocomplete
         ng-model="CompanyRecord.location" details="details2" options="options2"/>
     </div>
-    <div>result: {{CompanyRecord}}</div>
+    <pre>{{CompanyRecord | json}}</pre>
 
     <tags-input ng-model="tags"
                 display-property="name"
