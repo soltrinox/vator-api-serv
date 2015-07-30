@@ -908,73 +908,76 @@ $scope.fullMeal = true;
   //  @@@@@@@@@@@@@@@@@@@@@@@@@@@@ need uploading
 
   // create a uploader with options
-var uploader = $scope.uploader = $fileUploader.create({
-  scope: $scope,                          // to automatically update the html. Default: $rootScope
-  url: 'http://api.vator.co/api/containers/files/upload',
-  formData: [
-    { key: 'value' }
-  ],
-  filters: [
-    function (item) {                    // first user filter
-      console.info('filter1');
-      return true;
+
+  $scope.creds = {
+    bucket: 'your_bucket',
+    access_key: 'your_access_key',
+    secret_key: 'your_secret_key'
+  }
+
+  $scope.sizeLimit      = 10585760; // 10MB in Bytes
+  $scope.uploadProgress = 0;
+  $scope.creds          = {};
+
+  $scope.upload = function() {
+    AWS.config.update({ accessKeyId: $scope.creds.access_key, secretAccessKey: $scope.creds.secret_key });
+    AWS.config.region = 'us-east-1';
+    var bucket = new AWS.S3({ params: { Bucket: $scope.creds.bucket } });
+
+    if($scope.file) {
+        // Perform File Size Check First
+        var fileSize = Math.round(parseInt($scope.file.size));
+        if (fileSize > $scope.sizeLimit) {
+          toastr.error('Sorry, your attachment is too big. <br/> Maximum '  + $scope.fileSizeLabel() + ' file attachment allowed','File Too Large');
+          return false;
+        }
+        // Prepend Unique String To Prevent Overwrites
+        var uniqueFileName = $scope.uniqueString() + '-' + $scope.file.name;
+
+        var params = { Key: uniqueFileName, ContentType: $scope.file.type, Body: $scope.file, ServerSideEncryption: 'AES256' };
+
+        bucket.putObject(params, function(err, data) {
+          if(err) {
+            toastr.error(err.message,err.code);
+            return false;
+          }
+          else {
+            // Upload Successfully Finished
+            toastr.success('File Uploaded Successfully', 'Done');
+
+            // Reset The Progress Bar
+            setTimeout(function() {
+              $scope.uploadProgress = 0;
+              $scope.$digest();
+            }, 4000);
+          }
+        })
+        .on('httpUploadProgress',function(progress) {
+          $scope.uploadProgress = Math.round(progress.loaded / progress.total * 100);
+          $scope.$digest();
+        });
+      }
+      else {
+        // No File Selected
+        toastr.error('Please select a file to upload');
+      }
     }
-  ]
-});
 
-// ADDING FILTERS
+    $scope.fileSizeLabel = function() {
+    // Convert Bytes To MB
+    return Math.round($scope.sizeLimit / 1024 / 1024) + 'MB';
+  };
 
-uploader.filters.push(function (item) { // second user filter
-  console.info('filter2');
-  return true;
-});
+  $scope.uniqueString = function() {
+    var text     = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
-// REGISTER HANDLERS
+    for( var i=0; i < 8; i++ ) {
+      text += possible.charAt(Math.floor(Math.random() * possible.length));
+    }
+    return text;
+  }
 
-uploader.bind('afteraddingfile', function (event, item) {
-  console.info('After adding a file', item);
-});
-
-uploader.bind('whenaddingfilefailed', function (event, item) {
-  console.info('When adding a file failed', item);
-});
-
-uploader.bind('afteraddingall', function (event, items) {
-  console.info('After adding all files', items);
-});
-
-uploader.bind('beforeupload', function (event, item) {
-  console.info('Before upload', item);
-});
-
-uploader.bind('progress', function (event, item, progress) {
-  console.info('Progress: ' + progress, item);
-});
-
-uploader.bind('success', function (event, xhr, item, response) {
-  console.info('Success', xhr, item, response);
-  $scope.$broadcast('uploadCompleted', item);
-});
-
-uploader.bind('cancel', function (event, xhr, item) {
-  console.info('Cancel', xhr, item);
-});
-
-uploader.bind('error', function (event, xhr, item, response) {
-  console.info('Error', xhr, item, response);
-});
-
-uploader.bind('complete', function (event, xhr, item, response) {
-  console.info('Complete', xhr, item, response);
-});
-
-uploader.bind('progressall', function (event, progress) {
-  console.info('Total progress: ' + progress);
-});
-
-uploader.bind('completeall', function (event, items) {
-  console.info('Complete all', items);
-});
 
 
 });
