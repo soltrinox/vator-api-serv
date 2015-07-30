@@ -132,56 +132,6 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
   ];
 
 
-    // $scope.formFields2 = [{
-    //   key: 'Degree',
-    //   type: 'select',
-    //   label: 'Type',
-    //   required: true,
-    //   options: [
-    //       {
-    //           name: 'School',
-    //           value : 'EDU'
-    //       },
-    //       {
-    //           name: 'Military',
-    //           value : 'MIL'
-    //       },
-    //       {
-    //           name: 'Organization',
-    //           value : 'ORG'
-    //       }
-    //   ]
-    // }, {
-    //     key: 'School',
-    //     type: 'text',
-    //     label: 'Name',
-    //     required: true
-    //   },{
-    //     key: 'Date',
-    //     type: 'number',
-    //     label: 'Year Completed',
-    //     default: 2015,
-    //     min: 1900,
-    //     max: 2020,
-    //     required: true
-    // }, {
-    //     key: 'Major',
-    //     type: 'text',
-    //     label: 'Field/Major',
-    //     required: false
-    //   }, {
-    //     key: 'URL',
-    //     type: 'text',
-    //     label: 'URL',
-    //     required: false
-    //   },{
-    //     key: 'profileId',
-    //     type: 'hidden',
-    //     label: gettextCatalog.getString('UUID'),
-    //     required: true
-    //   }];
-
-
 
       $scope.hideDateStart = true;
       $scope.hideDateEnd = true;
@@ -353,10 +303,10 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
             },{
               key: 'isipo',
               type: 'checkbox',
-              id : 'isipo',
+              id : 'invest-isipo',
+              uniqueFormId : 'invest-isipo-box',
               default: false,
               disabled: false,
-              uniqueFormId : 'invest-isipo-box',
               label: 'Aquired / IPO',
               required: false
             },
