@@ -48,13 +48,13 @@
         <!--  contact for email here ??? -->
         <formly-form result="UserRecord" fields="formFields" id="userForm" options="formOptions" ng-submit="onSubmit()"></formly-form>
 
-      <div id="investorForm" class="investorForm" style="display:none">
-        <formly-form result="InvestorRecord" fields="investFields" id="investForm" options="formOptions" ng-submit="onSubmit()"></formly-form>
-      </div>
+
 
 
         <pre>
           {{ UserRecord | json}}
+
+          {{InvestorRecord | json}}
         </pre>
 
         <div>
@@ -93,9 +93,13 @@
 
         </div>
 
-
+        <div id="workForm" class="workForm" style="display:block">
         <formly-form result="WorkRecord" fields="formFields3" options="formOptions" ng-submit="onSubmit3()"></formly-form>
+        </div>
 
+        <div id="investorForm" class="investorForm" style="display:none">
+          <formly-form result="InvestorRecord" fields="investFields" id="investForm" options="formOptions" ng-submit="onSubmit()"></formly-form>
+        </div>
 
         <!-- <pre>
           {{ WorkRecord | json }}
