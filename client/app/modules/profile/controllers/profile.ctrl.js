@@ -530,7 +530,7 @@ $scope.formFields4 = [
   $scope.addWorkButton = false;
 
   $scope.toggleWork = function(id) {
-    $scope.hideWork = $scope.hideWork === false ? true: false;
+
 
     if(! $scope.addWorkButton){
       $scope.WorkRecord = {
@@ -544,6 +544,7 @@ $scope.formFields4 = [
         id: ''
       };
     }
+    $scope.hideWork = $scope.hideWork === false ? true: false;
     $scope.addWorkButton = $scope.addWorkButton === false ? true: false;
   id = null;};
 
@@ -850,8 +851,19 @@ $scope.formFields4 = [
     };
 
 
-    $scope.editWork = function(){
-      console.log('edit work');
+    $scope.editWork = function(id){
+
+      for(var workhistory in fullprofile.work){
+        if(workhistory.id === id){
+          $scope.WorkRecord = workhistory;
+        }
+      }
+      if($scope.hideWork){
+        $scope.hideWork = false;
+      }
+      if($scope.addWorkButton){
+       $scope.addWorkButton = false;
+      }
     };
 
     $scope.editSocial = function(){
