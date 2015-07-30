@@ -140,22 +140,29 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
       $scope.$watchCollection('InvestRecord', function(newValue, oldValue){
         console.log('WORK old value\n'+JSON.stringify(oldValue));
       console.log('WORK new value \n'+JSON.stringify(newValue));
-      console.log('RADIO IS IPO :' + $scope.WorkRecord.isipo);
-        // var xnx = $scope.WorkRecord.isipo;
-        if($scope.WorkRecord.isipo === 'true' ){
+
+        var xnx = newValue.isipo;
+              console.log('RADIO IS IPO :' + xnx);
+        if(xnx === 'true' ){
           console.log('RADIO IS IPO :' + $scope.WorkRecord.isipo);
             angular.element($document[0].querySelector('.invest-transaction_text')).css('display', 'block');
             angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', 'block');
             angular.element($document[0].querySelector('.invest-amount2_text')).css('display', 'block');
             angular.element($document[0].querySelector('.invest-aquirer_text')).css('display', 'block');
             angular.element($document[0].querySelector('.invest-press_text')).css('display', 'block');
-        }else if($scope.WorkRecord.isipo === 'false'){
+        }else if(xnx === 'false'){
           console.log('RADIO IS IPO :' + $scope.WorkRecord.isipo);
             angular.element($document[0].querySelector('.invest-transaction_text')).css('display', 'none');
             angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', 'none');
             angular.element($document[0].querySelector('.invest-amount2_text')).css('display', 'none');
             angular.element($document[0].querySelector('.invest-aquirer_text')).css('display', 'none');
             angular.element($document[0].querySelector('.invest-press_text')).css('display', 'none');
+        }else{
+          angular.element($document[0].querySelector('.invest-transaction_text')).css('display', 'none');
+          angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', 'none');
+          angular.element($document[0].querySelector('.invest-amount2_text')).css('display', 'none');
+          angular.element($document[0].querySelector('.invest-aquirer_text')).css('display', 'none');
+          angular.element($document[0].querySelector('.invest-press_text')).css('display', 'none');
         }
       });
 
