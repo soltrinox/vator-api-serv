@@ -302,13 +302,22 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
               required: false
             },{
               key: 'isipo',
-              type: 'checkbox',
+              type: 'radio',
               id : 'invest-isipo',
               uniqueFormId : 'invest-isipo-box',
-              default: false,
+              default: 'false',
               disabled: false,
               label: 'Aquired / IPO',
-              required: false
+              required: false,
+              options: [
+              {
+                  name: 'Yes',
+                  value: 'false'
+              },
+              {
+                  name: 'No',
+                  value: 'true'
+              }]
             },
             {
               key: 'transaction',
