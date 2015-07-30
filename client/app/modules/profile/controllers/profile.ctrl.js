@@ -349,7 +349,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
               label: 'Valuation'
             },{
               key: 'isipo',
-              type: 'check',
+              type: 'checkbox',
               id : 'isipo',
               uniqueFormId : 'invest-isipo-box',
               label: 'Aquired / IPO'
