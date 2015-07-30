@@ -28,7 +28,7 @@ angular.module('com.module.products')
         // handle in case of valid response
       }, function(product) {
         $scope.CompanyRecord = product;
-        //$scope.tags2 = product.tags;
+        $scope.tags = product.tags;
         // add the product tot he category
         product.category = Product.category({
           id: product.id
@@ -92,7 +92,7 @@ angular.module('com.module.products')
       pitch : '',
       website : '',
       founded : '',
-      tags : []
+      tags : [{id:'55a8a1d5d41ad56657952284'}]
     };
 
     $scope.formFields = [{
@@ -144,7 +144,6 @@ angular.module('com.module.products')
 
 
     $scope.tags = [];
-    $scope.tags2 = [];
     $scope.TagFirst = '0';
     $scope.OWNER = '';
 
@@ -191,7 +190,7 @@ angular.module('com.module.products')
         }
 
         $scope.CompanyRecord.categoryId =  categoryId;
-        // $scope.CompanyRecord.tags = $scope.tags.concat($scope.tags);
+
         $scope.CompanyRecord.tags = $scope.tags;
         Product.upsert($scope.CompanyRecord, function(response) {
           console.log('NEW COMP REC: '  + JSON.stringify(response));
@@ -265,7 +264,7 @@ $scope.modd = {};
     *   =====================================
      */
      $scope.loadCats = function(val) {
-       return $http.get('//api.vator.co/api/categories', {
+       return $http.get('//api.vator.co/api/Categories', {
          params: {
            filter: {
                where : {
