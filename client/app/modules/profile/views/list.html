@@ -10,47 +10,47 @@
   </row>
   <row>
     <h4 class="list-group-item-heading">
-      <div ng-hide="!profile.user.CoverPic">
-        <img  width="100%" src="{{profile.user.CoverPic}}" >
+      <div ng-hide="!fullprofile.user.CoverPic">
+        <img  width="100%" src="{{fullprofile.user.CoverPic}}" >
       </div>
-      <div ng-hide="!profile.user.ProfilePic" style="float:left">
-        <img  src="{{profile.user.ProfilePic}}" >
+      <div ng-hide="!fullprofile.user.fullprofilePic" style="float:left">
+        <img  src="{{fullprofile.user.fullprofilePic}}" >
       </div>
 
       <!-- menu -->
       <div class='list-group'>
         <div class="list-group-item">
           <span class="pull-right btn-group" style="margin-top: 7px;">
-            <a href="" class="btn btn-sm btn-default" ui-sref="^.edit({id: profile.user.id})">
+            <a href="" class="btn btn-sm btn-default" ui-sref="^.edit({id: fullprofile.user.id})">
               <i class="fa fa-pencil"></i>
             </a>
-            <a href="" class="btn btn-sm btn-default" ng-click="imageAction({id: profile.user.id})">
+            <a href="" class="btn btn-sm btn-default" ng-click="imageAction({id: fullprofile.user.id})">
               <i class="fa fa-image"></i>
             </a>
-            <a href="" class="btn btn-sm btn-default" ng-click="companyAction({id: profile.user.id})">
+            <a href="" class="btn btn-sm btn-default" ng-click="companyAction({id: fullprofile.user.id})">
               <i class="fa fa-rocket"></i>
             </a>
-            <a href="" class="btn btn-sm btn-default" ng-click="delete({id: profile.user.id})">
+            <a href="" class="btn btn-sm btn-default" ng-click="delete({id: fullprofile.user.id})">
               <i class="fa fa-trash-o"></i>
             </a>
           </span>
         </div>
       </div>
 
-      <!-- profile details -->
+      <!-- fullprofile details -->
       <div  style="float:left">
-        <h1><a href="" ui-sref="^.edit({id: profile.user.id})" >{{profile.user.Name}} [ click to edit ]</a></h1>
-        <h3>{{profile.user.id}}<br/>
-          {{profile.user.Bio}}</h3>
-          <a href="" class="btn btn-sm btn-default" ui-sref="^.edit({id: profile.user.id})">
-            <i class="fa fa-pencil fa-3x"></i> &nbsp; Edit Profile
+        <h1><a href="" ui-sref="^.edit({id: fullprofile.user.id})" >{{fullprofile.user.Name}} [ click to edit ]</a></h1>
+        <h3>{{fullprofile.user.id}}<br/>
+          {{fullprofile.user.Bio}}</h3>
+          <a href="" class="btn btn-sm btn-default" ui-sref="^.edit({id: fullprofile.user.id})">
+            <i class="fa fa-pencil fa-3x"></i> &nbsp; Edit fullprofile
           </a>
       </div>
     </h4>
   </row>
   <row>
     <div style="clear:both; margin-top:10px;">
-    <br/><pre>{{profile | json}}</pre>
+    <br/><pre>{{fullprofile | json}}</pre>
     </div>
   </row>
 
