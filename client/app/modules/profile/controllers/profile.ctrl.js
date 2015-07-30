@@ -13,6 +13,20 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
       id:''
     };
 
+    $scope.InvestRecord = {
+      amount:'',
+      date:'',
+      profileId:'',
+      roundtotal:'',
+      valuation:'',
+      id:'',
+      transaction:'',
+      exitdate:'',
+      amount2:'',
+      aquirer:'',
+      press:''
+    };
+
 
     $scope.SocialArray = { };
     $scope.SocialRecord = {
@@ -174,7 +188,12 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
       $scope.$watchCollection('WorkRecord', function(newValue, oldValue){
         console.log(JSON.stringify(newValue+':\n'+oldValue));
         var xnx = $scope.WorkRecord.Type;
-        if((xnx === '001') || (xnx === '002')){
+        if(xnx === '003'){
+          angular.element($document[0].querySelector('.work-datestart_date')).css('display', 'none');
+          angular.element($document[0].querySelector('.work-dateend_date')).css('display', 'none');
+          angular.element($document[0].querySelector('.work-title_text')).css('display', 'none');
+          angular.element($document[0].querySelector('.work-achievement_text')).css('display', 'none');
+        }else if((xnx === '001') || (xnx === '002')){
           angular.element($document[0].querySelector('.work-datestart_date')).css('display', 'block');
           angular.element($document[0].querySelector('.work-dateend_date')).css('display', 'block');
           angular.element($document[0].querySelector('.work-title_text')).css('display', 'block');
@@ -276,88 +295,72 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
               }
       ];
 
-//      $scope.$watch(function expression(field, theScope) {}, function listener(field, newValue, oldValue, theScope) {});
 
-// Type (string, optional),
-// Value (string, optional),
-// URL (string, optional),
-// created (string, optional),
-// status (number, optional),
-// verified (boolean, optional),
-// profileId (objectid, optional)
-
-
-        $scope.formFieldsXX =
+        $scope.investFields =
         [
             {
-            key: 'Type',
-            type: 'select',
-            label: 'Type',
-            required: true,
-            options:
-            [
-                {
-                    name: 'Email',
-                    value : '001'
-                },
-                {
-                    name: 'Facebook',
-                    value : '002'
-                },
-                {
-                    name: 'Twitter',
-                    value : '003'
-                },
-                {
-                    name: 'GitHub',
-                    value : '004'
-                },
-                {
-                    name: 'LinkedIn',
-                    value : '005'
-                },
-                {
-                    name: 'Google',
-                    value : '006'
-                }
-            ]
+            key: 'amount',
+            type: 'text',
+            label: 'Amount',
+            id : 'invest-amount',
+            uniqueFormId : 'invest-amount-box',
+            required: true
             },{
-              key: 'Value',
-              type: 'text',
-              label: 'username / acct#',
-              required: true
+              key: 'date',
+              type: 'date',
+              id : 'invest-date',
+              uniqueFormId : 'invest-date-box',
+              label: 'Date'
             },{
-              key: 'URL',
+              key: 'roundtotal',
               type: 'text',
-              label: 'Link',
-              required: true
+              id : 'invest-roundtotal',
+              uniqueFormId : 'invest-roundtotal-box',
+              label: 'Round  Total'
             },
             {
-              key: 'created',
-              type: 'hidden',
-              default : '2015-01-01',
-              required: true
+              key: 'valuation',
+              type: 'text',
+              id : 'invest-valuation',
+              uniqueFormId : 'invest-valuation-box',
+              label: 'Valuation'
             },
             {
-              key: 'status',
-              type: 'hidden',
-              default : 1,
-              required: true
+              key: 'transaction',
+              type: 'text',
+              id : 'invest-transaction',
+              uniqueFormId : 'invest-transaction-box',
+              label: 'Transaction'
             },
             {
-              key: 'verified',
-              type: 'hidden',
-              default : false,
-              required: true
+              key: 'exitdate',
+              type: 'date',
+              id : 'invest-exitdate',
+              uniqueFormId : 'invest-exitdate-box',
+              label:'exit date'
             },
             {
-              key: 'profileId',
-              type: 'hidden',
-              required: true
+              key: 'amount2',
+              type: 'text',
+              id : 'invest-amount2',
+              uniqueFormId : 'invest-amount2-box',
+              label:'Amount'
+            },
+            {
+              key: 'aquirer',
+              type: 'text',
+              id : 'invest-aquirer',
+              uniqueFormId : 'invest-aquirer-box',
+              label:'Aquirer'
+            },
+            {
+              key: 'press',
+              type: 'text',
+              id : 'invest-',
+              uniqueFormId : 'invest--box',
+              label:'Press'
             }
         ];
-
-
 
 
 
@@ -500,6 +503,19 @@ $scope.formFields4 = [
 
   $scope.toggleWork = function(id) {
     $scope.hideWork = $scope.hideWork === false ? true: false;
+
+    if(! $scope.addWorkButton){
+      $scope.WorkRecord = {
+        companyname: '',
+        jobtitle : '',
+        datestart : '',
+        dateend : '',
+        profileId : '',
+        achieve : '',
+        achievements: [{'value':0}],
+        id: ''
+      };
+    }
     $scope.addWorkButton = $scope.addWorkButton === false ? true: false;
   id = null;};
 

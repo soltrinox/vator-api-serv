@@ -47,6 +47,12 @@
       <div class="row tab-pane">
         <!--  contact for email here ??? -->
         <formly-form result="UserRecord" fields="formFields" id="userForm" options="formOptions" ng-submit="onSubmit()"></formly-form>
+
+      <div id="investorForm">
+        <formly-form result="InvestorRecord" fields="investFields" id="investForm" options="formOptions" ng-submit="onSubmit()"></formly-form>
+      </div>
+
+
         <pre>
           {{ UserRecord | json}}
         </pre>
