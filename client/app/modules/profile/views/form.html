@@ -90,7 +90,7 @@
           </div>
         </div>
 
-        <div class="controls tab1-submit" style="margin:20px 0px 20px 60px; clear: both !important;">
+        <div class="controls tab1-submit">
           <button class="btn btn-primary btn-success" ng-click="onSubmit()" translate>Update</button>
         </div>
       </div>
@@ -183,8 +183,9 @@
 
   <div class="row">
     <div class="uploads-box">
-      <div s3-upload bucket="s3Bucket" ng-model="product.remote_product_file_url"
-         s3-upload-options="{getOptionsUri: s3OptionsUri, folder: 'images/'}">
+      <input id="profilepic" name="profilepic" type="file" file />
+      </br>
+      <input id="coverpic" name="coverpic" type="file" file />
     </div>
 
   </div>
