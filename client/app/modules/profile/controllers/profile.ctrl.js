@@ -439,12 +439,14 @@ $scope.formFields4 = [
     // else if((!$scope.profile.user.UUID ) && ($scope.UserRecord.UUID))
     $scope.editUser($scope.UserRecord);
     $scope.hideBase = $scope.hideBase === false ? true: false;
+  id = null;
   };
 
   $scope.hideCompany = true;
   $scope.toggleCompany = function(id) {
     $scope.hideCompany = $scope.hideCompany === false ? true: false;
-  };
+  id = null;
+};
 
 //  http://api.vator.co/api/Teams?filter={%20%22where%22%20:%20{%20%22Name%22%20:%20{%22like%22%20:%22Co%22%20}%20}%20}
 
@@ -481,7 +483,8 @@ $scope.formFields4 = [
   $scope.onCompanySelect = function(item, model, label){
       $scope.prettyPrint(model, 'MODEL');
       $scope.WorkRecord.companyname = model;
-  };
+  label = null;
+};
 
   $scope.lookCompany = function(val){
       $scope.workLookUp = val;
@@ -495,7 +498,7 @@ $scope.formFields4 = [
   $scope.toggleWork = function(id) {
     $scope.hideWork = $scope.hideWork === false ? true: false;
     $scope.addWorkButton = $scope.addWorkButton === false ? true: false;
-  };
+  id = null;};
 
   // $scope.cancelWork = function(id) {
   //    $scope.hideWork = false; //$scope.hideWork === false ? true: false;
@@ -513,13 +516,13 @@ $scope.formFields4 = [
   $scope.hideSocial = true;
   $scope.toggleSocial = function(id) {
     $scope.hideSocial = $scope.hideSocial === false ? true: false;
-  };
+  id = null;};
 
 
 
   $scope.companyAction = function(id){
     // break open the comapnies and allow auto completes
-  };
+  id = null;};
 
 
   $scope.imageAction = function(id){
@@ -536,7 +539,7 @@ $scope.formFields4 = [
 
   // link to images module
 
-  $location.path('/app/files/list');
+  $location.path('/app/files/list');id = null;
 };
 
 
@@ -550,7 +553,7 @@ $scope.formFields4 = [
      if(!$scope.currentUser.pid || $scope.currentUser.pid.length > 0 )  {
        $scope.getUserRecord($scope.currentUser.id);
      }
-  };
+  profileId = null;};
 
   $scope.getEntireProfile = function(thepId){
     ProfileService.getProfile(thepId, function(response){
@@ -826,10 +829,12 @@ $scope.formFields4 = [
 
 $scope.fullMeal = true;
   $scope.$on('$viewContentLoaded', function(){
-
-        if((!$scope.fullprofile ||   0 === $scope.fullprofile.length) && ($scope.fullMeal)){
+    if(!$scope.currentUser){
+      console.log('MISSING BASE USER  $scope.currentUser -> LOG IN AGAIN' );
+      $location.path('/login');
+    }else if((!$scope.fullprofile ||   0 === $scope.fullprofile.length) && ($scope.fullMeal)){
             console.log('NO CURRENT PROFILE');
-            if((!$scope.fullprofile || 0 === $scope.fullprofile.length ) && !$scope.currentUser.pid ){
+            if((!$scope.fullprofile || 0 === $scope.fullprofile.length ) ){
               console.log('NO PROFILE ID EITHER');
               $scope.getUserRecord($scope.currentUser.id);
             }else{
