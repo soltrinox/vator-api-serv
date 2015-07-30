@@ -40,9 +40,9 @@ angular.module('com.module.products')
         $scope.CompanyRecord = product;
       //  $scope.tags = product.tags;
         // add the product tot he category
-        product.category = Product.category({
-          id: product.id
-        });
+        // product.category = Product.category({
+        //   id: product.id
+        // });
         // handle in case of bad response
       }, function(err) {
         console.log(err);
