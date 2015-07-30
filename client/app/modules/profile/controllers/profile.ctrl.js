@@ -852,17 +852,24 @@ $scope.formFields4 = [
 
 
     $scope.editWork = function(wid){
-
+  console.log('WID: '+wid );
       for(var workhistory in $scope.fullprofile.work){
-        if(workhistory.id === wid){
-          $scope.WorkRecord = workhistory;
-        }
+
       }
+
+      angular.forEach($scope.fullprofile.work, function(value, key) {
+        console.log( value.id );
+        if(value.id === wid){
+          console.log( 'FOUND WORK TO EDIT : '+value );
+          $scope.WorkRecord = value;
+        }
+      });
+
       if($scope.hideWork){
         $scope.hideWork = false;
       }
       if($scope.addWorkButton){
-       $scope.addWorkButton = false;
+        //$scope.addWorkButton = $scope.addWorkButton === false ? true: false;
       }
     };
 
