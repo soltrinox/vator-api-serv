@@ -23,7 +23,7 @@
 
     <table class="table table-bordered" ng-show="category.products.length">
         <tbody>
-        <tr ng-repeat="item in category.products">
+        <tr ng-repeat="item in category.products | filter:{id:'55a8a1d5d41ad56657952284'} ">
             <th>
                 <a href="" ui-sref="^.view({id: item.id})">{{item.name}}</a>
                 <small>{{item.description}}</small>
