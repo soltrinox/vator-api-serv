@@ -193,21 +193,25 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
           angular.element($document[0].querySelector('.work-dateend_date')).css('display', 'none');
           angular.element($document[0].querySelector('.work-title_text')).css('display', 'none');
           angular.element($document[0].querySelector('.work-achievement_text')).css('display', 'none');
+          angular.element($document[0].querySelector('.investorForm')).css('display', 'block');
         }else if((xnx === '001') || (xnx === '002')){
           angular.element($document[0].querySelector('.work-datestart_date')).css('display', 'block');
           angular.element($document[0].querySelector('.work-dateend_date')).css('display', 'block');
           angular.element($document[0].querySelector('.work-title_text')).css('display', 'block');
           angular.element($document[0].querySelector('.work-achievement_text')).css('display', 'block');
+          angular.element($document[0].querySelector('.investorForm')).css('display', 'none');
         }else if((xnx === '004') || (xnx === '005')){
           angular.element($document[0].querySelector('.work-datestart_date')).css('display', 'block');
           angular.element($document[0].querySelector('.work-dateend_date')).css('display', 'block');
           angular.element($document[0].querySelector('.work-title_text')).css('display', 'none');
           angular.element($document[0].querySelector('.work-achievement_text')).css('display', 'block');
+          angular.element($document[0].querySelector('.investorForm')).css('display', 'none');
         }else{
           angular.element($document[0].querySelector('.work-datestart_date')).css('display', 'none');
           angular.element($document[0].querySelector('.work-dateend_date')).css('display', 'none');
           angular.element($document[0].querySelector('.work-title_text')).css('display', 'none');
           angular.element($document[0].querySelector('.work-achievement_text')).css('display', 'none');
+          angular.element($document[0].querySelector('.investorForm')).css('display', 'none');
         }
       });
 
@@ -874,6 +878,7 @@ $scope.fullMeal = true;
       angular.element($document[0].querySelector('.work-dateend_date')).css('display', 'none');
       angular.element($document[0].querySelector('.work-title_text')).css('display', 'none');
       angular.element($document[0].querySelector('.work-achievement_text')).css('display', 'none');
+      angular.element($document[0].querySelector('.investorForm')).css('display', 'none');
   });
 
   //  @@@@@@@@@@@@@@@@@@@@@@@@@@@@ need uploading
