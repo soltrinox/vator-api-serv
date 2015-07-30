@@ -1,6 +1,7 @@
 <div class="radio-group vator_form_box {{options.id}}_radio" ng-class="{'has-error': options.formField.$invalid}">
-  <div class="radio_box {{options.id}}-radio_container" ng-repeat="(key, option) in options.options">
-		<label class="control-label">{{options.label}} {{options.required ? '*' : ''}}</label>
+		<label class="control-label"><span class="{{options.id}}-raio_label">{{options.label}} {{options.required ? '*' : ''}}  </span>
+    <div class="radio_box {{options.id}}-radio_container" ng-repeat="(key, option) in options.options">
+
     <label class="vator-radio-label">
 			<input type="radio"
 					class="form-control   {{options.id}}_input_radio "
@@ -16,4 +17,5 @@
 		</label>
    <p id="{{options.id}}_description " class="help-block " ng-if="option.description ">{{option.description}}</p>
 	</div>
+  </label>
 </div>
