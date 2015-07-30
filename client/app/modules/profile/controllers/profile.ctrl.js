@@ -327,7 +327,6 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
               id : 'invest-isipo',
               uniqueFormId : 'invest-isipo-box',
               disabled: false,
-              default: 'false',
               label: 'Aquired / IPO',
               required: false,
               options: [
