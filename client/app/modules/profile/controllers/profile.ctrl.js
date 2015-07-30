@@ -611,6 +611,8 @@ $scope.formFields4 = [
               }
 
             });
+
+
           }else{
             // lets set our scope id references here
             $scope.fullprofile = response;
@@ -621,8 +623,8 @@ $scope.formFields4 = [
             $scope.getEntireProfile($scope.currentUser.pid);
           }
         });
-      }
-  };
+      };
+
 
   $scope.upsertUserRecord = function( UserRecord){
     if (((!$scope.UserRecord.id) || (0 === $scope.UserRecord.id.length)) ||
@@ -675,8 +677,7 @@ $scope.formFields4 = [
       $scope.addWorkButton = false;
       $scope.hideBase = true;
     }
-
-  };
+};
 
 
 
