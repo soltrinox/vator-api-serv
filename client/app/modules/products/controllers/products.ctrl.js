@@ -191,7 +191,7 @@ angular.module('com.module.products')
         }
 
         $scope.CompanyRecord.categoryId =  categoryId;
-        scope.CompanyRecord.tags = $scope.tags2.concat($scope.tags);
+        $scope.CompanyRecord.tags = $scope.tags2.concat($scope.tags);
         // $scope.CompanyRecord.tags = $scope.tags2;
         Product.upsert($scope.CompanyRecord, function(response) {
           console.log('NEW COMP REC: '  + JSON.stringify(response));
@@ -265,7 +265,7 @@ $scope.modd = {};
     *   =====================================
      */
      $scope.loadCats = function(val) {
-       return $http.get('//api.vator.co/api/Categories', {
+       return $http.get('//api.vator.co/api/categories', {
          params: {
            filter: {
                where : {
