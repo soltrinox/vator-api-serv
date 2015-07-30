@@ -56,6 +56,10 @@
       margin-top: 10px;
       margin-bottom: 10px;
   }
+  .marginizeme{
+    margin: 5px 5px 5px 5px;
+      clear:both;
+  }
 </style>
 
 
@@ -95,7 +99,9 @@
     </tab>
 
     <tab heading="{{ 'Experience' | translate }}">
-      <button class="btn btn-info fa fa-plus" ng-hide="addWorkButton" ng-click="toggleWork()">Add Experience</button>
+      <div class="marginizeme" ng-hide="addWorkButton"  >
+        <button class="btn btn-info fa fa-plus" ng-click="toggleWork()">Add Experience</button>
+      </div>
       <div class="row tab-pane" ng-hide="hideWork" mychildren>
         <div class="form-group vator_form_box work-companylookup-box" ng-class="{'has-error': options.formField.$invalid}">
           <label for="work.title" class="ng-binding"> Search for a company on vator </label>
