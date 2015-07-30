@@ -35,7 +35,7 @@ var module = angular.module("lbServices", ['ngResource']);
 module.factory(
   "AccessToken",
   ['LoopBackResource', 'LoopBackAuth', '$injector', function(Resource, LoopBackAuth, $injector) {
-    var R = Resource(
+    var R = new Resource(
       urlBase + "/accessTokens/:id",
       { 'id': '@id' },
       {

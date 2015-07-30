@@ -866,7 +866,7 @@ $scope.formFields4 = [
           var elem = angular.element($document[0].querySelector('#work-companylookup'));
           elem.val(value.companyname);
           if(!value.Type || 0 === value.Type.length){
-            $scope.workLookUp.Type = 001;
+            $scope.workLookUp.Type = '001';
           }
         }
       });
