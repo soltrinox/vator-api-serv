@@ -640,6 +640,8 @@ $scope.formFields4 = [
 
   $scope.getUserRecord = function(UUID){
 
+    if(!$scope.fullprofile.user || 0 === $scope.fullprofile.user.length){
+
       // look for the user by their vator auth UUID
       if(!$scope.currentUser.pid || 0 === $scope.currentUser.pid.length){
         $scope.currentUser.pid = UUID;
@@ -650,7 +652,7 @@ $scope.formFields4 = [
 
         // go get profile or create new one....
         ProfileService.getProfileByUUID($scope.currentUser.id, function(response){
-          console.log('@@@@@@@ = profile response for UUID'  + JSON.stringify(response));
+          //console.log('@@@@@@@ = profile response for UUID'  + JSON.stringify(response));
 
           // if we can detect a correct PROFILE.ID than move forward
           // with the correct assignment and getting the full object
@@ -681,7 +683,9 @@ $scope.formFields4 = [
             }
           }
         });
-      };
+
+      }
+  };
 
 
   $scope.upsertUserRecord = function( userRecord){
@@ -859,6 +863,7 @@ $scope.formFields4 = [
           console.log( 'FOUND WORK TO EDIT : '+value );
           $scope.WorkRecord = value;
           $scope.workLookUp = value.companyname;
+          angular.element($document[0].querySelector('#work-companylookup')).value(value.companyname);
         }
       });
 
