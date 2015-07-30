@@ -189,6 +189,7 @@ angular.module('com.module.products')
         }
 
         $scope.CompanyRecord.categoryId =  categoryId;
+
         $scope.CompanyRecord.tags = $scope.tags;
         Product.upsert($scope.CompanyRecord, function(response) {
           console.log('NEW COMP REC: '  + JSON.stringify(response));

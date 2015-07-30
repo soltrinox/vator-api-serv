@@ -19,6 +19,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
       profileId:'',
       roundtotal:'',
       valuation:'',
+      isipo:'',
       id:'',
       transaction:'',
       exitdate:'',
@@ -130,60 +131,78 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
   ];
 
 
-    $scope.formFields2 = [{
-      key: 'Degree',
-      type: 'select',
-      label: 'Type',
-      required: true,
-      options: [
-          {
-              name: 'School',
-              value : 'EDU'
-          },
-          {
-              name: 'Military',
-              value : 'MIL'
-          },
-          {
-              name: 'Organization',
-              value : 'ORG'
-          }
-      ]
-    }, {
-        key: 'School',
-        type: 'text',
-        label: 'Name',
-        required: true
-      },{
-        key: 'Date',
-        type: 'number',
-        label: 'Year Completed',
-        default: 2015,
-        min: 1900,
-        max: 2020,
-        required: true
-    }, {
-        key: 'Major',
-        type: 'text',
-        label: 'Field/Major',
-        required: false
-      }, {
-        key: 'URL',
-        type: 'text',
-        label: 'URL',
-        required: false
-      },{
-        key: 'profileId',
-        type: 'hidden',
-        label: gettextCatalog.getString('UUID'),
-        required: true
-      }];
+    // $scope.formFields2 = [{
+    //   key: 'Degree',
+    //   type: 'select',
+    //   label: 'Type',
+    //   required: true,
+    //   options: [
+    //       {
+    //           name: 'School',
+    //           value : 'EDU'
+    //       },
+    //       {
+    //           name: 'Military',
+    //           value : 'MIL'
+    //       },
+    //       {
+    //           name: 'Organization',
+    //           value : 'ORG'
+    //       }
+    //   ]
+    // }, {
+    //     key: 'School',
+    //     type: 'text',
+    //     label: 'Name',
+    //     required: true
+    //   },{
+    //     key: 'Date',
+    //     type: 'number',
+    //     label: 'Year Completed',
+    //     default: 2015,
+    //     min: 1900,
+    //     max: 2020,
+    //     required: true
+    // }, {
+    //     key: 'Major',
+    //     type: 'text',
+    //     label: 'Field/Major',
+    //     required: false
+    //   }, {
+    //     key: 'URL',
+    //     type: 'text',
+    //     label: 'URL',
+    //     required: false
+    //   },{
+    //     key: 'profileId',
+    //     type: 'hidden',
+    //     label: gettextCatalog.getString('UUID'),
+    //     required: true
+    //   }];
 
 
 
       $scope.hideDateStart = true;
       $scope.hideDateEnd = true;
       $scope.hideTitle = true;
+
+      $scope.$watchCollection('InvestRecord', function(newValue, oldValue){
+        console.log(JSON.stringify(newValue+':\n'+oldValue));
+        var xnx = $scope.WorkRecord.isipo;
+        if(xnx ){
+            angular.element($document[0].querySelector('.invest-transaction_text')).css('display', 'block');
+            angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', 'block');
+            angular.element($document[0].querySelector('.invest-amount2_text')).css('display', 'block');
+            angular.element($document[0].querySelector('.invest-aquirer_text')).css('display', 'block');
+            angular.element($document[0].querySelector('.invest-press_text')).css('display', 'block');
+        }else{
+            angular.element($document[0].querySelector('.invest-transaction_text')).css('display', 'block');
+            angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', 'block');
+            angular.element($document[0].querySelector('.invest-amount2_text')).css('display', 'block');
+            angular.element($document[0].querySelector('.invest-aquirer_text')).css('display', 'block');
+            angular.element($document[0].querySelector('.invest-press_text')).css('display', 'block');
+        }
+      }
 
       $scope.$watchCollection('WorkRecord', function(newValue, oldValue){
         console.log(JSON.stringify(newValue+':\n'+oldValue));
@@ -328,6 +347,12 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
               id : 'invest-valuation',
               uniqueFormId : 'invest-valuation-box',
               label: 'Valuation'
+            },{
+              key: 'isipo',
+              type: 'check',
+              id : 'isipo',
+              uniqueFormId : 'invest-isipo-box',
+              label: 'Aquired / IPO'
             },
             {
               key: 'transaction',
@@ -360,8 +385,8 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
             {
               key: 'press',
               type: 'text',
-              id : 'invest-',
-              uniqueFormId : 'invest--box',
+              id : 'invest-press',
+              uniqueFormId : 'invest-press-box',
               label:'Press'
             }
         ];
@@ -872,7 +897,6 @@ $scope.fullMeal = true;
             console.log('GOT getEntireProfile');
           }
         }
-
 
       angular.element($document[0].querySelector('.work-datestart_date')).css('display', 'none');
       angular.element($document[0].querySelector('.work-dateend_date')).css('display', 'none');
