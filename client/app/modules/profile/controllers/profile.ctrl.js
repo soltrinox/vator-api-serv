@@ -202,7 +202,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
             angular.element($document[0].querySelector('.invest-aquirer_text')).css('display', 'block');
             angular.element($document[0].querySelector('.invest-press_text')).css('display', 'block');
         }
-      }
+      });
 
       $scope.$watchCollection('WorkRecord', function(newValue, oldValue){
         console.log(JSON.stringify(newValue+':\n'+oldValue));
