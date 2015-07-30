@@ -854,7 +854,7 @@ $scope.formFields4 = [
     $scope.editWork = function(wid){
 
       for(var workhistory in $scope.fullprofile.work){
-        if(workhistory.id === id){
+        if(workhistory.id === wid){
           $scope.WorkRecord = workhistory;
         }
       }
