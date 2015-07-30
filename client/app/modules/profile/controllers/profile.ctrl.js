@@ -14,6 +14,17 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
       id:''
     };
 
+    $scope.WorkRecord = {
+      companyname: '',
+      jobtitle : '',
+      datestart : '',
+      dateend : '',
+      profileId : '',
+      achieve : '',
+      achievements: [{'value':0}],
+      id: ''
+    };
+
     $scope.InvestRecord = {
       amount:'',
       date:'',
@@ -43,16 +54,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
     };
 
 
-    $scope.WorkRecord = {
-      companyname: '',
-      jobtitle : '',
-      datestart : '',
-      dateend : '',
-      profileId : '',
-      achieve : '',
-      achievements: [{'value':0}],
-      id: ''
-    };
+
     $scope.MediaRecord = {};
     $scope.CompanyRecord = {
       Name: '',
@@ -545,18 +547,36 @@ $scope.formFields4 = [
     $scope.addWorkButton = $scope.addWorkButton === false ? true: false;
   id = null;};
 
-  // $scope.cancelWork = function(id) {
-  //    $scope.hideWork = false; //$scope.hideWork === false ? true: false;
-  //    $scope.addWorkButton = true; //= $scope.addWorkButton === false ? true: false;
-  //   $scope.WorkRecord = {
-  //     companyname: '',
-  //     jobtitle : '',
-  //     datestart : '',
-  //     dateend : '',
-  //     profileId : $scope.profileId
-  //   };
-  //
-  // }
+  $scope.cancelWork = function(id) {
+     $scope.hideWork = false; //$scope.hideWork === false ? true: false;
+     $scope.addWorkButton = true; //= $scope.addWorkButton === false ? true: false;
+
+     $scope.WorkRecord = {
+       companyname: '',
+       jobtitle : '',
+       datestart : '',
+       dateend : '',
+       profileId : '',
+       achieve : '',
+       achievements: [{'value':0}],
+       id: ''
+     };
+
+     $scope.InvestRecord = {
+       amount:'',
+       date:'',
+       profileId:'',
+       roundtotal:'',
+       valuation:'',
+       isipo:'',
+       id:'',
+       transaction:'',
+       exitdate:'',
+       amount2:'',
+       aquirer:'',
+       press:''
+     };
+  };
 
   $scope.hideSocial = true;
   $scope.toggleSocial = function(id) {
