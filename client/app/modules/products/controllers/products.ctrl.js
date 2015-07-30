@@ -85,7 +85,7 @@ angular.module('com.module.products')
     $scope.CompanyRecord = {
       name: '',
       id : '',
-      categoryId : '55a8a1d5d41ad56657952284',
+      categoryId : '55ba9286966a114937493efe',
       companyId: '',
       profileId: '',
       location: '',
