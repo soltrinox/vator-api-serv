@@ -24,7 +24,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
       Github : '',
       Google : '',
       Website : ''
-    }
+    };
 
 
     $scope.WorkRecord = {
@@ -435,16 +435,16 @@ $scope.formFields4 = [
       $scope.UserRecord.CoverPic = $scope.fullprofile.user.CoverPic;
     }
 
-    }
+
     // else if((!$scope.profile.user.UUID ) && ($scope.UserRecord.UUID))
     $scope.editUser($scope.UserRecord);
     $scope.hideBase = $scope.hideBase === false ? true: false;
-  }
+  };
 
   $scope.hideCompany = true;
   $scope.toggleCompany = function(id) {
     $scope.hideCompany = $scope.hideCompany === false ? true: false;
-  }
+  };
 
 //  http://api.vator.co/api/Teams?filter={%20%22where%22%20:%20{%20%22Name%22%20:%20{%22like%22%20:%22Co%22%20}%20}%20}
 
@@ -481,12 +481,12 @@ $scope.formFields4 = [
   $scope.onCompanySelect = function(item, model, label){
       $scope.prettyPrint(model, 'MODEL');
       $scope.WorkRecord.companyname = model;
-  }
+  };
 
   $scope.lookCompany = function(val){
       $scope.workLookUp = val;
       $scope.WorkRecord.companyname = $scope.workLookUp;
-  }
+  };
 
 
   $scope.hideWork = true;
@@ -495,8 +495,7 @@ $scope.formFields4 = [
   $scope.toggleWork = function(id) {
     $scope.hideWork = $scope.hideWork === false ? true: false;
     $scope.addWorkButton = $scope.addWorkButton === false ? true: false;
-
-  }
+  };
 
   // $scope.cancelWork = function(id) {
   //    $scope.hideWork = false; //$scope.hideWork === false ? true: false;
@@ -514,14 +513,13 @@ $scope.formFields4 = [
   $scope.hideSocial = true;
   $scope.toggleSocial = function(id) {
     $scope.hideSocial = $scope.hideSocial === false ? true: false;
-
-  }
+  };
 
 
 
   $scope.companyAction = function(id){
     // break open the comapnies and allow auto completes
-  }
+  };
 
 
   $scope.imageAction = function(id){
@@ -539,7 +537,7 @@ $scope.formFields4 = [
   // link to images module
 
   $location.path('/app/files/list');
-  }
+};
 
 
   $scope.delete = function(id) {
@@ -571,7 +569,7 @@ $scope.formFields4 = [
         $scope.currentUser.pid = response.profile.user.id;
         $scope.sliceProfile(response.profile);
     });
-  }
+  };
 
   $scope.getUserRecord = function(UUID){
 
@@ -641,7 +639,7 @@ $scope.formFields4 = [
     }
 
 
-  }
+  };
 
   $scope.onSubmit = function() {
     // run validation here
@@ -723,7 +721,7 @@ $scope.formFields4 = [
     $scope.hideWork = true;
     $scope.addWorkButton = false;
     // $location.path('/app/myprofile/'+$scope.WorkRecord.profileId+'/edit');
-  }
+  };
 
 
   };
