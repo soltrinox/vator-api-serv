@@ -6,7 +6,6 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width">
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-
   <!-- build:css styles/vendor.css -->
   <!-- bower:css -->
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
@@ -29,23 +28,11 @@
 
   <link href="/css/dashboard/root.css" rel="stylesheet">
 <style type="text/css">
-  body{background: #F5F5F5;}
-
-    .my-drop-zone {
-        border: dotted 3px lightgray;
-    }
-
-    .ng-file-over {
-        border: dotted 3px red;
-    }
-
-    /* Default class applied to drop zones on over */
-    .another-file-over-class {
-        border: dotted 3px green;
-    }
-
+      body{background: #F5F5F5;}
+    .my-drop-zone {border: dotted 3px lightgray; }
+    .ng-file-over {border: dotted 3px red; }
+    .another-file-over-class { border: dotted 3px green;   }
 </style>
-
   <!-- endbuild -->
 </head>
 <body class="{{getSetting('appTheme') }} {{ getSetting('appLayout') }} " ng-controller="MainCtrl">

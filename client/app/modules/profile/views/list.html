@@ -1,59 +1,59 @@
 <div class="container col-lg-12 col-md-12">
-  <row>
+  <div class="row">
     <a href="/#/app/products/add/55a8a1d5d41ad56657952284" class=""><i class="fa fa-3x fa-rocket "></i>Add Your Startup</a>
     <br/>
     <br/>
     <a href="#" class=""><i class="fa fa-3x fa-bank "></i>Join VIC</a>
     <br/>
-    <br/><br/>
     <br/>
-  </row>
-  <row>
-
-      <div ng-hide="!fullprofile.user.CoverPic">
-        <img  width="100%" src="{{fullprofile.user.CoverPic}}" >
-      </div>
-      <div ng-hide="!fullprofile.user.fullprofilePic" style="float:left">
-        <img  src="{{fullprofile.user.fullprofilePic}}" >
-      </div>
-
-    <h4 class="list-group-item-heading">
-      <div class='list-group'>
-        <div class="list-group-item">
-          <span class="pull-right btn-group" style="margin-top: 7px;">
-            <a href="" class="btn btn-sm btn-default" ui-sref="^.edit({id: fullprofile.user.id})">
-              <i class="fa fa-pencil"></i>
-            </a>
-            <a href="" class="btn btn-sm btn-default" ng-click="imageAction({id: fullprofile.user.id})">
-              <i class="fa fa-image"></i>
-            </a>
-            <a href="" class="btn btn-sm btn-default" ng-click="companyAction({id: fullprofile.user.id})">
-              <i class="fa fa-rocket"></i>
-            </a>
-            <a href="" class="btn btn-sm btn-default" ng-click="delete({id: fullprofile.user.id})">
-              <i class="fa fa-trash-o"></i>
-            </a>
-          </span>
-        </div>
-      </div>
-    </h4>
-
-      <!-- fullprofile details -->
-      <div  style="float:left">
-        <h1><a href="" ui-sref="^.edit({id: fullprofile.user.id})" >{{fullprofile.user.Name}} [ click to edit ]</a></h1>
-        <h3>{{fullprofile.user.id}}<br/>
-          {{fullprofile.user.Bio}}</h3>
-          <a href="" class="btn btn-sm btn-default" ui-sref="^.edit({id: fullprofile.user.id})">
-            <i class="fa fa-pencil fa-3x"></i> &nbsp; Edit fullprofile
-          </a>
-      </div>
-
-  </row>
-  <row>
-    <div style="clear:both; margin-top:10px;">
-    <br/><pre>{{fullprofile | json}}</pre>
+    <br/>
+    <br/>
+  </div>
+  <div class="row">
+    <div ng-hide="!fullprofile.user.CoverPic">
+      <img width="100%" src="{{fullprofile.user.CoverPic}}">
     </div>
-  </row>
+    <div ng-hide="!fullprofile.user.fullprofilePic" style="float:left">
+      <img src="{{fullprofile.user.fullprofilePic}}">
+    </div>
+  </div>
 
+  <div class="row">
+    <h4 class="list-group-item-heading">
+    <div class='list-group'>
+      <div class="list-group-item">
+        <span class="pull-right btn-group" style="margin-top: 7px;">
+          <a href="" class="btn btn-sm btn-default" ui-sref="^.edit({id: fullprofile.user.id})">
+            <i class="fa fa-pencil"></i>
+          </a>
+          <a href="" class="btn btn-sm btn-default" ng-click="imageAction({id: fullprofile.user.id})">
+            <i class="fa fa-image"></i>
+          </a>
+          <a href="" class="btn btn-sm btn-default" ng-click="companyAction({id: fullprofile.user.id})">
+            <i class="fa fa-rocket"></i>
+          </a>
+          <a href="" class="btn btn-sm btn-default" ng-click="delete({id: fullprofile.user.id})">
+            <i class="fa fa-trash-o"></i>
+          </a>
+        </span>
+      </div>
+    </div>
+  </h4>
 
+    <!-- fullprofile details -->
+    <div style="float:left">
+      <h1><a href="" ui-sref="^.edit({id: fullprofile.user.id})" >{{fullprofile.user.Name}} [ click to edit ]</a></h1>
+      <h3>{{fullprofile.user.id}}<br/>
+        {{fullprofile.user.Bio}}</h3>
+      <a href="" class="btn btn-sm btn-default" ui-sref="^.edit({id: fullprofile.user.id})">
+        <i class="fa fa-pencil fa-3x"></i> &nbsp; Edit fullprofile
+      </a>
+    </div>
+  </div>
+
+  <div class="row">
+    <div style="clear:both; margin-top:10px;">
+      <br/><pre>{{fullprofile | json}}</pre>
+    </div>
+  </div>
 </div>

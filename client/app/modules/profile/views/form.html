@@ -3,35 +3,39 @@
 
 </h4>
 <style>
-.vator_form_box{
-  width:90%;
-  margin:0 auto;
+  .vator_form_box {
+    width: 90%;
+    margin: 0 auto;
+  }
 
-}
-.work-datestart_date{
-  width:32%;
-  float:left;
-  margin-right:10px;
-  margin-left:40px;
-}
-.work-dateend_date{
-  width:32%;
-  float:left;
-  margin-left:10px;
-}
-.work-type_select{
-    clear:both !important;
-}
-.work-title_text{
-  clear:both !important;
-}
-.work-achievement_text{
-  clear:both !important;
-}
-.work-companylookup-box{
-  clear:both !important;
-}
+  .work-datestart_date {
+    width: 32%;
+    float: left;
+    margin-right: 10px;
+    margin-left: 40px;
+  }
 
+  .work-dateend_date {
+    width: 32%;
+    float: left;
+    margin-left: 10px;
+  }
+
+  .work-type_select {
+    clear: both !important;
+  }
+
+  .work-title_text {
+    clear: both !important;
+  }
+
+  .work-achievement_text {
+    clear: both !important;
+  }
+
+  .work-companylookup-box {
+    clear: both !important;
+  }
 </style>
 
 
@@ -40,7 +44,7 @@
   <tabset class="nav-tabs-custom">
     <tab heading="{{ 'Who' | translate }}">
 
-      <div class="row tab-pane"  >
+      <div class="row tab-pane">
         <!--  contact for email here ??? -->
         <formly-form result="UserRecord" fields="formFields" id="userForm" options="formOptions" ng-submit="onSubmit()"></formly-form>
         <!-- <pre>
@@ -53,7 +57,7 @@
 
       <table class="table table-hover">
         <tbody>
-          <tr  ng-repeat="contact in fullprofile.contact" class="list-group-item">
+          <tr ng-repeat="contact in fullprofile.contact" class="list-group-item">
             <td class="text-center">
               <div class="checkbox margin-t-0">
                 <input id="checkbox1" type="checkbox">
@@ -61,7 +65,9 @@
               </div>
             </td>
             <td>{{contact.emailAddress}}</td>
-            <td> <button class="btn btn-warning "  ng-click="editEmail(contact)">Edit</button> </td>
+            <td>
+              <button class="btn btn-warning " ng-click="editEmail(contact)">Edit</button>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -78,26 +84,21 @@
     </tab>
 
     <tab heading="{{ 'Experience' | translate }}">
-        <button class="btn btn-info fa fa-plus" ng-hide="addWorkButton" ng-click="toggleWork()">Add Experience</button>
-      <div class="row tab-pane"   ng-hide="hideWork" mychildren  >
-        <div class="form-group vator_form_box work-companylookup-box"
-        ng-class="{'has-error': options.formField.$invalid}">
-        	<label for="work.title" class="ng-binding"> Search for a company on vator </label>
+      <button class="btn btn-info fa fa-plus" ng-hide="addWorkButton" ng-click="toggleWork()">Add Experience</button>
+      <div class="row tab-pane" ng-hide="hideWork" mychildren>
+        <div class="form-group vator_form_box work-companylookup-box" ng-class="{'has-error': options.formField.$invalid}">
+          <label for="work.title" class="ng-binding"> Search for a company on vator </label>
           <div>
             <div style="width:70%;float:left;">
-              <input type="text" ng-model="$scope.workLookUp" placeholder="Companies loaded via $http"
-              typeahead="item for item in getTeams($viewValue)" id="work-companylookup"
-              typeahead-on-select="onCompanySelect(item, $scope.workLookUp, work.companylookup )"
-              typeahead-loading="loadingCompanies" class="form-control work_companylookup_input"
-              ng-change="lookCompany($scope.workLookUp)">
+              <input type="text" ng-model="$scope.workLookUp" placeholder="Companies loaded via $http" typeahead="item for item in getTeams($viewValue)" id="work-companylookup" typeahead-on-select="onCompanySelect(item, $scope.workLookUp, work.companylookup )" typeahead-loading="loadingCompanies"
+              class="form-control work_companylookup_input" ng-change="lookCompany($scope.workLookUp)">
               <i ng-show="loadingCompanies" class="glyphicon glyphicon-refresh"></i>
             </div>
             <div style="width:30%; float:left">
-              <a href="/#/app/products/add/55a8a1d5d41ad56657952284"
-              class="btn btn-info fa fa-rocket"> &nbsp; Add New Company</a>
+              <a href="/#/app/products/add/55a8a1d5d41ad56657952284" class="btn btn-info fa fa-rocket"> &nbsp; Add New Company</a>
             </div>
-        </div>
-           <!-- ngIf: options.description -->
+          </div>
+          <!-- ngIf: options.description -->
 
         </div>
 
@@ -109,8 +110,8 @@
           {{ WorkRecord | json }}
         </pre> -->
         <div class="controls" style="margin:20px 0px 20px 0px; clear: both !important;">
-            <button class="btn btn-primary btn-warning" ng-click="cancelWork()" translate>Cancel </button> &nbsp;  &nbsp;
-            <button class="btn btn-primary btn-success" ng-click="onSubmit3()" translate>Submit </button>
+          <button class="btn btn-primary btn-warning" ng-click="cancelWork()" translate>Cancel </button> &nbsp; &nbsp;
+          <button class="btn btn-primary btn-success" ng-click="onSubmit3()" translate>Submit </button>
         </div>
       </div>
 
@@ -127,14 +128,16 @@
             <td>{{work.datestart}} to {{work.dateend}}</td>
             <td>{{work.companyname}}</td>
             <td>{{work.jobtitle}}</td>
-            <td> <button class="btn btn-warning" ng-click="editWork(company)">Edit</button> </td>
+            <td>
+              <button class="btn btn-warning" ng-click="editWork(company)">Edit</button>
+            </td>
           </tr>
         </tbody>
       </table>
     </tab>
     <tab heading="{{ 'Profiles' | translate }}">
-        <!-- <button class="btn btn-info fa fa-plus" ng-click="toggleSocial()">Add New Social</button> -->
-      <div class="row tab-pane " >
+      <!-- <button class="btn btn-info fa fa-plus" ng-click="toggleSocial()">Add New Social</button> -->
+      <div class="row tab-pane ">
         <!--  contact for email here too -->
         <formly-form result="SocialRecord" fields="formFields4" options="formOptions" ng-submit="onSubmit4()"></formly-form>
 
@@ -150,193 +153,114 @@
 
 
     </tab>
-
-    <!-- <tab heading="{{ 'Companies' | translate }}">
-        <button class="btn btn-info fa fa-plus" ng-click="toggleCompany()">Add New Social</button>
-      <div class="row tab-pane "  ng-hide="hideCompany">
-
-        <formly-form result="CompanyRecord" fields="formFields5" options="formOptions" ng-submit="onSubmit5()"></formly-form>
-
-        <div class="controls">
-          <button class="btn btn-primary btn-success" ng-click="onSubmit5()" translate>Add Company Relations</button>
-        </div>
-      </div>
-
-      <table class="table table-hover">
-        <tbody>
-           <tr  ng-repeat="company in profile.companies" class="list-group-item">
-             <td class="text-center">
-               <div class="checkbox margin-t-0">
-                 <input id="checkbox1" type="checkbox">
-                 <label for="checkbox1"></label>
-               </div>
-             </td>
-             <td>{{company.Name}} </td>
-             <td>{{company.URL}}</td>
-             <td> <button class="btn btn-warning"   ng-click="editCompany(company)" >Edit</button> </td>
-           </tr>
-           <tr>
-        </tbody>
-      </table>
-    </tab> -->
-
-
-
   </tabset>
 
-  <br/><br/>
+  <br/>
+  <br/>
 
 
 
 
-      <div class="row">
-
-          <div class="col-md-3">
-
-              <h3>Select files</h3>
-
-              <div ng-show="uploader.isHTML5">
-                  <!-- 3. ng-file-over | ng-file-over="className" -->
-                  <div class="well my-drop-zone" ng-file-over>
-                      Base drop zone
-                  </div>
-
-                  <!-- Example: ng-file-drop | ng-file-drop="options" -->
-                  <div class="well my-drop-zone" ng-file-drop="{ url: '/foo' }"
-                       ng-file-over="another-file-over-class">
-                      Another drop zone with its own settings
-                  </div>
-              </div>
-
-              <!-- 2. ng-file-select | ng-file-select="options" -->
-              Multiple
-              <input ng-file-select type="file" multiple/><br/>
-
-              Single
-              <input ng-file-select type="file"/>
-          </div>
-
-          <div class="col-md-9" style="margin-bottom: 40px">
-
-              <h3>Upload queue</h3>
-
-              <p>Queue length: {{ uploader.queue.length }}</p>
-
-              <table class="table">
-                  <thead>
-                  <tr>
-                      <th width="50%">Name</th>
-                      <th ng-show="uploader.isHTML5">Size</th>
-                      <th ng-show="uploader.isHTML5">Progress</th>
-                      <th>Status</th>
-                      <th>Actions</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr ng-repeat="item in uploader.queue">
-                      <td><strong>{{ item.file.name }}</strong></td>
-                      <td ng-show="uploader.isHTML5" nowrap>{{
-                          item.file.size/1024/1024|number:2 }} MB
-                      </td>
-                      <td ng-show="uploader.isHTML5">
-                          <div class="progress" style="margin-bottom: 0;">
-                              <div class="progress-bar" role="progressbar"
-                                   ng-style="{ 'width': item.progress + '%' }"></div>
-                          </div>
-                      </td>
-                      <td class="text-center">
-                          <span ng-show="item.isSuccess"><i
-                                  class="glyphicon glyphicon-ok"></i></span>
-                          <span ng-show="item.isCancel"><i
-                                  class="glyphicon glyphicon-ban-circle"></i></span>
-                          <span ng-show="item.isError"><i
-                                  class="glyphicon glyphicon-remove"></i></span>
-                      </td>
-                      <td nowrap>
-                          <button type="button" class="btn btn-success btn-xs"
-                                  ng-click="item.upload()"
-                                  ng-disabled="item.isReady || item.isUploading || item.isSuccess">
-                              <span class="glyphicon glyphicon-upload"></span>
-                              Upload
-                          </button>
-                          <button type="button" class="btn btn-warning btn-xs"
-                                  ng-click="item.cancel()"
-                                  ng-disabled="!item.isUploading">
-                              <span class="glyphicon glyphicon-ban-circle"></span>
-                              Cancel
-                          </button>
-                          <button type="button" class="btn btn-danger btn-xs"
-                                  ng-click="item.remove()">
-                              <span class="glyphicon glyphicon-trash"></span>
-                              Remove
-                          </button>
-                      </td>
-                  </tr>
-                  </tbody>
-              </table>
-
-              <div>
-                  <p>
-                      Queue progress:
-
-                  <div class="progress" style="">
-                      <div class="progress-bar" role="progressbar"
-                           ng-style="{ 'width': uploader.progress + '%' }"></div>
-                  </div>
-                  </p>
-                  <button type="button" class="btn btn-success btn-s"
-                          ng-click="uploader.uploadAll()"
-                          ng-disabled="!uploader.getNotUploadedItems().length">
-                      <span class="glyphicon glyphicon-upload"></span> Upload all
-                  </button>
-                  <button type="button" class="btn btn-warning btn-s"
-                          ng-click="uploader.cancelAll()"
-                          ng-disabled="!uploader.isUploading">
-                      <span class="glyphicon glyphicon-ban-circle"></span> Cancel
-                      all
-                  </button>
-                  <button type="button" class="btn btn-danger btn-s"
-                          ng-click="uploader.clearQueue()"
-                          ng-disabled="!uploader.queue.length">
-                      <span class="glyphicon glyphicon-trash"></span> Remove all
-                  </button>
-              </div>
-
-          </div>
-
-          <div class="col-md-9" style="margin-bottom: 40px"
-              data-ng-init="load()">
-
-              <h3>Files in the container</h3>
-
-              <table class="table">
-
-                  <tbody>
-                  <tr ng-repeat="file in files">
-                      <td>
-                          <a href="http://api.vator.co/api/containers/container1/download/{{file.name}}"><strong>{{
-                              file.name }}</strong></a></td>
-                      <td>
-                      <td>
-                          <button type="button" class="btn btn-danger btn-xs"
-                                  ng-click="delete($index, file.name)"
-                                  title="Delete the file">
-                              <span class="glyphicon glyphicon-trash"></span>
-                              Remove
-                          </button>
-
-                      </td>
-                      </button>
-                      </td>
-                  </tr>
-                  </tbody>
-              </table>
-          </div>
-
+  <div class="row">
+    <div class="col-md-3">
+      <h3>Select files</h3>
+      <div ng-show="uploader.isHTML5">
+        <!-- 3. ng-file-over | ng-file-over="className" -->
+        <div class="well my-drop-zone" ng-file-over>
+          Base drop zone
+        </div>
+        <!-- Example: ng-file-drop | ng-file-drop="options" -->
+        <div class="well my-drop-zone" ng-file-drop="{ url: '/foo' }" ng-file-over="another-file-over-class">
+          Another drop zone with its own settings
+        </div>
       </div>
+      <!-- 2. ng-file-select | ng-file-select="options" -->
+      Multiple   <input ng-file-select type="file" multiple/>
+      <br/>
+      Single <input ng-file-select type="file" />
+    </div>
+    <div class="col-md-9" style="margin-bottom: 40px">
+      <h3>Upload queue</h3>
+      <p>Queue length: {{ uploader.queue.length }}</p>
+      <table class="table">
+        <thead>
+          <tr>
+            <th width="50%">Name</th>
+            <th ng-show="uploader.isHTML5">Size</th>
+            <th ng-show="uploader.isHTML5">Progress</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in uploader.queue">
+            <td><strong>{{ item.file.name }}</strong></td>
+            <td ng-show="uploader.isHTML5" nowrap>{{ item.file.size/1024/1024|number:2 }} MB
+            </td>
+            <td ng-show="uploader.isHTML5">
+              <div class="progress" style="margin-bottom: 0;">
+                <div class="progress-bar" role="progressbar" ng-style="{ 'width': item.progress + '%' }"></div>
+              </div>
+            </td>
+            <td class="text-center">
+              <span ng-show="item.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
+              <span ng-show="item.isCancel"><i   class="glyphicon glyphicon-ban-circle"></i></span>
+              <span ng-show="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
+            </td>
+            <td nowrap>
+              <button type="button" class="btn btn-success btn-xs" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
+                <span class="glyphicon glyphicon-upload"></span> Upload
+              </button>
+              <button type="button" class="btn btn-warning btn-xs" ng-click="item.cancel()" ng-disabled="!item.isUploading">
+                <span class="glyphicon glyphicon-ban-circle"></span> Cancel
+              </button>
+              <button type="button" class="btn btn-danger btn-xs" ng-click="item.remove()">
+                <span class="glyphicon glyphicon-trash"></span> Remove
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
 
+      <div>
+        <p>
+          Queue progress:
 
-  ////
+          <div class="progress" style="">
+            <div class="progress-bar" role="progressbar" ng-style="{ 'width': uploader.progress + '%' }"></div>
+          </div>
+        </p>
+        <button type="button" class="btn btn-success btn-s" ng-click="uploader.uploadAll()" ng-disabled="!uploader.getNotUploadedItems().length">
+          <span class="glyphicon glyphicon-upload"></span> Upload all
+        </button>
+        <button type="button" class="btn btn-warning btn-s" ng-click="uploader.cancelAll()" ng-disabled="!uploader.isUploading">
+          <span class="glyphicon glyphicon-ban-circle"></span> Cancel all
+        </button>
+        <button type="button" class="btn btn-danger btn-s" ng-click="uploader.clearQueue()" ng-disabled="!uploader.queue.length">
+          <span class="glyphicon glyphicon-trash"></span> Remove all
+        </button>
+      </div>
+    </div>
+    <div class="col-md-9" style="margin-bottom: 40px" data-ng-init="load()">
+      <h3>Files in the container</h3>
+      <table class="table">
+        <tbody>
+          <tr ng-repeat="file in files">
+            <td>
+              <a href="http://api.vator.co/api/containers/container1/download/{{file.name}}"><strong>{{
+                              file.name }}</strong></a></td>
+            <td>
+              <td>
+                <button type="button" class="btn btn-danger btn-xs" ng-click="delete($index, file.name)" title="Delete the file">
+                  <span class="glyphicon glyphicon-trash"></span> Remove
+                </button>
+              </td>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-
+  </div>
 </div>

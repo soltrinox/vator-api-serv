@@ -862,7 +862,7 @@ $scope.fullMeal = true;
   // create a uploader with options
 var uploader = $scope.uploader = $fileUploader.create({
   scope: $scope,                          // to automatically update the html. Default: $rootScope
-  url: 'http://api.vator.co/api/containers/container1/upload',
+  url: 'http://api.vator.co/api/containers/files/upload',
   formData: [
     { key: 'value' }
   ],
