@@ -866,6 +866,7 @@ $scope.formFields4 = [
         $scope.hideWork = false;
       }
       if($scope.addWorkButton){
+        $scope.addWorkButton = true;
         //$scope.addWorkButton = $scope.addWorkButton === false ? true: false;
       }
     };
