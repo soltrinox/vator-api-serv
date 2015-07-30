@@ -47,39 +47,24 @@
       <div class="row tab-pane">
         <!--  contact for email here ??? -->
         <formly-form result="UserRecord" fields="formFields" id="userForm" options="formOptions" ng-submit="onSubmit()"></formly-form>
-        <!-- <pre>
+        <pre>
           {{ UserRecord | json}}
-        </pre> -->
+        </pre>
+
+        <div>
+          <div>
+            <img src="{{fullprofile.user.CoverPic}}" id="" class="" />
+          </div>
+          <div>
+            <img src="{{fullprofile.user.ProfilePic}}" id="" class="" />
+          </div>
+        </div>
+
         <div class="controls">
           <button class="btn btn-primary btn-success" ng-click="onSubmit()" translate>Update</button>
         </div>
       </div>
 
-      <table class="table table-hover">
-        <tbody>
-          <tr ng-repeat="contact in fullprofile.contact" class="list-group-item">
-            <td class="text-center">
-              <div class="checkbox margin-t-0">
-                <input id="checkbox1" type="checkbox">
-                <label for="checkbox1"></label>
-              </div>
-            </td>
-            <td>{{contact.emailAddress}}</td>
-            <td>
-              <button class="btn btn-warning " ng-click="editEmail(contact)">Edit</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div>
-        <div>
-          <img src="{{fullprofile.user.CoverPic}}" id="" class="" />
-        </div>
-        <div>
-          <img src="{{fullprofile.user.ProfilePic}}" id="" class="" />
-        </div>
-      </div>
 
     </tab>
 
@@ -90,12 +75,12 @@
           <label for="work.title" class="ng-binding"> Search for a company on vator </label>
           <div>
             <div style="width:70%;float:left;">
-              <input type="text" ng-model="$scope.workLookUp" placeholder="Companies loaded via $http" typeahead="item for item in getTeams($viewValue)" id="work-companylookup" typeahead-on-select="onCompanySelect(item, $scope.workLookUp, work.companylookup )" typeahead-loading="loadingCompanies"
+              <input type="text" ng-model="$scope.workLookUp" placeholder="Search for a company" typeahead="item for item in getTeams($viewValue)" id="work-companylookup" typeahead-on-select="onCompanySelect(item, $scope.workLookUp, work.companylookup )" typeahead-loading="loadingCompanies"
               class="form-control work_companylookup_input" ng-change="lookCompany($scope.workLookUp)">
               <i ng-show="loadingCompanies" class="glyphicon glyphicon-refresh"></i>
             </div>
-            <div style="width:30%; float:left">
-              <a href="/#/app/products/add/55a8a1d5d41ad56657952284" class="btn btn-info fa fa-rocket"> &nbsp; Add New Company</a>
+            <div style="width:30%; margin-left:5px; float:left">
+             OR  <a href="/#/app/products/add/55a8a1d5d41ad56657952284" class="btn btn-info fa fa-rocket"> &nbsp; Add New Company</a>
             </div>
           </div>
           <!-- ngIf: options.description -->
@@ -149,18 +134,12 @@
         {{ SocialRecord | json }}
       </pre>
 
-
     </tab>
   </tabset>
 
-  <br/>
-  <br/>
-
-
-
 
   <div class="row">
-    <div class="col-md-3">
+    <div class="">
       <h3>Select files</h3>
       <div ng-show="uploader.isHTML5">
         <!-- 3. ng-file-over | ng-file-over="className" -->
@@ -177,7 +156,7 @@
       <br/>
       Single <input ng-file-select type="file" />
     </div>
-    <div class="col-md-9" style="margin-bottom: 40px">
+    <div class="" style="margin-bottom: 40px">
       <h3>Upload queue</h3>
       <p>Queue length: {{ uploader.queue.length }}</p>
       <table class="table">
@@ -239,13 +218,13 @@
         </button>
       </div>
     </div>
-    <div class="col-md-9" style="margin-bottom: 40px" data-ng-init="load()">
+    <div class="" style="margin-bottom: 40px" data-ng-init="load()">
       <h3>Files in the container</h3>
       <table class="table">
         <tbody>
           <tr ng-repeat="file in files">
             <td>
-              <a href="http://api.vator.co/api/containers/container1/download/{{file.name}}"><strong>{{
+              <a href="http://api.vator.co/api/containers/vatorprofiles/download/{{file.name}}"><strong>{{
                               file.name }}</strong></a></td>
             <td>
               <td>

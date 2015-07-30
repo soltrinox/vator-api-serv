@@ -454,11 +454,11 @@ $scope.formFields4 = [
 //  http://api.vator.co/api/Teams?filter={%20%22where%22%20:%20{%20%22Name%22%20:%20{%22like%22%20:%22Co%22%20}%20}%20}
 
   $scope.getTeams = function(val) {
-    return $http.get('//api.vator.co/api/Teams', {
+    return $http.get('//api.vator.co/api/products', {
       params: {
         filter: {
             where : {
-              Name : {
+              name : {
                 like : val
               }
             }
