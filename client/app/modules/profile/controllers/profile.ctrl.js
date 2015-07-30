@@ -605,9 +605,11 @@ $scope.formFields4 = [
   $scope.getUserRecord = function(UUID){
       console.log('GET ME :'+ UUID );
       // look for the user by their vator auth UUID
+      if($scope.currentUser.pid){
+          UUID = $scope.currentUser.pid
+      }
 
-
-      if(!$scope.profileId|| 0 === $scope.profileId.length){
+      if(UUID.length > 0){
         // go get profile or create new one....
         ProfileService.getProfileByUUID(UUID, function(response){
           console.log('@@@@@@@ = profile response for UUID'  + JSON.stringify(response));
@@ -647,7 +649,7 @@ $scope.formFields4 = [
             $scope.profileId = response.id;
             $scope.currentUser.pid = response.id;
             // fetch the full object and move along
-            $scope.getMe($scope.profileId);
+            $scope.getEntireProfile($scope.currentUser.pid)
           }
         });
       }else {
