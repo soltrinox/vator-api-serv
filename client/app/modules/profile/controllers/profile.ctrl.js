@@ -863,7 +863,8 @@ $scope.formFields4 = [
           console.log( 'FOUND WORK TO EDIT : '+value );
           $scope.WorkRecord = value;
           $scope.workLookUp = value.companyname;
-          angular.element($document[0].querySelector('#work-companylookup')).value(value.companyname);
+          var elem = angular.element($document[0].querySelector('#work-companylookup'));
+          elem.val(value.companyname);
         }
       });
 
