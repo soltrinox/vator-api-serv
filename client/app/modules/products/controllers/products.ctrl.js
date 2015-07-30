@@ -37,9 +37,10 @@ angular.module('com.module.products')
 
           if(product.length === 1){
             $scope.CompanyRecord = product[0];
+            $scope.tags = product[0].tags;
           }
-        
-      //  $scope.tags = product.tags;
+
+
         // add the product tot he category
         // product.category = Product.category({
         //   id: product.id
