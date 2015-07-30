@@ -20,7 +20,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
       profileId:'',
       roundtotal:'',
       valuation:'',
-      isipo:'true',
+      isipo:'',
       id:'',
       transaction:'',
       exitdate:'',
