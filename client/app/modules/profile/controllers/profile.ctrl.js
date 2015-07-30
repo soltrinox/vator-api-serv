@@ -547,7 +547,7 @@ $scope.formFields4 = [
   };
 
   $scope.getMe = function(profileId){
-     if((!$scope.currentUser.pid || $scope.currentUser.pid.length > 0 )  {
+     if(!$scope.currentUser.pid || $scope.currentUser.pid.length > 0 )  {
        $scope.getUserRecord($scope.currentUser.id);
      }
   };
