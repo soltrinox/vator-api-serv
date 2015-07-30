@@ -587,7 +587,7 @@ $scope.formFields4 = [
           // with the correct assignment and getting the full object
           if(!response.id || 0 === response.id.length){
             console.log('USER.RECORD : '+ JSON.stringify($scope.UserRecord) );
-            $scope.UserRecord.Name = $scope.currentUser.username ;
+            $scope.UserRecord.Name = $scope.currentUser.name ;
             $scope.UserRecord.UUID = $scope.currentUser.id;
             // if the user is new and no PROFILE record exists
             // we need to delete the empty ID in order to create
@@ -609,15 +609,12 @@ $scope.formFields4 = [
                 $scope.currentUser.pid = response.id;
                 $scope.getEntireProfile($scope.currentUser.pid)
               }
-
             });
-
-
           }else{
             // lets set our scope id references here
-            $scope.fullprofile = response;
-            $scope.fullprofile.user = response;
-            $scope.currentUser.pid = response.id;
+            $scope.profile = response;
+            $scope.profile.user = response;
+            $scope.profile.id = response.id;
             $scope.currentUser.pid = response.id;
             // fetch the full object and move along
             $scope.getEntireProfile($scope.currentUser.pid);
