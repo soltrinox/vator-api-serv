@@ -11,7 +11,7 @@ angular.module('com.module.products')
     return null;
   };
 }).controller('ProductsCtrl', function($scope, $location, $route, $routeParams,
-   $document, $filter, $state, $stateParams, $http, 
+   $document, $filter, $state, $stateParams, $http,
     CoreService, ProfileService, gettextCatalog, Product, Category) {
 
     var productId = $stateParams.id;
@@ -34,7 +34,11 @@ angular.module('com.module.products')
       // lest go get the product now
       $scope.product = Product.find(
         {filter : { where : { id : productId}  }  }, function(product) {
-        $scope.CompanyRecord = product;
+
+          if(product.length === 1){
+            $scope.CompanyRecord = product[0];
+          }
+        
       //  $scope.tags = product.tags;
         // add the product tot he category
         // product.category = Product.category({
