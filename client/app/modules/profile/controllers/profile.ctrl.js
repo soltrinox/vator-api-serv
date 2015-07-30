@@ -547,10 +547,8 @@ $scope.formFields4 = [
   };
 
   $scope.getMe = function(profileId){
-
-     if((!profileId || 0 === profileId.length) || $scope.currentUser.pid.length > 0 )  {
-        profileId = $scope.currentUser.pid;
-       $scope.getEntireProfile(theId);
+     if((!$scope.currentUser.pid || $scope.currentUser.pid.length > 0 )  {
+       $scope.getUserRecord($scope.currentUser.id);
      }
   };
 
@@ -600,14 +598,7 @@ $scope.formFields4 = [
             ProfileService.upsertProfile($scope.UserRecord, function(response) {
               console.log('UPSERT RESPONSE'  + JSON.stringify(response));
                ;
-              // write to global current user object
-              // if(!response.id || 0 === response.id.length){
-              //   CoreService.toastSuccess(gettextCatalog.getString(
-              //     'CRAZY missing profile '), gettextCatalog.getString(
-              //     'Error please relogin ') + err);
-              //     console.log('MISSING PROFILE FOR CURRENT USER  $scope.currentUser -> LOG IN AGAIN' );
-              //     $location.path('/login');
-              // }
+
               if(!$scope.fullprofile.user.id || 0 === $scope.fullprofile.user.id.length){
                 $scope.getEntireProfile($scope.currentUser.pid);
               }
@@ -626,20 +617,17 @@ $scope.formFields4 = [
 
 
   $scope.upsertUserRecord = function( UserRecord){
-    if (((!$scope.UserRecord.id) || (0 === $scope.UserRecord.id.length)) ||
-    ((!$scope.UserRecord.UUID) || (0 === $scope.UserRecord.UUID.length))) {
-      // MISSING USER REF OBJECTS
-      $scope.onSubmit();
-    }else {
+    if ((!$scope.UserRecord.UUID) || (0 === $scope.UserRecord.UUID.length)) {
+      $scope.UserRecord.UUID =   $scope.currentUser.id;
+    }
+    if((!$scope.profile) || (!$scope.fullprofile)){
       ProfileService.upsertProfile($scope.UserRecord, function(response) {
       console.log('SUCCESS: UPSERT RESPONSE W/ UUID\n'  + JSON.stringify(response));
-
+          $scope.profile = response;
           $scope.currentUser.pid = response.id;
-          $scope.getMe($scope.currentUser.pid);
+          $scope.getEntireProfile = function($scope.currentUser.pid );
       });
     }
-
-
   };
 
   $scope.onSubmit = function() {
@@ -840,7 +828,7 @@ $scope.formFields4 = [
 $scope.fullMeal = true;
   $scope.$on('$viewContentLoaded', function(){
 
-        if(!$scope.fullprofile ||   0 === $scope.fullprofile.length){
+        if((!$scope.fullprofile ||   0 === $scope.fullprofile.length) && ($scope.fullMeal)){
             console.log('NO CURRENT PROFILE');
             if((!$scope.fullprofile || 0 === $scope.fullprofile.length ) && !$scope.currentUser.pid ){
               console.log('NO PROFILE ID EITHER');
