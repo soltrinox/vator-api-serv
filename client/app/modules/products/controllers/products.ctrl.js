@@ -28,7 +28,7 @@ angular.module('com.module.products')
         // handle in case of valid response
       }, function(product) {
         $scope.CompanyRecord = product;
-        $scope.tags = product.tags;
+      //  $scope.tags = product.tags;
         // add the product tot he category
         product.category = Product.category({
           id: product.id
@@ -92,7 +92,7 @@ angular.module('com.module.products')
       pitch : '',
       website : '',
       founded : '',
-      tags : [{id:'55a8a1d5d41ad56657952284'}]
+      tags : []
     };
 
     $scope.formFields = [{
@@ -198,7 +198,7 @@ angular.module('com.module.products')
           CoreService.toastSuccess(gettextCatalog.getString(
             'Company saved'), gettextCatalog.getString(
             'Your comapny record is safe with us!'));
-              $location.path('/app/myprofile');
+              //$location.path('/app/myprofile');
         }, function(err) {
           console.log(err);
         });
@@ -264,7 +264,7 @@ $scope.modd = {};
     *   =====================================
      */
      $scope.loadCats = function(val) {
-       return $http.get('//api.vator.co/api/Categories', {
+       return $http.get('//api.vator.co/api/categories', {
          params: {
            filter: {
                where : {
