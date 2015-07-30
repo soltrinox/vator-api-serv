@@ -6,7 +6,7 @@
 {{ $scope.debugOut | json }}
 </pre> -->
 
-<div class="panel panel-default" ng-repeat="category in categories">
+<div class="panel panel-default" ng-repeat="category in categories | filter:{categoryId:'55ba9286966a114937493efe'} ">
     <div class="panel-heading">
         <div class="pull-right">
             <a href="" class="btn btn-default btn-xs" ui-sref="^.add({ categoryId: category.id })"
