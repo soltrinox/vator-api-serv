@@ -579,6 +579,8 @@ $scope.formFields4 = [
       }else if(!UUID || 0 === UUID.length){
         UUID = $scope.currentUser.pid;
       }
+
+
         // go get profile or create new one....
         ProfileService.getProfileByUUID($scope.currentUser.id, function(response){
           console.log('@@@@@@@ = profile response for UUID'  + JSON.stringify(response));
@@ -599,25 +601,25 @@ $scope.formFields4 = [
               console.log('UPSERT RESPONSE'  + JSON.stringify(response));
                ;
               // write to global current user object
-              if(!response.id || 0 === response.id.length){
-                CoreService.toastSuccess(gettextCatalog.getString(
-                  'CRAZY missing profile '), gettextCatalog.getString(
-                  'Error please relogin ') + err);
-                  console.log('MISSING PROFILE FOR CURRENT USER  $scope.currentUser -> LOG IN AGAIN' );
-                  $location.path('/login');
-              }else{
-                $scope.currentUser.pid = response.id;
-                $scope.getEntireProfile($scope.currentUser.pid)
+              // if(!response.id || 0 === response.id.length){
+              //   CoreService.toastSuccess(gettextCatalog.getString(
+              //     'CRAZY missing profile '), gettextCatalog.getString(
+              //     'Error please relogin ') + err);
+              //     console.log('MISSING PROFILE FOR CURRENT USER  $scope.currentUser -> LOG IN AGAIN' );
+              //     $location.path('/login');
+              // }
+              if(!$scope.fullprofile.user.id || 0 === $scope.fullprofile.user.id.length){
+                $scope.getEntireProfile($scope.currentUser.pid);
               }
             });
           }else{
             // lets set our scope id references here
             $scope.profile = response;
-            $scope.profile.user = response;
-            $scope.profile.id = response.id;
             $scope.currentUser.pid = response.id;
             // fetch the full object and move along
-            $scope.getEntireProfile($scope.currentUser.pid);
+            if(!$scope.fullprofile.user.id || 0 === $scope.fullprofile.user.id.length){
+              $scope.getEntireProfile($scope.currentUser.pid);
+            }
           }
         });
       };
