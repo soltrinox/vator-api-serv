@@ -92,7 +92,7 @@ angular.module('com.module.products')
       pitch : '',
       website : '',
       founded : '',
-      tags : [{id:'55a8a1d5d41ad56657952284'}]
+      tags : []
     };
 
     $scope.formFields = [{
