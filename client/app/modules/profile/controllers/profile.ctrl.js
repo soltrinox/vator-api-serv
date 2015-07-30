@@ -63,7 +63,10 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
         $scope.portfolio = pro.companies ;  // ---------
         $scope.medias = pro.medias ;        // ---------
         $scope.workhistory = pro.work ;     // ---------
-        $scope.socials = pro.social ;        // ---------
+        if(pro.social.length > 0){
+          $scope.SocialRecord = pro.social[0] ;        // ---------
+          $scope.socials.push($scope.SocialRecord);
+        }
         $scope.credentials = pro.creds ;    // ---------
         $scope.contacts = pro.contact ;      // ---------
         console.log('SLICED ENTIRE PROFILE PID:'+ $scope.currentUser.pid );
