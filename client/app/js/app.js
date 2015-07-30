@@ -20,6 +20,7 @@ angular.module('loopbackApp', [
     'monospaced.elastic',
     'angularFileUpload',
     'ngAnimate',
+    'ngS3upload',
     'ngCookies',
     'ngResource',
     'ngRoute',
@@ -79,7 +80,7 @@ angular.module('loopbackApp', [
         country: 'FR',
         name: gettextCatalog.getString('Français')
       }
-    }
+    };
 
     var lang = $cookies.lang || navigator.language || navigator.userLanguage;
 

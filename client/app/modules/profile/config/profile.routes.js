@@ -1,7 +1,9 @@
 'use strict';
 var app = angular.module('com.module.profile');
 
-app.config(function($stateProvider) {
+app.config(function(ngS3Config) {
+  ngS3Config.theme = 'bootstrap3';
+}).config(function($stateProvider) {
   $stateProvider.state('app.myprofile', {
     abstract: true,
     url: '/myprofile',
