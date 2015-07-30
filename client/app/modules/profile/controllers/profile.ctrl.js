@@ -551,7 +551,7 @@ $scope.formFields4 = [
   $scope.cancelWork = function(id) {
      $scope.hideWork = false; //$scope.hideWork === false ? true: false;
      $scope.addWorkButton = true; //= $scope.addWorkButton === false ? true: false;
-
+     id = null;
      $scope.WorkRecord = {
        companyname: '',
        jobtitle : '',
@@ -852,16 +852,13 @@ $scope.formFields4 = [
 
 
     $scope.editWork = function(wid){
-  console.log('WID: '+wid );
-      for(var workhistory in $scope.fullprofile.work){
-
-      }
 
       angular.forEach($scope.fullprofile.work, function(value, key) {
-        console.log( value.id );
+        console.log( key+': ' + value.id +' = '+wid);
         if(value.id === wid){
           console.log( 'FOUND WORK TO EDIT : '+value );
           $scope.WorkRecord = value;
+          $scope.workLookUp = value.companyname;
         }
       });
 
