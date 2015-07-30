@@ -17,7 +17,17 @@ angular.module('com.module.products')
     var productId = $stateParams.id;
     var categoryId = $stateParams.categoryId;
 
-
+     $scope.loadItems = function() {
+      $scope.categories = [];
+      Category.find(function(categories) {
+        angular.forEach(categories, function(category) {
+          category.products = Category.products({
+            id: category.id
+          });
+          this.push(category);
+        }, $scope.categories);
+      });
+    };
 
     // is product ID present
     if (productId) {
@@ -39,25 +49,16 @@ angular.module('com.module.products')
       });
     } else {
       $scope.product = {};
+      $scope.loadItems();
     }
 
     if (categoryId) {
       $scope.product.categoryId = categoryId;
     }
 
-    function loadItems() {
-      $scope.categories = [];
-      Category.find(function(categories) {
-        angular.forEach(categories, function(category) {
-          category.products = Category.products({
-            id: category.id
-          });
-          this.push(category);
-        }, $scope.categories);
-      });
-    }
 
-    loadItems();
+
+
 
     $scope.delete = function(id) {
       CoreService.confirm(gettextCatalog.getString('Are you sure?'),
@@ -67,7 +68,7 @@ angular.module('com.module.products')
             CoreService.toastSuccess(gettextCatalog.getString(
               'Product deleted'), gettextCatalog.getString(
               'Your product is deleted!'));
-            loadItems();
+            $scope.loadItems();
             $state.go('app.products.list');
           }, function(err) {
             CoreService.toastError(gettextCatalog.getString(
