@@ -1,7 +1,8 @@
 'use strict';
 var app = angular.module('com.module.profile');
 
-app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $routeParams, $fileUploader, $stateParams,  $document,
+ // $fileUploader,   /// commented in index.html
+app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $routeParams,$stateParams,  $document,
   ProfileService, gettextCatalog, $http) {
 
     $scope.UserRecord = {
