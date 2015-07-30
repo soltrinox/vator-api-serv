@@ -20,7 +20,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
       profileId:'',
       roundtotal:'',
       valuation:'',
-      isipo:'no',
+      isipo:'true',
       id:'',
       transaction:'',
       exitdate:'',
@@ -140,6 +140,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
       $scope.$watchCollection('InvestRecord', function(newValue, oldValue){
         console.log('WORK old value\n'+JSON.stringify(oldValue));
       console.log('WORK new value \n'+JSON.stringify(newValue));
+      console.log('RADIO IS IPO :' + $scope.WorkRecord.isipo);
         // var xnx = $scope.WorkRecord.isipo;
         if($scope.WorkRecord.isipo === 'true' ){
           console.log('RADIO IS IPO :' + $scope.WorkRecord.isipo);
@@ -325,18 +326,18 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
               type: 'radio',
               id : 'invest-isipo',
               uniqueFormId : 'invest-isipo-box',
-              default: 'false',
               disabled: false,
+              default: 'false',
               label: 'Aquired / IPO',
               required: false,
               options: [
               {
                   name: 'Yes',
-                  value: 'false'
+                  value: 'true'
               },
               {
                   name: 'No',
-                  value: 'true'
+                  value: 'false'
               }]
             },
             {
