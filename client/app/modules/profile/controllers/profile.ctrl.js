@@ -141,14 +141,14 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
         console.log('WORK old value\n'+JSON.stringify(oldValue));
       console.log('WORK new value \n'+JSON.stringify(newValue));
         // var xnx = $scope.WorkRecord.isipo;
-        if($scope.WorkRecord.isipo === 'yes' ){
+        if($scope.WorkRecord.isipo === 'true' ){
           console.log('RADIO IS IPO :' + $scope.WorkRecord.isipo);
             angular.element($document[0].querySelector('.invest-transaction_text')).css('display', 'block');
             angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', 'block');
             angular.element($document[0].querySelector('.invest-amount2_text')).css('display', 'block');
             angular.element($document[0].querySelector('.invest-aquirer_text')).css('display', 'block');
             angular.element($document[0].querySelector('.invest-press_text')).css('display', 'block');
-        }else if($scope.WorkRecord.isipo === 'no'){
+        }else if($scope.WorkRecord.isipo === 'false'){
           console.log('RADIO IS IPO :' + $scope.WorkRecord.isipo);
             angular.element($document[0].querySelector('.invest-transaction_text')).css('display', 'none');
             angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', 'none');
