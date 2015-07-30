@@ -494,11 +494,11 @@ $scope.formFields4 = [
         }
       }
     }).then(function(response){
-      // console.log('Company : ' + JSON.stringify(response));
+      console.log('Company : ' + JSON.stringify(response));
       return response.data.map(function(item){
         //console.log('ITEM : ' + JSON.stringify(item) );
         //console.log('ITEM.NAME : ' + JSON.stringify(item.Name) );
-        return item.Name;
+        return item.name;
       });
     });
   };
