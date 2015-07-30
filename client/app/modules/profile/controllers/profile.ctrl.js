@@ -138,25 +138,28 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
       $scope.hideTitle = true;
 
       $scope.$watchCollection('InvestRecord', function(newValue, oldValue){
-        console.log(JSON.stringify(newValue+':\n'+oldValue));
+        console.log('WORK old value\n'+JSON.stringify(oldValue));
+      console.log('WORK new value \n'+JSON.stringify(newValue));
         var xnx = $scope.WorkRecord.isipo;
-        if(xnx ){
+        if(xnx === 'yes' ){
             angular.element($document[0].querySelector('.invest-transaction_text')).css('display', 'block');
             angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', 'block');
             angular.element($document[0].querySelector('.invest-amount2_text')).css('display', 'block');
             angular.element($document[0].querySelector('.invest-aquirer_text')).css('display', 'block');
             angular.element($document[0].querySelector('.invest-press_text')).css('display', 'block');
         }else{
-            angular.element($document[0].querySelector('.invest-transaction_text')).css('display', 'block');
-            angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', 'block');
-            angular.element($document[0].querySelector('.invest-amount2_text')).css('display', 'block');
-            angular.element($document[0].querySelector('.invest-aquirer_text')).css('display', 'block');
-            angular.element($document[0].querySelector('.invest-press_text')).css('display', 'block');
+            angular.element($document[0].querySelector('.invest-transaction_text')).css('display', 'none');
+            angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', 'none');
+            angular.element($document[0].querySelector('.invest-amount2_text')).css('display', 'none');
+            angular.element($document[0].querySelector('.invest-aquirer_text')).css('display', 'none');
+            angular.element($document[0].querySelector('.invest-press_text')).css('display', 'none');
         }
       });
 
       $scope.$watchCollection('WorkRecord', function(newValue, oldValue){
-        console.log(JSON.stringify(newValue+':\n'+oldValue));
+          console.log('WORK old value\n'+JSON.stringify(oldValue));
+        console.log('WORK new value \n'+JSON.stringify(newValue));
+
         var xnx = $scope.WorkRecord.Type;
         if(xnx === '003'){
           angular.element($document[0].querySelector('.work-datestart_date')).css('display', 'none');
@@ -864,6 +867,13 @@ $scope.fullMeal = true;
       angular.element($document[0].querySelector('.work-title_text')).css('display', 'none');
       angular.element($document[0].querySelector('.work-achievement_text')).css('display', 'none');
       angular.element($document[0].querySelector('.investorForm')).css('display', 'none');
+
+      angular.element($document[0].querySelector('.invest-transaction_text')).css('display', 'none');
+      angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', 'none');
+      angular.element($document[0].querySelector('.invest-amount2_text')).css('display', 'none');
+      angular.element($document[0].querySelector('.invest-aquirer_text')).css('display', 'none');
+      angular.element($document[0].querySelector('.invest-press_text')).css('display', 'none');
+      
   });
 
   //  @@@@@@@@@@@@@@@@@@@@@@@@@@@@ need uploading
