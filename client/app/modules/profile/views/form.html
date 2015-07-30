@@ -149,7 +149,7 @@
 
       <table class="table table-hover">
         <tbody>
-          <tr ng-repeat="work in fullprofile.work" class="list-group-item">
+          <tr ng-repeat="work in fullprofile.work | filter:{id:'!!'}" class="list-group-item">
             <td>{{work.companyname}}</td>
             <td>{{work.jobtitle}}</td>
             <td>{{work.Type}}</td>
