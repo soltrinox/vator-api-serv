@@ -25,7 +25,7 @@
         <tbody>
         <tr ng-repeat="item in category.products">
             <th>
-                <a href="" ui-sref="^.view({id: item.id})">{{item.name}}</a>
+                <a href="" ui-sref="^.edit({id: item.id})">{{item.name}}</a>
                 <small>{{item.description}}</small>
                 <div class="pull-right">
                     <span class="label label-default">{{item.price}}</span>
