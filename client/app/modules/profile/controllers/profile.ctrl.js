@@ -819,7 +819,6 @@ $scope.formFields4 = [
 
 // ==============  GRAB PROFILES ON LOAD ====================
 
-$scope.firstTime = 0;
 
   // setTimeout(function () {
   //     $scope.$apply(function() {
@@ -832,7 +831,7 @@ $scope.firstTime = 0;
   //             $scope.getEntireProfile($scope.currentUser.pid);
   //           }
   //
-  //           $scope.firstTime = 1;
+  //           $scope.fullMeal = 1;
   //       }
   //
   //
@@ -840,7 +839,7 @@ $scope.firstTime = 0;
   // }, 100);
 
 
-$scope.firstTime = true;
+$scope.fullMeal = true;
   $scope.$on('$viewContentLoaded', function(){
 
         if(!$scope.fullprofile ||   0 === $scope.fullprofile.length){
@@ -848,15 +847,16 @@ $scope.firstTime = true;
             if((!$scope.fullprofile || 0 === $scope.fullprofile.length ) && !$scope.currentUser.pid ){
               console.log('NO PROFILE ID EITHER');
               $scope.getUserRecord($scope.currentUser.id);
-              $scope.firstTime = false;
             }else{
               $scope.getEntireProfile($scope.currentUser.pid);
-              $scope.firstTime = false;
+              $scope.fullMeal = false;
             }
         }else{
-          if($scope.firstTime){
+          if($scope.fullMeal){
             $scope.getEntireProfile($scope.currentUser.pid);
-            $scope.firstTime = false;
+            $scope.fullMeal = false;
+          }else{
+            console.log('GOT getEntireProfile');
           }
         }
 
