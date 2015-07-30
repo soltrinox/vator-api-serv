@@ -558,31 +558,10 @@ $scope.formFields4 = [
 
   $scope.getMe = function(profileId){
 
-     if((!profileId || 0 === $profileId.length){
-       var theId = profileId;
+     if((!profileId || 0 === profileId.length) || $scope.currentUser.pid.length > 0 )  {
+        profileId = $scope.currentUser.pid;
        $scope.getEntireProfile(theId);
-     }else{
-
      }
-
-
-      // if((!$scope.profileId || 0 === $scope.profileId.length) && (!$scope.profileId || 0 === $scope.profileId.length)){
-      //     $scope.getUserRecord($scope.currentUser.id);
-      // }else if((!$scope.currentUser.pid || 0 === $scope.currentUser.pid.length) && ($scope.profileId || 0 < $scope.profileId.length)){
-      //   console.log('SET ID');
-      //   theId = profileId;
-      //   $scope.getEntireProfile($scope.currentUser.pid);
-      // }else if(($scope.currentUser.pid || 0 < $scope.currentUser.pid.length) && (!$scope.profileId || 0 === $scope.profileId.length)){
-      //   console.log('SET ID');
-      //   theId = $scope.currentUser.pid;
-      //   $scope.getEntireProfile(theId);
-      // }else if((!$scope.profileId || 0 === $scope.profileId.length)
-      // && (!$scope.profileId || 0 === $scope.profileId.length)
-      // && ($scope.currentUser.pid || 0 < $scope.currentUser.pid.length)){
-      //   console.log('SET ID');
-      //   theId = $scope.currentUser.pid;
-      //   $scope.getEntireProfile(theId);
-      // }
   };
 
   $scope.getEntireProfile = function(thepId){
@@ -597,8 +576,8 @@ $scope.formFields4 = [
         $scope.UserRecord.ProfilePic = response.profile.user.ProfilePic;
         $scope.UserRecord.CoverPic = response.profile.user.CoverPic;
         $scope.UserRecord.id = response.profile.user.id;
+        $scope.currentUser.pid = response.profile.user.id;
         $scope.sliceProfile(response.profile);
-
     });
   }
 
