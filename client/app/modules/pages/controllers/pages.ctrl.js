@@ -8,8 +8,11 @@ angular.module('com.module.pages')
     var pageId = $stateParams.id;
 
     if (pageId) {
-      $scope.page = Page.findById({
-        id: pageId
+      $scope.page = Page.find({ fileter : {
+          where: {
+            id : pageId
+          }
+        }
       }, function() {}, function(err) {
         console.log(err);
       });

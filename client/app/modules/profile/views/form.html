@@ -71,13 +71,8 @@
       <div class="row tab-pane">
         <!--  contact for email here ??? -->
         <formly-form result="UserRecord" fields="formFields" id="userForm" options="formOptions" ng-submit="onSubmit()"></formly-form>
-
-
-
-
         <pre>
           {{ UserRecord | json}}
-
           {{InvestorRecord | json}}
         </pre>
 
@@ -94,14 +89,13 @@
           <button class="btn btn-primary btn-success" ng-click="onSubmit()" translate>Update</button>
         </div>
       </div>
-
-
     </tab>
 
     <tab heading="{{ 'Experience' | translate }}">
       <div class="marginizeme" ng-hide="addWorkButton"  >
         <button class="btn btn-info fa fa-plus" ng-click="toggleWork()">Add Experience</button>
       </div>
+
       <div class="row tab-pane" ng-hide="hideWork" mychildren>
         <div class="form-group vator_form_box work-companylookup-box" ng-class="{'has-error': options.formField.$invalid}">
           <label for="work.title" class="ng-binding"> Search for a company on vator </label>
@@ -146,20 +140,23 @@
           <button class="btn btn-primary btn-success" ng-click="onSubmit3()" translate>Submit </button>
         </div>
       </div>
-
-      <table class="table table-hover">
-        <tbody>
-          <tr ng-repeat="work in fullprofile.work | filter:{id:'!!'}" class="list-group-item">
-            <td>{{work.companyname}}</td>
-            <td>{{work.jobtitle}}</td>
-            <td>{{work.Type}}</td>
-            <td>{{work.datestart | limitTo: 10 }} to {{work.dateend  | limitTo: 10 }}</td>
-            <td>
-              <button class="btn btn-warning" ng-click="editWork('{{work.id}}')">Edit</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="row">
+        <table class="table table-hover">
+          <tbody>
+            <tr ng-repeat="work in fullprofile.work | filter:{id:'!!'}" class="list-group-item">
+              <td width="20%"><div class="">{{work.companyname}}</div></td>
+              <td width="20%"><div class="">{{work.jobtitle}}</div></td>
+              <td width="20%"><div class="">{{work.Type}}</div></td>
+              <td width="20%"><div class="">{{work.datestart | limitTo: 10 }} to {{work.dateend  | limitTo: 10 }}</div></td>
+              <td width="10%"><div class="">
+                <button class="btn btn-warning" ng-click="editWork('{{work.id}}')">Edit</button>
+                <button class="btn btn-warning" ng-click="deleteWork('{{work.id}}')">Edit</button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </tab>
     <tab heading="{{ 'Profiles' | translate }}">
       <!-- <button class="btn btn-info fa fa-plus" ng-click="toggleSocial()">Add New Social</button> -->
