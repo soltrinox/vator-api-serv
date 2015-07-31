@@ -202,7 +202,7 @@ function($state, CoreService, Profile, User, Education, Social, WorkHistory, Tea
       function() {
         WorkHistory.deleteById(id, function() {
           CoreService.toastSuccess(gettextCatalog.getString(
-            'Creds deleted'), gettextCatalog.getString(
+            'Work deleted'), gettextCatalog.getString(
             'Your work history is deleted!'));
           cb();
         }, function(err) {
@@ -234,7 +234,7 @@ this.getCompanyMembers = function (comp){
 
   return Team.members({id: '55b1a2f141ed6e575486928e'});
 
-}
+};
 
 this.upsertCompany = function(company, cb) {
 

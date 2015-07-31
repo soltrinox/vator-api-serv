@@ -747,7 +747,7 @@ $scope.formFields4 = [
 
 // ==============  WORKHISTORY ====================
 
-  $scope.delete3 = function(id) {
+  $scope.deleteWork = function(id) {
     ProfileService.deleteWorkHistory(id, function() {
       $scope.msg = ProfileService.deleteWorkHistory($scope.currentUser.pid, function(){
 
