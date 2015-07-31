@@ -4,7 +4,7 @@
 
     <label class="vator-radio-label">
 			<input type="radio"
-					ng-change="isIpoChanged(options.value)"
+					ng-change="isIpoChanged({{options.value}})"
 					class="form-control  {{options.id}}_input_isipo"
           name="isipo"
           formly-custom-validation="options.validators"
@@ -12,7 +12,7 @@
 				  aria-describedby="{{options.id}}_description"
 				  ng-value="options.value"
 				  ng-required="options.required"
-				  ng-model="InvestorRecord.isipo">
+				  ng-model="$scope.isipo">
 			<span class="vator_input_isipo_value">{{option.name}}</span>
 		</label>
    <p id="{{options.id}}_description " class="help-block " ng-if="option.description ">{{option.description}}</p>

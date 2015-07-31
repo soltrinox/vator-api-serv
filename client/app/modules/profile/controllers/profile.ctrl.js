@@ -668,6 +668,7 @@ $scope.$watchCollection('InvestorRecord', function(newValue, oldValue){
   }
 });
 
+$scope.isipo = false;
 
 $scope.isIpoChanged = function(value){
   console.log('ISIPO ng-change = ' + value);
