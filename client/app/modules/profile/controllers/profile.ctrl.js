@@ -21,7 +21,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
     $scope.workLookUp = '';
     $scope.hideWork = true;
     $scope.addWorkButton = false;
-
+    $scope.editingInvestorRecord = false;
 
     $scope.CompanyRecord = {
       Name: '',
@@ -392,6 +392,38 @@ $scope.teamFields = [
     }
   };
 
+
+  $scope.$watchCollection('InvestorRecord', function(newValue, oldValue){
+      $scope.prettyPrint('INVEST old value\n',oldValue);
+      $scope.prettyPrint('INVEST new value \n',newValue);
+
+    var xnx = $scope.WorkRecord.Type;
+      if(xnx === '003'){
+
+      }
+      angular.element($document[0].querySelector('.investorForm')).css('display', 'block');
+      angular.element($document[0].querySelector('.work-datestart_date')).css('display', 'none');
+      angular.element($document[0].querySelector('.work-dateend_date')).css('display', 'none');
+      angular.element($document[0].querySelector('.work-title_text')).css('display', 'none');
+      angular.element($document[0].querySelector('.work-achievement_text')).css('display', 'none');
+
+    if($scope.InvestorRecord.isipo === 'true'){
+      angular.element($document[0].querySelector('.invest-transaction_text')).css('display', 'block');
+      angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', 'block');
+      angular.element($document[0].querySelector('.invest-amount2_text')).css('display', 'block');
+      angular.element($document[0].querySelector('.invest-aquirer_text')).css('display', 'block');
+      angular.element($document[0].querySelector('.invest-press_text')).css('display', 'block');
+    }else{
+      angular.element($document[0].querySelector('.invest-transaction_text')).css('display', 'none');
+      angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', 'none');
+      angular.element($document[0].querySelector('.invest-amount2_text')).css('display', 'none');
+      angular.element($document[0].querySelector('.invest-aquirer_text')).css('display', 'none');
+      angular.element($document[0].querySelector('.invest-press_text')).css('display', 'none');
+    }
+
+
+  });
+
 $scope.$watchCollection('WorkRecord', function(newValue, oldValue){
     $scope.prettyPrint('WORK old value\n',oldValue);
     $scope.prettyPrint('WORK new value \n',newValue);
@@ -642,20 +674,6 @@ $scope.$watchCollection('WorkRecord', function(newValue, oldValue){
 
 // ==============  INVESTMENT ====================
 
-$scope.InvestorRecord = {
-  amount:'',
-  date:'',
-  profileId:'',
-  roundtotal:'',
-  valuation:'',
-  isipo:'',
-  id:'',
-  transaction:'',
-  exitdate:'',
-  amount2:'',
-  aquirer:'',
-  press:''
-};
 
 
 $scope.deleteInvestment = function(id) {
