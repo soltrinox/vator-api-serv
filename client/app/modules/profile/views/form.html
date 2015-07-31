@@ -71,7 +71,7 @@
 
       <div class="row tab-pane">
         <!--  contact for email here ??? -->
-        <formly-form result="UserRecord" fields="formFields" id="userForm" options="formOptions" ng-submit="onSubmit()"></formly-form>
+        <formly-form result="UserRecord" fields="formFields" id="userForm" options="formOptions" ng-submit="onSubmitProfile()"></formly-form>
         <pre>
           {{ UserRecord | json}}
           {{InvestorRecord | json}}
@@ -87,7 +87,7 @@
         </div>
 
         <div class="controls tabsubmit">
-          <button class="btn btn-primary btn-success" ng-click="onSubmit()" translate>Update</button>
+          <button class="btn btn-primary btn-success" ng-click="onSubmitProfile()" translate>Update</button>
         </div>
       </div>
     </tab>
@@ -121,13 +121,13 @@
         </div>
 
         <div id="workForm" class="workForm" style="display:block">
-        <formly-form result="WorkRecord" fields="formFields3" options="formOptions"
-                ng-submit="onSubmit3()"></formly-form>
+        <formly-form result="WorkRecord" fields="workFields" options="formOptions"
+                ng-submit="onSubmitWorkRecord()"></formly-form>
         </div>
 
         <div id="investorForm" class="investorForm" style="display:none">
           <formly-form result="InvestRecord" fields="investFields" id="investForm"
-              options="formOptions" ng-submit="onSubmit3()"></formly-form>
+              options="formOptions" ng-submit="onSubmitWorkRecord()"></formly-form>
         </div>
         <pre>
           {{InvestorRecord | json}}
@@ -135,7 +135,7 @@
         </pre>
         <div class="controls tabsubmit" >
           <button class="btn btn-primary btn-warning" ng-click="cancelWork()" translate>Cancel </button> &nbsp; &nbsp;
-          <button class="btn btn-primary btn-success" ng-click="onSubmit3()" translate>Submit </button>
+          <button class="btn btn-primary btn-success" ng-click="onSubmitWorkRecord()" translate>Submit </button>
         </div>
       </div>
       <div class="row">
@@ -160,7 +160,7 @@
       <!-- <button class="btn btn-info fa fa-plus" ng-click="toggleSocial()">Add New Social</button> -->
       <div class="row tab-pane ">
         <!--  contact for email here too -->
-        <formly-form result="SocialRecord" fields="formFields4" options="formOptions" ng-submit="onSubmit4()"></formly-form>
+        <formly-form result="SocialRecord" fields="socialFields" options="formOptions" ng-submit="onSubmit4()"></formly-form>
 
         <div class="controls tabsubmit" >
           <button class="btn btn-primary btn-success" ng-click="onSubmit4()" translate>Update Social Accounts</button>
