@@ -699,9 +699,7 @@ $scope.editInvestments = function(iid){
       $scope.workLookUp = value.companyname;
       var elem = angular.element($document[0].querySelector('#work-companylookup'));
       elem.val(value.companyname);
-      if(!value.Type || 0 === value.Type.length){
-        $scope.workLookUp.Type = '003';
-      }
+      $scope.WorkRecord.Type = '003';
     }
   });
 
@@ -750,7 +748,7 @@ $scope.onSubmitWorkRecord = function() {
 
 $scope.editWork = function(wid){
 
-  angular.forEach($scope.fullprofile.work, function(value, key) {
+  angular.forEach($scope.fullprofile.inves, function(value, key) {
     console.log( key+': ' + value.id +' = '+wid);
     if(value.id === wid){
       //  TODO : got to get the whole object
@@ -856,7 +854,6 @@ $scope.toggleWork = function(id) {
     }
     ProfileService.upsertSocial($scope.SocialRecord, function() {
       ProfileService.getProfile($scope.currentUser.pid, function(response){
-
       });
     });
 
