@@ -639,26 +639,25 @@ $scope.teamFields = [
 // ==============  INVESTMENT ====================
 
 $scope.$watchCollection('InvestorRecord', function(newValue, oldValue){
-    $scope.prettyPrint('INVEST old value\n',oldValue);
-    $scope.prettyPrint('INVEST new value \n',newValue);
+    $scope.prettyPrint('!!! WATCH INVEST  OLD!!!!\n',oldValue);
+    $scope.prettyPrint('!!! WATCH INVEST  NEW!!!! \n',newValue);
 
-    var xnx = $scope.WorkRecord.Type;
-    if(xnx === '003'){
 
-    }
-    angular.element($document[0].querySelector('.investorForm')).css('display', 'block');
+    angular.element($document[0].querySelector('.investorForm')).css('display', 'inherit');
     angular.element($document[0].querySelector('.work-datestart_date')).css('display', 'none');
     angular.element($document[0].querySelector('.work-dateend_date')).css('display', 'none');
     angular.element($document[0].querySelector('.work-title_text')).css('display', 'none');
     angular.element($document[0].querySelector('.work-achievement_text')).css('display', 'none');
 
   if($scope.InvestorRecord.isipo){
+    $scope.prettyPrint('ISIPO TRUE : ',$scope.InvestorRecord.isipo);
     angular.element($document[0].querySelector('.invest-transaction_text')).css('display', 'block');
     angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', 'block');
     angular.element($document[0].querySelector('.invest-amount2_text')).css('display', 'block');
     angular.element($document[0].querySelector('.invest-aquirer_text')).css('display', 'block');
     angular.element($document[0].querySelector('.invest-press_text')).css('display', 'block');
   }else if(!$scope.InvestorRecord.isipo){
+    $scope.prettyPrint('ISIPO FALSE : ',$scope.InvestorRecord.isipo);
     angular.element($document[0].querySelector('.invest-transaction_text')).css('display', 'none');
     angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', 'none');
     angular.element($document[0].querySelector('.invest-amount2_text')).css('display', 'none');
@@ -666,23 +665,14 @@ $scope.$watchCollection('InvestorRecord', function(newValue, oldValue){
     angular.element($document[0].querySelector('.invest-press_text')).css('display', 'none');
   }else{
     console.log('!!!!! $scope.InvestorRecord.isipo NOT SET ');
-    // angular.element($document[0].querySelector('.invest-transaction_text')).css('display', 'none');
-    // angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', 'none');
-    // angular.element($document[0].querySelector('.invest-amount2_text')).css('display', 'none');
-    // angular.element($document[0].querySelector('.invest-aquirer_text')).css('display', 'none');
-    // angular.element($document[0].querySelector('.invest-press_text')).css('display', 'none');
   }
-
-
 });
 
 
 $scope.isIpoChanged = function(value){
       if(value){
-        console.log('isipo = ' + value);
+           console.log('ISIPO ng-change = ' + value);
       }
-
-
 };
 
 $scope.deleteInvestment = function(id) {
@@ -736,8 +726,6 @@ $scope.editInvestments = function(iid){
   });
 
 
-
-
   var isipot = angular.element( $document[0].querySelector( '#invest-isipo_0' ) );
   var isipof = angular.element( $document[0].querySelector( '#invest-isipo_1' ) );
 
@@ -767,39 +755,33 @@ $scope.editInvestments = function(iid){
 
 
 $scope.$watchCollection('WorkRecord', function(newValue, oldValue){
-    $scope.prettyPrint('WORK old value\n',oldValue);
-    $scope.prettyPrint('WORK new value \n',newValue);
-
-  var xnx = $scope.WorkRecord.Type;
-  if(xnx === '003'){
+    $scope.prettyPrint('!!! WATCH WORK  OLD!!!!\n',oldValue);
+    $scope.prettyPrint('!!! WATCH WORK  NEW!!!! \n',newValue);
+  if($scope.WorkRecord.Type === '003'){
     angular.element($document[0].querySelector('.work-datestart_date')).css('display', 'none');
     angular.element($document[0].querySelector('.work-dateend_date')).css('display', 'none');
     angular.element($document[0].querySelector('.work-title_text')).css('display', 'none');
     angular.element($document[0].querySelector('.work-achievement_text')).css('display', 'none');
-    angular.element($document[0].querySelector('.investorForm')).css('display', 'block');
+    angular.element($document[0].querySelector('.investorForm')).css('display', 'inherit');
     angular.element($document[0].querySelector('.invest-transaction_text')).css('display', 'none');
     angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', 'none');
     angular.element($document[0].querySelector('.invest-amount2_text')).css('display', 'none');
     angular.element($document[0].querySelector('.invest-aquirer_text')).css('display', 'none');
     angular.element($document[0].querySelector('.invest-press_text')).css('display', 'none');
-  }else if((xnx === '001') || (xnx === '002')){
+  }else if(($scope.WorkRecord.Type === '001') || ($scope.WorkRecord.Type === '002')){
     angular.element($document[0].querySelector('.work-datestart_date')).css('display', 'block');
     angular.element($document[0].querySelector('.work-dateend_date')).css('display', 'block');
     angular.element($document[0].querySelector('.work-title_text')).css('display', 'block');
     angular.element($document[0].querySelector('.work-achievement_text')).css('display', 'block');
     angular.element($document[0].querySelector('.investorForm')).css('display', 'none');
-  }else if((xnx === '004') || (xnx === '005')){
+  }else if(($scope.WorkRecord.Type === '004') || ($scope.WorkRecord.Type === '005')){
     angular.element($document[0].querySelector('.work-datestart_date')).css('display', 'block');
     angular.element($document[0].querySelector('.work-dateend_date')).css('display', 'block');
     angular.element($document[0].querySelector('.work-title_text')).css('display', 'none');
     angular.element($document[0].querySelector('.work-achievement_text')).css('display', 'block');
     angular.element($document[0].querySelector('.investorForm')).css('display', 'none');
   }else{
-    angular.element($document[0].querySelector('.work-datestart_date')).css('display', 'none');
-    angular.element($document[0].querySelector('.work-dateend_date')).css('display', 'none');
-    angular.element($document[0].querySelector('.work-title_text')).css('display', 'none');
-    angular.element($document[0].querySelector('.work-achievement_text')).css('display', 'none');
-    angular.element($document[0].querySelector('.investorForm')).css('display', 'none');
+    console.log('$scope.WorkRecord.Type NOT SET');
   }
 });
 
@@ -814,26 +796,26 @@ $scope.$watchCollection('WorkRecord', function(newValue, oldValue){
 
 $scope.onSubmitWorkRecord = function() {
     $scope.prettyPrint('$scope.WorkRecord : ',$scope.WorkRecord );
-
-    $scope.WorkRecord.profileId =  $scope.fullprofile.user.id;
-    $scope.WorkRecord.achievements =  [{ value : $scope.WorkRecord.achieve }];
-
-    if(!$scope.WorkRecord.id || 0 === $scope.WorkRecord.id.length ){
-        delete $scope.WorkRecord.id;
-    }
-
-    if( !$scope.fullprofile.user.id || 0 ===  $scope.fullprofile.user.id.length ){
+    if( !$scope.currentUser.pid || 0 ===  $scope.currentUser.pid.length ){
         console.log('MISSING USER ACCOUNT RESTART APP');
     }else{
-        ProfileService.upsertWorkHistory($scope.WorkRecord, function() {
-          ProfileService.getProfile($scope.currentUser.pid,function(response){
-              $scope.prettyPrint('NEW WORK : ',response);
-          });
-        });
+      if(!$scope.WorkRecord.profileId){
+        $scope.WorkRecord.profileId =  $scope.currentUser.pid;
+      }
+      if(!$scope.WorkRecord.id || 0 === $scope.WorkRecord.id.length ){
+          delete $scope.WorkRecord.id;
+      }
 
-        $scope.hideWork = true;
-        $scope.hideaddWorkButton = false;
+      ProfileService.upsertWorkHistory($scope.WorkRecord, function() {
+        ProfileService.getProfile($scope.currentUser.pid,function(response){
+            $scope.prettyPrint('NEW WORK : ',response);
+        });
+      });
+
+      $scope.hideWork = true;
+      $scope.hideaddWorkButton = false;
     }
+
 };
 
 $scope.editWork = function(wid){
