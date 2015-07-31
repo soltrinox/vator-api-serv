@@ -224,7 +224,25 @@ this.upsertInvestments = function(investment, cb) {
   });
 };
 
-
+this.deleteInvestment = function(hid, cb) {
+  CoreService.confirm(gettextCatalog.getString('Are you sure?'),
+    gettextCatalog.getString('Deleting this cannot be undone'),
+    function() {
+      Investment.deleteById({id : hid}, function() {
+        CoreService.toastSuccess(gettextCatalog.getString(
+          'Investment deleted'), gettextCatalog.getString(
+          'Your investment is deleted!'));
+        cb();
+      }, function(err) {
+        CoreService.toastError(gettextCatalog.getString(
+          'Error deleting invesment'), gettextCatalog.getString(
+          'Your investment is not deleted! ') + err);
+      });
+    },
+    function() {
+      return false;
+    });
+};
 
 
 

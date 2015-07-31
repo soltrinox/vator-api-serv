@@ -674,13 +674,8 @@ $scope.isIpoChanged = function(value){
   console.log('ISIPO ng-change = ' + value);
 };
 
-$scope.deleteInvestment = function(id) {
-  ProfileService.deleteWorkHistory(id, function() {
-    $scope.msg = ProfileService.deleteInvestment($scope.currentUser.pid, function(){
-
-    });
-    console.log('MSG RESPONSE DELETE Investment: '+   $scope.msg);
-  });
+$scope.deleteInvestment = function(iid) {
+  ProfileService.deleteInvestment(iid, function() {});
 };
 
 $scope.onSubmitInvest = function() {
@@ -753,7 +748,7 @@ $scope.$watchCollection('WorkRecord', function(newValue, oldValue){
     angular.element($document[0].querySelector('.investorForm')).css('display', 'block');
 
     if($scope.isipo === 'true'){ $scope.swapipo = 'block'; }else{ $scope.swapipo = 'none';}
-  
+
     angular.element($document[0].querySelector('.invest-transaction_text')).css('display', $scope.swapipo );
     angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', $scope.swapipo);
     angular.element($document[0].querySelector('.invest-amount2_text')).css('display', $scope.swapipo);
@@ -780,10 +775,10 @@ $scope.$watchCollection('WorkRecord', function(newValue, oldValue){
 
   $scope.deleteWork = function(id) {
     ProfileService.deleteWorkHistory(id, function() {
-      $scope.msg = ProfileService.deleteWorkHistory($scope.currentUser.pid, function(){
+    ProfileService.deleteWorkHistory($scope.currentUser.pid, function(){
 
       });
-      console.log('MSG RESPONSE DELETE WORK: '+   $scope.msg);
+      console.log('MSG RESPONSE DELETE WORK: ');
     });
   };
 
@@ -808,7 +803,6 @@ $scope.onSubmitWorkRecord = function() {
       $scope.hideWork = true;
       $scope.hideaddWorkButton = false;
     }
-
 };
 
 $scope.editWork = function(wid){
