@@ -50,7 +50,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
       id: ''
     };
 
-    $scope.InvestRecord = {
+    $scope.InvestorRecord = {
       amount:'',
       date:'',
       profileId:'',
@@ -642,7 +642,7 @@ $scope.$watchCollection('WorkRecord', function(newValue, oldValue){
 
 // ==============  INVESTMENT ====================
 
-$scope.InvestRecord = {
+$scope.InvestorRecord = {
   amount:'',
   date:'',
   profileId:'',
@@ -668,16 +668,16 @@ $scope.deleteInvestment = function(id) {
 };
 
 $scope.onSubmitInvest = function() {
-    $scope.prettyPrint('$scope.InvestRecord : ',$scope.WorkRecord );
-    $scope.InvestRecord.profileId =  $scope.fullprofile.user.id;
-    if(!$scope.InvestRecord.id || 0 === $scope.InvestRecord.id.length ){
-        delete $scope.InvestRecord.id;
+    $scope.prettyPrint('$scope.InvestorRecord : ',$scope.WorkRecord );
+    $scope.InvestorRecord.profileId =  $scope.fullprofile.user.id;
+    if(!$scope.InvestorRecord.id || 0 === $scope.InvestorRecord.id.length ){
+        delete $scope.InvestorRecord.id;
     }
 
     if( !$scope.fullprofile.user.id || 0 ===  $scope.fullprofile.user.id.length ){
         console.log('MISSING USER ACCOUNT RESTART APP');
     }else{
-        ProfileService.upsertInvestments($scope.InvestRecord, function() {
+        ProfileService.upsertInvestments($scope.InvestorRecord, function() {
           ProfileService.getProfile($scope.currentUser.pid,function(response){
               $scope.prettyPrint('NEW Investment : ',response);
           });
@@ -695,7 +695,7 @@ $scope.editInvestments = function(iid){
     if(value.id === iid){
       //  TODO : got to get the whole object
       console.log( 'FOUND WORK TO EDIT : '+value );
-      $scope.InvestRecord = value;
+      $scope.InvestorRecord = value;
       $scope.workLookUp = value.companyname;
       var elem = angular.element($document[0].querySelector('#work-companylookup'));
       elem.val(value.companyname);
@@ -817,7 +817,7 @@ $scope.toggleWork = function(id) {
        id: ''
      };
 
-     $scope.InvestRecord = {
+     $scope.InvestorRecord = {
        amount:'',
        date:'',
        profileId:'',
