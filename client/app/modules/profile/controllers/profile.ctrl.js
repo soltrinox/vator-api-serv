@@ -56,7 +56,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
       profileId:'',
       roundtotal:'',
       valuation:'',
-      isipo:'',
+      isipo:false,
       id:'',
       transaction:'',
       exitdate:'',
@@ -407,13 +407,13 @@ $scope.teamFields = [
       angular.element($document[0].querySelector('.work-title_text')).css('display', 'none');
       angular.element($document[0].querySelector('.work-achievement_text')).css('display', 'none');
 
-    if($scope.InvestorRecord.isipo === 'true'){
+    if($scope.InvestorRecord.isipo === true){
       angular.element($document[0].querySelector('.invest-transaction_text')).css('display', 'block');
       angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', 'block');
       angular.element($document[0].querySelector('.invest-amount2_text')).css('display', 'block');
       angular.element($document[0].querySelector('.invest-aquirer_text')).css('display', 'block');
       angular.element($document[0].querySelector('.invest-press_text')).css('display', 'block');
-    }else{
+    }else if($scope.InvestorRecord.isipo === false){
       angular.element($document[0].querySelector('.invest-transaction_text')).css('display', 'none');
       angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', 'none');
       angular.element($document[0].querySelector('.invest-amount2_text')).css('display', 'none');
@@ -712,7 +712,7 @@ $scope.prettyPrint('INVEST OBJ: ',$scope.fullprofile.invest);
     console.log( key+': ' + value.id +' = '+iid);
     if(value.id === iid){
       //  TODO : got to get the whole object
-      $scope.prettyPrint( 'SECTED INVEST TO EDIT : ',value );
+      $scope.prettyPrint( 'SELECTED INVEST TO EDIT : ',value );
       $scope.InvestorRecord = value;
       $scope.workLookUp = value.companyname;
       var elem = angular.element($document[0].querySelector('#work-companylookup'));
@@ -731,6 +731,7 @@ $scope.prettyPrint('INVEST OBJ: ',$scope.fullprofile.invest);
   var isipof = angular.element( $document[0].querySelector( '#invest-isipo_1' ) );
 
 if($scope.InvestorRecord.isipo === true){
+  console.log('ISIPO: '+ $scope.InvestorRecord.isipo + '\n VAL: '+ isipot  + ' : '+ isipof );
   angular.element($document[0].querySelector('.invest-transaction_text')).css('display', 'block');
   angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', 'block');
   angular.element($document[0].querySelector('.invest-amount2_text')).css('display', 'block');
