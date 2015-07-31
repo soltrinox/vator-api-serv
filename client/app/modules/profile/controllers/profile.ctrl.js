@@ -379,7 +379,7 @@ $scope.teamFields = [
       $scope.portfolio = pro.companies ;
       $scope.medias = pro.medias ;
       $scope.workhistory = pro.work ;
-      $scope.investments = pro.investments;
+      $scope.investments = pro.invest;
       if(pro.social.length > 0){
         $scope.SocialRecord = pro.social[0] ;
         $scope.socials.push($scope.SocialRecord);

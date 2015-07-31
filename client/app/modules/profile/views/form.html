@@ -145,6 +145,18 @@
       <div class="row">
         <table class="table table-hover">
           <tbody>
+            <tr ng-repeat="invest in fullprofile.invest | filter:{id:'!!'}" class="list-group-item">
+              <td width="10%"><div class="">
+                <button class="btn btn-warning fa fa-pencil" ng-click="editInvestments('{{work.id}}')" />
+                <button class="btn btn-danger fa fa-trash" ng-click="deleteInvestment('{{work.id}}')" />
+                </div>
+              </td>
+              <td width="20%"><div class="">{{invest.companyname}}</div></td>
+              <td width="20%"><div class="">{{invest.amount}}</div></td>
+              <td width="20%"><div class="">{{work.Type}}</div></td>
+              <td width="20%"><div class="">{{work.date | limitTo: 10 }}</div></td>
+            </tr>
+
             <tr ng-repeat="work in fullprofile.work | filter:{id:'!!'}" class="list-group-item">
               <td width="10%"><div class="">
                 <button class="btn btn-warning fa fa-pencil" ng-click="editWork('{{work.id}}')" />
