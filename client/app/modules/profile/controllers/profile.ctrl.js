@@ -822,6 +822,13 @@ $scope.startNewExperienceRecord = function(id) {
 
     $scope.WorkRecord = $scope.newWorkRecord();
     $scope.InvestorRecord = $scope.newInvestorRecord();
+    
+    angular.element($document[0].querySelector('.investorForm')).css('display', 'none');
+    angular.element($document[0].querySelector('.work-datestart_date')).css('display', 'none');
+    angular.element($document[0].querySelector('.work-dateend_date')).css('display', 'none');
+    angular.element($document[0].querySelector('.work-title_text')).css('display', 'none');
+    angular.element($document[0].querySelector('.work-achievement_text')).css('display', 'none');
+
 
   $scope.hideWork = $scope.hideWork = false;
   $scope.hideaddWorkButton = $scope.hideaddWorkButton = true;
