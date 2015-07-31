@@ -15,12 +15,10 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
     $scope.hideCompany = true;
     $scope.hideBase = true;
     $scope.hideSocial = true;
-    $scope.hideDateStart = true;
-    $scope.hideDateEnd = true;
-    $scope.hideTitle = true;
+
     $scope.workLookUp = '';
     $scope.hideWork = true;
-    $scope.addWorkButton = false;
+    $scope.hideaddWorkButton = false;
     $scope.editingInvestorRecord = false;
 
     $scope.CompanyRecord = {
@@ -39,6 +37,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
       id:''
     };
 
+
     $scope.WorkRecord = {
       Type : '',
       companyname: '',
@@ -50,6 +49,21 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
       achievements: [{'value':0}],
       id: ''
     };
+
+    $scope.newWorkRecord = function(){
+      return  {
+        Type : '',
+        companyname: '',
+        jobtitle : '',
+        datestart : '',
+        dateend : '',
+        profileId : '',
+        achieve : '',
+        achievements: [{'value':0}],
+        id: ''
+      };
+    };
+
 
     $scope.InvestorRecord = {
       amount:'',
@@ -64,6 +78,23 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
       amount2:'',
       aquirer:'',
       press:''
+    };
+
+    $scope.newInvestorRecord = function(){
+      return {
+        amount:'',
+        date:'',
+        profileId:'',
+        roundtotal:'',
+        valuation:'',
+        isipo : '',
+        id:'',
+        transaction:'',
+        exitdate:'',
+        amount2:'',
+        aquirer:'',
+        press:''
+      };
     };
 
     $scope.SocialRecord = {
@@ -588,7 +619,7 @@ $scope.teamFields = [
       }
 
         $scope.upsertProfileRecord($scope.UserRecord);
-        $scope.addWorkButton = false;
+        $scope.hideaddWorkButton = false;
         $scope.hideBase = true;
     }else{
 
@@ -598,7 +629,7 @@ $scope.teamFields = [
       }
       // send the object on down the road to server
       $scope.upsertProfileRecord($scope.UserRecord);
-      $scope.addWorkButton = false;
+      $scope.hideaddWorkButton = false;
       $scope.hideBase = true;
     }
 };
@@ -680,12 +711,17 @@ $scope.onSubmitInvest = function() {
         });
 
         $scope.hideWork = true;
-        $scope.addWorkButton = false;
+        $scope.hideaddWorkButton = false;
     }
 };
 
 $scope.editInvestments = function(iid){
-$scope.prettyPrint('INVEST OBJ: ',$scope.fullprofile.invest);
+
+  $scope.WorkRecord = $scope.newWorkRecord();
+  $scope.hideWork = false;
+  $scope.hideaddWorkButton = true;
+
+  $scope.prettyPrint('INVEST OBJ: ',$scope.fullprofile.invest);
   angular.forEach($scope.fullprofile.invest, function(value, key) {
     console.log( key+': ' + value.id +' = '+iid);
     if(value.id === iid){
@@ -699,12 +735,9 @@ $scope.prettyPrint('INVEST OBJ: ',$scope.fullprofile.invest);
     }
   });
 
-  if($scope.hideWork){
-    $scope.hideWork = false;
-  }
-  if($scope.addWorkButton){
-    $scope.addWorkButton = false;
-  }
+
+
+
   var isipot = angular.element( $document[0].querySelector( '#invest-isipo_0' ) );
   var isipof = angular.element( $document[0].querySelector( '#invest-isipo_1' ) );
 
@@ -799,13 +832,13 @@ $scope.onSubmitWorkRecord = function() {
         });
 
         $scope.hideWork = true;
-        $scope.addWorkButton = false;
+        $scope.hideaddWorkButton = false;
     }
 };
 
 $scope.editWork = function(wid){
 
-  angular.forEach($scope.fullprofile.inves, function(value, key) {
+  angular.forEach($scope.fullprofile.work, function(value, key) {
     console.log( key+': ' + value.id +' = '+wid);
     if(value.id === wid){
       //  TODO : got to get the whole object
@@ -815,52 +848,22 @@ $scope.editWork = function(wid){
       var elem = angular.element($document[0].querySelector('#work-companylookup'));
       elem.val(value.companyname);
       if(!value.Type || 0 === value.Type.length){
-        $scope.workLookUp.Type = '001';
+        $scope.WorkRecord.Type = '001';
       }
     }
   });
 
-  if($scope.hideWork){
     $scope.hideWork = false;
-  }
-  if($scope.addWorkButton){
-    $scope.addWorkButton = false;
-  }
+    $scope.hideaddWorkButton = true;
 };
 
-$scope.toggleWork = function(id) {
+$scope.startNewExperienceRecord = function(id) {
 
-    $scope.WorkRecord = {
-      Type : '',
-      companyname: '',
-      jobtitle : '',
-      datestart : '',
-      dateend : '',
-      profileId : '',
-      achieve : '',
-      achievements: [{'value':0}],
-      id: ''
-    };
+    $scope.WorkRecord = $scope.newWorkRecord();
+    $scope.InvestorRecord = $scope.newInvestorRecord();
 
-    $scope.InvestorRecord = {
-      amount:'',
-      date:'',
-      profileId:'',
-      roundtotal:'',
-      valuation:'',
-      isipo:'',
-      id:'',
-      transaction:'',
-      exitdate:'',
-      amount2:'',
-      aquirer:'',
-      press:''
-    };
-
-
-
-  $scope.hideWork = $scope.hideWork === false ? true: false;
-  $scope.addWorkButton = $scope.addWorkButton === false ? true: false;
+  $scope.hideWork = $scope.hideWork = false;
+  $scope.hideaddWorkButton = $scope.hideaddWorkButton = true;
   id = null;
 };
 
@@ -871,41 +874,21 @@ $scope.toggleWork = function(id) {
   };
 
   $scope.lookCompany = function(val){
+    // TODO:  set the id of the record
       $scope.workLookUp = val;
       $scope.WorkRecord.companyname = $scope.workLookUp;
   };
 
   $scope.cancelWork = function(id) {
-     $scope.hideWork = false; //$scope.hideWork === false ? true: false;
-     $scope.addWorkButton = true; //= $scope.addWorkButton === false ? true: false;
+
      id = null;
 
-     $scope.WorkRecord = {
-       Type : '',
-       companyname: '',
-       jobtitle : '',
-       datestart : '',
-       dateend : '',
-       profileId : '',
-       achieve : '',
-       achievements: [{'value':0}],
-       id: ''
-     };
+     $scope.WorkRecord = $scope.newWorkRecord();
+     $scope.InvestorRecord = $scope.newInvestorRecord();
 
-     $scope.InvestorRecord = {
-       amount:'',
-       date:'',
-       profileId:'',
-       roundtotal:'',
-       valuation:'',
-       isipo:'',
-       id:'',
-       transaction:'',
-       exitdate:'',
-       amount2:'',
-       aquirer:'',
-       press:''
-     };
+     $scope.hideWork = true; //$scope.hideWork === false ? true: false;
+     $scope.hideaddWorkButton = true; //= $scope.hideaddWorkButton === false ? true: false;
+
   };
 
 // ==============  SOCIAL ====================
