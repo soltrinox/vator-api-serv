@@ -56,7 +56,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
       profileId:'',
       roundtotal:'',
       valuation:'',
-      isipo:false,
+      isipo : false,
       id:'',
       transaction:'',
       exitdate:'',
@@ -254,11 +254,11 @@ $scope.investFields =
       options: [
       {
           name: 'Yes',
-          value: 'true'
+          value: true
       },
       {
           name: 'No',
-          value: 'false'
+          value: false
       }]
     },
     {
@@ -414,6 +414,12 @@ $scope.teamFields = [
       angular.element($document[0].querySelector('.invest-aquirer_text')).css('display', 'block');
       angular.element($document[0].querySelector('.invest-press_text')).css('display', 'block');
     }else if($scope.InvestorRecord.isipo === false){
+      angular.element($document[0].querySelector('.invest-transaction_text')).css('display', 'none');
+      angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', 'none');
+      angular.element($document[0].querySelector('.invest-amount2_text')).css('display', 'none');
+      angular.element($document[0].querySelector('.invest-aquirer_text')).css('display', 'none');
+      angular.element($document[0].querySelector('.invest-press_text')).css('display', 'none');
+    }else{
       angular.element($document[0].querySelector('.invest-transaction_text')).css('display', 'none');
       angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', 'none');
       angular.element($document[0].querySelector('.invest-amount2_text')).css('display', 'none');
@@ -739,7 +745,7 @@ if($scope.InvestorRecord.isipo === true){
   angular.element($document[0].querySelector('.invest-press_text')).css('display', 'block');
 
   isipot.prop('checked',true);
-  isipof.prop('checked',false);
+
 }else{
   console.log('ISIPO: '+ $scope.InvestorRecord.isipo + '\n VAL: '+ isipot.prop('checked')  + ' : '+ isipof.prop('checked') );
   angular.element($document[0].querySelector('.invest-transaction_text')).css('display', 'none');
@@ -747,7 +753,7 @@ if($scope.InvestorRecord.isipo === true){
   angular.element($document[0].querySelector('.invest-amount2_text')).css('display', 'none');
   angular.element($document[0].querySelector('.invest-aquirer_text')).css('display', 'none');
   angular.element($document[0].querySelector('.invest-press_text')).css('display', 'none');
-  isipot.prop('checked',false);
+
   isipof.prop('checked',true);
 }
 
