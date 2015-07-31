@@ -4,15 +4,16 @@
 
     <label class="vator-radio-label">
 			<input type="radio"
-					class="form-control   {{options.id}}_input_radio "
-          formly-dynamic-name="options.key "
-          formly-custom-validation="options.validators "
-				   id="{{options.id + '_'+ $index}} "
-				   aria-describedby="{{options.id}}_description "
-				   ng-value="option.value"
-					 ng-checked="option.value"
-				   ng-required="options.required "
-				   ng-model="$parent.result[$parent.options.key || $parent.index] ">
+					class="form-control   {{options.id}}_input_radio"
+          formly-dynamic-name="{{options.key}}"
+          formly-custom-validation="options.validators"
+				   id="{{options.id + '_'+ $index}}"
+				   aria-describedby="{{options.id}}_description"
+				   ng-value="{{option.value}}"
+					 ng-checked="{{option.value}}"
+					 checked="{{option.value}}"
+				   ng-required="options.required"
+				   ng-model="$parent.result[$parent.options.key || $parent.index]">
 			<span class="vator_input_radio_value">{{option.name}}</span>
 		</label>
    <p id="{{options.id}}_description " class="help-block " ng-if="option.description ">{{option.description}}</p>
