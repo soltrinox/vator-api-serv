@@ -280,7 +280,7 @@ $scope.investFields =
       type: 'isipo',
       id : 'invest-isipo',
       uniqueFormId : 'invest-isipo-box',
-      disabled: false,
+      default: '$scope.isipo',
       label: 'Aquired / IPO',
       required: false,
       options: [
@@ -638,7 +638,7 @@ $scope.teamFields = [
 
 // ==============  INVESTMENT ====================
 
-$scope.$watchCollection('InvestorRecord.isipo', function(newValue, oldValue){
+$scope.$watchCollection('InvestorRecord', function(newValue, oldValue){
     $scope.prettyPrint('!!! WATCH INVEST  OLD!!!!\n',oldValue);
     $scope.prettyPrint('!!! WATCH INVEST  NEW!!!! \n',newValue);
 
@@ -669,6 +669,14 @@ $scope.$watchCollection('InvestorRecord.isipo', function(newValue, oldValue){
 });
 
 $scope.isipo = false;
+
+$scope.startNewInvestment = function(){
+  $scope.WorkRecord = $scope.newWorkRecord();
+  $scope.WorkRecord.Type = '003';
+  $scope.InvestorRecord = $scope.newInvestorRecord();
+  $scope.InvestorRecord.isipo = false;
+  $scope.isipo = false;
+}
 
 $scope.isIpoChanged = function(value){
   console.log('ISIPO ng-change = ' + value);
@@ -757,9 +765,7 @@ $scope.$watchCollection('WorkRecord', function(newValue, oldValue){
     angular.element($document[0].querySelector('.work-title_text')).css('display', 'none');
     angular.element($document[0].querySelector('.work-achievement_text')).css('display', 'none');
     angular.element($document[0].querySelector('.investorForm')).css('display', 'block');
-
     if($scope.isipo === 'true'){ $scope.swapipo = 'block'; }else{ $scope.swapipo = 'none';}
-
     angular.element($document[0].querySelector('.invest-transaction_text')).css('display', $scope.swapipo );
     angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', $scope.swapipo);
     angular.element($document[0].querySelector('.invest-amount2_text')).css('display', $scope.swapipo);
