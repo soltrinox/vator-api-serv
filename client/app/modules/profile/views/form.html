@@ -50,11 +50,13 @@
   .invest-transaction_text{
     clear:both;
   }
-  .tab1-submit{
+  .tabsubmit{
       clear:both;
-      margin-top: 10px;
-      margin-bottom: 10px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      margin-left:60px;
   }
+
   .marginizeme{
     margin: 5px 5px 5px 5px;
       clear:both;
@@ -84,7 +86,7 @@
           </div>
         </div>
 
-        <div class="controls tab1-submit">
+        <div class="controls tabsubmit">
           <button class="btn btn-primary btn-success" ng-click="onSubmit()" translate>Update</button>
         </div>
       </div>
@@ -131,7 +133,7 @@
           {{InvestorRecord | json}}
           {{ WorkRecord | json }}
         </pre>
-        <div class="controls" style="margin:20px 0px 20px 60px; clear: both !important;">
+        <div class="controls tabsubmit" >
           <button class="btn btn-primary btn-warning" ng-click="cancelWork()" translate>Cancel </button> &nbsp; &nbsp;
           <button class="btn btn-primary btn-success" ng-click="onSubmit3()" translate>Submit </button>
         </div>
@@ -160,7 +162,7 @@
         <!--  contact for email here too -->
         <formly-form result="SocialRecord" fields="formFields4" options="formOptions" ng-submit="onSubmit4()"></formly-form>
 
-        <div class="controls" style="margin:20px 0px 20px 60px;">
+        <div class="controls tabsubmit" >
           <button class="btn btn-primary btn-success" ng-click="onSubmit4()" translate>Update Social Accounts</button>
         </div>
       </div>
