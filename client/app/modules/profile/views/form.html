@@ -142,7 +142,7 @@
             <tr ng-repeat="work in fullprofile.work | filter:{id:'!!'}" class="list-group-item">
               <td width="10%"><div class="">
                 <button class="btn btn-warning fa fa-pencil" ng-click="editWork('{{work.id}}')" />
-                <button class="btn btn-error fa fa-trash" ng-click="deleteWork('{{work.id}}')" />
+                <button class="btn btn-danger fa fa-trash" ng-click="deleteWork('{{work.id}}')" />
                 </div>
               </td>
               <td width="20%"><div class="">{{work.companyname}}</div></td>

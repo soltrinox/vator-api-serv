@@ -466,12 +466,22 @@ $scope.formFields4 = [
       $scope.UserRecord.id = $scope.fullprofile.user.id;
       $scope.UserRecord.Bio = $scope.fullprofile.user.Bio;
       $scope.UserRecord.ProfilePic = $scope.fullprofile.user.ProfilePic;
+      if(!$scope.fullprofile.user.ProfilePic || 0 === $scope.fullprofile.user.ProfilePic){
+        $scope.UserRecord.ProfilePic = '/app/img/profile.png';
+      }
       $scope.UserRecord.CoverPic = $scope.fullprofile.user.CoverPic;
+    }else if(($scope.UserRecord !== $scope.fullprofile.user)  && $scope.fullprofile.user ){
+        $scope.UserRecord.Name = $scope.fullprofile.user.Name;
+        $scope.UserRecord.Bio = $scope.fullprofile.user.Bio;
+        $scope.UserRecord.UUID = $scope.fullprofile.user.UUID;
+        $scope.UserRecord.ProfilePic = $scope.fullprofile.user.ProfilePic;
+        if((!$scope.fullprofile.user.ProfilePic || 0 === $scope.fullprofile.user.ProfilePic) && !$scope.UserRecord.ProfilePic){
+          $scope.UserRecord.ProfilePic = '/app/img/profile.png';
+        }
+        $scope.UserRecord.CoverPic = $scope.fullprofile.user.CoverPic;
+        $scope.UserRecord.id = $scope.fullprofile.user.id;
     }
 
-
-    // else if((!$scope.profile.user.UUID ) && ($scope.UserRecord.UUID))
-    $scope.editUser($scope.UserRecord);
     $scope.hideBase = $scope.hideBase === false ? true: false;
   id = null;
   };
@@ -631,6 +641,9 @@ $scope.formFields4 = [
         $scope.UserRecord.Bio = response.profile.user.Bio;
         $scope.UserRecord.UUID = response.profile.user.UUID;
         $scope.UserRecord.ProfilePic = response.profile.user.ProfilePic;
+        if(!response.profile.user.ProfilePic || 0 === response.profile.user.ProfilePic){
+          $scope.UserRecord.ProfilePic = '/app/img/profile.png';
+        }
         $scope.UserRecord.CoverPic = response.profile.user.CoverPic;
         $scope.UserRecord.id = response.profile.user.id;
         $scope.currentUser.pid = response.profile.user.id;
@@ -822,14 +835,6 @@ $scope.formFields4 = [
 
   // ==============  EDIT TABLES ====================
 
-  $scope.editUser = function(user){
-    $scope.UserRecord.Name = user.Name;
-    $scope.UserRecord.Bio = user.Bio;
-    $scope.UserRecord.UUID = user.UUID;
-    $scope.UserRecord.ProfilePic = user.ProfilePic;
-    $scope.UserRecord.CoverPic = user.CoverPic;
-    $scope.UserRecord.id = user.id;
-  };
 
   $scope.editCompany = function(comp)  {
 

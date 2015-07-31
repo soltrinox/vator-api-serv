@@ -3,18 +3,17 @@
   <a href="" ui-sref="^.list" class="btn btn-default"><i class="fa fa-arrow-left"></i></a>
 
 
-  {{profile.profile.user.Name}}
 
   <span class="pull-right btn-group" style="margin-top: 7px;">
-    <a href="" class="btn btn-sm btn-default" ui-sref="^.edit({id: profile.profile.user.id})">
+    <a href="" class="btn btn-sm btn-default" ui-sref="^.edit({id: fullprofile.user.id})">
       <i class="fa fa-pencil"></i>
     </a>
-    <a href="" class="btn btn-sm btn-default" ng-click="delete({id: profile.profile.user.id})">
+    <a href="" class="btn btn-sm btn-default" ng-click="delete({id: fullprofile.user.id})">
       <i class="fa fa-trash-o"></i>
     </a>
   </span>
 <br/>
-{{profile.profile.user.Bio}}
+{{fullprofile.user.Bio}}
 </h4>
 <hr>
-<pre>{{profile.profile | json}}</pre>
+<pre>{{fullprofile | json}}</pre>

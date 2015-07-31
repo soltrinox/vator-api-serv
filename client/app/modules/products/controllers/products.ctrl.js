@@ -170,7 +170,11 @@ angular.module('com.module.products')
           $scope.ProfileRecord.Name= response.Name;
           $scope.ProfileRecord.Bio= response.Bio;
           $scope.ProfileRecord.UUID = response.UUID;
+
           $scope.ProfileRecord.ProfilePic = response.ProfilePic;
+          if(!response.ProfilePic || 0 === response.ProfilePic.length){
+            response.ProfilePic = '/app/img/profile.png';
+          }
           $scope.ProfileRecord.CoverPic = response.CoverPic;
           $scope.ProfileRecord.id = response.id;
           // be sure to set the global user object
