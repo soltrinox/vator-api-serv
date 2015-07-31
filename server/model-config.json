@@ -121,10 +121,10 @@
   "Media": {
     "dataSource": "MONGOLOCAL",
     "public": true
-  }
-,
+  },
   "container": {
     "dataSource": "s3",
     "public": true
   }
 }
+
