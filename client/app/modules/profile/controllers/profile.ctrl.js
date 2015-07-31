@@ -687,22 +687,33 @@ $scope.deleteInvestment = function(id) {
 $scope.onSubmitInvest = function() {
     $scope.prettyPrint('$scope.InvestorRecord : ',$scope.WorkRecord );
     $scope.InvestorRecord.profileId =  $scope.fullprofile.user.id;
-    if(!$scope.InvestorRecord.id || 0 === $scope.InvestorRecord.id.length ){
-        delete $scope.InvestorRecord.id;
-    }
-
-    if( !$scope.fullprofile.user.id || 0 ===  $scope.fullprofile.user.id.length ){
-        console.log('MISSING USER ACCOUNT RESTART APP');
+    if(!$scope.currentUser.pid || 0 ===  $scope.currentUser.pid.length){
+      if( !$scope.fullprofile.user.id || 0 ===  $scope.fullprofile.user.id.length ){
+          console.log('MISSING USER ACCOUNT RESTART APP');
+          $location.path('/login');
+      }else{
+            $scope.InvestorRecord.profileId = $scope.fullprofile.user.id;
+            $scope.upsertInvestmentRecord($scope.InvestorRecord);
+            $scope.hideWork = true;
+            $scope.hideaddWorkButton = false;
+      }
     }else{
-        ProfileService.upsertInvestments($scope.InvestorRecord, function() {
-          ProfileService.getProfile($scope.currentUser.pid,function(response){
-              $scope.prettyPrint('NEW Investment : ',response);
-          });
-        });
-
-        $scope.hideWork = true;
-        $scope.hideaddWorkButton = false;
+      $scope.upsertInvestmentRecord($scope.InvestorRecord);
+      $scope.hideWork = true;
+      $scope.hideaddWorkButton = false;
     }
+};
+
+$scope.upsertInvestmentRecord = function(investorRecord){
+  if(!$scope.InvestorRecord.id || 0 === $scope.InvestorRecord.id.length ){
+      delete $scope.InvestorRecord.id;
+  }
+  ProfileService.upsertInvestments($scope.InvestorRecord, function() {
+    ProfileService.getProfile($scope.currentUser.pid,function(response){
+        $scope.prettyPrint('NEW Investment : ',response);
+    });
+  });
+  investorRecord = null;
 };
 
 $scope.editInvestments = function(iid){

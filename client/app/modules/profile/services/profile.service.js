@@ -3,7 +3,7 @@ var app = angular.module('com.module.profile');
 
 app.service('ProfileService', ['$state', 'CoreService', 'Profile', 'User',
 'Education', 'Social', 'WorkHistory', 'Team',  'gettextCatalog',
-function($state, CoreService, Profile, User, Education, Social, WorkHistory, Team, gettextCatalog) {
+function($state, CoreService, Profile, User, Education, Social, WorkHistory, Investment, Team, gettextCatalog) {
 
   this.getProfiles = function(id) {
     return Profile.findOne({ filter:{where: {UUID: id}}});
@@ -206,5 +206,26 @@ this.upsertCompany = function(company, cb) {
       'This assoc could not be saved: ') + err);
   });
 };
+
+
+// ==================================
+
+this.upsertInvestments = function(investment, cb) {
+  console.log('@@@@ Investment : ' + JSON.stringify(investment));
+  Investment.upsert(investment, function() {
+    CoreService.toastSuccess(gettextCatalog.getString(
+      'Investment saved'), gettextCatalog.getString(
+      'Your investment is safe with us!'));
+    cb();
+  }, function(err) {
+    CoreService.toastSuccess(gettextCatalog.getString(
+      'Error saving Investment '), gettextCatalog.getString(
+      'This investment could not be saved: ') + err);
+  });
+};
+
+
+
+
 
 }]);

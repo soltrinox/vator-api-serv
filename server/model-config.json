@@ -86,11 +86,19 @@
     "dataSource": "MONGOLOCAL",
     "public": true
   },
+  "Investment": {
+    "dataSource": "MONGOLOCAL",
+    "public": true
+  },
   "WorkHistory": {
     "dataSource": "MONGOLOCAL",
     "public": true
   },
   "keys": {
+    "dataSource": "MONGOLOCAL",
+    "public": true
+  },
+  "Tag": {
     "dataSource": "MONGOLOCAL",
     "public": true
   },
@@ -112,6 +120,11 @@
   },
   "Media": {
     "dataSource": "MONGOLOCAL",
+    "public": true
+  }
+,
+  "container": {
+    "dataSource": "s3",
     "public": true
   }
 }

@@ -1,5 +1,6 @@
 //var app = require('../../server/server');
 module.exports = function(Profile, Team) {
+'use strict';
 
   Profile.getEntireProfile = function(id,cb) {
     var app = Profile.app;
@@ -15,17 +16,17 @@ module.exports = function(Profile, Team) {
                 profile.media({ profileId:id },function(err, media){
                   profile.roles({ profileId:id },function(err, roles){
                     profile.experience({ profileId:id },function(err, experience){
+			                 profile.investments({ profileId:id },function(err, investments){
 
-                      // ----- compile object for response  -----
-                      var response = { user : profile, companies : teams,
+                      	// ----- compile object for response  -----
+                        var response = { user : profile, companies : teams,
                         medias : media, work : experience,
                         social : socials, contact : emailAddresses,
-                        edu : education, creds: roles };
+                        edu : education, invest:investments , creds: roles };
 
-                      // console.log( response );
-                      cb(null, response);
-                      //return response;
-			});
+                          cb(null, response);
+			                });
+		                });
                   });
                 });
               });
@@ -40,10 +41,9 @@ module.exports = function(Profile, Team) {
   Profile.remoteMethod('getEntireProfile', {
     accepts: [{arg: 'id', type: 'string'}],
     returns: {arg: 'profile', type: 'object'},
-    http: {path:'/entireprofile/:pid', verb: 'get'}
+    http: {path:'/entireprofile/:id', verb: 'get'}
   });
 
 
 
 };
-
