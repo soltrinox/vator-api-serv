@@ -669,10 +669,7 @@ $scope.deleteInvestment = function(id) {
 
 $scope.onSubmitInvest = function() {
     $scope.prettyPrint('$scope.InvestRecord : ',$scope.WorkRecord );
-
     $scope.InvestRecord.profileId =  $scope.fullprofile.user.id;
-    // $scope.InvestRecord.achievements =  [{ value : $scope.InvestRecord.achieve }];
-
     if(!$scope.InvestRecord.id || 0 === $scope.InvestRecord.id.length ){
         delete $scope.InvestRecord.id;
     }
@@ -680,13 +677,14 @@ $scope.onSubmitInvest = function() {
     if( !$scope.fullprofile.user.id || 0 ===  $scope.fullprofile.user.id.length ){
         console.log('MISSING USER ACCOUNT RESTART APP');
     }else{
-        ProfileService.upsertInvestments($scope.InvestRecord, function() {});
-        ProfileService.getProfile($scope.currentUser.pid,function(response){
-            $scope.prettyPrint('NEW Investment : ',response);
+        ProfileService.upsertInvestments($scope.InvestRecord, function() {
+          ProfileService.getProfile($scope.currentUser.pid,function(response){
+              $scope.prettyPrint('NEW Investment : ',response);
+          });
         });
+
         $scope.hideWork = true;
         $scope.addWorkButton = false;
-        // $location.path('/app/myprofile/'+$scope.WorkRecord.profileId+'/edit');
     }
 };
 
@@ -711,8 +709,7 @@ $scope.editInvestments = function(iid){
     $scope.hideWork = false;
   }
   if($scope.addWorkButton){
-    $scope.addWorkButton = true;
-    //$scope.addWorkButton = $scope.addWorkButton === false ? true: false;
+    $scope.addWorkButton = false;
   }
 };
 
@@ -740,13 +737,14 @@ $scope.onSubmitWorkRecord = function() {
     if( !$scope.fullprofile.user.id || 0 ===  $scope.fullprofile.user.id.length ){
         console.log('MISSING USER ACCOUNT RESTART APP');
     }else{
-        ProfileService.upsertWorkHistory($scope.WorkRecord, function() {});
-        ProfileService.getProfile($scope.currentUser.pid,function(response){
-            $scope.prettyPrint('NEW WORK : ',response);
+        ProfileService.upsertWorkHistory($scope.WorkRecord, function() {
+          ProfileService.getProfile($scope.currentUser.pid,function(response){
+              $scope.prettyPrint('NEW WORK : ',response);
+          });
         });
+
         $scope.hideWork = true;
         $scope.addWorkButton = false;
-        // $location.path('/app/myprofile/'+$scope.WorkRecord.profileId+'/edit');
     }
 };
 
@@ -771,8 +769,7 @@ $scope.editWork = function(wid){
     $scope.hideWork = false;
   }
   if($scope.addWorkButton){
-    $scope.addWorkButton = true;
-    //$scope.addWorkButton = $scope.addWorkButton === false ? true: false;
+    $scope.addWorkButton = false;
   }
 };
 
@@ -858,12 +855,12 @@ $scope.toggleWork = function(id) {
       delete $scope.SocialRecord.id;
     }
     ProfileService.upsertSocial($scope.SocialRecord, function() {
+      ProfileService.getProfile($scope.currentUser.pid, function(response){
 
+      });
     });
 
-    ProfileService.getProfile($scope.currentUser.pid, function(response){
 
-    });
 
     $scope.hideSocial = true;
   };

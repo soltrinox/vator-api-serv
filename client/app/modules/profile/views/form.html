@@ -77,12 +77,16 @@
           {{InvestorRecord | json}}
         </pre>
 
-        <div>
+        <div class="row">
+          <div class="uploads-box">
+            <div>
+                <input id="profilepic" name="profilepic" type="file" file />
+                <img src="{{fullprofile.user.ProfilePic}}" id="" class="" />
+            </div>
           <div>
+            <input id="coverpic" name="coverpic" type="file" file />
             <img src="{{fullprofile.user.CoverPic}}" id="" class="" />
           </div>
-          <div>
-            <img src="{{fullprofile.user.ProfilePic}}" id="" class="" />
           </div>
         </div>
 
@@ -172,16 +176,3 @@
 
     </tab>
   </tabset>
-<div class="row">
-
-</div>
-
-  <div class="row">
-    <div class="uploads-box">
-      <input id="profilepic" name="profilepic" type="file" file />
-      </br>
-      <input id="coverpic" name="coverpic" type="file" file />
-    </div>
-
-  </div>
-</div>
