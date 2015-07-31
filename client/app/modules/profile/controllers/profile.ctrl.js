@@ -643,7 +643,7 @@ $scope.$watchCollection('InvestorRecord', function(newValue, oldValue){
     $scope.prettyPrint('!!! WATCH INVEST  NEW!!!! \n',newValue);
 
 
-    angular.element($document[0].querySelector('.investorForm')).css('display', 'inherit');
+    angular.element($document[0].querySelector('.investorForm')).css('display', 'block');
     angular.element($document[0].querySelector('.work-datestart_date')).css('display', 'none');
     angular.element($document[0].querySelector('.work-dateend_date')).css('display', 'none');
     angular.element($document[0].querySelector('.work-title_text')).css('display', 'none');
@@ -707,7 +707,8 @@ $scope.onSubmitInvest = function() {
 
 $scope.editInvestments = function(iid){
 
-  $scope.WorkRecord = $scope.newWorkRecord();
+  //$scope.WorkRecord = $scope.newWorkRecord();
+  $scope.WorkRecord.Type = '003';
   $scope.hideWork = false;
   $scope.hideaddWorkButton = true;
 
@@ -715,66 +716,44 @@ $scope.editInvestments = function(iid){
   angular.forEach($scope.fullprofile.invest, function(value, key) {
     console.log( key+': ' + value.id +' = '+iid);
     if(value.id === iid){
-      //  TODO : got to get the whole object
       $scope.prettyPrint( 'SELECTED INVEST TO EDIT : ',value );
       $scope.InvestorRecord = value;
-      $scope.workLookUp = value.companyname;
+      // TODO: check on grabbing the ID  ??
       var elem = angular.element($document[0].querySelector('#work-companylookup'));
       elem.val(value.companyname);
-      $scope.WorkRecord.Type = '003';
+      $scope.workLookUp = value.companyname;
+
     }
   });
-
-
-  var isipot = angular.element( $document[0].querySelector( '#invest-isipo_0' ) );
-  var isipof = angular.element( $document[0].querySelector( '#invest-isipo_1' ) );
-
-  if($scope.InvestorRecord.isipo){
-    console.log('TRUE ISIPO: '+ $scope.InvestorRecord.isipo + '\n VAL: '+ isipot.prop('checked')  + ' : '+ isipof.prop('checked') );
-    angular.element($document[0].querySelector('.invest-transaction_text')).css('display', 'block');
-    angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', 'block');
-    angular.element($document[0].querySelector('.invest-amount2_text')).css('display', 'block');
-    angular.element($document[0].querySelector('.invest-aquirer_text')).css('display', 'block');
-    angular.element($document[0].querySelector('.invest-press_text')).css('display', 'block');
-    isipot.prop('checked',true);
-  }else{
-    console.log('FALSE ISIPO: '+ $scope.InvestorRecord.isipo + '\n VAL: '+ isipot.prop('checked')  + ' : '+ isipof.prop('checked') );
-    angular.element($document[0].querySelector('.invest-transaction_text')).css('display', 'none');
-    angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', 'none');
-    angular.element($document[0].querySelector('.invest-amount2_text')).css('display', 'none');
-    angular.element($document[0].querySelector('.invest-aquirer_text')).css('display', 'none');
-    angular.element($document[0].querySelector('.invest-press_text')).css('display', 'none');
-    isipof.prop('checked',true);
-  }
-
 };
 
 // ==============  WORK HISTORY ====================
 
 
-
-
 $scope.$watchCollection('WorkRecord', function(newValue, oldValue){
-    $scope.prettyPrint('!!! WATCH WORK  OLD!!!!\n',oldValue);
-    $scope.prettyPrint('!!! WATCH WORK  NEW!!!! \n',newValue);
+    // $scope.prettyPrint('!!! WATCH WORK  OLD!!!!\n',oldValue);
+    // $scope.prettyPrint('!!! WATCH WORK  NEW!!!! \n',newValue);
   if($scope.WorkRecord.Type === '003'){
+    console.log('$scope.WorkRecord.TYPE INVESTOR');
     angular.element($document[0].querySelector('.work-datestart_date')).css('display', 'none');
     angular.element($document[0].querySelector('.work-dateend_date')).css('display', 'none');
     angular.element($document[0].querySelector('.work-title_text')).css('display', 'none');
     angular.element($document[0].querySelector('.work-achievement_text')).css('display', 'none');
-    angular.element($document[0].querySelector('.investorForm')).css('display', 'inherit');
-    angular.element($document[0].querySelector('.invest-transaction_text')).css('display', 'none');
-    angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', 'none');
-    angular.element($document[0].querySelector('.invest-amount2_text')).css('display', 'none');
-    angular.element($document[0].querySelector('.invest-aquirer_text')).css('display', 'none');
-    angular.element($document[0].querySelector('.invest-press_text')).css('display', 'none');
+    angular.element($document[0].querySelector('.investorForm')).css('display', 'block');
+    angular.element($document[0].querySelector('.invest-transaction_text')).css('display', 'block');
+    angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', 'block');
+    angular.element($document[0].querySelector('.invest-amount2_text')).css('display', 'block');
+    angular.element($document[0].querySelector('.invest-aquirer_text')).css('display', 'block');
+    angular.element($document[0].querySelector('.invest-press_text')).css('display', 'block');
   }else if(($scope.WorkRecord.Type === '001') || ($scope.WorkRecord.Type === '002')){
+    console.log('$scope.WorkRecord.TYPE EMPLOYEE');
     angular.element($document[0].querySelector('.work-datestart_date')).css('display', 'block');
     angular.element($document[0].querySelector('.work-dateend_date')).css('display', 'block');
     angular.element($document[0].querySelector('.work-title_text')).css('display', 'block');
     angular.element($document[0].querySelector('.work-achievement_text')).css('display', 'block');
     angular.element($document[0].querySelector('.investorForm')).css('display', 'none');
   }else if(($scope.WorkRecord.Type === '004') || ($scope.WorkRecord.Type === '005')){
+    console.log('$scope.WorkRecord.TYPE BOARD');
     angular.element($document[0].querySelector('.work-datestart_date')).css('display', 'block');
     angular.element($document[0].querySelector('.work-dateend_date')).css('display', 'block');
     angular.element($document[0].querySelector('.work-title_text')).css('display', 'none');
