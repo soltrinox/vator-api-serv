@@ -689,12 +689,12 @@ $scope.onSubmitInvest = function() {
 };
 
 $scope.editInvestments = function(iid){
-
+$scope.prettyPrint('INVEST OBJ: ',$scope.fullprofile.invest);
   angular.forEach($scope.fullprofile.invest, function(value, key) {
     console.log( key+': ' + value.id +' = '+iid);
     if(value.id === iid){
       //  TODO : got to get the whole object
-      console.log( 'FOUND WORK TO EDIT : '+value );
+      $scope.prettyPrint( 'SECTED INVEST TO EDIT : ',value );
       $scope.InvestorRecord = value;
       $scope.workLookUp = value.companyname;
       var elem = angular.element($document[0].querySelector('#work-companylookup'));
