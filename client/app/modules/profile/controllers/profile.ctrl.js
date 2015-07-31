@@ -84,8 +84,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
     $scope.socials = [] ;        // ---------
     $scope.credentials = [] ;    // ---------
     $scope.contacts = [] ;
-
-
+    $scope.investments = [];
 
   // --------------------------------------------------
   // -----------------  FORMLY FIELDS -----------------
@@ -376,17 +375,18 @@ $scope.teamFields = [
   $scope.sliceProfile = function (pro){
     $scope.prettyPrint('inProfile',pro.user.id);
     if(pro){
-      $scope.educations = pro.edu;        // ---------
-      $scope.portfolio = pro.companies ;  // ---------
-      $scope.medias = pro.medias ;        // ---------
-      $scope.workhistory = pro.work ;     // ---------
+      $scope.educations = pro.edu;
+      $scope.portfolio = pro.companies ;
+      $scope.medias = pro.medias ;
+      $scope.workhistory = pro.work ;
+      $scope.investments = pro.investments;
       if(pro.social.length > 0){
-        $scope.SocialRecord = pro.social[0] ;        // ---------
+        $scope.SocialRecord = pro.social[0] ;
         $scope.socials.push($scope.SocialRecord);
       }
-      $scope.credentials = pro.creds ;    // ---------
-      $scope.contacts = pro.contact ;      // ---------
-      console.log('SLICED ENTIRE PROFILE PID:'+ $scope.currentUser.pid );
+      $scope.credentials = pro.creds ;
+      $scope.contacts = pro.contact ;
+      console.log('SLICED ENTIRE PROFILE PID:' + $scope.currentUser.pid );
     }else{
       console.log('missing profile for slice');
     }
@@ -485,11 +485,7 @@ $scope.$watchCollection('WorkRecord', function(newValue, oldValue){
     });
   };
 
-$scope.onCompanySelect = function(item, model, label){
-      $scope.prettyPrint('MODEL',model);
-      $scope.WorkRecord.companyname = model;
-  label = null;
-};
+
 
 
 // ----------------------------------------------
@@ -526,12 +522,6 @@ $scope.onCompanySelect = function(item, model, label){
     id = null;
   };
 
-  $scope.getMe = function(profileId){
-     if(!$scope.currentUser.pid || $scope.currentUser.pid.length > 0 )  {
-       $scope.getUserRecord($scope.currentUser.id);
-     }
-     profileId = null;
-  };
 
   $scope.getEntireProfile = function(thepId){
     ProfileService.getProfile(thepId, function(response){
@@ -693,8 +683,6 @@ $scope.onSubmitInvest = function() {
         ProfileService.upsertInvestments($scope.InvestRecord, function() {});
         ProfileService.getProfile($scope.currentUser.pid,function(response){
             $scope.prettyPrint('NEW Investment : ',response);
-            // $scope.profile = response;
-            $scope.getMe($scope.currentUser.pid);
         });
         $scope.hideWork = true;
         $scope.addWorkButton = false;
@@ -755,8 +743,6 @@ $scope.onSubmitWorkRecord = function() {
         ProfileService.upsertWorkHistory($scope.WorkRecord, function() {});
         ProfileService.getProfile($scope.currentUser.pid,function(response){
             $scope.prettyPrint('NEW WORK : ',response);
-            // $scope.profile = response;
-            $scope.getMe($scope.currentUser.pid);
         });
         $scope.hideWork = true;
         $scope.addWorkButton = false;
@@ -808,6 +794,11 @@ $scope.toggleWork = function(id) {
   id = null;
 };
 
+  $scope.onCompanySelect = function(item, model, label){
+        $scope.prettyPrint('MODEL',model);
+        $scope.WorkRecord.companyname = model;
+    label = null;
+  };
 
   $scope.lookCompany = function(val){
       $scope.workLookUp = val;
@@ -871,14 +862,10 @@ $scope.toggleWork = function(id) {
     });
 
     ProfileService.getProfile($scope.currentUser.pid, function(response){
-      $scope.prettyPrint('NEW SOCIAL : ',response);
-        //$scope.profile = response;
-        $scope.getMe($scope.currentUser.pid);
+
     });
 
     $scope.hideSocial = true;
-    //$location.path('/app/myprofile/'+$scope.SocialRecord.profileId +'/edit');
-
   };
 
   // ==============  EDIT TEAM FUNCTIONS ====================
