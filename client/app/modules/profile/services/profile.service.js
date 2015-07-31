@@ -2,7 +2,7 @@
 var app = angular.module('com.module.profile');
 
 app.service('ProfileService', ['$state', 'CoreService', 'Profile', 'User',
-'Education', 'Social', 'WorkHistory', 'Team',  'gettextCatalog',
+'Education', 'Social', 'WorkHistory', 'Investment','Team',  'gettextCatalog',
 function($state, CoreService, Profile, User, Education, Social, WorkHistory, Investment, Team, gettextCatalog) {
 
   this.getProfiles = function(id) {
