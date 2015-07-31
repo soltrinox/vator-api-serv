@@ -647,7 +647,7 @@ $scope.$watchCollection('InvestorRecord', function(newValue, oldValue){
 
 
     if($scope.InvestorRecord.isipo === 'true'){ $scope.swapipo = 'block'; }else{ $scope.swapipo = 'none';}
-    
+
     angular.element($document[0].querySelector('.invest-transaction_text')).css('display', $scope.swapipo );
     angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', $scope.swapipo);
     angular.element($document[0].querySelector('.invest-amount2_text')).css('display', $scope.swapipo);
@@ -700,10 +700,13 @@ $scope.upsertInvestmentRecord = function(investorRecord){
       delete $scope.InvestorRecord.id;
   }
   ProfileService.upsertInvestments($scope.InvestorRecord, function() {
-    ProfileService.getProfile($scope.currentUser.pid,function(response){
-        $scope.prettyPrint('NEW Investment : ',response);
-    });
+    $scope.fullprofile.invest.push($scope.InvestRecord);
+    $scope.InvestorRecord = $scope.newInvestorRecord();
+    $scope.getEntireProfile($scope.currentUser.pid);
   });
+  $scope.hideWork = true;
+  $scope.hideaddWorkButton = false;
+
   investorRecord = null;
 };
 
@@ -797,9 +800,9 @@ $scope.onSubmitWorkRecord = function() {
       }
 
       ProfileService.upsertWorkHistory($scope.WorkRecord, function() {
-        ProfileService.getProfile($scope.currentUser.pid,function(response){
-            $scope.prettyPrint('NEW WORK : ',response);
-        });
+        $scope.fullprofile.work.push($scope.WorkRecord);
+        $scope.WorkRecord = $scope.newWorkRecord();
+        $scope.getEntireProfile($scope.currentUser.pid);
       });
 
       $scope.hideWork = true;
@@ -890,8 +893,7 @@ $scope.startNewExperienceRecord = function(id) {
       delete $scope.SocialRecord.id;
     }
     ProfileService.upsertSocial($scope.SocialRecord, function() {
-      ProfileService.getProfile($scope.currentUser.pid, function(response){
-      });
+      $scope.getEntireProfile($scope.currentUser.pid);
     });
 
 
