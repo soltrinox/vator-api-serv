@@ -9,9 +9,8 @@
           formly-custom-validation="options.validators"
 				   id="{{options.id + '_'+ $index}}"
 				   aria-describedby="{{options.id}}_description "
-				   ng-value="$parent.result[$parent.options.key || $parent.index]"
-					 ng-checked="$parent.result[$parent.options.key || $parent.index]"
-				   ng-required="options.required "
+				   ng-value="options.value"
+				   ng-required="options.required"
 				   ng-model="$parent.result[$parent.options.key || $parent.index]">
 			<span class="vator_input_radio_value">{{option.name}}</span>
 		</label>
