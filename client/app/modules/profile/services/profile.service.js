@@ -196,11 +196,11 @@ function($state, CoreService, Profile, User, Education, Social, WorkHistory, Tea
     });
   };
 
-  this.deleteWorkHistory = function(id, cb) {
+  this.deleteWorkHistory = function(hid, cb) {
     CoreService.confirm(gettextCatalog.getString('Are you sure?'),
       gettextCatalog.getString('Deleting this cannot be undone'),
       function() {
-        WorkHistory.deleteById(id, function() {
+        WorkHistory.deleteById({id : hid}, function() {
           CoreService.toastSuccess(gettextCatalog.getString(
             'Work deleted'), gettextCatalog.getString(
             'Your work history is deleted!'));
