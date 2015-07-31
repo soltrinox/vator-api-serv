@@ -12,7 +12,7 @@
 				  aria-describedby="{{options.id}}_description"
 				  ng-value="options.value"
 				  ng-required="options.required"
-				  ng-model="isipo">
+				  ng-model="$parent.result[$parent.options.key || $parent.index]">
 			<span class="vator_input_isipo_value">{{option.name}}</span>
 		</label>
    <p id="{{options.id}}_description " class="help-block " ng-if="option.description ">{{option.description}}</p>

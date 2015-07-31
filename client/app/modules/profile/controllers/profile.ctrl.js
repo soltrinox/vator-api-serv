@@ -280,7 +280,7 @@ $scope.investFields =
       type: 'isipo',
       id : 'invest-isipo',
       uniqueFormId : 'invest-isipo-box',
-      default: '$scope.isipo',
+      default: '$scope.InvestorRecord.isipo',
       label: 'Aquired / IPO',
       required: false,
       options: [
