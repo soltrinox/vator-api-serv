@@ -147,8 +147,8 @@
           <tbody>
             <tr ng-repeat="invest in fullprofile.invest | filter:{id:'!!'}" class="list-group-item">
               <td width="10%"><div class="">
-                <button class="btn btn-warning fa fa-pencil" ng-click="editInvestments('{{work.id}}')" />
-                <button class="btn btn-danger fa fa-trash" ng-click="deleteInvestment('{{work.id}}')" />
+                <button class="btn btn-warning fa fa-pencil" ng-click="editInvestments('{{invest.id}}')" />
+                <button class="btn btn-danger fa fa-trash" ng-click="deleteInvestment('{{invest.id}}')" />
                 </div>
               </td>
               <td width="20%"><div class="">{{invest.companyname}}</div></td>

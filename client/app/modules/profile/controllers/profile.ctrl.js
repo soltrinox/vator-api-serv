@@ -690,7 +690,7 @@ $scope.onSubmitInvest = function() {
 
 $scope.editInvestments = function(iid){
 
-  angular.forEach($scope.fullprofile.investments, function(value, key) {
+  angular.forEach($scope.fullprofile.invest, function(value, key) {
     console.log( key+': ' + value.id +' = '+iid);
     if(value.id === iid){
       //  TODO : got to get the whole object
