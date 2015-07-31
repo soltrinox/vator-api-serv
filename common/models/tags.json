@@ -1,6 +1,6 @@
-
 {
-  "name": "keys",
+  "name": "Tag",
+ "plural": "Tags",
   "base": "PersistedModel",
   "strict": false,
   "idInjection": false,
@@ -8,7 +8,7 @@
     "validateUpsert": true
   },
   "properties": {
-    "kname": {
+    "tag": {
       "type": "string"
     },
     "link": {
@@ -19,17 +19,13 @@
     },
     "parent": {
       "type": "string"
+    },
+    "seo": {
+      "type": "string"
     }
   },
   "validations": [],
-  "relations": {
-    "profiles": {
-      "type": "hasAndBelongsToMany",
-      "model": "Profile",
-      "foreignKey": ""
-    }
-  },
+  "relations": { },
   "acls": [],
   "methods": []
 }
-

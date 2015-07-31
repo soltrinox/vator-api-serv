@@ -5,6 +5,15 @@
   "properties": {
     "name": {
       "type": "string"
+    },
+    "parent": {
+      "type": "string"
+    },
+    "seo": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
     }
   },
   "validations": [],
