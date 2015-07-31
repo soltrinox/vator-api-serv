@@ -126,12 +126,12 @@
 
         <div id="workForm" class="workForm" style="display:block">
         <formly-form result="WorkRecord" fields="workFields" options="formOptions"
-                ng-submit="onSubmitWorkRecord()"></formly-form>
+                ></formly-form>
         </div>
 
         <div id="investorForm" class="investorForm" style="display:none">
           <formly-form result="InvestorRecord" fields="investFields" id="investForm"
-              options="formOptions" ng-submit="onSubmitWorkRecord()"></formly-form>
+              options="formOptions" ></formly-form>
         </div>
         <pre>
           {{InvestorRecord | json}}
@@ -139,7 +139,7 @@
         </pre>
         <div class="controls tabsubmit" >
           <button class="btn btn-primary btn-warning" ng-click="cancelWork()" translate>Cancel </button> &nbsp; &nbsp;
-          <button class="btn btn-primary btn-success" ng-click="onSubmitWorkRecord()" translate>Submit </button>
+          <button class="btn btn-primary btn-success" ng-click="onSubmitExperience()" translate>Submit </button>
         </div>
       </div>
       <div class="row">

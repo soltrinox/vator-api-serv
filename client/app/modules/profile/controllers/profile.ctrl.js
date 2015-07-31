@@ -733,6 +733,17 @@ $scope.editInvestments = function(iid){
   });
 };
 
+$scope.onSubmitExperience = function(){
+
+  if($scope.WorkRecord.Type !== '003'){
+    $scope.onSubmitWorkRecord();
+  }else{
+    $scope.onSubmitInvest();
+  }
+
+
+}
+
 // ==============  WORK HISTORY ====================
 $scope.swapipo = 'none';
 
@@ -775,10 +786,6 @@ $scope.$watchCollection('WorkRecord', function(newValue, oldValue){
 
   $scope.deleteWork = function(id) {
     ProfileService.deleteWorkHistory(id, function() {
-    ProfileService.deleteWorkHistory($scope.currentUser.pid, function(){
-
-      });
-      console.log('MSG RESPONSE DELETE WORK: ');
     });
   };
 
