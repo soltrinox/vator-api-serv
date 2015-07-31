@@ -144,15 +144,15 @@
         <table class="table table-hover">
           <tbody>
             <tr ng-repeat="work in fullprofile.work | filter:{id:'!!'}" class="list-group-item">
+              <td width="10%"><div class="">
+                <button class="btn btn-warning" ng-click="editWork('{{work.id}}')">Edit</button>
+                <button class="btn btn-error" ng-click="deleteWork('{{work.id}}')">Delete</button>
+                </div>
+              </td>
               <td width="20%"><div class="">{{work.companyname}}</div></td>
               <td width="20%"><div class="">{{work.jobtitle}}</div></td>
               <td width="20%"><div class="">{{work.Type}}</div></td>
               <td width="20%"><div class="">{{work.datestart | limitTo: 10 }} to {{work.dateend  | limitTo: 10 }}</div></td>
-              <td width="10%"><div class="">
-                <button class="btn btn-warning" ng-click="editWork('{{work.id}}')">Edit</button>
-                <button class="btn btn-warning" ng-click="deleteWork('{{work.id}}')">Edit</button>
-                </div>
-              </td>
             </tr>
           </tbody>
         </table>
