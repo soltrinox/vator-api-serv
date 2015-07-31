@@ -83,6 +83,7 @@ app.config(function(formlyConfigProvider) {
     'select',
     'text',
     'textarea',
+    'isipo',
     'auto'
   ];
 
