@@ -1,6 +1,5 @@
 <h4>
   <a href="" ui-sref="^.list" class="btn btn-default"><i class="fa fa-arrow-left"></i>Back</a><br/>
-
 </h4>
 <style>
   .vator_form_box {
@@ -128,13 +127,10 @@
           <formly-form result="InvestRecord" fields="investFields" id="investForm"
               options="formOptions" ng-submit="onSubmit3()"></formly-form>
         </div>
-
         <pre>
           {{InvestorRecord | json}}
           {{ WorkRecord | json }}
         </pre>
-
-
         <div class="controls" style="margin:20px 0px 20px 60px; clear: both !important;">
           <button class="btn btn-primary btn-warning" ng-click="cancelWork()" translate>Cancel </button> &nbsp; &nbsp;
           <button class="btn btn-primary btn-success" ng-click="onSubmit3()" translate>Submit </button>
@@ -145,8 +141,8 @@
           <tbody>
             <tr ng-repeat="work in fullprofile.work | filter:{id:'!!'}" class="list-group-item">
               <td width="10%"><div class="">
-                <button class="btn btn-warning" ng-click="editWork('{{work.id}}')">Edit</button>
-                <button class="btn btn-error" ng-click="deleteWork('{{work.id}}')">Delete</button>
+                <button class="btn btn-warning fa fa-pencil" ng-click="editWork('{{work.id}}')" />
+                <button class="btn btn-error fa fa-trash" ng-click="deleteWork('{{work.id}}')" />
                 </div>
               </td>
               <td width="20%"><div class="">{{work.companyname}}</div></td>

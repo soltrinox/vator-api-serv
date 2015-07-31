@@ -6,7 +6,7 @@
     <div class="wrapper row-offcanvas row-offcanvas-left">
         <aside class="left-side sidebar-offcanvas">
             <section class="sidebar">
-                <div class="user-panel">
+                <!-- <div class="user-panel">
                     <div class="pull-left image">
                         <img gravatar-src="currentUser.email" class="img-circle" alt="User Image">
                     </div>
@@ -14,7 +14,7 @@
                         <p><a href="" ui-sref="app.users.profile"> {{ 'Hello,' | translate }} {{currentUser.firstName || currentUser.profiles[0].profile.name.givenName}}</a></p>
                         <p><small><a href="" ui-sref="app.users.profile">{{ currentUser.email }}</a></small></p>
                     </div>
-                </div>
+                </div> -->
                 <ul class="sidebar-menu">
                     <li ng-repeat="item in menuoptions" ui-sref-active="active">
                         <a class="" href="" ui-sref="{{item.sref}}"><i class="fa fa-fw fa-2x {{item.icon}}"></i> &nbsp; {{item.name | translate}}</a>
