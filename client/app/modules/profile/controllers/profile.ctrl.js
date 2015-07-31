@@ -731,7 +731,7 @@ $scope.prettyPrint('INVEST OBJ: ',$scope.fullprofile.invest);
   var isipof = angular.element( $document[0].querySelector( '#invest-isipo_1' ) );
 
 if($scope.InvestorRecord.isipo === true){
-  console.log('ISIPO: '+ $scope.InvestorRecord.isipo + '\n VAL: '+ isipot  + ' : '+ isipof );
+  console.log('ISIPO: '+ $scope.InvestorRecord.isipo + '\n VAL: '+ isipot.prop('checked')  + ' : '+ isipof.prop('checked') );
   angular.element($document[0].querySelector('.invest-transaction_text')).css('display', 'block');
   angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', 'block');
   angular.element($document[0].querySelector('.invest-amount2_text')).css('display', 'block');
@@ -741,6 +741,7 @@ if($scope.InvestorRecord.isipo === true){
   isipot.prop('checked',true);
   isipof.prop('checked',false);
 }else{
+  console.log('ISIPO: '+ $scope.InvestorRecord.isipo + '\n VAL: '+ isipot.prop('checked')  + ' : '+ isipof.prop('checked') );
   angular.element($document[0].querySelector('.invest-transaction_text')).css('display', 'none');
   angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', 'none');
   angular.element($document[0].querySelector('.invest-amount2_text')).css('display', 'none');
