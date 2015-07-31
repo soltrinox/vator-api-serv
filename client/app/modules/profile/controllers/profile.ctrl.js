@@ -638,7 +638,7 @@ $scope.teamFields = [
 
 // ==============  INVESTMENT ====================
 
-$scope.$watchCollection('InvestorRecord', function(newValue, oldValue){
+$scope.$watchCollection('InvestorRecord.isipo', function(newValue, oldValue){
     $scope.prettyPrint('!!! WATCH INVEST  OLD!!!!\n',oldValue);
     $scope.prettyPrint('!!! WATCH INVEST  NEW!!!! \n',newValue);
 
@@ -728,6 +728,7 @@ $scope.editInvestments = function(iid){
     if(value.id === iid){
       $scope.prettyPrint( 'SELECTED INVEST TO EDIT : ',value );
       $scope.InvestorRecord = value;
+      $scope.isipo = value.isipo;
       // TODO: check on grabbing the ID  ??
       var elem = angular.element($document[0].querySelector('#work-companylookup'));
       elem.val(value.companyname);
