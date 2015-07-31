@@ -474,7 +474,7 @@ $scope.teamFields = [
         }
       }
     }).then(function(response){
-      $scope.prettyPrint('Company : ' , response);
+      // $scope.prettyPrint('Company : ' , response);
       return response.data.map(function(item){
         return item.name;
       });
