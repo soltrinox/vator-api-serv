@@ -644,28 +644,17 @@ $scope.$watchCollection('InvestorRecord', function(newValue, oldValue){
 
 
     angular.element($document[0].querySelector('.investorForm')).css('display', 'block');
-    angular.element($document[0].querySelector('.work-datestart_date')).css('display', 'none');
-    angular.element($document[0].querySelector('.work-dateend_date')).css('display', 'none');
-    angular.element($document[0].querySelector('.work-title_text')).css('display', 'none');
-    angular.element($document[0].querySelector('.work-achievement_text')).css('display', 'none');
 
-  if($scope.InvestorRecord.isipo){
-    $scope.prettyPrint('ISIPO TRUE : ',$scope.InvestorRecord.isipo);
-    angular.element($document[0].querySelector('.invest-transaction_text')).css('display', 'block');
-    angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', 'block');
-    angular.element($document[0].querySelector('.invest-amount2_text')).css('display', 'block');
-    angular.element($document[0].querySelector('.invest-aquirer_text')).css('display', 'block');
-    angular.element($document[0].querySelector('.invest-press_text')).css('display', 'block');
-  }else if(!$scope.InvestorRecord.isipo){
-    $scope.prettyPrint('ISIPO FALSE : ',$scope.InvestorRecord.isipo);
-    angular.element($document[0].querySelector('.invest-transaction_text')).css('display', 'none');
-    angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', 'none');
-    angular.element($document[0].querySelector('.invest-amount2_text')).css('display', 'none');
-    angular.element($document[0].querySelector('.invest-aquirer_text')).css('display', 'none');
-    angular.element($document[0].querySelector('.invest-press_text')).css('display', 'none');
-  }else{
-    console.log('!!!!! $scope.InvestorRecord.isipo NOT SET ');
-  }
+
+    if($scope.InvestorRecord.isipo === 'true'){ $scope.swapipo = 'block'; }else{ $scope.swapipo = 'none';}
+    
+    angular.element($document[0].querySelector('.invest-transaction_text')).css('display', $scope.swapipo );
+    angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', $scope.swapipo);
+    angular.element($document[0].querySelector('.invest-amount2_text')).css('display', $scope.swapipo);
+    angular.element($document[0].querySelector('.invest-aquirer_text')).css('display', $scope.swapipo);
+    angular.element($document[0].querySelector('.invest-press_text')).css('display', $scope.swapipo);
+
+
 });
 
 $scope.isipo = false;
@@ -676,7 +665,7 @@ $scope.startNewInvestment = function(){
   $scope.InvestorRecord = $scope.newInvestorRecord();
   $scope.InvestorRecord.isipo = false;
   $scope.isipo = false;
-}
+};
 
 $scope.isIpoChanged = function(value){
   console.log('ISIPO ng-change = ' + value);
@@ -750,10 +739,10 @@ $scope.onSubmitExperience = function(){
   }
 
 
-}
+};
 
 // ==============  WORK HISTORY ====================
-$scope.swapipo = 'none';
+
 
 $scope.$watchCollection('WorkRecord', function(newValue, oldValue){
     // $scope.prettyPrint('!!! WATCH WORK  OLD!!!!\n',oldValue);
