@@ -670,9 +670,7 @@ $scope.$watchCollection('InvestorRecord', function(newValue, oldValue){
 
 
 $scope.isIpoChanged = function(value){
-      if(value){
-           console.log('ISIPO ng-change = ' + value);
-      }
+  console.log('ISIPO ng-change = ' + value);
 };
 
 $scope.deleteInvestment = function(id) {
