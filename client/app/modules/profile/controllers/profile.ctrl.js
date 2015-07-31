@@ -40,6 +40,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
     };
 
     $scope.WorkRecord = {
+      Type : '',
       companyname: '',
       jobtitle : '',
       datestart : '',
@@ -56,7 +57,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
       profileId:'',
       roundtotal:'',
       valuation:'',
-      isipo : false,
+      isipo : '',
       id:'',
       transaction:'',
       exitdate:'',
@@ -610,7 +611,7 @@ $scope.$watchCollection('InvestorRecord', function(newValue, oldValue){
     $scope.prettyPrint('INVEST old value\n',oldValue);
     $scope.prettyPrint('INVEST new value \n',newValue);
 
-  var xnx = $scope.WorkRecord.Type;
+    var xnx = $scope.WorkRecord.Type;
     if(xnx === '003'){
 
     }
@@ -620,24 +621,25 @@ $scope.$watchCollection('InvestorRecord', function(newValue, oldValue){
     angular.element($document[0].querySelector('.work-title_text')).css('display', 'none');
     angular.element($document[0].querySelector('.work-achievement_text')).css('display', 'none');
 
-  if($scope.InvestorRecord.isipo === true){
+  if($scope.InvestorRecord.isipo){
     angular.element($document[0].querySelector('.invest-transaction_text')).css('display', 'block');
     angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', 'block');
     angular.element($document[0].querySelector('.invest-amount2_text')).css('display', 'block');
     angular.element($document[0].querySelector('.invest-aquirer_text')).css('display', 'block');
     angular.element($document[0].querySelector('.invest-press_text')).css('display', 'block');
-  }else if($scope.InvestorRecord.isipo === false){
+  }else if(!$scope.InvestorRecord.isipo){
     angular.element($document[0].querySelector('.invest-transaction_text')).css('display', 'none');
     angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', 'none');
     angular.element($document[0].querySelector('.invest-amount2_text')).css('display', 'none');
     angular.element($document[0].querySelector('.invest-aquirer_text')).css('display', 'none');
     angular.element($document[0].querySelector('.invest-press_text')).css('display', 'none');
   }else{
-    angular.element($document[0].querySelector('.invest-transaction_text')).css('display', 'none');
-    angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', 'none');
-    angular.element($document[0].querySelector('.invest-amount2_text')).css('display', 'none');
-    angular.element($document[0].querySelector('.invest-aquirer_text')).css('display', 'none');
-    angular.element($document[0].querySelector('.invest-press_text')).css('display', 'none');
+    console.log('!!!!! $scope.InvestorRecord.isipo NOT SET ');
+    // angular.element($document[0].querySelector('.invest-transaction_text')).css('display', 'none');
+    // angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', 'none');
+    // angular.element($document[0].querySelector('.invest-amount2_text')).css('display', 'none');
+    // angular.element($document[0].querySelector('.invest-aquirer_text')).css('display', 'none');
+    // angular.element($document[0].querySelector('.invest-press_text')).css('display', 'none');
   }
 
 
@@ -649,7 +651,7 @@ $scope.isIpoChanged = function(value){
         console.log('isipo = ' + value);
       }
 
-    
+
 };
 
 $scope.deleteInvestment = function(id) {
@@ -706,27 +708,23 @@ $scope.prettyPrint('INVEST OBJ: ',$scope.fullprofile.invest);
   var isipot = angular.element( $document[0].querySelector( '#invest-isipo_0' ) );
   var isipof = angular.element( $document[0].querySelector( '#invest-isipo_1' ) );
 
-if($scope.InvestorRecord.isipo === true){
-  console.log('TRUE ISIPO: '+ $scope.InvestorRecord.isipo + '\n VAL: '+ isipot.prop('checked')  + ' : '+ isipof.prop('checked') );
-  angular.element($document[0].querySelector('.invest-transaction_text')).css('display', 'block');
-  angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', 'block');
-  angular.element($document[0].querySelector('.invest-amount2_text')).css('display', 'block');
-  angular.element($document[0].querySelector('.invest-aquirer_text')).css('display', 'block');
-  angular.element($document[0].querySelector('.invest-press_text')).css('display', 'block');
-
-  isipot.prop('checked',true);
-
-}else{
-  console.log('FALSE ISIPO: '+ $scope.InvestorRecord.isipo + '\n VAL: '+ isipot.prop('checked')  + ' : '+ isipof.prop('checked') );
-  angular.element($document[0].querySelector('.invest-transaction_text')).css('display', 'none');
-  angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', 'none');
-  angular.element($document[0].querySelector('.invest-amount2_text')).css('display', 'none');
-  angular.element($document[0].querySelector('.invest-aquirer_text')).css('display', 'none');
-  angular.element($document[0].querySelector('.invest-press_text')).css('display', 'none');
-
-  isipof.prop('checked',true);
-}
-
+  if($scope.InvestorRecord.isipo){
+    console.log('TRUE ISIPO: '+ $scope.InvestorRecord.isipo + '\n VAL: '+ isipot.prop('checked')  + ' : '+ isipof.prop('checked') );
+    angular.element($document[0].querySelector('.invest-transaction_text')).css('display', 'block');
+    angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', 'block');
+    angular.element($document[0].querySelector('.invest-amount2_text')).css('display', 'block');
+    angular.element($document[0].querySelector('.invest-aquirer_text')).css('display', 'block');
+    angular.element($document[0].querySelector('.invest-press_text')).css('display', 'block');
+    isipot.prop('checked',true);
+  }else{
+    console.log('FALSE ISIPO: '+ $scope.InvestorRecord.isipo + '\n VAL: '+ isipot.prop('checked')  + ' : '+ isipof.prop('checked') );
+    angular.element($document[0].querySelector('.invest-transaction_text')).css('display', 'none');
+    angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', 'none');
+    angular.element($document[0].querySelector('.invest-amount2_text')).css('display', 'none');
+    angular.element($document[0].querySelector('.invest-aquirer_text')).css('display', 'none');
+    angular.element($document[0].querySelector('.invest-press_text')).css('display', 'none');
+    isipof.prop('checked',true);
+  }
 
 };
 
@@ -831,8 +829,9 @@ $scope.editWork = function(wid){
 };
 
 $scope.toggleWork = function(id) {
-  if(! $scope.addWorkButton){
+
     $scope.WorkRecord = {
+      Type : '',
       companyname: '',
       jobtitle : '',
       datestart : '',
@@ -842,7 +841,24 @@ $scope.toggleWork = function(id) {
       achievements: [{'value':0}],
       id: ''
     };
-  }
+
+    $scope.InvestorRecord = {
+      amount:'',
+      date:'',
+      profileId:'',
+      roundtotal:'',
+      valuation:'',
+      isipo:'',
+      id:'',
+      transaction:'',
+      exitdate:'',
+      amount2:'',
+      aquirer:'',
+      press:''
+    };
+
+
+
   $scope.hideWork = $scope.hideWork === false ? true: false;
   $scope.addWorkButton = $scope.addWorkButton === false ? true: false;
   id = null;
@@ -863,7 +879,9 @@ $scope.toggleWork = function(id) {
      $scope.hideWork = false; //$scope.hideWork === false ? true: false;
      $scope.addWorkButton = true; //= $scope.addWorkButton === false ? true: false;
      id = null;
+
      $scope.WorkRecord = {
+       Type : '',
        companyname: '',
        jobtitle : '',
        datestart : '',
