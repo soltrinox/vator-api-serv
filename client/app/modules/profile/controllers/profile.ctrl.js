@@ -814,7 +814,7 @@ $scope.editWork = function(wid){
     console.log( key+': ' + value.id +' = '+wid);
     if(value.id === wid){
       //  TODO : got to get the whole object
-      console.log( 'FOUND WORK TO EDIT : '+value );
+      $scope.prettyPrint( 'FOUND WORK TO EDIT ', value );
       $scope.WorkRecord = value;
       $scope.workLookUp = value.companyname;
       var elem = angular.element($document[0].querySelector('#work-companylookup'));
