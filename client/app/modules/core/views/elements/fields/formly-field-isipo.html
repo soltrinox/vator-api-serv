@@ -1,6 +1,6 @@
 <div class="radio-group vator_form_box {{options.id}}_isipo" ng-class="{'has-error': options.formField.$invalid}">
 		<label class="control-label"><span class="{{options.id}}-isipo_label">{{options.label}} {{options.required ? '*' : ''}}  </span>
-    <div class="radio_box {{options.id}}-radio_container" ng-repeat="(key, option) in options.options">
+    <div class="radio_box {{options.id}}-radio_container" >
 
     <label class="vator-radio-label">
 			<input type="hidden"
@@ -10,15 +10,12 @@
           formly-custom-validation="options.validators"
 				  id="{{options.id + '_'+ $index}}"
 				  aria-describedby="{{options.id}}_description"
-				  ng-value="options.value"
+				  ng-value="$scope.isipo"
 				  ng-model="result[options.key || index]">
-
-					<div class="btn-group">
-			        <label class="btn btn-success" ng-model="$scope.isipo" btn-radio="'true'" ng-change="toggleInvestorIPO('true')" uncheckable>Yes</label>
-			        <label class="btn btn-success" ng-model="$scope.isipo" btn-radio="'false'" ng-change="toggleInvestorIPO('false')" uncheckable>No</label>
-			    </div>
-
-			<span class="vator_input_isipo_value">{{option.name}}</span>
+			<div class="btn-group">
+					<label class="btn btn-success"  btn-radio="'true'" ng-change="toggleInvestorIPO('true')" uncheckable>Yes</label>
+					<label class="btn btn-success"  btn-radio="'false'" ng-change="toggleInvestorIPO('false')" uncheckable>No</label>
+			</div>
 		</label>
    <p id="{{options.id}}_description " class="help-block " ng-if="option.description ">{{option.description}}</p>
 	</div>
