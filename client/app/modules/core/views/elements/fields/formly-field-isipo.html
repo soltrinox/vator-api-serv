@@ -3,7 +3,7 @@
     <div class="radio_box {{options.id}}-radio_container" ng-repeat="(key, option) in options.options">
 
     <label class="vator-radio-label">
-			<input type="radio"
+			<!-- <input type="hidden"
 					ng-change="isIpoChanged({{options.value}})"
 					class="form-control  {{options.id}}_input_isipo"
           name="isipo"
@@ -11,8 +11,13 @@
 				  id="{{options.id + '_'+ $index}}"
 				  aria-describedby="{{options.id}}_description"
 				  ng-value="options.value"
-				  ng-required="options.required"
-				  ng-model="$parent.result[$parent.options.key || $parent.index]">
+				  ng-model="InvestorRecord.isipo"> -->
+
+					<div class="btn-group">
+			        <label class="btn btn-success" ng-model="InvestorRecord.isipo" btn-radio="'true'" ng-change="toggleInvestorIPO('true')" uncheckable>Yes</label>
+			        <label class="btn btn-success" ng-model="InvestorRecord.isipo" btn-radio="'false'" ng-change="toggleInvestorIPO('false')" uncheckable>No</label>
+			    </div>
+
 			<span class="vator_input_isipo_value">{{option.name}}</span>
 		</label>
    <p id="{{options.id}}_description " class="help-block " ng-if="option.description ">{{option.description}}</p>

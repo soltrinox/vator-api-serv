@@ -282,16 +282,7 @@ $scope.investFields =
       uniqueFormId : 'invest-isipo-box',
       default: '$scope.InvestorRecord.isipo',
       label: 'Aquired / IPO',
-      required: false,
-      options: [
-      {
-          name: 'Yes',
-          value: 'true'
-      },
-      {
-          name: 'No',
-          value: 'false'
-      }]
+      required: false
     },
     {
       key: 'transaction',
@@ -647,15 +638,20 @@ $scope.$watchCollection('InvestorRecord', function(newValue, oldValue){
 
 
     if($scope.InvestorRecord.isipo === 'true'){ $scope.swapipo = 'block'; }else{ $scope.swapipo = 'none';}
-
     angular.element($document[0].querySelector('.invest-transaction_text')).css('display', $scope.swapipo );
     angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', $scope.swapipo);
     angular.element($document[0].querySelector('.invest-amount2_text')).css('display', $scope.swapipo);
     angular.element($document[0].querySelector('.invest-aquirer_text')).css('display', $scope.swapipo);
     angular.element($document[0].querySelector('.invest-press_text')).css('display', $scope.swapipo);
-
-
 });
+
+$scope.toggleInvestorIPO = function(){
+   if( $scope.radioModel === 'true' ){
+     angular.element($document[0].querySelector('#newb')).css('display', 'none' );
+   }else{
+     angular.element($document[0].querySelector('#newb')).css('display', 'block' );
+   }
+}
 
 $scope.isipo = false;
 
