@@ -637,7 +637,7 @@ $scope.$watchCollection('InvestorRecord', function(newValue, oldValue){
 });
 
 $scope.toggleInvestorIPO = function(val){
-  
+
   $scope.isipo = val;
   $scope.InvestorRecord.isipo = val;
 

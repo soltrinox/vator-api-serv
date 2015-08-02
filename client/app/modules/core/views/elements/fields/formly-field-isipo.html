@@ -10,11 +10,11 @@
           formly-custom-validation="options.validators"
 				  id="{{options.id + '_'+ $index}}"
 				  aria-describedby="{{options.id}}_description"
-				  ng-value="$scope.isipo"
+				  ng-value="isipo"
 				  ng-model="result[options.key || index]">
 			<div class="btn-group">
-					<label class="btn btn-success" ng-model="$scope.isipo"  btn-radio="'true'" ng-click="toggleInvestorIPO('true')" uncheckable>Yes</label>
-					<label class="btn btn-success"  ng-model="$scope.isipo"  btn-radio="'false'" ng-click="toggleInvestorIPO('false')" uncheckable>No</label>
+					<label class="btn btn-success"  ng-click="toggleInvestorIPO('true')" uncheckable>Yes</label>
+					<label class="btn btn-success"  ng-click="toggleInvestorIPO('false')" uncheckable>No</label>
 			</div>
 
    <p id="{{options.id}}_description " class="help-block " ng-if="option.description ">{{option.description}}</p>
