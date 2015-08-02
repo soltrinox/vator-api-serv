@@ -13,8 +13,8 @@
 				  ng-value="isipo"
 				  ng-model="result[options.key || index]">
 			<div class="btn-group">
-					<button class="btn btn-success"  ng-click="toggleInvestorIPO('true')" uncheckable>Yes</button>
-					<button class="btn btn-success"  ng-click="toggleInvestorIPO('false')" uncheckable>No</button>
+					<button class="btn btn-success" id="isipo-yes" ng-click="toggleInvestorIPO('true')" >Yes</button>
+					<button class="btn btn-success" id="isipo-no" ng-click="toggleInvestorIPO('false')" >No</button>
 			</div>
 
    <p id="{{options.id}}_description " class="help-block " ng-if="option.description ">{{option.description}}</p>
