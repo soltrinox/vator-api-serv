@@ -652,7 +652,6 @@ $scope.toggleInvestorIPO = function(val){
 };
 
 
-
 $scope.startNewInvestment = function(){
   $scope.WorkRecord = $scope.newWorkRecord();
   $scope.WorkRecord.Type = '003';
@@ -716,7 +715,14 @@ $scope.editInvestments = function(iid){
     if(value.id === iid){
       $scope.prettyPrint( 'SELECTED INVEST TO EDIT : ',value );
       $scope.InvestorRecord = value;
-      $scope.isipo = value.isipo;
+      if(!value.isipo || 0 === value.isipo.length){
+        $scope.isipo = 'false';
+        $scope.InvestorRecord.isipo = 'false';
+      }else{
+        $scope.isipo = value.isipo;
+        $scope.InvestorRecord.isipo = value.isipo;
+      }
+
       // TODO: check on grabbing the ID  ??
       var elem = angular.element($document[0].querySelector('#work-companylookup'));
       elem.val(value.companyname);
