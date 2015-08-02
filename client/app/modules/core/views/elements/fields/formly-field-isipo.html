@@ -13,8 +13,8 @@
 				  ng-value="$scope.isipo"
 				  ng-model="result[options.key || index]">
 			<div class="btn-group">
-					<label class="btn btn-success"  btn-radio="'true'" ng-change="toggleInvestorIPO('true')" uncheckable>Yes</label>
-					<label class="btn btn-success"  btn-radio="'false'" ng-change="toggleInvestorIPO('false')" uncheckable>No</label>
+					<label class="btn btn-success"  btn-radio="'true'" ng-click="toggleInvestorIPO('true')" uncheckable>Yes</label>
+					<label class="btn btn-success"  btn-radio="'false'" ng-click="toggleInvestorIPO('false')" uncheckable>No</label>
 			</div>
 		</label>
    <p id="{{options.id}}_description " class="help-block " ng-if="option.description ">{{option.description}}</p>
