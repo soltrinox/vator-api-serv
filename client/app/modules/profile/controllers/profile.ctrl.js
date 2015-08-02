@@ -87,7 +87,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
         profileId:'',
         roundtotal:'',
         valuation:'',
-        isipo : '',
+        isipo : 'false',
         id:'',
         transaction:'',
         exitdate:'',
@@ -657,8 +657,7 @@ $scope.startNewInvestment = function(){
   $scope.WorkRecord = $scope.newWorkRecord();
   $scope.WorkRecord.Type = '003';
   $scope.InvestorRecord = $scope.newInvestorRecord();
-  $scope.InvestorRecord.isipo = false;
-  $scope.isipo = false;
+  $scope.isipo = 'false';
 };
 
 $scope.isIpoChanged = function(value){
