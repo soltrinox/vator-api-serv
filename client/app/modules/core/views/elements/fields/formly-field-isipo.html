@@ -1,8 +1,8 @@
 <div class="radio-group vator_form_box {{options.id}}_isipo" ng-class="{'has-error': options.formField.$invalid}">
-		<label class="control-label"><span class="{{options.id}}-isipo_label">{{options.label}} {{options.required ? '*' : ''}}  </span>
+		<label class="control-label">
+			<span class="{{options.id}}-isipo_label">{{options.label}} {{options.required ? '*' : ''}}  </span>
+			<br/>
     <div class="radio_box {{options.id}}-radio_container" >
-
-    <label class="vator-radio-label">
 			<input type="hidden"
 					ng-change="isIpoChanged({{options.value}})"
 					class="form-control  {{options.id}}_input_isipo"
@@ -13,10 +13,10 @@
 				  ng-value="$scope.isipo"
 				  ng-model="result[options.key || index]">
 			<div class="btn-group">
-					<label class="btn btn-success"  btn-radio="'true'" ng-click="toggleInvestorIPO('true')" uncheckable>Yes</label>
-					<label class="btn btn-success"  btn-radio="'false'" ng-click="toggleInvestorIPO('false')" uncheckable>No</label>
+					<label class="btn btn-success" ng-model="$scope.isipo"  btn-radio="'true'" ng-click="toggleInvestorIPO('true')" uncheckable>Yes</label>
+					<label class="btn btn-success"  ng-model="$scope.isipo"  btn-radio="'false'" ng-click="toggleInvestorIPO('false')" uncheckable>No</label>
 			</div>
-		</label>
+
    <p id="{{options.id}}_description " class="help-block " ng-if="option.description ">{{option.description}}</p>
 	</div>
   </label>
