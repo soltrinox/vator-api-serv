@@ -1,4 +1,4 @@
-<div class="radio-group vator_form_box {{options.id}}_isipo" ng-class="{'has-error': options.formField.$invalid}">
+<div class="radio-group vator_form_box {{options.id}}_isipo">
 		<label class="control-label">
 			<span class="{{options.id}}-isipo_label">{{options.label}} {{options.required ? '*' : ''}}  </span>
 			<br/>
@@ -10,16 +10,15 @@
 				  id="{{options.id + '_'+ $index}}"
 				  aria-describedby="{{options.id}}_description"
 				  ng-model="result[options.key || index]">
+					<div >
 
+							<input type="radio" id="isipo-yes"  name="isipo-yes"   ng-model="$scope.isipo" value="yes"  >
+							<label labelfor="isipo-yes">&nbsp;Yes &nbsp;&nbsp;|</label>
+							<label labelfor="isipo-no">&nbsp;&nbsp;No &nbsp;</label>
+							<input type="radio" id="isipo-no"  name="isipo-no"  ng-model="$scope.isipo" value="no" >
+					</div>
 
    <p id="{{options.id}}_description " class="help-block " ng-if="option.description ">{{option.description}}</p>
 	</div>
   </label>
-</div>
-<div >
-
-		<input type="radio" id="isipo-yes"  name="isipo-yes"   ng-model="$scope.isipo" value="yes"  >
-		<label labelfor="isipo-yes">&nbsp;Yes &nbsp;&nbsp;|</label>
-		<label labelfor="isipo-no">&nbsp;&nbsp;No &nbsp;</label>
-		<input type="radio" id="isipo-no"  name="isipo-no"  ng-model="$scope.isipo" value="no" >
 </div>
