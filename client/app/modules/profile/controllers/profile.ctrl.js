@@ -639,6 +639,7 @@ $scope.$watchCollection('InvestorRecord', function(newValue, oldValue){
 
 
 $scope.$watch('isipo', function() {
+  console.log('$scope.isipo : '+$scope.isipo);
   angular.element($document[0].querySelector('.investorForm')).css('display', 'block');
   if($scope.isipo === 'false'){ $scope.swapipo = 'block'; }else{ $scope.swapipo = 'none';}
   angular.element($document[0].querySelector('.invest-transaction_text')).css('display', $scope.swapipo );
