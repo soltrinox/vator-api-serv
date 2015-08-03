@@ -713,12 +713,12 @@ $scope.onSubmitInvest = function() {
       }else{
             $scope.InvestorRecord.profileId = $scope.fullprofile.user.id;
             $scope.upsertInvestmentRecord($scope.InvestorRecord);
-            $scope.workLookUp = '';
             $scope.hideWork = true;
             $scope.hideaddWorkButton = false;
       }
     }else{
       $scope.upsertInvestmentRecord($scope.InvestorRecord);
+      $scope.InvestorRecord = $scope.newInvestorRecord();
       $scope.workLookUp = '';
       $scope.hideWork = true;
       $scope.hideaddWorkButton = false;
@@ -851,6 +851,8 @@ $scope.onSubmitWorkRecord = function() {
         $scope.getEntireProfile($scope.currentUser.pid);
       });
 
+      $scope.WorkRecord = $scope.newWorkRecord();
+      $scope.workLookUp = '';
       $scope.hideWork = true;
       $scope.hideaddWorkButton = false;
     }
@@ -888,7 +890,7 @@ $scope.startNewExperienceRecord = function(id) {
     angular.element($document[0].querySelector('.work-title_text')).css('display', 'none');
     angular.element($document[0].querySelector('.work-achievement_text')).css('display', 'none');
 
-  $scope.hideWork = $scope.hideWork = false;
+  $scope.hideWork =  false;
   $scope.hideaddWorkButton = $scope.hideaddWorkButton = true;
   id = null;
 };
@@ -912,7 +914,7 @@ $scope.startNewExperienceRecord = function(id) {
 
      $scope.WorkRecord = $scope.newWorkRecord();
      $scope.InvestorRecord = $scope.newInvestorRecord();
-
+     $scope.workLookUp = '';
      $scope.hideWork = true; //$scope.hideWork === false ? true: false;
      $scope.hideaddWorkButton = false; //= $scope.hideaddWorkButton === false ? true: false;
      angular.element($document[0].querySelector('.investorForm')).css('display', 'none');
@@ -944,8 +946,6 @@ $scope.startNewExperienceRecord = function(id) {
     ProfileService.upsertSocial($scope.SocialRecord, function() {
       $scope.getEntireProfile($scope.currentUser.pid);
     });
-
-
 
     $scope.hideSocial = true;
   };
