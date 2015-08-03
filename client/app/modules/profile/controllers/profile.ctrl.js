@@ -816,6 +816,7 @@ $scope.$watchCollection('WorkRecord', function(newValue, oldValue){
     angular.element($document[0].querySelector('.work-title_text')).css('display', 'block');
     angular.element($document[0].querySelector('.work-achievement_text')).css('display', 'block');
     angular.element($document[0].querySelector('.investorForm')).css('display', 'none');
+    angular.element($document[0].querySelector('.investorForm2')).css('display', 'none');
   }else if(($scope.WorkRecord.Type === '004') || ($scope.WorkRecord.Type === '005')){
     console.log('$scope.WorkRecord.TYPE BOARD');
     angular.element($document[0].querySelector('.work-datestart_date')).css('display', 'block');
@@ -823,6 +824,7 @@ $scope.$watchCollection('WorkRecord', function(newValue, oldValue){
     angular.element($document[0].querySelector('.work-title_text')).css('display', 'none');
     angular.element($document[0].querySelector('.work-achievement_text')).css('display', 'block');
     angular.element($document[0].querySelector('.investorForm')).css('display', 'none');
+    angular.element($document[0].querySelector('.investorForm2')).css('display', 'none');
   }else{
     console.log('$scope.WorkRecord.Type NOT SET');
   }
