@@ -71,7 +71,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
       profileId:'',
       roundtotal:'',
       valuation:'',
-      isipo : '',
+      isipo : false,
       id:'',
       transaction:'',
       exitdate:'',
@@ -280,7 +280,6 @@ $scope.investFields =
       type: 'isipo',
       id : 'invest-isipo',
       uniqueFormId : 'invest-isipo-box',
-      default: '$scope.InvestorRecord.isipo',
       label: 'Aquired / IPO',
       required: false
     },
@@ -638,11 +637,11 @@ $scope.$watchCollection('InvestorRecord', function(newValue, oldValue){
 
 $scope.yesIpo = function(){
     console.log('YES ipo : ' + $scope.isipo);
-}
+};
 
 $scope.noIpo = function(){
   console.log('NO ipo : ' + $scope.isipo);
-}
+};
 
 $scope.$watch('isipo', function(newValue, oldValue) {
   console.log('$scope.isipo : '+newValue+' : '+ oldValue);
