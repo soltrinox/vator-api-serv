@@ -713,11 +713,13 @@ $scope.onSubmitInvest = function() {
       }else{
             $scope.InvestorRecord.profileId = $scope.fullprofile.user.id;
             $scope.upsertInvestmentRecord($scope.InvestorRecord);
+            $scope.workLookUp = '';
             $scope.hideWork = true;
             $scope.hideaddWorkButton = false;
       }
     }else{
       $scope.upsertInvestmentRecord($scope.InvestorRecord);
+      $scope.workLookUp = '';
       $scope.hideWork = true;
       $scope.hideaddWorkButton = false;
     }
@@ -795,6 +797,7 @@ $scope.$watchCollection('WorkRecord', function(newValue, oldValue){
     angular.element($document[0].querySelector('.work-title_text')).css('display', 'none');
     angular.element($document[0].querySelector('.work-achievement_text')).css('display', 'none');
     angular.element($document[0].querySelector('.investorForm')).css('display', 'block');
+    angular.element($document[0].querySelector('.investorForm2')).css('display', 'none');
     if($scope.isipo){ $scope.swapipo = 'block'; }else{ $scope.swapipo = 'none';}
     angular.element($document[0].querySelector('.invest-transaction_text')).css('display', $scope.swapipo );
     angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', $scope.swapipo);
@@ -888,6 +891,7 @@ $scope.startNewExperienceRecord = function(id) {
   $scope.onCompanySelect = function(item, model, label){
         $scope.prettyPrint('MODEL',model);
         $scope.WorkRecord.companyname = model;
+        $scope.workLookUp = model;
     label = null;
   };
 

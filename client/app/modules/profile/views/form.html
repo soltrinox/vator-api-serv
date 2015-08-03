@@ -35,31 +35,36 @@
   .work-companylookup-box {
     clear: both !important;
   }
-  .invest-isipo-radio_container{
-    float:left;
-    clear:both;
-  }
-  .invest-isipo_input_radio{
-    float:left;
-    margin-right:8px;
-  }
-  .vator_input_radio_value{
-    float:left;
-    margin-right:8px;
-  }
-  .invest-transaction_text{
-    clear:both;
-  }
-  .tabsubmit{
-      clear:both;
-      margin-top: 20px;
-      margin-bottom: 20px;
-      margin-left:60px;
+
+  .invest-isipo-radio_container {
+    float: left;
+    clear: both;
   }
 
-  .marginizeme{
+  .invest-isipo_input_radio {
+    float: left;
+    margin-right: 8px;
+  }
+
+  .vator_input_radio_value {
+    float: left;
+    margin-right: 8px;
+  }
+
+  .invest-transaction_text {
+    clear: both;
+  }
+
+  .tabsubmit {
+    clear: both;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 60px;
+  }
+
+  .marginizeme {
     margin: 5px 5px 5px 5px;
-      clear:both;
+    clear: both;
   }
 </style>
 
@@ -80,13 +85,13 @@
         <div class="row">
           <div class="uploads-box">
             <div>
-                <input id="profilepic" name="profilepic" type="file" file />
-                <img src="{{fullprofile.user.ProfilePic}}" id="" class="" />
+              <input id="profilepic" name="profilepic" type="file" file />
+              <img src="{{fullprofile.user.ProfilePic}}" id="" class="" />
             </div>
-          <div>
-            <input id="coverpic" name="coverpic" type="file" file />
-            <img src="{{fullprofile.user.CoverPic}}" id="" class="" />
-          </div>
+            <div>
+              <input id="coverpic" name="coverpic" type="file" file />
+              <img src="{{fullprofile.user.CoverPic}}" id="" class="" />
+            </div>
           </div>
         </div>
 
@@ -97,7 +102,7 @@
     </tab>
 
     <tab heading="{{ 'Experience' | translate }}">
-      <div class="marginizeme" ng-hide="hideaddWorkButton"  >
+      <div class="marginizeme" ng-hide="hideaddWorkButton">
         <button class="btn btn-info fa fa-plus" ng-click="startNewExperienceRecord()">Add Experience</button>
       </div>
 
@@ -106,57 +111,40 @@
           <label for="work.title" class="ng-binding"> Search for a company on vator </label>
           <div>
             <div style="width:60%;float:left;">
-              <input type="text" ng-model="$scope.workLookUp"
-              placeholder="Search for a company"
-              typeahead="item for item in getTeams($viewValue)"
-              id="work-companylookup"
-              typeahead-on-select="onCompanySelect(item, $scope.workLookUp, work.companylookup )"
-              typeahead-loading="loadingCompanies"
-              class="form-control work_companylookup_input"
-              ng-change="lookCompany($scope.workLookUp)">
+              <input type="text" ng-model="$scope.workLookUp" placeholder="Search for a company" typeahead="item for item in getTeams($viewValue)" id="work-companylookup" typeahead-on-select="onCompanySelect(item, $scope.workLookUp, work.companylookup )" typeahead-loading="loadingCompanies"
+              class="form-control work_companylookup_input" ng-change="lookCompany($scope.workLookUp)">
               <i ng-show="loadingCompanies" class="glyphicon glyphicon-refresh"></i>
             </div>
             <div style="width:20%; margin-left:5px; float:left">
-             OR  <a href="/#/app/products/add/55ba9286966a114937493efe" class="btn btn-info fa fa-rocket"> &nbsp; Add New Company</a>
+              OR <a href="/#/app/products/add/55ba9286966a114937493efe" class="btn btn-info fa fa-rocket"> &nbsp; Add New Company</a>
             </div>
           </div>
           <!-- ngIf: options.description -->
-
         </div>
-
         <div id="workForm" class="workForm" style="display:block">
-        <formly-form result="WorkRecord" fields="workFields" options="formOptions"
-                ></formly-form>
+          <formly-form result="WorkRecord" fields="workFields" options="formOptions"></formly-form>
         </div>
-
         <div id="investorForm" class="investorForm" style="display:none">
-          <formly-form result="InvestorRecord" fields="investFields" id="investForm"
-              options="formOptions" ></formly-form>
-              <div  style="margin: 10px 0px 10px 60px;"  >
-                <label>
-                  IPO / Exit<br/>
-                  <input type="button" class="btn btn-default" id="isipo-yes"  name="isipo" value="Yes"  ng-click="yesIpo()"  />
-
-                  <input type="button" class="btn btn-danger" id="isipo-no"  name="isipo"  value="No"  ng-click="noIpo()"   />
-                </label>
-
-              </div>
+          <formly-form result="InvestorRecord" fields="investFields" id="investForm" options="formOptions"></formly-form>
+          <div style="margin: 10px 0px 10px 60px;">
+            <label>
+              IPO / Exit
+              <br/>
+              <input type="button" class="btn btn-default" id="isipo-yes" name="isipo" value="Yes" ng-click="yesIpo()" />
+              <input type="button" class="btn btn-danger" id="isipo-no" name="isipo" value="No" ng-click="noIpo()" />
+            </label>
+          </div>
         </div>
-
-
-
-
 
         <div id="investorForm2" class="investorForm2" style="display:none">
-          <formly-form result="InvestorRecord" fields="investFields2" id="investForm2"
-              options="formOptions" ></formly-form>
+          <formly-form result="InvestorRecord" fields="investFields2" id="investForm2" options="formOptions"></formly-form>
         </div>
         <pre>
           {{isipo}}
           {{InvestorRecord | json}}
           {{ WorkRecord | json }}
         </pre>
-        <div class="controls tabsubmit" >
+        <div class="controls tabsubmit">
           <button class="btn btn-primary btn-warning" ng-click="cancelWork()" translate>Cancel </button> &nbsp; &nbsp;
           <button class="btn btn-primary btn-success" ng-click="onSubmitExperience()" translate>Submit </button>
         </div>
@@ -165,27 +153,45 @@
         <table class="table table-hover">
           <tbody>
             <tr ng-repeat="invest in fullprofile.invest | filter:{id:'!!'}" class="list-group-item">
-              <td width="10%"><div class="">
-                <button class="btn btn-warning fa fa-pencil" ng-click="editInvestments('{{invest.id}}')" />
-                <button class="btn btn-danger fa fa-trash" ng-click="deleteInvestment('{{invest.id}}')" />
+              <td width="10%">
+                <div class="">
+                  <button class="btn btn-warning fa fa-pencil" ng-click="editInvestments('{{invest.id}}')" />
+                  <button class="btn btn-danger fa fa-trash" ng-click="deleteInvestment('{{invest.id}}')" />
                 </div>
               </td>
-              <td width="20%"><div class="">{{invest.companyname}}</div></td>
-              <td width="20%"><div class="">{{invest.amount}}</div></td>
-              <td width="20%"><div class="">{{work.Type}}</div></td>
-              <td width="20%"><div class="">{{work.date | limitTo: 10 }}</div></td>
+              <td width="20%">
+                <div class="">{{invest.companyname}}</div>
+              </td>
+              <td width="20%">
+                <div class="">{{invest.amount}}</div>
+              </td>
+              <td width="20%">
+                <div class="">{{work.Type}}</div>
+              </td>
+              <td width="20%">
+                <div class="">{{work.date | limitTo: 10 }}</div>
+              </td>
             </tr>
 
             <tr ng-repeat="work in fullprofile.work | filter:{id:'!!'}" class="list-group-item">
-              <td width="10%"><div class="">
-                <button class="btn btn-warning fa fa-pencil" ng-click="editWork('{{work.id}}')" />
-                <button class="btn btn-danger fa fa-trash" ng-click="deleteWork('{{work.id}}')" />
+              <td width="10%">
+                <div class="">
+                  <button class="btn btn-warning fa fa-pencil" ng-click="editWork('{{work.id}}')" />
+                  <button class="btn btn-danger fa fa-trash" ng-click="deleteWork('{{work.id}}')" />
                 </div>
               </td>
-              <td width="20%"><div class="">{{work.companyname}}</div></td>
-              <td width="20%"><div class="">{{work.jobtitle}}</div></td>
-              <td width="20%"><div class="">{{work.Type}}</div></td>
-              <td width="20%"><div class="">{{work.datestart | limitTo: 10 }} to {{work.dateend  | limitTo: 10 }}</div></td>
+              <td width="20%">
+                <div class="">{{work.companyname}}</div>
+              </td>
+              <td width="20%">
+                <div class="">{{work.jobtitle}}</div>
+              </td>
+              <td width="20%">
+                <div class="">{{work.Type}}</div>
+              </td>
+              <td width="20%">
+                <div class="">{{work.datestart | limitTo: 10 }} to {{work.dateend | limitTo: 10 }}</div>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -197,7 +203,7 @@
         <!--  contact for email here too -->
         <formly-form result="SocialRecord" fields="socialFields" options="formOptions" ng-submit="onSubmit4()"></formly-form>
 
-        <div class="controls tabsubmit" >
+        <div class="controls tabsubmit">
           <button class="btn btn-primary btn-success" ng-click="onSubmit4()" translate>Update Social Accounts</button>
         </div>
       </div>
