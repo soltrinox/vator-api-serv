@@ -138,20 +138,12 @@
           <div>
             IPO / Exit
           </div>
-            <input type="button" id="isipo-yes"  name="isipo" ng-value="isipo"  ng-click="yesIpo()"  >
-            <label labelfor="isipo-yes">&nbsp;Yes &nbsp;&nbsp;|</label>
-            <label labelfor="isipo-no">&nbsp;&nbsp;No &nbsp;</label>
-            <input type="button" id="isipo-no"  name="isipo"  ng-value="isipo"  ng-click="noIpo()"   >
+            <input type="button" class="btn btn-success" id="isipo-yes"  name="isipo" ng-value="isipo"  ng-click="yesIpo()"  >Yes</button>
+
+            <input type="button" class="btn btn-danger" id="isipo-no"  name="isipo"  ng-value="isipo"  ng-click="noIpo()"   >No</button>
         </div>
 
-      <!-- <label ng-repeat="name in optionsIPO" for="{{name}}">
-       {{name}}
-       <input type="radio"
-              ng-model="$scope.isipo"
-              ng-value="name"
-              id="isipo-{{name}}"
-              name="isipo">
-     </label> -->
+
 
         <div id="investorForm2" class="investorForm2" style="display:none">
           <formly-form result="InvestorRecord" fields="investFields2" id="investForm2"
