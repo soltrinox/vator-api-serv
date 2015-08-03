@@ -630,7 +630,7 @@ $scope.teamFields = [
 
 // ==============  INVESTMENT ====================
 
-$scope.isipo = 'false';
+$scope.isipo = false;
 
 $scope.optionsIPO = ['true','false'];
 
@@ -639,20 +639,20 @@ $scope.$watchCollection('InvestorRecord', function(newValue, oldValue){
     // $scope.prettyPrint('!!! WATCH INVEST  NEW!!!! \n',newValue);
 });
 
-$scope.$watch('isipo', function(newValue, oldValue){
-    // $scope.prettyPrint('!!! WATCH INVEST  OLD!!!!\n',oldValue);
-    // $scope.prettyPrint('!!! WATCH INVEST  NEW!!!! \n',newValue);
-    $scope.InvestorRecord.isipo = newValue;
-    $scope.isipo = newValue;
-    console.log('isipo : ' + $scope.isipo);
-    console.log('RECORD ipo : ' +$scope.InvestorRecord.isipo );
-
-});
+// $scope.$watch('isipo', function(newValue, oldValue){
+//     // $scope.prettyPrint('!!! WATCH INVEST  OLD!!!!\n',oldValue);
+//     // $scope.prettyPrint('!!! WATCH INVEST  NEW!!!! \n',newValue);
+//     $scope.InvestorRecord.isipo = newValue;
+//     $scope.isipo = newValue;
+//     console.log('isipo : ' + $scope.isipo);
+//     console.log('RECORD ipo : ' +$scope.InvestorRecord.isipo );
+//
+// });
 
 $scope.yesIpo = function(){
 
     $scope.InvestorRecord.isipo = 'true';
-    $scope.isipo = 'true';
+    $scope.isipo = true;
     console.log('isipo : ' + $scope.isipo);
     console.log('IR ipo : ' +$scope.InvestorRecord.isipo );
     angular.element($document[0].querySelector('.investorForm')).css('display', 'block');
@@ -666,7 +666,7 @@ $scope.yesIpo = function(){
 $scope.noIpo = function(){
 
   $scope.InvestorRecord.isipo = 'false';
-  $scope.isipo = 'false';
+  $scope.isipo = false;
   console.log('isipo : ' + $scope.isipo);
     console.log('IR ipo : ' +$scope.InvestorRecord.isipo );
   angular.element($document[0].querySelector('.investorForm')).css('display', 'block');
@@ -682,7 +682,7 @@ $scope.startNewInvestment = function(){
   $scope.WorkRecord = $scope.newWorkRecord();
   $scope.WorkRecord.Type = '003';
   $scope.InvestorRecord = $scope.newInvestorRecord();
-  $scope.isipo = 'false';
+  $scope.isipo = false;
 };
 
 
@@ -739,10 +739,10 @@ $scope.editInvestments = function(iid){
       $scope.prettyPrint( 'SELECTED INVEST TO EDIT : ',value );
       $scope.InvestorRecord = value;
       if(!value.isipo || 0 === value.isipo.length){
-        $scope.isipo = 'false';
+        $scope.isipo = false;
         $scope.InvestorRecord.isipo = 'false';
       }else{
-        $scope.isipo = value.isipo;
+        $scope.isipo = true;
         $scope.InvestorRecord.isipo = value.isipo;
       }
 
@@ -779,7 +779,7 @@ $scope.$watchCollection('WorkRecord', function(newValue, oldValue){
     angular.element($document[0].querySelector('.work-title_text')).css('display', 'none');
     angular.element($document[0].querySelector('.work-achievement_text')).css('display', 'none');
     angular.element($document[0].querySelector('.investorForm')).css('display', 'block');
-    if($scope.isipo === 'true'){ $scope.swapipo = 'block'; }else{ $scope.swapipo = 'none';}
+    if($scope.isipo){ $scope.swapipo = 'block'; }else{ $scope.swapipo = 'none';}
     angular.element($document[0].querySelector('.invest-transaction_text')).css('display', $scope.swapipo );
     angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', $scope.swapipo);
     angular.element($document[0].querySelector('.invest-amount2_text')).css('display', $scope.swapipo);
