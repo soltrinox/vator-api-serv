@@ -908,9 +908,7 @@ $scope.startNewExperienceRecord = function(id) {
       $scope.WorkRecord.companyname = $scope.workLookUp;
   };
 
-  $scope.cancelWork = function(id) {
-
-     id = null;
+  $scope.cancelWork = function() {
 
      $scope.WorkRecord = $scope.newWorkRecord();
      $scope.InvestorRecord = $scope.newInvestorRecord();
