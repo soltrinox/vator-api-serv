@@ -741,9 +741,11 @@ $scope.editInvestments = function(iid){
       if(!value.isipo || 0 === value.isipo.length){
         $scope.isipo = false;
         $scope.InvestorRecord.isipo = 'false';
+        $scope.noIpo();
       }else{
         $scope.isipo = true;
         $scope.InvestorRecord.isipo = value.isipo;
+        $scope.yesIpo();
       }
 
       // TODO: check on grabbing the ID  ??
