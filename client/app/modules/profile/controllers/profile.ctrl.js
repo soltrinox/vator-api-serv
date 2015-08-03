@@ -630,7 +630,7 @@ $scope.teamFields = [
 
 // ==============  INVESTMENT ====================
 
-$scope.isipo = 'no';
+$scope.isipo = 'false';
 
 $scope.$watchCollection('InvestorRecord', function(newValue, oldValue){
     // $scope.prettyPrint('!!! WATCH INVEST  OLD!!!!\n',oldValue);
@@ -641,7 +641,8 @@ $scope.yesIpo = function(){
 
     $scope.InvestorRecord.isipo = 'true';
     $scope.isipo = 'true';
-    console.log('YES ipo : ' + $scope.isipo);
+    console.log('isipo : ' + $scope.isipo);
+    console.log('IR ipo : ' +$scope.InvestorRecord.isipo );
     angular.element($document[0].querySelector('.investorForm')).css('display', 'block');
     var swapipo = 'block';
     angular.element($document[0].querySelector('.invest-transaction_text')).css('display', swapipo );
@@ -655,7 +656,8 @@ $scope.noIpo = function(){
 
   $scope.InvestorRecord.isipo = 'false';
   $scope.isipo = 'false';
-  console.log('NO ipo : ' + $scope.isipo);
+  console.log('isipo : ' + $scope.isipo);
+    console.log('IR ipo : ' +$scope.InvestorRecord.isipo );
   angular.element($document[0].querySelector('.investorForm')).css('display', 'block');
   var swapipo = 'none';
   angular.element($document[0].querySelector('.invest-transaction_text')).css('display', swapipo );
@@ -663,34 +665,6 @@ $scope.noIpo = function(){
   angular.element($document[0].querySelector('.invest-amount2_text')).css('display', swapipo);
   angular.element($document[0].querySelector('.invest-aquirer_text')).css('display', swapipo);
   angular.element($document[0].querySelector('.invest-press_text')).css('display', swapipo);
-};
-
-$scope.$watch('isipo', function(newValue, oldValue) {
-  console.log('$scope.isipo : '+newValue+' : '+ oldValue);
-  var swapipo = 'none';
-  angular.element($document[0].querySelector('.investorForm')).css('display', 'block');
-  if(newValue === 'true'){ swapipo = 'block'; }else{ swapipo = 'none';}
-  angular.element($document[0].querySelector('.invest-transaction_text')).css('display', swapipo );
-  angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', swapipo);
-  angular.element($document[0].querySelector('.invest-amount2_text')).css('display', swapipo);
-  angular.element($document[0].querySelector('.invest-aquirer_text')).css('display', swapipo);
-  angular.element($document[0].querySelector('.invest-press_text')).css('display', swapipo);
-});
-
-$scope.toggleInvestorIPO = function(){
-  console.log('toggleInvestorIPO : ' + $scope.InvestorRecord.isipo );
-
-  //$scope.isipo = val;
-  //$scope.InvestorRecord.isipo = val;
-  // $scope.swapipo = '';
-  //  angular.element($document[0].querySelector('.investorForm')).css('display', 'block');
-  //  if($scope.InvestorRecord.isipo === 'false'){ $scope.swapipo = 'block'; }else{ $scope.swapipo = 'none';}
-  //  angular.element($document[0].querySelector('.invest-transaction_text')).css('display', $scope.swapipo );
-  //  angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', $scope.swapipo);
-  //  angular.element($document[0].querySelector('.invest-amount2_text')).css('display', $scope.swapipo);
-  //  angular.element($document[0].querySelector('.invest-aquirer_text')).css('display', $scope.swapipo);
-  //  angular.element($document[0].querySelector('.invest-press_text')).css('display', $scope.swapipo);
-
 };
 
 
@@ -701,9 +675,6 @@ $scope.startNewInvestment = function(){
   $scope.isipo = 'false';
 };
 
-$scope.isIpoChanged = function(value){
-  console.log('ISIPO ng-change = ' + value);
-};
 
 $scope.deleteInvestment = function(iid) {
   ProfileService.deleteInvestment(iid, function() {});
