@@ -5,7 +5,7 @@
     <div class="radio_box {{options.id}}-radio_container" >
 			<input type="hidden"
 					ng-change="isIpoChanged({{options.value}})"
-					class="form-control  {{options.id}}_input_isipo"
+					class="{{options.id}}_input_isipo"
           name="isipo"
           formly-custom-validation="options.validators"
 				  id="{{options.id + '_'+ $index}}"
@@ -13,8 +13,8 @@
 				  ng-value="isipo"
 				  ng-model="result[options.key || index]">
 			<div class="btn-group">
-					<button class="btn btn-success" id="isipo-yes" ng-click="$scope.toggleInvestorIPO()" >Yes</button>
-					<button class="btn btn-success" id="isipo-no"   ng-click="$scope.toggleInvestorIPO()" >No</button>
+					<button class="btn btn-success" id="isipo-yes"  ng-model="isipo" btn-radio="'true'"  uncheckable  >Yes</button>
+					<button class="btn btn-success" id="isipo-no"    ng-model="isipo" btn-radio="'false'"  uncheckable >No</button>
 			</div>
 
    <p id="{{options.id}}_description " class="help-block " ng-if="option.description ">{{option.description}}</p>
