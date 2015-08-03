@@ -634,16 +634,18 @@ $scope.isipo = 'false';
 $scope.$watchCollection('InvestorRecord', function(newValue, oldValue){
     $scope.prettyPrint('!!! WATCH INVEST  OLD!!!!\n',oldValue);
     $scope.prettyPrint('!!! WATCH INVEST  NEW!!!! \n',newValue);
+
+
 });
 
-$scope.toggleInvestorIPO = function(val){
-  console.log('toggleInvestorIPO : ' + val);
+$scope.toggleInvestorIPO = function(){
+  console.log('toggleInvestorIPO : ' + $scope.InvestorRecord.isipo );
 
-  $scope.isipo = val;
-  $scope.InvestorRecord.isipo = val;
-
+  //$scope.isipo = val;
+  //$scope.InvestorRecord.isipo = val;
+  $scope.swapipo = '';
    angular.element($document[0].querySelector('.investorForm')).css('display', 'block');
-   if($scope.InvestorRecord.isipo === 'true'){ $scope.swapipo = 'block'; }else{ $scope.swapipo = 'none';}
+   if($scope.InvestorRecord.isipo === 'false'){ $scope.swapipo = 'block'; }else{ $scope.swapipo = 'none';}
    angular.element($document[0].querySelector('.invest-transaction_text')).css('display', $scope.swapipo );
    angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', $scope.swapipo);
    angular.element($document[0].querySelector('.invest-amount2_text')).css('display', $scope.swapipo);
