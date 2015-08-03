@@ -713,6 +713,7 @@ $scope.onSubmitInvest = function() {
       }else{
             $scope.InvestorRecord.profileId = $scope.fullprofile.user.id;
             $scope.upsertInvestmentRecord($scope.InvestorRecord);
+            $scope.workLookUp = '';
             $scope.hideWork = true;
             $scope.hideaddWorkButton = false;
       }
