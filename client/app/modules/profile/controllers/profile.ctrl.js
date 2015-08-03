@@ -636,7 +636,13 @@ $scope.$watchCollection('InvestorRecord', function(newValue, oldValue){
     // $scope.prettyPrint('!!! WATCH INVEST  NEW!!!! \n',newValue);
 });
 
+$scope.yesIpo = function(){
+    console.log('YES ipo : ' + $scope.isipo);
+}
 
+$scope.noIpo = function(){
+  console.log('NO ipo : ' + $scope.isipo);
+}
 
 $scope.$watch('isipo', function(newValue, oldValue) {
   console.log('$scope.isipo : '+newValue+' : '+ oldValue);
