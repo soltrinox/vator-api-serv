@@ -910,6 +910,8 @@ $scope.startNewExperienceRecord = function(id) {
 
      $scope.hideWork = true; //$scope.hideWork === false ? true: false;
      $scope.hideaddWorkButton = false; //= $scope.hideaddWorkButton === false ? true: false;
+     angular.element($document[0].querySelector('.investorForm')).css('display', 'none');
+     angular.element($document[0].querySelector('.investorForm2')).css('display', 'none');
 
   };
 
