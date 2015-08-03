@@ -632,9 +632,21 @@ $scope.teamFields = [
 
 $scope.isipo = 'false';
 
+$scope.optionsIPO = ['true','false'];
+
 $scope.$watchCollection('InvestorRecord', function(newValue, oldValue){
     // $scope.prettyPrint('!!! WATCH INVEST  OLD!!!!\n',oldValue);
     // $scope.prettyPrint('!!! WATCH INVEST  NEW!!!! \n',newValue);
+});
+
+$scope.$watch('isipo', function(newValue, oldValue){
+    // $scope.prettyPrint('!!! WATCH INVEST  OLD!!!!\n',oldValue);
+    // $scope.prettyPrint('!!! WATCH INVEST  NEW!!!! \n',newValue);
+    $scope.InvestorRecord.isipo = newValue;
+    $scope.isipo = newValue;
+    console.log('isipo : ' + $scope.isipo);
+    console.log('RECORD ipo : ' +$scope.InvestorRecord.isipo );
+
 });
 
 $scope.yesIpo = function(){
@@ -644,12 +656,11 @@ $scope.yesIpo = function(){
     console.log('isipo : ' + $scope.isipo);
     console.log('IR ipo : ' +$scope.InvestorRecord.isipo );
     angular.element($document[0].querySelector('.investorForm')).css('display', 'block');
-    var swapipo = 'block';
-    angular.element($document[0].querySelector('.invest-transaction_text')).css('display', swapipo );
-    angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', swapipo);
-    angular.element($document[0].querySelector('.invest-amount2_text')).css('display', swapipo);
-    angular.element($document[0].querySelector('.invest-aquirer_text')).css('display', swapipo);
-    angular.element($document[0].querySelector('.invest-press_text')).css('display', swapipo);
+    angular.element($document[0].querySelector('.invest-transaction_text')).css('display', 'block' );
+    angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', 'block');
+    angular.element($document[0].querySelector('.invest-amount2_text')).css('display', 'block');
+    angular.element($document[0].querySelector('.invest-aquirer_text')).css('display', 'block');
+    angular.element($document[0].querySelector('.invest-press_text')).css('display', 'block');
 };
 
 $scope.noIpo = function(){
@@ -659,12 +670,11 @@ $scope.noIpo = function(){
   console.log('isipo : ' + $scope.isipo);
     console.log('IR ipo : ' +$scope.InvestorRecord.isipo );
   angular.element($document[0].querySelector('.investorForm')).css('display', 'block');
-  var swapipo = 'none';
-  angular.element($document[0].querySelector('.invest-transaction_text')).css('display', swapipo );
-  angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', swapipo);
-  angular.element($document[0].querySelector('.invest-amount2_text')).css('display', swapipo);
-  angular.element($document[0].querySelector('.invest-aquirer_text')).css('display', swapipo);
-  angular.element($document[0].querySelector('.invest-press_text')).css('display', swapipo);
+  angular.element($document[0].querySelector('.invest-transaction_text')).css('display', 'none' );
+  angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', 'none');
+  angular.element($document[0].querySelector('.invest-amount2_text')).css('display', 'none');
+  angular.element($document[0].querySelector('.invest-aquirer_text')).css('display', 'none');
+  angular.element($document[0].querySelector('.invest-press_text')).css('display', 'none');
 };
 
 

@@ -10,14 +10,6 @@
 				  id="{{options.id + '_'+ $index}}"
 				  aria-describedby="{{options.id}}_description"
 				  ng-model="result[options.key || index]">
-					<div >
-
-							<input type="radio" id="isipo-yes"  name="isipo-yes"   ng-model="isipo" value="yes" ng-click="yesIpo()"  >
-							<label labelfor="isipo-yes">&nbsp;Yes &nbsp;&nbsp;|</label>
-							<label labelfor="isipo-no">&nbsp;&nbsp;No &nbsp;</label>
-							<input type="radio" id="isipo-no"  name="isipo-no"  ng-model="isipo" value="no"  ng-click="noIpo()"   >
-					</div>
-
    <p id="{{options.id}}_description " class="help-block " ng-if="option.description ">{{option.description}}</p>
 	</div>
   </label>
