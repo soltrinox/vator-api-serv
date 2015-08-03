@@ -277,13 +277,15 @@ $scope.investFields =
       required: false
     },{
       key: 'isipo',
-      type: 'isipo',
+      type: 'hidden',
       id : 'invest-isipo',
       uniqueFormId : 'invest-isipo-box',
       label: 'Aquired / IPO',
       required: false
-    },
-    {
+    }
+  ];
+$scope.investFields2 =
+    [{
       key: 'transaction',
       type: 'text',
       id : 'invest-transaction',

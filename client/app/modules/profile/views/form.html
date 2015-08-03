@@ -133,6 +133,19 @@
           <formly-form result="InvestorRecord" fields="investFields" id="investForm"
               options="formOptions" ></formly-form>
         </div>
+
+        <div  class="investorForm"   >
+
+            <input type="radio" id="isipo-yes"  name="isipo-yes"   ng-model="$scope.isipo" value="yes" ng-click="yesIpo()"  >
+            <label labelfor="isipo-yes">&nbsp;Yes &nbsp;&nbsp;|</label>
+            <label labelfor="isipo-no">&nbsp;&nbsp;No &nbsp;</label>
+            <input type="radio" id="isipo-no"  name="isipo-no"  ng-model="$scope.isipo" value="no"  ng-click="noIpo()"   >
+        </div>
+
+        <div id="investorForm2" class="investorForm" style="display:none">
+          <formly-form result="InvestorRecord" fields="investFields2" id="investForm2"
+              options="formOptions" ></formly-form>
+        </div>
         <pre>
           {{isipo}}
           {{InvestorRecord | json}}
