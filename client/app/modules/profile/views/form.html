@@ -133,12 +133,13 @@
           <formly-form result="InvestorRecord" fields="investFields" id="investForm"
               options="formOptions" ></formly-form>
               <div  style="margin: 10px 0px 10px 60px;"  >
-                <div>
-                  IPO / Exit
-                </div>
-                  <input type="button" class="btn btn-success" id="isipo-yes"  name="isipo" value="Yes"  ng-click="yesIpo()"  />
+                <label>
+                  IPO / Exit<br/>
+                  <input type="button" class="btn btn-default" id="isipo-yes"  name="isipo" value="Yes"  ng-click="yesIpo()"  />
 
                   <input type="button" class="btn btn-danger" id="isipo-no"  name="isipo"  value="No"  ng-click="noIpo()"   />
+                </label>
+
               </div>
         </div>
 

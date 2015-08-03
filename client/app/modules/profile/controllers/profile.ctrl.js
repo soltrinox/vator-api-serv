@@ -41,6 +41,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
     $scope.WorkRecord = {
       Type : '',
       companyname: '',
+      companyId : '',
       jobtitle : '',
       datestart : '',
       dateend : '',
@@ -54,6 +55,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
       return  {
         Type : '',
         companyname: '',
+        companyId : '',
         jobtitle : '',
         datestart : '',
         dateend : '',
@@ -71,13 +73,15 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
       profileId:'',
       roundtotal:'',
       valuation:'',
-      isipo : false,
+      isipo : 'false',
       id:'',
       transaction:'',
       exitdate:'',
       amount2:'',
       aquirer:'',
-      press:''
+      press:'',
+      companyname:'',
+      companyId : ''
     };
 
     $scope.newInvestorRecord = function(){
@@ -93,7 +97,9 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $rout
         exitdate:'',
         amount2:'',
         aquirer:'',
-        press:''
+        press:'',
+        companyname:'',
+        companyId : ''
       };
     };
 
@@ -247,19 +253,19 @@ $scope.workFields =[
 $scope.investFields =
 [
     {
-    key: 'amount',
-    type: 'text',
-    label: 'Amount',
-    id : 'invest-amount',
-    uniqueFormId : 'invest-amount-box',
-    required: true
+      key: 'amount',
+      type: 'text',
+      label: 'Amount',
+      id : 'invest-amount',
+      uniqueFormId : 'invest-amount-box',
+      required: true
     },{
       key: 'date',
       type: 'date',
       id : 'invest-date',
       uniqueFormId : 'invest-date-box',
       label: 'Date',
-      required: false
+      required: true
     },{
       key: 'roundtotal',
       type: 'text',
@@ -281,6 +287,18 @@ $scope.investFields =
       id : 'invest-isipo',
       uniqueFormId : 'invest-isipo-box',
       label: 'Aquired / IPO',
+      required: false
+    },{
+      key: 'companyname',
+      type: 'hidden',
+      id : 'invest-companyname',
+      uniqueFormId : 'invest-companyname-box',
+      required: true
+    },{
+      key: 'companyid',
+      type: 'hidden',
+      id : 'invest-companyid',
+      uniqueFormId : 'invest-companyid-box',
       required: false
     }
   ];
@@ -683,6 +701,11 @@ $scope.deleteInvestment = function(iid) {
 $scope.onSubmitInvest = function() {
     $scope.prettyPrint('$scope.InvestorRecord : ',$scope.WorkRecord );
     $scope.InvestorRecord.profileId =  $scope.fullprofile.user.id;
+    $scope.InvestorRecord.companyname =  $scope.workLookUp;
+
+    // TODO: get the value for the companyId
+    //   add it to to the $scope.InvestorRecord
+
     if(!$scope.currentUser.pid || 0 ===  $scope.currentUser.pid.length){
       if( !$scope.fullprofile.user.id || 0 ===  $scope.fullprofile.user.id.length ){
           console.log('MISSING USER ACCOUNT RESTART APP');
