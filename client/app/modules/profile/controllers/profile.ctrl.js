@@ -639,15 +639,15 @@ $scope.$watchCollection('InvestorRecord', function(newValue, oldValue){
     // $scope.prettyPrint('!!! WATCH INVEST  NEW!!!! \n',newValue);
 });
 
-$scope.$watch('isipo', function(newValue, oldValue){
-    // $scope.prettyPrint('!!! WATCH INVEST  OLD!!!!\n',oldValue);
-    // $scope.prettyPrint('!!! WATCH INVEST  NEW!!!! \n',newValue);
-    $scope.InvestorRecord.isipo = newValue;
-    $scope.isipo = newValue;
-    console.log('isipo : ' + $scope.isipo);
-    console.log('RECORD ipo : ' +$scope.InvestorRecord.isipo );
-
-});
+// $scope.$watch('isipo', function(newValue, oldValue){
+//     // $scope.prettyPrint('!!! WATCH INVEST  OLD!!!!\n',oldValue);
+//     // $scope.prettyPrint('!!! WATCH INVEST  NEW!!!! \n',newValue);
+//     $scope.InvestorRecord.isipo = newValue;
+//     $scope.isipo = newValue;
+//     console.log('isipo : ' + $scope.isipo);
+//     console.log('RECORD ipo : ' +$scope.InvestorRecord.isipo );
+//
+// });
 
 $scope.yesIpo = function(){
 
