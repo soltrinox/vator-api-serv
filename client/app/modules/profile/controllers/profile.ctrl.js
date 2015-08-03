@@ -655,7 +655,7 @@ $scope.yesIpo = function(){
     $scope.isipo = true;
     console.log('isipo : ' + $scope.isipo);
     console.log('IR ipo : ' +$scope.InvestorRecord.isipo );
-    angular.element($document[0].querySelector('.investorForm')).css('display', 'block');
+    angular.element($document[0].querySelector('.investorForm2')).css('display', 'block');
     angular.element($document[0].querySelector('.invest-transaction_text')).css('display', 'block' );
     angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', 'block');
     angular.element($document[0].querySelector('.invest-amount2_text')).css('display', 'block');
