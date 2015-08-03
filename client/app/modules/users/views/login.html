@@ -24,19 +24,13 @@
           </div> -->
           <button type="submit" class="btn btn-default btn-block">LOGIN</button>
         </div>
-
         <div class="row text-c">
-            <a href="#">
-              <button type="submit" class="btn margin-10 btn-primary" translate>
-                <i class="fa fa-star-o"></i>Sign in to vator</button>
-            </a>
 
           <a ng-repeat="provider in authProviders" ng-hide="provider.link" ng-click="socialLogin(provider)">
              <button type="button"    class="btn margin-10 btn-primary btn-{{provider.class}}" >
                <i class="fa fa-{{provider.provider}}"></i>Sign in with {{provider.provider | ucfirst}}</button>
           </a>
         </div>
-
       </form>
 
       <div class="footer-links row">

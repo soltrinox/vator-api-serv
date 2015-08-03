@@ -790,20 +790,25 @@ $scope.onSubmitExperience = function(){
 $scope.$watchCollection('WorkRecord', function(newValue, oldValue){
     // $scope.prettyPrint('!!! WATCH WORK  OLD!!!!\n',oldValue);
     // $scope.prettyPrint('!!! WATCH WORK  NEW!!!! \n',newValue);
+
+    $scope.swapipo = '';
+
   if($scope.WorkRecord.Type === '003'){
-    console.log('$scope.WorkRecord.TYPE INVESTOR');
-    angular.element($document[0].querySelector('.work-datestart_date')).css('display', 'none');
-    angular.element($document[0].querySelector('.work-dateend_date')).css('display', 'none');
-    angular.element($document[0].querySelector('.work-title_text')).css('display', 'none');
-    angular.element($document[0].querySelector('.work-achievement_text')).css('display', 'none');
-    angular.element($document[0].querySelector('.investorForm')).css('display', 'block');
-    angular.element($document[0].querySelector('.investorForm2')).css('display', 'none');
-    if($scope.isipo){ $scope.swapipo = 'block'; }else{ $scope.swapipo = 'none';}
-    angular.element($document[0].querySelector('.invest-transaction_text')).css('display', $scope.swapipo );
-    angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', $scope.swapipo);
-    angular.element($document[0].querySelector('.invest-amount2_text')).css('display', $scope.swapipo);
-    angular.element($document[0].querySelector('.invest-aquirer_text')).css('display', $scope.swapipo);
-    angular.element($document[0].querySelector('.invest-press_text')).css('display', $scope.swapipo);
+    if(newValue.Type !== oldValue.Type){
+      console.log('$scope.WorkRecord.TYPE INVESTOR');
+      angular.element($document[0].querySelector('.work-datestart_date')).css('display', 'none');
+      angular.element($document[0].querySelector('.work-dateend_date')).css('display', 'none');
+      angular.element($document[0].querySelector('.work-title_text')).css('display', 'none');
+      angular.element($document[0].querySelector('.work-achievement_text')).css('display', 'none');
+      angular.element($document[0].querySelector('.investorForm')).css('display', 'block');
+      if($scope.WorkRecord.isipo === 'false'){ $scope.swapipo = 'block'; }else{ $scope.swapipo = 'none';}
+      angular.element($document[0].querySelector('.invest-transaction_text')).css('display', $scope.swapipo );
+      angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', $scope.swapipo);
+      angular.element($document[0].querySelector('.invest-amount2_text')).css('display', $scope.swapipo);
+      angular.element($document[0].querySelector('.invest-aquirer_text')).css('display', $scope.swapipo);
+      angular.element($document[0].querySelector('.invest-press_text')).css('display', $scope.swapipo);
+    }
+
   }else if(($scope.WorkRecord.Type === '001') || ($scope.WorkRecord.Type === '002')){
     console.log('$scope.WorkRecord.TYPE EMPLOYEE');
     angular.element($document[0].querySelector('.work-datestart_date')).css('display', 'block');
