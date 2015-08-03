@@ -791,7 +791,7 @@ $scope.$watchCollection('WorkRecord', function(newValue, oldValue){
     // $scope.prettyPrint('!!! WATCH WORK  OLD!!!!\n',oldValue);
     // $scope.prettyPrint('!!! WATCH WORK  NEW!!!! \n',newValue);
 
-    $scope.swapipo = '';
+    $scope.swapipo = 'none';
 
   if($scope.WorkRecord.Type === '003'){
     if(newValue.Type !== oldValue.Type){
@@ -801,7 +801,7 @@ $scope.$watchCollection('WorkRecord', function(newValue, oldValue){
       angular.element($document[0].querySelector('.work-title_text')).css('display', 'none');
       angular.element($document[0].querySelector('.work-achievement_text')).css('display', 'none');
       angular.element($document[0].querySelector('.investorForm')).css('display', 'block');
-      if($scope.WorkRecord.isipo === 'false'){ $scope.swapipo = 'block'; }else{ $scope.swapipo = 'none';}
+      if($scope.InvestorRecord.isipo === 'true'){ $scope.swapipo = 'block'; }else{ $scope.swapipo = 'none';}
       angular.element($document[0].querySelector('.invest-transaction_text')).css('display', $scope.swapipo );
       angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', $scope.swapipo);
       angular.element($document[0].querySelector('.invest-amount2_text')).css('display', $scope.swapipo);
