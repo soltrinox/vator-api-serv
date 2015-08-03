@@ -4,7 +4,6 @@
 			<br/>
     <div class="radio_box {{options.id}}-radio_container" >
 			<input type="hidden"
-					ng-change="isIpoChanged({{options.value}})"
 					class="{{options.id}}_input_isipo"
           name="isipo"
           formly-custom-validation="options.validators"
@@ -12,8 +11,10 @@
 				  aria-describedby="{{options.id}}_description"
 				  ng-model="result[options.key || index]">
 			<div >
-					<input type="radio" id="isipo-yes"  ng-model="isipo" value="true"  >&nbsp;Yes &nbsp; | &nbsp; No &nbsp;
-					<input type="radio" id="isipo-no"   ng-model="isipo" value="false" >
+					<label labelfor="isipo-yes">&nbsp;Yes &nbsp;</label>
+					<input type="radio" id="isipo-yes"  name="isipo-yes"   ng-model="$scope.isipo" value="yes"  > | &nbsp; No &nbsp;
+					<label labelfor="isipo-no">&nbsp;No &nbsp;</label>
+					<input type="radio" id="isipo-no"  name="isipo-no"  ng-model="$scope.isipo" value="no" >
 			</div>
 
    <p id="{{options.id}}_description " class="help-block " ng-if="option.description ">{{option.description}}</p>
