@@ -629,7 +629,7 @@ $scope.teamFields = [
 
 // ==============  INVESTMENT ====================
 
-$scope.isipo = false;
+$scope.isipo = 'false';
 
 $scope.$watchCollection('InvestorRecord', function(newValue, oldValue){
     // $scope.prettyPrint('!!! WATCH INVEST  OLD!!!!\n',oldValue);
