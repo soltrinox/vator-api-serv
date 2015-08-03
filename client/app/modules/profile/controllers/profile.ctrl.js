@@ -638,18 +638,38 @@ $scope.$watchCollection('InvestorRecord', function(newValue, oldValue){
 });
 
 $scope.yesIpo = function(){
+
+    $scope.InvestorRecord.isipo = 'true';
+    $scope.isipo = 'true';
     console.log('YES ipo : ' + $scope.isipo);
+    angular.element($document[0].querySelector('.investorForm')).css('display', 'block');
+    var swapipo = 'block';
+    angular.element($document[0].querySelector('.invest-transaction_text')).css('display', swapipo );
+    angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', swapipo);
+    angular.element($document[0].querySelector('.invest-amount2_text')).css('display', swapipo);
+    angular.element($document[0].querySelector('.invest-aquirer_text')).css('display', swapipo);
+    angular.element($document[0].querySelector('.invest-press_text')).css('display', swapipo);
 };
 
 $scope.noIpo = function(){
+
+  $scope.InvestorRecord.isipo = 'false';
+  $scope.isipo = 'false';
   console.log('NO ipo : ' + $scope.isipo);
+  angular.element($document[0].querySelector('.investorForm')).css('display', 'block');
+  var swapipo = 'none';
+  angular.element($document[0].querySelector('.invest-transaction_text')).css('display', swapipo );
+  angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', swapipo);
+  angular.element($document[0].querySelector('.invest-amount2_text')).css('display', swapipo);
+  angular.element($document[0].querySelector('.invest-aquirer_text')).css('display', swapipo);
+  angular.element($document[0].querySelector('.invest-press_text')).css('display', swapipo);
 };
 
 $scope.$watch('isipo', function(newValue, oldValue) {
   console.log('$scope.isipo : '+newValue+' : '+ oldValue);
   var swapipo = 'none';
   angular.element($document[0].querySelector('.investorForm')).css('display', 'block');
-  if(newValue === 'yes'){ swapipo = 'block'; }else{ swapipo = 'none';}
+  if(newValue === 'true'){ swapipo = 'block'; }else{ swapipo = 'none';}
   angular.element($document[0].querySelector('.invest-transaction_text')).css('display', swapipo );
   angular.element($document[0].querySelector('.invest-exitdate_date')).css('display', swapipo);
   angular.element($document[0].querySelector('.invest-amount2_text')).css('display', swapipo);
