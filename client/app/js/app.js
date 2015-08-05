@@ -18,7 +18,6 @@ angular.module('loopbackApp', [
     'formly',
     'lbServices',
     'monospaced.elastic',
-    'ngFileUpload',
     'ngAnimate',
     'ngCookies',
     'ngResource',
