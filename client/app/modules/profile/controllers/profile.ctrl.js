@@ -2,7 +2,7 @@
 var app = angular.module('com.module.profile');
 
  // $fileUploader,   /// commented in index.html
-app.controller('MyProfileCtrl',function($scope, $location, $state, $route, $upload, $routeParams,$stateParams,  $document,
+app.controller('MyProfileCtrl',function($scope, $location, $state, $route, Upload, $routeParams,$stateParams,  $document,
   ProfileService, gettextCatalog, $http) {
 
     $scope.prettyPrint = function(msg, obj){
