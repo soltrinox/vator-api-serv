@@ -15,8 +15,25 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route,  $rou
     $scope.uploading = {};
     $scope.selectedFile = [];
     $scope.uploadProgress = 0;
+    $scope.profileImageUrl = 'http://api.vator.co/uploadprofile/vatorprofilecache';
+    $scope.coverImageUrl = 'http://api.vator.co/uploadcover/vatorprofilecache';
 
+    $scope.uploadFile = function(files) {
+        var fd = new FormData();
+        //Take the first selected file
+        fd.append('file', files[0]);
 
+        $http.post($scope.profileImageUrl, fd, {
+            withCredentials: true,
+            headers: {'Content-Type': undefined },
+            transformRequest: angular.identity
+        }).success( function(response) {
+          console.log(response);
+        }).error(  function(err) {
+          console.log(err);
+        } );
+
+    };
 
     $scope.hideCompany = true;
     $scope.hideBase = true;
