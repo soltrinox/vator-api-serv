@@ -279,14 +279,14 @@ $scope.investFields =
       type: 'text',
       id : 'invest-valuation',
       uniqueFormId : 'invest-valuation-box',
-      label: 'Valuation',
+      label: 'Valuation (pre-money)',
       required: false
     },{
       key: 'isipo',
       type: 'hidden',
       id : 'invest-isipo',
       uniqueFormId : 'invest-isipo-box',
-      label: 'Aquired / IPO',
+      label: 'Acquired / IPO',
       required: false
     },{
       key: 'companyname',
@@ -316,7 +316,7 @@ $scope.investFields2 =
       type: 'date',
       id : 'invest-exitdate',
       uniqueFormId : 'invest-exitdate-box',
-      label:'exit date',
+      label:'Exit Date',
       required: false
     },
     {
@@ -332,7 +332,7 @@ $scope.investFields2 =
       type: 'text',
       id : 'invest-aquirer',
       uniqueFormId : 'invest-aquirer-box',
-      label:'Aquirer',
+      label:'Aquirer name',
       required: false
     },
     {
@@ -340,7 +340,7 @@ $scope.investFields2 =
       type: 'text',
       id : 'invest-press',
       uniqueFormId : 'invest-press-box',
-      label:'Press',
+      label:'Press release / published report',
       required: false
     }
 ];
