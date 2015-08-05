@@ -85,29 +85,10 @@
         <div class="row">
           <div class="uploads-box">
             <div>
-              <form ng-submit="uploadFile()">
-                 <div class="row">
-                       <div class="col-md-12">
-                                <!-- <input type="text" ng-model="uploading.fileDescription" />
-                                <input type="number" ng-model="uploading.rating" />
-                                <input type="checkbox" ng-model="uploading.isAGoodFile" /> -->
-                                <!-- <input type="file" ng-file-select="onFileSelect($files)"> -->
-                                <input type="file" name="uploadedFiles" multiple="true"  ng-file-select="onFileSelect($files)">
-                                <div class="progress" style="margin-top: 20px;">
-                                  <div class="progress-bar" progress-bar="uploadProgress" role="progressbar">
-                                    <span ng-bind="uploadProgress"></span>
-                                    <span>%</span>
-                                  </div>
-                                </div>
-
-                                <button button type="submit" class="btn btn-default btn-lg">
-                                  <i class="fa fa-cloud-upload"></i>
-                                  &nbsp;
-                                  <span>Upload File</span>
-                                </button>
-                              </div>
-                            </div>
-                          </form>
+              <form method="POST" enctype="multipart/form-data" action="http://api.vator.co/uploadimage/vatorprofilecache">
+                File to upload: <input type="file" name="uploadedFiles" multiple="true">
+                <!-- <br>Notes about the file: <input type="text" name="note"><br> -->
+                <input type="submit" value="Upload Profile Pic"></form>
               <img src="{{fullprofile.user.ProfilePic}}" id="" class="" />
             </div>
             <div>
