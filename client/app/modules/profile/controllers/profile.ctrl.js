@@ -436,7 +436,6 @@ $scope.teamFields = [
 
 
   $scope.toggleBase = function(id) {
-
     if((!$scope.UserRecord.id || $scope.UserRecord.length === 0 ) && $scope.fullprofile ){
       console.log('scope.profile is valid and user rec undefined');
       $scope.UserRecord.Name = $scope.fullprofile.user.Name;
@@ -459,9 +458,8 @@ $scope.teamFields = [
         $scope.UserRecord.CoverPic = $scope.fullprofile.user.CoverPic;
         $scope.UserRecord.id = $scope.fullprofile.user.id;
     }
-
     $scope.hideBase = $scope.hideBase === false ? true: false;
-  id = null;
+    id = null;
   };
 
 
@@ -490,8 +488,6 @@ $scope.teamFields = [
       });
     });
   };
-
-
 
 
 // ----------------------------------------------
@@ -775,14 +771,11 @@ $scope.editInvestments = function(iid){
 };
 
 $scope.onSubmitExperience = function(){
-
   if($scope.WorkRecord.Type !== '003'){
     $scope.onSubmitWorkRecord();
   }else{
     $scope.onSubmitInvest();
   }
-
-
 };
 
 // ==============  WORK HISTORY ====================
@@ -912,7 +905,6 @@ $scope.startNewExperienceRecord = function(id) {
   };
 
   $scope.cancelWork = function() {
-
      $scope.WorkRecord = $scope.newWorkRecord();
      $scope.InvestorRecord = $scope.newInvestorRecord();
      $scope.workLookUp = '';
@@ -920,11 +912,9 @@ $scope.startNewExperienceRecord = function(id) {
      $scope.hideaddWorkButton = false; //= $scope.hideaddWorkButton === false ? true: false;
      angular.element($document[0].querySelector('.investorForm')).css('display', 'none');
      angular.element($document[0].querySelector('.investorForm2')).css('display', 'none');
-
   };
 
 // ==============  SOCIAL ====================
-
 
 
   $scope.toggleSocial = function(id) {
@@ -981,8 +971,6 @@ $scope.editEmail = function(){
 $scope.editSocial = function(){
   console.log('edit social');
 };
-
-
 
 
 // ==============  PROFILE CONTROLLER ON LOAD ====================
