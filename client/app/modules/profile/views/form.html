@@ -85,14 +85,18 @@
         <div class="row">
           <div class="uploads-box">
             <div>
-              <form method="POST" enctype="multipart/form-data" action="http://api.vator.co/uploadimage/vatorprofilecache">
+              <form method="POST" target="_blank" enctype="multipart/form-data" action="http://api.vator.co/uploadimage/vatorprofilecache">
                 File to upload: <input type="file" name="uploadedFiles" multiple="true">
                 <!-- <br>Notes about the file: <input type="text" name="note"><br> -->
                 <input type="submit" value="Upload Profile Pic"></form>
               <img src="{{fullprofile.user.ProfilePic}}" id="" class="" />
             </div>
+            <hr/>
             <div>
-              <input id="coverpic" name="coverpic" type="file" file />
+              <form method="POST" target="_blank" enctype="multipart/form-data" action="http://api.vator.co/uploadimage/vatorprofilecache">
+                File to upload: <input type="file" name="uploadedFiles" multiple="true">
+                <!-- <br>Notes about the file: <input type="text" name="note"><br> -->
+                <input type="submit" value="Upload Profile Pic"></form>
               <img src="{{fullprofile.user.CoverPic}}" id="" class="" />
             </div>
           </div>
