@@ -24,7 +24,7 @@ angular.module('loopbackApp', [
     'ngRoute',
     'ngSanitize',
     'ngTagsInput',
-    'ng-file-upload',
+    'ngFileUpload',
     'ngAutocomplete',
     'ngTouch',
     'ui.bootstrap',
