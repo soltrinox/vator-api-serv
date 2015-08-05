@@ -4,7 +4,6 @@
 <br/><br/>
   <span ng-show="!product.id" translate>Add a new company</span>
   <span ng-show="product.id" translate>Edit company</span>
-
 </h4>
 
 
@@ -64,6 +63,17 @@
 
   </div>
 </div>
+
+<div>
+  <h4>Team Members</h4>
+
+  <pre>{{ CompanyRecord | json }}</pre>
+  
+
+
+</div>
+
+
 <div class="controls">
     <button class="btn btn-primary btn-success" ng-click="onSubmit()"
     translate>Submit</button>
