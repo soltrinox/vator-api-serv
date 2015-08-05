@@ -2,7 +2,7 @@
 var app = angular.module('com.module.profile');
 
  // $fileUploader,   /// commented in index.html
-app.controller('MyProfileCtrl',function($scope, $location, $state, $route, Upload, $routeParams,$stateParams,  $document,
+app.controller('MyProfileCtrl',function($scope, $location, $state, $route,  $routeParams,$stateParams,  $document,
   ProfileService, gettextCatalog, $http) {
 
     $scope.prettyPrint = function(msg, obj){
@@ -16,25 +16,6 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route, Uploa
     $scope.selectedFile = [];
     $scope.uploadProgress = 0;
 
-
-    $scope.uploadFile = function () {
-        var file = $scope.selectedFile[0];
-        $scope.upload = $upload.upload({
-            url: 'http://api.vator.co/uploadimage/vatorprofilecache',
-            method: 'POST',
-            data: angular.toJson($scope.uploading),
-            file: file
-        }).progress(function (evt) {
-            $scope.uploadProgress = parseInt(100.0 * evt.loaded / evt.total, 10);
-        }).success(function (data) {
-            //do something
-        });
-    };
-
-    $scope.onFileSelect = function ($files) {
-        $scope.uploadProgress = 0;
-        $scope.selectedFile = $files;
-    };
 
 
     $scope.hideCompany = true;
@@ -1133,14 +1114,4 @@ $scope.fullMeal = true;
 
 
 
-}).directive('progressBar', [
-        function () {
-            return {
-                link: function ($scope, el, attrs) {
-                    $scope.$watch(attrs.progressBar, function (newValue) {
-                        el.css('width', newValue.toString() + '%');
-                    });
-                }
-            };
-        }
-    ]);
+});
