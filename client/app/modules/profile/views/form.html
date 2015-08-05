@@ -85,18 +85,22 @@
         <div class="row">
           <div class="uploads-box">
             <div>
-              <form method="POST" target="_blank" enctype="multipart/form-data" action="http://api.vator.co/uploadimage/vatorprofilecache">
-                File to upload: <input type="file" name="uploadedFiles" multiple="true">
-                <!-- <br>Notes about the file: <input type="text" name="note"><br> -->
-                <input type="submit" value="Upload Profile Pic"></form>
+              <form method="POST" target="_blank" enctype="multipart/form-data" action="http://api.vator.co/uploadprofile/vatorprofilecache">
+              <div class=" form-group">
+                <label>File to upload: <input class="form-control" type="file" name="uploadedFiles" multiple="true">
+                  <!-- <br>Notes about the file: <input type="text" name="note"><br> -->
+                  <input class="form-control" type="submit" value="Upload Profile Pic"></label>
+              </div>  </form>
               <img src="{{fullprofile.user.ProfilePic}}" id="" class="" />
             </div>
             <hr/>
-            <div>
-              <form method="POST" target="_blank" enctype="multipart/form-data" action="http://api.vator.co/uploadimage/vatorprofilecache">
-                File to upload: <input type="file" name="uploadedFiles" multiple="true">
-                <!-- <br>Notes about the file: <input type="text" name="note"><br> -->
-                <input type="submit" value="Upload Profile Pic"></form>
+            <div class="">
+              <form method="POST" target="_blank" enctype="multipart/form-data" action="http://api.vator.co/uploadcover/vatorprofilecache">
+              <div class="form-group">
+                <label>File to upload: <input class="form-control" type="file" name="uploadedFiles" multiple="true">
+                  <!-- <br>Notes about the file: <input type="text" name="note"><br> -->
+                  <input class="form-control" type="submit" value="Upload Cover Pic"></label>
+              </div>  </form>
               <img src="{{fullprofile.user.CoverPic}}" id="" class="" />
             </div>
           </div>
