@@ -1,2 +1,2 @@
 'use strict';
-angular.module('com.module.profile', [    'ngFileUpload' ] );
+angular.module('com.module.profile', [   ] );
