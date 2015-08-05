@@ -22,9 +22,10 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route,  $rou
         var fd = new FormData();
         //Take the first selected file
         fd.append('file', files[0]);
-
-        $http.post($scope.profileImageUrl, fd, {
+        var go = $scope.profileImageUrl + '/' + $scope.currentUser.pid;
+        $http.post(go, fd, {
             withCredentials: true,
+            dataType: 'jsonp',
             headers: {'Content-Type': undefined },
             transformRequest: angular.identity
         }).success( function(response) {
@@ -42,6 +43,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route,  $rou
 
         $http.post($scope.coverImageUrl, fd, {
             withCredentials: true,
+            dataType: 'jsonp',
             headers: {'Content-Type': undefined },
             transformRequest: angular.identity
         }).success( function(response) {
