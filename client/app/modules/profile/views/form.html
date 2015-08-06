@@ -179,14 +179,14 @@
                   <button class="btn btn-danger fa fa-trash" ng-click="deleteInvestment('{{invest.id}}')" />
                 </div>
               </td>
-              <td width="20%">
+              <td width="12%">
+                <div class="">Investor</div>
+              </td>
+              <td width="28%">
                 <div class="">{{invest.companyname}}</div>
               </td>
               <td width="20%">
                 <div class="">{{invest.amount}}</div>
-              </td>
-              <td width="20%">
-                <div class="">{{work.Type}}</div>
               </td>
               <td width="20%">
                 <div class="">{{work.date | limitTo: 10 }}</div>
@@ -201,13 +201,18 @@
                 </div>
               </td>
               <td width="20%">
+                <div class="">
+                  <span ng-if="work.type === '001'">Employee</span>
+                  <span ng-if="work.type === '002'">Founder</span>
+                  <span ng-if="work.type === '004'">Advisor</span>
+                  <span ng-if="work.type === '005'">Board Member</span>
+                </div>
+              </td>
+              <td width="20%">
                 <div class="">{{work.companyname}}</div>
               </td>
               <td width="20%">
                 <div class="">{{work.jobtitle}}</div>
-              </td>
-              <td width="20%">
-                <div class="">{{work.Type}}</div>
               </td>
               <td width="20%">
                 <div class="">{{work.datestart | limitTo: 10 }} to {{work.dateend | limitTo: 10 }}</div>
