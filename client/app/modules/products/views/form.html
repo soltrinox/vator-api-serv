@@ -70,7 +70,7 @@
 
     <input type="text" ng-model="$scope.teamLookUp" placeholder="Search for a team meber"
     typeahead="item for item in getTeams($viewValue)" id="search-teamlookup"
-    typeahead-on-select="onTeamMemberSelect(item, $scope.workLookUp, work.companylookup )"
+    typeahead-on-select="onTeamMemberSelect(item, $scope.teamLookUp, loadingMember )"
     typeahead-loading="loadingMember"  class="form-control teamlookup_input"
     ng-change="lookMember( $scope.teamLookUp )">
 

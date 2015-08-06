@@ -325,7 +325,7 @@ angular.module('com.module.products')
                 }
             }).then(function(response){
               return response.data.map(function(item){
-                return item;
+                return item.Name;
               });
             });
           };
@@ -341,8 +341,6 @@ angular.module('com.module.products')
           };
 
           $scope.addMembersToTeam = function(){
-
-
 
 
           };
