@@ -18,10 +18,9 @@
         <i class="fa fa-pencil fa-3x"></i> &nbsp; Edit Profile
       </a>
 
-      <div ng-hide="!fullprofile.user.CoverPic" style="position:relative; clear:both;">
-        <img width="100%" src="{{fullprofile.user.CoverPic}}"  style="position:absolute;left 0px;top:0px;z-index:2;" >
-        <div ng-hide="!fullprofile.user.ProfilePic" style="position:absolute;left 350px;top:50px;z-index:10;">
-          <img src="{{fullprofile.user.ProfilePic}}"  style="width:850px; heigth:315px" >
+      <div ng-hide="!fullprofile.user.CoverPic" style="width:850px; heigth:315px; position:relative; clear:both; background-image: url({{fullprofile.user.ProfilePic}})">
+        <div ng-hide="!fullprofile.user.ProfilePic" style="width:100px;height:100px;position:absolute;left 350px;top:50px;z-index:10;">
+          <img src="{{fullprofile.user.ProfilePic}}"  style="width:100px;height:100px;" >
         </div>
       </div>
 
