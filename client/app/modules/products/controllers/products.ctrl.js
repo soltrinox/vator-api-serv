@@ -325,7 +325,6 @@ angular.module('com.module.products')
                 }
             }).then(function(response){
               return response.data.map(function(item){
-                console.log('PIC: '+ item.ProfilePic);
                 return item;
               });
             });
@@ -337,6 +336,7 @@ angular.module('com.module.products')
 
           $scope.lookMember = function(val){
             // TODO:  set the id of the record
+            console.log('SELECTED MEMEBR: '+JSON.stringify(val));
               $scope.teamLookUp = val;
               //$scope.WorkRecord.companyname = $scope.workLookUp;
           };
