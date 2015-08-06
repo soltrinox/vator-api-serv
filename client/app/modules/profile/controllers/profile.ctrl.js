@@ -18,10 +18,14 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route,  $rou
     $scope.profileImageUrl = 'http://api.vator.co/uploadprofile/vatorprofilecache';
     $scope.coverImageUrl = 'http://api.vator.co/uploadcover/vatorprofilecache';
 
+    $scope.currentUser.ProfilePic = '';
+    $scope.currentUser.CoverPic = '';
+
     $scope.uploadProfilePic = function(files) {
         var fd = new FormData();
         //Take the first selected file
         fd.append('file', files[0]);
+        console.log('FILE: '+files[0]);
         var go = $scope.profileImageUrl + '/' + $scope.currentUser.pid;
         $http.post(go, fd, {
             withCredentials: true,
@@ -30,6 +34,10 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route,  $rou
             transformRequest: angular.identity
         }).success( function(response) {
           console.log(response);
+          var imgName = response.result.name;
+          var imgURL = 'https://vator.imgix.net/'+ imgName  +'?w=200&h=200&fm=png32&fit=facearea&faceindex=1&facepad=1.5';
+          $scope.currentUser.ProfilePic = imgURL;
+          var pid = response.pid;
         }).error(  function(err) {
           console.log(err);
         } );
@@ -40,14 +48,20 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route,  $rou
         var fd = new FormData();
         //Take the first selected file
         fd.append('file', files[0]);
-
-        $http.post($scope.coverImageUrl, fd, {
+          console.log('FILE: '+files[0]);
+        var go = $scope.profileImageUrl + '/' + $scope.currentUser.pid;
+        $http.post(go , fd, {
             withCredentials: true,
             dataType: 'jsonp',
             headers: {'Content-Type': undefined },
             transformRequest: angular.identity
         }).success( function(response) {
           console.log(response);
+          var imgName = response.result.name;
+          var imgURL = 'https://vator.imgix.net/'+  imgName +'?w=850&h=315&fm=png32&fit=crop';
+          $scope.currentUser.CoverPic = imgURL;
+          var pid = response.pid;
+          //
         }).error(  function(err) {
           console.log(err);
         } );

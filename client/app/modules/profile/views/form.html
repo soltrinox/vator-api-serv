@@ -87,24 +87,24 @@
             <div class="row  vator_form_box ">
               <form method="POST" target="_blank" enctype="multipart/form-data" action="http://api.vator.co/uploadprofile/vatorprofilecache">
               <div class=" form-group">
-                <label>File to upload: <input class="form-control" type="file"
+                <label>Profile Pic: <input class="form-control" type="file"
                   name="uploadedFiles" multiple="true"  onchange="angular.element(this).scope().uploadProfilePic(this.files)">
                   <input type="hidden" name="ownerProfileId" ng-model="$scope.currentUser.pid">
                   <input type="hidden" name="type" value="profilePic">
 
               </div>  </form>
-              <img src="{{fullprofile.user.ProfilePic}}" id="" class="" />
+              <img src="{{currentUser.ProfilePic}}" id="" class="" />
             </div>
             <hr/>
             <div class="row  vator_form_box ">
               <form method="POST" target="_blank" enctype="multipart/form-data" action="http://api.vator.co/uploadcover/vatorprofilecache">
               <div class="form-group">
-                <label>File to upload: <input class="form-control" type="file" name="uploadedFiles"
+                <label>Cover Pic: <input class="form-control" type="file" name="uploadedFiles"
                   multiple="true"  onchange="angular.element(this).scope().uploadCoverPic(this.files)">
                 <input type="hidden" name="ownerProfileId" ng-model="$scope.currentUser.pid">
                 <input type="hidden" name="type" value="coverPic">
               </div></form>
-              <img src="{{fullprofile.user.CoverPic}}" id="" class="" />
+              <img src="{{currentUser.CoverPic}}" id="" class="" />
             </div>
           </div>
         </div>
