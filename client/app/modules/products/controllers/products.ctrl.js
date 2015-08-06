@@ -331,12 +331,14 @@ angular.module('com.module.products')
           };
 
           $scope.onTeamMemberSelect = function(item, model, label){
-
+console.log('SELECTED item: '+JSON.stringify(item));
+console.log('SELECTED model: '+JSON.stringify(model));
+console.log('SELECTED label: '+JSON.stringify(label));
           };
 
           $scope.lookMember = function(val, item){
             // TODO:  set the id of the record
-            console.log('SELECTED MEMEBR: '+JSON.stringify(item));
+            //console.log('SELECTED MEMEBR: '+JSON.stringify(item));
               $scope.teamLookUp = val;
               //$scope.WorkRecord.companyname = $scope.workLookUp;
           };
