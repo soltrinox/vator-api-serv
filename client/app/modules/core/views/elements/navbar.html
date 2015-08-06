@@ -36,10 +36,8 @@
               <i class="fa fa-3x fa-profile"></i>
             </div>
             <div ng-if="currentUser.ProfilePic">
-              <img gravatar-src="currentUser.ProfilePic" class="img-circle" alt="User Image">
+              <img src="currentUser.ProfilePic" class="img-circle" alt="User Image" width="50" height="50" >
             </div>
-
-
             <p>
               {{currentUser.firstName || currentUser.profiles[0].profile.displayName}}
               <small>{{currentUser.email}}</small>
