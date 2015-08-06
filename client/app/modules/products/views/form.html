@@ -74,7 +74,7 @@
     </a>
   </script>
     <input type="text" ng-model="$scope.teamLookUp" placeholder="Search for a team meber"
-    typeahead="item for item in getTeams($viewValue)" id="search-teamlookup"
+    typeahead="item for item in getTeams($viewValue) | filter:{Name:$viewValue}" id="search-teamlookup"
     typeahead-template-url="customTemplate.html"
     typeahead-on-select="onTeamMemberSelect(item, $scope.teamLookUp, loadingMember )"
     typeahead-loading="loadingMember"  class="form-control teamlookup_input"
