@@ -12,7 +12,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route,  $rou
         console.log( msg + ' : ' + JSON.stringify(obj));
     };
 
-
+    $scope.lastCurrentUser = {};
     $scope.profileImageUrl = 'http://api.vator.co/uploadprofile/vatorprofilecache';
     $scope.coverImageUrl = 'http://api.vator.co/uploadcover/vatorprofilecache';
 
@@ -511,8 +511,8 @@ $scope.teamFields = [
         $scope.currentUser.pid = response.profile.user.id;
 
         var random = (new Date()).toString();
-        $scope.currentUser.ProfilePic = response.profile.user.ProfilePic + '&cb=' + random;
-        $scope.currentUser.CoverPic = response.profile.user.CoverPic + '&cb=' + random;
+        $scope.currentUser.ProfilePic = response.profile.user.ProfilePic + '&cb=' + random.replace(/\W+/g, '');
+        $scope.currentUser.CoverPic = response.profile.user.CoverPic + '&cb=' + random.replace(/\W+/g, '');
 
         $scope.UserRecord.Name = response.profile.user.Name;
         $scope.UserRecord.Bio = response.profile.user.Bio;
@@ -525,7 +525,11 @@ $scope.teamFields = [
         $scope.UserRecord.id = response.profile.user.id;
         $scope.sliceProfile(response.profile);
 
-        $scope.saveCurrentUser($scope.currentUser);
+        if($scope.currentUser !== $scope.lastCurrentUser){
+          $scope.saveCurrentUser($scope.currentUser);
+          $scope.lastCurrentUser = $scope.currentUser;
+        }
+
 
     });
   };
@@ -579,12 +583,15 @@ $scope.teamFields = [
             $scope.currentUser.pid = response.id;
             var random = (new Date()).toString();
 
-            $scope.currentUser.ProfilePic = response.ProfilePic + '&cb=' + random;
+            $scope.currentUser.ProfilePic = response.ProfilePic + '&cb=' + random.replace(/\W+/g, '');
             // fetch the full object and move along
             if(!$scope.fullprofile.user || 0 === $scope.fullprofile.user.length){
               $scope.getEntireProfile($scope.currentUser.pid);
             }
-            $scope.saveCurrentUser($scope.currentUser);
+            if($scope.currentUser !== $scope.lastCurrentUser){
+              $scope.saveCurrentUser($scope.currentUser);
+              $scope.lastCurrentUser = $scope.currentUser;
+            }
           }
         });
 
@@ -1057,11 +1064,14 @@ $scope.fullMeal = true;
         var imgName = response.result.name;
         var imgURL = 'https://vator.imgix.net/'+ imgName  +'?w=200&h=200&fm=png32&fit=facearea&faceindex=1&facepad=1.5';
         var random = (new Date()).toString();
-        $scope.fullprofile.user.ProfilePic = imgURL + '&cb=' + random;
-        $scope.currentUser.ProfilePic = imgURL + '&cb=' + random;
-        $scope.UserRecord.ProfilePic = imgURL + '&cb=' + random;
+        $scope.fullprofile.user.ProfilePic = imgURL + '&cb=' + random.replace(/\W+/g, '');
+        $scope.currentUser.ProfilePic = imgURL + '&cb=' + random.replace(/\W+/g, '');
+        $scope.UserRecord.ProfilePic = imgURL + '&cb=' + random.replace(/\W+/g, '');
 
-        $scope.saveCurrentUser($scope.currentUser);
+        if($scope.currentUser !== $scope.lastCurrentUser){
+          $scope.saveCurrentUser($scope.currentUser);
+          $scope.lastCurrentUser = $scope.currentUser;
+        }
 
         var pid = response.pid;
       }).error(  function(err) {
