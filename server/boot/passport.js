@@ -94,7 +94,7 @@ module.exports = function(app) {
 
   app.get('/auth/account', ensureLoggedIn('/'), function(req, res, next) {
     console.log('Logged in', req.user)
-    res.redirect('/#/app');
+    res.redirect('/#/app/myprofile');
   });
 
   app.get('/auth/current', function(req, res, next) {

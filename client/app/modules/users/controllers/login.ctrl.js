@@ -95,14 +95,19 @@ angular.module('com.module.users')
           console.log(user.created); // => 2013-12-20T21:10:20.377Z
           console.log(user.userId); // => 1
 
-          var next = $location.nextAfterLogin || '/app/myprofile';
+          var go = '/app/myprofile';
+          var next = $location.nextAfterLogin || go;
+
           $location.nextAfterLogin = null;
+
           AppAuth.currentUser = $scope.loginResult.user;
           CoreService.toastSuccess(gettextCatalog.getString('Logged in'),
             gettextCatalog.getString('You are logged in!'));
+
           if (next === '/login') {
-            next = '/app/myprofile';
+            next = go;
           }
+
           $location.path(next);
 
         },
