@@ -192,7 +192,11 @@
                 <div class="">{{work.date | limitTo: 10 }}</div>
               </td>
             </tr>
-
+            <tr>
+              <td colspan="5">
+                <hr/>
+              </td>
+            </tr>
             <tr ng-repeat="work in fullprofile.work | filter:{id:'!!'}" class="list-group-item">
               <td width="10%">
                 <div class="">
@@ -208,13 +212,13 @@
                   <span ng-if="work.Type === '005'">Board Member</span>
                 </div>
               </td>
-              <td width="20%">
+              <td width="24%">
                 <div class="">{{work.companyname}}</div>
               </td>
-              <td width="20%">
+              <td width="24%">
                 <div class="">{{work.jobtitle}}</div>
               </td>
-              <td width="20%">
+              <td width="12%">
                 <div class="">{{work.datestart | limitTo: 10 }} to {{work.dateend | limitTo: 10 }}</div>
               </td>
             </tr>
@@ -223,11 +227,8 @@
       </div>
     </tab>
     <tab heading="{{ 'Profiles' | translate }}">
-      <!-- <button class="btn btn-info fa fa-plus" ng-click="toggleSocial()">Add New Social</button> -->
       <div class="row tab-pane ">
-        <!--  contact for email here too -->
         <formly-form result="SocialRecord" fields="socialFields" options="formOptions" ng-submit="onSubmit4()"></formly-form>
-
         <div class="controls tabsubmit">
           <button class="btn btn-primary btn-success" ng-click="onSubmit4()" translate>Update Social Accounts</button>
         </div>
