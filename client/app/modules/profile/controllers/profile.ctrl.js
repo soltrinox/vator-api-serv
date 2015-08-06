@@ -793,7 +793,7 @@ $scope.onSubmitExperience = function(){
 
 $scope.$watchCollection('WorkRecord', function(newValue, oldValue){
     // $scope.prettyPrint('!!! WATCH WORK  OLD!!!!\n',oldValue);
-    // $scope.prettyPrint('!!! WATCH WORK  NEW!!!! \n',newValue);
+     $scope.prettyPrint('!!! WATCH WORK  NEW!!!! \n',newValue);
 
     $scope.swapipo = 'none';
 
