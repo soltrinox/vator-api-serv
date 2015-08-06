@@ -334,9 +334,9 @@ angular.module('com.module.products')
 
           };
 
-          $scope.lookMember = function(val){
+          $scope.lookMember = function(val, item){
             // TODO:  set the id of the record
-            console.log('SELECTED MEMEBR: '+JSON.stringify(val));
+            console.log('SELECTED MEMEBR: '+JSON.stringify(item));
               $scope.teamLookUp = val;
               //$scope.WorkRecord.companyname = $scope.workLookUp;
           };
