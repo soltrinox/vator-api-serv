@@ -94,7 +94,7 @@ angular.module('com.module.users')
           if(!user.user.ProfilePic ||  0 === user.user.ProfilePic.length ){
             user.user.ProfilePic = 'https://s3.amazonaws.com/vatorprofilecache/profile.png';
           }else{
-              // some value here
+              // TODO: get the Profile here ?
           }
 
           // TODO: set default user profilePic

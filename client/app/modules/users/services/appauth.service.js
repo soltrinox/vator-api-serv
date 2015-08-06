@@ -14,6 +14,8 @@ angular.module('com.module.users')
             password: data.password
           })
           .then(function(response) {
+            console.log('USER LOGIN RESPONSE : ' + JSON.stringify(response));
+
             if (response.data && response.data.id) {
               LoopBackAuth.currentUserId = response.data.userId;
               LoopBackAuth.accessTokenId = response.data.id;

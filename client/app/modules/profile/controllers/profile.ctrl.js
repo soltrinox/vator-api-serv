@@ -514,12 +514,22 @@ $scope.teamFields = [
         $scope.currentUser.pid = response.profile.user.id;
         $scope.currentUser.ProfilePic = response.profile.user.ProfilePic;
         $scope.currentUser.CoverPic = response.profile.user.CoverPic;
+
+        $scope.$apply(function() {
+          $scope.currentUser.pid = response.profile.user.id;
+          $scope.currentUser.ProfilePic = response.profile.user.ProfilePic;
+          $scope.currentUser.CoverPic = response.profile.user.CoverPic;
+        });
+
         $scope.UserRecord.Name = response.profile.user.Name;
         $scope.UserRecord.Bio = response.profile.user.Bio;
         $scope.UserRecord.UUID = response.profile.user.UUID;
         $scope.UserRecord.ProfilePic = response.profile.user.ProfilePic;
         if(!response.profile.user.ProfilePic || 0 === response.profile.user.ProfilePic){
           $scope.UserRecord.ProfilePic = 'https://s3.amazonaws.com/vatorprofilecache/profile.png';
+            $scope.$apply(function() {
+              $scope.UserRecord.ProfilePic = 'https://s3.amazonaws.com/vatorprofilecache/profile.png';
+            });
         }
         $scope.UserRecord.CoverPic = response.profile.user.CoverPic;
         $scope.UserRecord.id = response.profile.user.id;
@@ -562,6 +572,9 @@ $scope.teamFields = [
             $scope.profile = response;
             $scope.currentUser.pid = response.id;
             $scope.currentUser.ProfilePic = response.ProfilePic;
+            $scope.$apply(function() {
+              $scope.UserRecord.ProfilePic = response.ProfilePic;
+            });
             // fetch the full object and move along
             if(!$scope.fullprofile.user || 0 === $scope.fullprofile.user.length){
               $scope.getEntireProfile($scope.currentUser.pid);
