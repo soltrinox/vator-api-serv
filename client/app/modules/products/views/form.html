@@ -69,7 +69,7 @@
   <div style="width:60%;float:left;">
   <script type="text/ng-template" id="customTemplate.html">
     <a>
-        <img src="{{match.model.ProfilePic}}" width="30" height="30">
+        <img ng-src="match.model.ProfilePic" width="30" height="30">
         <span bind-html-unsafe="match.label | typeaheadHighlight:query"></span>
     </a>
   </script>
