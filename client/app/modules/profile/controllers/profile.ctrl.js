@@ -794,7 +794,7 @@ $scope.onSubmitExperience = function(){
 $scope.$watchCollection('WorkRecord', function(newValue, oldValue){
     // $scope.prettyPrint('!!! WATCH WORK  OLD!!!!\n',oldValue);
     // $scope.prettyPrint('!!! WATCH WORK  NEW!!!! \n',newValue);
-    $scope.saveUserRecord = true;
+
     $scope.swapipo = 'none';
 
   if($scope.WorkRecord.Type === '003'){
@@ -1062,6 +1062,8 @@ $scope.fullMeal = true;
         console.log(response);
         var imgName = response.result.name;
         var imgURL = 'https://vator.imgix.net/'+ imgName  +'?w=200&h=200&fm=png32&fit=facearea&faceindex=1&facepad=1.5';
+
+        $scope.fullprofile.user.ProfilePic = imgURL;
         $scope.currentUser.ProfilePic = imgURL;
         $scope.UserRecord.ProfilePic = imgURL;
         var pid = response.pid;
@@ -1087,9 +1089,11 @@ $scope.fullMeal = true;
         var imgName = response.result.name;
         var imgURL = 'https://vator.imgix.net/'+  imgName +'?w=850&h=315&fm=png32&fit=crop';
         $scope.currentUser.CoverPic = imgURL;
+        $scope.fullprofile.user.CoverPic = imgURL;
         $scope.UserRecord.CoverPic = imgURL;
         var pid = response.pid;
-        //
+        // should it auto update on change ?
+        // is it making it tot he server UserRecord ?
       }).error(  function(err) {
         console.log(err);
       } );
