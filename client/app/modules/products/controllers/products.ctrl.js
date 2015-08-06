@@ -331,9 +331,10 @@ angular.module('com.module.products')
           };
 
           $scope.onTeamMemberSelect = function(item, model, label){
-console.log('SELECTED item: '+JSON.stringify(item));
-console.log('SELECTED model: '+JSON.stringify(model));
-console.log('SELECTED label: '+JSON.stringify(label));
+
+            console.log('SELECTED model: '+JSON.stringify(model));
+
+            $scope.teamLookUp = model.Name;
           };
 
           $scope.lookMember = function(val){
