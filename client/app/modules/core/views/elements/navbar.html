@@ -5,8 +5,12 @@
     <span class="icon-bar"></span>
     <span class="icon-bar"></span>
   </a>
-
-  <div class="navbar-right">
+<style>
+.nav-profile-top{
+  margin-top:10px;
+}
+</style>
+  <div class="navbar-right nav-profile-top">
     <ul class="nav navbar-nav">
       <li class="dropdown user user-menu">
         <a class="dropdown-toggle" data-toggle="dropdown">
@@ -28,7 +32,13 @@
         </a>
         <ul class="dropdown-menu">
           <li class="user-header bg-light-blue">
-            <img gravatar-src="currentUser.email" class="img-circle" alt="User Image">
+            <div ng-if="!currentUser.ProfilePic">
+              <img src="/#/app/img/profile.png" class="img-circle" alt="User Image">
+            </div>
+            <div ng-if="currentUser.ProfilePic">
+              <img gravatar-src="currentUser.ProfilePic" class="img-circle" alt="User Image">
+            </div>
+
 
             <p>
               {{currentUser.firstName || currentUser.profiles[0].profile.displayName}}
