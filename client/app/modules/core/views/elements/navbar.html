@@ -28,22 +28,22 @@
       <li class="dropdown user user-menu">
         <a class="dropdown-toggle" data-toggle="dropdown">
           <div >
-            <span ng-if="!$scope.currentUser.ProfilePic || 0 ===  $scope.currentUser.ProfilePic.length"><i class="fa fa-3x fa-profile"></i>
+            <span ng-if="!currentUser.ProfilePic || 0 ===  currentUser.ProfilePic.length"><i class="fa fa-3x fa-profile"></i>
                 <span>{{currentUser.firstName || currentUser.profiles[0].profile.name.givenName}}<i class="caret"></i></span></span>
-            <span ng-if="$scope.currentUser.ProfilePic">
-              {{$scope.currentUser.ProfilePic}}
-              <img src="$scope.currentUser.ProfilePic" class="img-circle" alt="User Image" width="50" height="50" >
+            <span ng-if="currentUser.ProfilePic">
+              {{currentUser.ProfilePic}}
+              <img src="currentUser.ProfilePic" class="img-circle" alt="User Image" width="50" height="50" >
                 <span>{{currentUser.firstName || currentUser.profiles[0].profile.name.givenName}}<i class="caret"></i></span>
             </span>
           </div>
         </a>
         <ul class="dropdown-menu">
           <li class="user-header bg-light-blue">
-            <div ng-if="!$scope.currentUser.ProfilePic">
+            <div ng-if="!currentUser.ProfilePic">
               <i class="fa fa-3x fa-profile"></i>
             </div>
-            <div ng-if="$scope.currentUser.ProfilePic">
-              <img src="$scope.currentUser.ProfilePic" class="img-circle" alt="User Image" width="50" height="50" >
+            <div ng-if="currentUser.ProfilePic">
+              <img src="currentUser.ProfilePic" class="img-circle" alt="User Image" width="50" height="50" >
             </div>
             <p>
               {{currentUser.firstName || currentUser.profiles[0].profile.displayName}}
