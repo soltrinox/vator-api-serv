@@ -30,9 +30,9 @@
           <div >
             <span ng-if="!currentUser.ProfilePic || 0 ===  currentUser.ProfilePic.length"><i class="fa fa-3x fa-profile"></i>
                 <span>{{currentUser.firstName || currentUser.profiles[0].profile.name.givenName}}<i class="caret"></i></span></span>
-            <span ng-if="currentUser.ProfilePic">
+            <span ng-if="$scope.currentUser.ProfilePic">
               {{currentUser.ProfilePic}}
-              <img src="currentUser.ProfilePic" class="img-circle" alt="User Image" width="50" height="50" >
+              <img src="$scope.currentUser.ProfilePic" class="img-circle" alt="User Image" width="50" height="50" >
                 <span>{{currentUser.firstName || currentUser.profiles[0].profile.name.givenName}}<i class="caret"></i></span>
             </span>
           </div>
@@ -42,8 +42,8 @@
             <div ng-if="!currentUser.ProfilePic">
               <i class="fa fa-3x fa-profile"></i>
             </div>
-            <div ng-if="currentUser.ProfilePic">
-              <img src="currentUser.ProfilePic" class="img-circle" alt="User Image" width="50" height="50" >
+            <div ng-if="$scope.currentUser.ProfilePic">
+              <img src="$scope.currentUser.ProfilePic" class="img-circle" alt="User Image" width="50" height="50" >
             </div>
             <p>
               {{currentUser.firstName || currentUser.profiles[0].profile.displayName}}
