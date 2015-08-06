@@ -3,7 +3,7 @@ var app = angular.module('com.module.profile');
 
  // $fileUploader,   /// commented in index.html
 app.controller('MyProfileCtrl',function($scope, $location, $state, $route,  $routeParams,$stateParams,  $document,
-  ProfileService, gettextCatalog, $http) {
+  ProfileService, User, gettextCatalog, $http) {
 
     $scope.prettyPrint = function(msg, obj){
       if(!msg || 0 === msg.length ){
@@ -15,9 +15,6 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route,  $rou
 
     $scope.profileImageUrl = 'http://api.vator.co/uploadprofile/vatorprofilecache';
     $scope.coverImageUrl = 'http://api.vator.co/uploadcover/vatorprofilecache';
-
-    $scope.currentUser.ProfilePic = '';
-    $scope.currentUser.CoverPic = '';
 
     $scope.saveUserRecord = false;
     $scope.hideCompany = true;
@@ -517,8 +514,6 @@ $scope.teamFields = [
         $scope.currentUser.ProfilePic = response.profile.user.ProfilePic + '&cb=' + random;
         $scope.currentUser.CoverPic = response.profile.user.CoverPic + '&cb=' + random;
 
-
-
         $scope.UserRecord.Name = response.profile.user.Name;
         $scope.UserRecord.Bio = response.profile.user.Bio;
         $scope.UserRecord.UUID = response.profile.user.UUID;
@@ -529,8 +524,24 @@ $scope.teamFields = [
         $scope.UserRecord.CoverPic = response.profile.user.CoverPic;
         $scope.UserRecord.id = response.profile.user.id;
         $scope.sliceProfile(response.profile);
+
+        $scope.saveCurrentUser($scope.currentUser);
+
     });
   };
+
+  $scope.saveCurrentUser = function(user){
+    console.log('USER OBJECT SAVE: ' + JSON.stringify($scope.currentUser) );
+    User.upsert($scope.currentUser, function() {
+      CoreService.toastSuccess(gettextCatalog.getString(
+        'Profile saved'), gettextCatalog.getString(
+        'Enjoy the new you!'));
+    }, function(err) {
+      CoreService.toastError(gettextCatalog.getString(
+        'Error saving profile'), gettextCatalog.getString(
+        'Your profile is not saved: ') + err);
+    });
+  }
 
   $scope.getUserRecord = function(UUID){
 
@@ -573,6 +584,7 @@ $scope.teamFields = [
             if(!$scope.fullprofile.user || 0 === $scope.fullprofile.user.length){
               $scope.getEntireProfile($scope.currentUser.pid);
             }
+            $scope.saveCurrentUser($scope.currentUser);
           }
         });
 
@@ -1048,6 +1060,9 @@ $scope.fullMeal = true;
         $scope.fullprofile.user.ProfilePic = imgURL + '&cb=' + random;
         $scope.currentUser.ProfilePic = imgURL + '&cb=' + random;
         $scope.UserRecord.ProfilePic = imgURL + '&cb=' + random;
+
+        $scope.saveCurrentUser($scope.currentUser);
+
         var pid = response.pid;
       }).error(  function(err) {
         console.log(err);
