@@ -28,11 +28,11 @@
       <li class="dropdown user user-menu">
         <a class="dropdown-toggle" data-toggle="dropdown">
           <div >
-            <span ng-if="!currentUser.ProfilePic || 0 ===  currentUser.ProfilePic.length"><i class="fa fa-3x fa-profile"></i>
-                <span>{{currentUser.firstName || currentUser.profiles[0].profile.name.givenName}}<i class="caret"></i></span></span>
+            <span ng-if="!currentUser.ProfilePic"><i class="fa fa-3x fa-profile"></i>
+                <span>{{currentUser.firstName}}<i class="caret"></i></span></span>
             <span ng-if="$scope.currentUser.ProfilePic">
               {{currentUser.ProfilePic}}
-              <img src="$scope.currentUser.ProfilePic" class="img-circle" alt="User Image" width="50" height="50" >
+              <img src="{{ currentUser.ProfilePic }}" class="img-circle" alt="User Image" width="50" height="50" >
                 <span>{{currentUser.firstName || currentUser.profiles[0].profile.name.givenName}}<i class="caret"></i></span>
             </span>
           </div>
