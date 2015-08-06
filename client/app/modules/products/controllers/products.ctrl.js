@@ -325,6 +325,7 @@ angular.module('com.module.products')
                 }
             }).then(function(response){
               return response.data.map(function(item){
+                console.log('PIC: '+ item.ProfilePic);
                 return item.Name;
               });
             });
