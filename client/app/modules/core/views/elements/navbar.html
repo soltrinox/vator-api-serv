@@ -57,7 +57,7 @@
                 <span>{{currentUser.firstName || currentUser.profiles[0].profile.name.givenName}}<i class="caret"></i></span>
               </div>
               <div  ng-if="$scope.currentUser.ProfilePic">
-                  <img class="nav-img-profile-pic img-circle" src="{{ $scope.currentUser.ProfilePic }}" alt="User Image" width="50" height="50" >
+                  <img class="nav-img-profile-pic img-circle" src="{{ currentUser.ProfilePic }}" alt="User Image" width="50" height="50" >
                   <span>{{currentUser.firstName || currentUser.profiles[0].profile.name.givenName}}<i class="caret"></i></span>
               </div>
             </span>
@@ -70,7 +70,7 @@
               <span>{{currentUser.firstName || currentUser.profiles[0].profile.name.givenName}}<i class="caret"></i></span>
             </div>
             <div  ng-if="$scope.currentUser.ProfilePic">
-                <img class="nav-img-profile-pic img-circle" src="{{ $scope.currentUser.ProfilePic }}" alt="User Image" width="50" height="50" >
+                <img class="nav-img-profile-pic img-circle" src="{{ currentUser.ProfilePic }}" alt="User Image" width="50" height="50" >
                 <span>{{currentUser.firstName || currentUser.profiles[0].profile.name.givenName}}<i class="caret"></i></span>
             </div>
             <p>
