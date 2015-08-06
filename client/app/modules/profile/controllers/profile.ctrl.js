@@ -2,7 +2,7 @@
 var app = angular.module('com.module.profile');
 
  // $fileUploader,   /// commented in index.html
-app.controller('MyProfileCtrl',function($scope, $location, $state, $route,  $routeParams,$stateParams,  $document,
+app.controller('MyProfileCtrl',function($scope, $rootScope, $location, $state, $route,  $routeParams,$stateParams,  $document,
   ProfileService, CoreService, User, gettextCatalog, $http) {
 
     $scope.prettyPrint = function(msg, obj){
@@ -533,19 +533,6 @@ $scope.teamFields = [
 
     });
   };
-
-  $scope.saveCurrentUser = function(user){
-    console.log('USER OBJECT SAVE: ' + JSON.stringify($scope.currentUser) );
-    User.upsert($scope.currentUser, function() {
-      CoreService.toastSuccess(gettextCatalog.getString(
-        'Profile saved'), gettextCatalog.getString(
-        'Enjoy the new you!'));
-    }, function(err) {
-      CoreService.toastError(gettextCatalog.getString(
-        'Error saving profile'), gettextCatalog.getString(
-        'Your profile is not saved: ') + err);
-    });
-  }
 
   $scope.getUserRecord = function(UUID){
 

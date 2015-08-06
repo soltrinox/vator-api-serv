@@ -74,7 +74,13 @@
   <tabset class="nav-tabs-custom">
     <tab heading="{{ 'Who' | translate }}">
 
-      <div class="row tab-pane">
+      <div class="controls tabsubmit">
+        <button class="btn btn-primary btn-success" ng-click="onSubmitProfile()" translate>Update Profile</button>
+        <div class="marginizeme" ng-show="saveUserRecord">
+          <span>Changes Made. Click on update to save.</span>
+        </div>
+      </div>
+      <div class="row tab-pane">    
         <!--  contact for email here ??? -->
         <formly-form result="UserRecord" fields="formFields" id="userForm" options="formOptions" ng-submit="onSubmitProfile()"></formly-form>
         <div class="row">
@@ -88,8 +94,8 @@
                   <input type="hidden" name="type" value="profilePic">
 
               </div>  </form>
-              <img src="{{UserRecord.ProfilePic}}" id="" class="" />
-              <br/>{{UserRecord.ProfilePic}}
+              <img src="{{currentUser.ProfilePic}}" id="" class="" />
+              <br/>{{currentUser.ProfilePic}}
             </div>
             <hr/>
             <div class="row  vator_form_box ">
@@ -100,14 +106,14 @@
                 <input type="hidden" name="ownerProfileId" ng-model="$scope.currentUser.pid">
                 <input type="hidden" name="type" value="coverPic">
               </div></form>
-              <img src="{{UserRecord.CoverPic}}" id="" class="" />
-              <br/>{{UserRecord.CoverPic}}
+              <img src="{{currentUser.CoverPic}}" id="" class="" />
+              <br/>{{currentUser.CoverPic}}
             </div>
           </div>
         </div>
 
         <div class="controls tabsubmit">
-          <button class="btn btn-primary btn-success" ng-click="onSubmitProfile()" translate>Update</button>
+          <button class="btn btn-primary btn-success" ng-click="onSubmitProfile()" translate>Update Profile</button>
           <div class="marginizeme" ng-show="saveUserRecord">
             <span>Changes Made. Click on update to save.</span>
           </div>
@@ -133,7 +139,7 @@
             <div style="width:60%;float:left;">
               <input type="text" ng-model="$scope.workLookUp" placeholder="Search for a company"
               typeahead="item for item in getTeams($viewValue)" id="work-companylookup"
-              typeahead-on-select="onCompanySelect(item, $scope.workLookUp, work.companylookup )" 
+              typeahead-on-select="onCompanySelect(item, $scope.workLookUp, work.companylookup )"
               typeahead-loading="loadingCompanies"
               class="form-control work_companylookup_input" ng-change="lookCompany($scope.workLookUp)">
               <i ng-show="loadingCompanies" class="glyphicon glyphicon-refresh"></i>

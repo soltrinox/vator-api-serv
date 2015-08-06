@@ -15,10 +15,12 @@ angular.module('com.module.core')
   .controller('MainCtrl', function($scope, $rootScope, $state, $location,
     CoreService, User, gettextCatalog, AppAuth) {
 
-	AppAuth.ensureHasCurrentUser(function(user)
-    {
-      $scope.currentUser = user;
-	});
+
+    	AppAuth.ensureHasCurrentUser(function(user)
+        {
+          $scope.currentUser = user;
+          $rootScope.masterUser = $scope.currentUser;
+    	});
 
     $scope.menuoptions = $rootScope.menu;
 
@@ -37,6 +39,22 @@ angular.module('com.module.core')
       $state.go('login');
       CoreService.toastSuccess(gettextCatalog.getString('Logged out'),
         gettextCatalog.getString('You are logged out!'));
+    };
+
+    $scope.saveCurrentUser = function(user){
+      console.log('USER OBJECT SAVE: ' + JSON.stringify($scope.currentUser) );
+      $scope.currentUser = user;
+      User.upsert($scope.currentUser, function() {
+        CoreService.toastSuccess(gettextCatalog.getString(
+          'upsert saved'), gettextCatalog.getString(
+          'Enjoy the new you!'));
+          $rootScope.masterUser = $scope.currentUser;
+      }, function(err) {
+        CoreService.toastError(gettextCatalog.getString(
+          'Error saving USER'), gettextCatalog.getString(
+          'Your USER is not saved: ') + err);
+      });
+      user = null;
     };
 
   });
