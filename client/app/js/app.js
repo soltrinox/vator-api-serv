@@ -24,7 +24,6 @@ angular.module('loopbackApp', [
     'ngRoute',
     'ngSanitize',
     'ngTagsInput',
-
     'ngAutocomplete',
     'ngTouch',
     'ui.bootstrap',
@@ -58,6 +57,11 @@ angular.module('loopbackApp', [
         lang: 'en',
         country: 'US',
         name: gettextCatalog.getString('English')
+      },
+      'es': {
+        lang: 'es',
+        country: 'ES',
+        name: gettextCatalog.getString('Spanish')
       },
       'pt-BR': {
         lang: 'pt_BR',
