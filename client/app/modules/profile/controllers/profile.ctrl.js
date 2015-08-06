@@ -12,62 +12,14 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route,  $rou
         console.log( msg + ' : ' + JSON.stringify(obj));
     };
 
-    $scope.uploading = {};
-    $scope.selectedFile = [];
-    $scope.uploadProgress = 0;
+
     $scope.profileImageUrl = 'http://api.vator.co/uploadprofile/vatorprofilecache';
     $scope.coverImageUrl = 'http://api.vator.co/uploadcover/vatorprofilecache';
 
     $scope.currentUser.ProfilePic = '';
     $scope.currentUser.CoverPic = '';
 
-    $scope.uploadProfilePic = function(files) {
-        var fd = new FormData();
-        //Take the first selected file
-        fd.append('file', files[0]);
-        console.log('FILE: '+files[0]);
-        var go = $scope.profileImageUrl + '/' + $scope.currentUser.pid;
-        $http.post(go, fd, {
-            withCredentials: true,
-            dataType: 'jsonp',
-            headers: {'Content-Type': undefined },
-            transformRequest: angular.identity
-        }).success( function(response) {
-          console.log(response);
-          var imgName = response.result.name;
-          var imgURL = 'https://vator.imgix.net/'+ imgName  +'?w=200&h=200&fm=png32&fit=facearea&faceindex=1&facepad=1.5';
-          $scope.currentUser.ProfilePic = imgURL;
-          var pid = response.pid;
-        }).error(  function(err) {
-          console.log(err);
-        } );
-
-    };
-
-    $scope.uploadCoverPic = function(files) {
-        var fd = new FormData();
-        //Take the first selected file
-        fd.append('file', files[0]);
-          console.log('FILE: '+files[0]);
-        var go = $scope.profileImageUrl + '/' + $scope.currentUser.pid;
-        $http.post(go , fd, {
-            withCredentials: true,
-            dataType: 'jsonp',
-            headers: {'Content-Type': undefined },
-            transformRequest: angular.identity
-        }).success( function(response) {
-          console.log(response);
-          var imgName = response.result.name;
-          var imgURL = 'https://vator.imgix.net/'+  imgName +'?w=850&h=315&fm=png32&fit=crop';
-          $scope.currentUser.CoverPic = imgURL;
-          var pid = response.pid;
-          //
-        }).error(  function(err) {
-          console.log(err);
-        } );
-
-    };
-
+    $scope.saveUserRecord = false;
     $scope.hideCompany = true;
     $scope.hideBase = true;
     $scope.hideSocial = true;
@@ -683,6 +635,7 @@ $scope.teamFields = [
         $scope.upsertProfileRecord($scope.UserRecord);
         $scope.hideaddWorkButton = false;
         $scope.hideBase = true;
+        $scope.saveUserRecord = false;
     }else{
 
       // verify its not a new record
@@ -768,6 +721,7 @@ $scope.onSubmitInvest = function() {
             $scope.workLookUp = '';
             $scope.hideWork = true;
             $scope.hideaddWorkButton = false;
+            $scope.saveUserRecord = false;
       }
     }else{
       $scope.upsertInvestmentRecord($scope.InvestorRecord);
@@ -840,7 +794,7 @@ $scope.onSubmitExperience = function(){
 $scope.$watchCollection('WorkRecord', function(newValue, oldValue){
     // $scope.prettyPrint('!!! WATCH WORK  OLD!!!!\n',oldValue);
     // $scope.prettyPrint('!!! WATCH WORK  NEW!!!! \n',newValue);
-
+    $scope.saveUserRecord = true;
     $scope.swapipo = 'none';
 
   if($scope.WorkRecord.Type === '003'){
@@ -858,7 +812,7 @@ $scope.$watchCollection('WorkRecord', function(newValue, oldValue){
       angular.element($document[0].querySelector('.invest-aquirer_text')).css('display', $scope.swapipo);
       angular.element($document[0].querySelector('.invest-press_text')).css('display', $scope.swapipo);
     }
-
+    $scope.saveUserRecord = false;
   }else if(($scope.WorkRecord.Type === '001') || ($scope.WorkRecord.Type === '002')){
     console.log('$scope.WorkRecord.TYPE EMPLOYEE');
     angular.element($document[0].querySelector('.work-datestart_date')).css('display', 'block');
@@ -907,6 +861,7 @@ $scope.onSubmitWorkRecord = function() {
       $scope.workLookUp = '';
       $scope.hideWork = true;
       $scope.hideaddWorkButton = false;
+      $scope.saveUserRecord = false;
     }
 };
 
@@ -943,7 +898,7 @@ $scope.startNewExperienceRecord = function(id) {
     angular.element($document[0].querySelector('.work-achievement_text')).css('display', 'none');
 
   $scope.hideWork =  false;
-  $scope.hideaddWorkButton = $scope.hideaddWorkButton = true;
+  $scope.hideaddWorkButton  = true;
   id = null;
 };
 
@@ -964,6 +919,7 @@ $scope.startNewExperienceRecord = function(id) {
      $scope.WorkRecord = $scope.newWorkRecord();
      $scope.InvestorRecord = $scope.newInvestorRecord();
      $scope.workLookUp = '';
+     $scope.saveUserRecord = false;
      $scope.hideWork = true; //$scope.hideWork === false ? true: false;
      $scope.hideaddWorkButton = false; //= $scope.hideaddWorkButton === false ? true: false;
      angular.element($document[0].querySelector('.investorForm')).css('display', 'none');
@@ -1091,76 +1047,54 @@ $scope.fullMeal = true;
 
   //  @@@@@@@@@@@@@@@@@@@@@@@@@@@@ need uploading
 
-  // create a uploader with options
+  $scope.uploadProfilePic = function(files) {
+      var fd = new FormData();
+      //Take the first selected file
+      fd.append('file', files[0]);
+      console.log('FILE: '+files[0]);
+      var go = $scope.profileImageUrl + '/' + $scope.currentUser.pid;
+      $http.post(go, fd, {
+          withCredentials: true,
+          dataType: 'jsonp',
+          headers: {'Content-Type': undefined },
+          transformRequest: angular.identity
+      }).success( function(response) {
+        console.log(response);
+        var imgName = response.result.name;
+        var imgURL = 'https://vator.imgix.net/'+ imgName  +'?w=200&h=200&fm=png32&fit=facearea&faceindex=1&facepad=1.5';
+        $scope.currentUser.ProfilePic = imgURL;
+        $scope.UserRecord.ProfilePic = imgURL;
+        var pid = response.pid;
+      }).error(  function(err) {
+        console.log(err);
+      } );
 
-  // $scope.creds = {
-  //   bucket: 'vatorprofiles',
-  //   access_key: 'your_access_key',
-  //   secret_key: 'your_secret_key'
-  // };
-  //
-  // $scope.sizeLimit      = 10585760; // 10MB in Bytes
-  // $scope.uploadProgress = 0;
-  // $scope.creds          = {};
-  //
-  // $scope.upload = function() {
-  //   AWS.config.update({ accessKeyId: $scope.creds.access_key, secretAccessKey: $scope.creds.secret_key });
-  //   AWS.config.region = 'us-east-1';
-  //   var bucket = new AWS.S3({ params: { Bucket: $scope.creds.bucket } });
-  //
-  //   if($scope.file) {
-  //       // Perform File Size Check First
-  //       var fileSize = Math.round(parseInt($scope.file.size));
-  //       if (fileSize > $scope.sizeLimit) {
-  //         toastr.error('Sorry, your attachment is too big. <br/> Maximum '  + $scope.fileSizeLabel() + ' file attachment allowed','File Too Large');
-  //         return false;
-  //       }
-  //       // Prepend Unique String To Prevent Overwrites
-  //       var uniqueFileName = $scope.uniqueString() + '-' + $scope.file.name;
-  //
-  //       var params = { Key: uniqueFileName, ContentType: $scope.file.type, Body: $scope.file, ServerSideEncryption: 'AES256' };
-  //
-  //       bucket.putObject(params, function(err, data) {
-  //         if(err) {
-  //           toastr.error(err.message,err.code);
-  //           return false;
-  //         }
-  //         else {
-  //           // Upload Successfully Finished
-  //           toastr.success('File Uploaded Successfully', 'Done');
-  //
-  //           // Reset The Progress Bar
-  //           setTimeout(function() {
-  //             $scope.uploadProgress = 0;
-  //             $scope.$digest();
-  //           }, 4000);
-  //         }
-  //       })
-  //       .on('httpUploadProgress',function(progress) {
-  //         $scope.uploadProgress = Math.round(progress.loaded / progress.total * 100);
-  //         $scope.$digest();
-  //       });
-  //     }
-  //     else {
-  //       // No File Selected
-  //       toastr.error('Please select a file to upload');
-  //     }
-  //   };
-  //
-  //   $scope.fileSizeLabel = function() {
-  //   // Convert Bytes To MB
-  //   return Math.round($scope.sizeLimit / 1024 / 1024) + 'MB';
-  // };
-  //
-  // $scope.uniqueString = function() {
-  //   var text     = '';
-  //   var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-  //
-  //   for( var i=0; i < 8; i++ ) {
-  //     text += possible.charAt(Math.floor(Math.random() * possible.length));
-  //   }
-  //   return text;
-  // }
+  };
+
+  $scope.uploadCoverPic = function(files) {
+      var fd = new FormData();
+      //Take the first selected file
+      fd.append('file', files[0]);
+        console.log('FILE: '+files[0]);
+      var go = $scope.profileImageUrl + '/' + $scope.currentUser.pid;
+      $http.post(go , fd, {
+          withCredentials: true,
+          dataType: 'jsonp',
+          headers: {'Content-Type': undefined },
+          transformRequest: angular.identity
+      }).success( function(response) {
+        console.log(response);
+        var imgName = response.result.name;
+        var imgURL = 'https://vator.imgix.net/'+  imgName +'?w=850&h=315&fm=png32&fit=crop';
+        $scope.currentUser.CoverPic = imgURL;
+        $scope.UserRecord.CoverPic = imgURL;
+        var pid = response.pid;
+        //
+      }).error(  function(err) {
+        console.log(err);
+      } );
+
+  };
 
 
 

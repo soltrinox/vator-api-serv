@@ -77,11 +77,6 @@
       <div class="row tab-pane">
         <!--  contact for email here ??? -->
         <formly-form result="UserRecord" fields="formFields" id="userForm" options="formOptions" ng-submit="onSubmitProfile()"></formly-form>
-        <pre>
-          {{ UserRecord | json}}
-          {{InvestorRecord | json}}
-        </pre>
-
         <div class="row">
           <div class="uploads-box">
             <div class="row  vator_form_box ">
@@ -94,6 +89,7 @@
 
               </div>  </form>
               <img src="{{currentUser.ProfilePic}}" id="" class="" />
+              <br/>{{currentUser.ProfilePic}}
             </div>
             <hr/>
             <div class="row  vator_form_box ">
@@ -105,13 +101,23 @@
                 <input type="hidden" name="type" value="coverPic">
               </div></form>
               <img src="{{currentUser.CoverPic}}" id="" class="" />
+              <br/>{{currentUser.CoverPic}}
             </div>
           </div>
         </div>
 
         <div class="controls tabsubmit">
           <button class="btn btn-primary btn-success" ng-click="onSubmitProfile()" translate>Update</button>
+          <div class="marginizeme" ng-show="saveUserRecord">
+            <span>Changes Made. Click on update to save.</span>
+          </div>
         </div>
+
+        <pre>
+          {{ UserRecord | json}}
+          {{InvestorRecord | json}}
+        </pre>
+
       </div>
     </tab>
 
