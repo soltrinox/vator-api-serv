@@ -336,10 +336,10 @@ console.log('SELECTED model: '+JSON.stringify(model));
 console.log('SELECTED label: '+JSON.stringify(label));
           };
 
-          $scope.lookMember = function(val, item){
+          $scope.lookMember = function(val){
             // TODO:  set the id of the record
             //console.log('SELECTED MEMEBR: '+JSON.stringify(item));
-              $scope.teamLookUp = val;
+              $scope.teamLookUp = val.Name;
               //$scope.WorkRecord.companyname = $scope.workLookUp;
           };
 

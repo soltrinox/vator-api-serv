@@ -78,7 +78,7 @@
     typeahead-template-url="customTemplate.html"
     typeahead-on-select="onTeamMemberSelect(item, $scope.teamLookUp, loadingMember )"
     typeahead-loading="loadingMember"  class="form-control teamlookup_input"
-    ng-change="lookMember( $scope.teamLookUp, item )">
+    ng-change="lookMember( $scope.teamLookUp )">
 
     <i ng-show="loadingMember" class="glyphicon glyphicon-refresh"></i>
   </div>
