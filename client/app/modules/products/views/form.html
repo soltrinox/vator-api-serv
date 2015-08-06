@@ -73,7 +73,7 @@
         <span bind-html-unsafe="match.model.Name | typeaheadHighlight:query"></span>
     </a>
   </script>
-    <input type="text" ng-model="$scope.teamLookUp" placeholder="Search for a team meber"
+    <input type="text" ng-model="$scope.teamLookUp.Name" placeholder="Search for a team meber"
     typeahead="item for item in getTeams($viewValue) | filter:{Name:$viewValue}" id="search-teamlookup"
     typeahead-template-url="customTemplate.html"
     typeahead-on-select="onTeamMemberSelect(item, $scope.teamLookUp, loadingMember )"
