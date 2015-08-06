@@ -443,32 +443,32 @@ $scope.teamFields = [
   };
 
 
-  $scope.toggleBase = function(id) {
-    if((!$scope.UserRecord.id || $scope.UserRecord.length === 0 ) && $scope.fullprofile ){
-      console.log('scope.profile is valid and user rec undefined');
-      $scope.UserRecord.Name = $scope.fullprofile.user.Name;
-      $scope.UserRecord.UUID = $scope.fullprofile.user.UUID;
-      $scope.UserRecord.id = $scope.fullprofile.user.id;
-      $scope.UserRecord.Bio = $scope.fullprofile.user.Bio;
-      $scope.UserRecord.ProfilePic = $scope.fullprofile.user.ProfilePic;
-      if(!$scope.fullprofile.user.ProfilePic || 0 === $scope.fullprofile.user.ProfilePic){
-        $scope.UserRecord.ProfilePic = '/app/img/profile.png';
-      }
-      $scope.UserRecord.CoverPic = $scope.fullprofile.user.CoverPic;
-    }else if(($scope.UserRecord !== $scope.fullprofile.user)  && $scope.fullprofile.user ){
-        $scope.UserRecord.Name = $scope.fullprofile.user.Name;
-        $scope.UserRecord.Bio = $scope.fullprofile.user.Bio;
-        $scope.UserRecord.UUID = $scope.fullprofile.user.UUID;
-        $scope.UserRecord.ProfilePic = $scope.fullprofile.user.ProfilePic;
-        if((!$scope.fullprofile.user.ProfilePic || 0 === $scope.fullprofile.user.ProfilePic) && !$scope.UserRecord.ProfilePic){
-          $scope.UserRecord.ProfilePic = '/app/img/profile.png';
-        }
-        $scope.UserRecord.CoverPic = $scope.fullprofile.user.CoverPic;
-        $scope.UserRecord.id = $scope.fullprofile.user.id;
-    }
-    $scope.hideBase = $scope.hideBase === false ? true: false;
-    id = null;
-  };
+  // $scope.toggleBase = function(id) {
+  //   if((!$scope.UserRecord.id || $scope.UserRecord.length === 0 ) && $scope.fullprofile ){
+  //     console.log('scope.profile is valid and user rec undefined');
+  //     $scope.UserRecord.Name = $scope.fullprofile.user.Name;
+  //     $scope.UserRecord.UUID = $scope.fullprofile.user.UUID;
+  //     $scope.UserRecord.id = $scope.fullprofile.user.id;
+  //     $scope.UserRecord.Bio = $scope.fullprofile.user.Bio;
+  //     $scope.UserRecord.ProfilePic = $scope.fullprofile.user.ProfilePic;
+  //     if(!$scope.fullprofile.user.ProfilePic || 0 === $scope.fullprofile.user.ProfilePic){
+  //       $scope.UserRecord.ProfilePic = '/app/img/profile.png';
+  //     }
+  //     $scope.UserRecord.CoverPic = $scope.fullprofile.user.CoverPic;
+  //   }else if(($scope.UserRecord !== $scope.fullprofile.user)  && $scope.fullprofile.user ){
+  //       $scope.UserRecord.Name = $scope.fullprofile.user.Name;
+  //       $scope.UserRecord.Bio = $scope.fullprofile.user.Bio;
+  //       $scope.UserRecord.UUID = $scope.fullprofile.user.UUID;
+  //       $scope.UserRecord.ProfilePic = $scope.fullprofile.user.ProfilePic;
+  //       if((!$scope.fullprofile.user.ProfilePic || 0 === $scope.fullprofile.user.ProfilePic) && !$scope.UserRecord.ProfilePic){
+  //         $scope.UserRecord.ProfilePic = '/app/img/profile.png';
+  //       }
+  //       $scope.UserRecord.CoverPic = $scope.fullprofile.user.CoverPic;
+  //       $scope.UserRecord.id = $scope.fullprofile.user.id;
+  //   }
+  //   $scope.hideBase = $scope.hideBase === false ? true: false;
+  //   id = null;
+  // };
 
 
   $scope.toggleCompany = function(id) {
@@ -538,14 +538,13 @@ $scope.teamFields = [
         $scope.prettyPrint('UPDATED FULL PROFILE : \n' ,response);
         $scope.fullprofile = response.profile;
         $scope.currentUser.pid = response.profile.user.id;
-        $scope.currentUser.pid = response.profile.user.id;
         $scope.UserRecord.Name = response.profile.user.Name;
         $scope.UserRecord.Bio = response.profile.user.Bio;
         $scope.UserRecord.UUID = response.profile.user.UUID;
         $scope.UserRecord.ProfilePic = response.profile.user.ProfilePic;
-        if(!response.profile.user.ProfilePic || 0 === response.profile.user.ProfilePic){
-          $scope.UserRecord.ProfilePic = '/app/img/profile.png';
-        }
+        // if(!response.profile.user.ProfilePic || 0 === response.profile.user.ProfilePic){
+        //   $scope.UserRecord.ProfilePic = '/app/img/profile.png';
+        // }
         $scope.UserRecord.CoverPic = response.profile.user.CoverPic;
         $scope.UserRecord.id = response.profile.user.id;
         $scope.currentUser.pid = response.profile.user.id;
@@ -601,14 +600,14 @@ $scope.teamFields = [
     if ((!$scope.UserRecord.UUID) || (0 === $scope.UserRecord.UUID.length)) {
       $scope.UserRecord.UUID =   $scope.currentUser.id;
     }
-    if((!$scope.profile) || (!$scope.fullprofile)){
+  
       ProfileService.upsertProfile($scope.UserRecord, function(response) {
           $scope.prettyPrint('SUCCESS: UPSERT RESPONSE W/ UUID\n',response);
           $scope.profile = response;
           $scope.currentUser.pid = response.id;
           $scope.getEntireProfile($scope.currentUser.pid );
       });
-    }
+
     userRecord = null;
   };
 
