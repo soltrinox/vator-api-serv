@@ -37,6 +37,8 @@ angular.module('com.module.users')
     };
 
     $scope.onSubmit = function() {
+      console.log('USER OBJECT SAVE: ' + JSON.stringify($scope.user) );
+      // https://s3.amazonaws.com/vatorprofilecache/profile.png
       User.upsert($scope.user, function() {
         CoreService.toastSuccess(gettextCatalog.getString(
           'Profile saved'), gettextCatalog.getString(

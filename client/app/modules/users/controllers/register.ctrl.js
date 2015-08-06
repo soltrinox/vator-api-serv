@@ -121,6 +121,10 @@ angular.module('com.module.users')
             }, $scope.registration,
             function() {
               AppAuth.currentUser = $scope.loginResult.user;
+              
+              // TODO: set default user profilePic
+              // https://s3.amazonaws.com/vatorprofilecache/profile.png
+
               CoreService.toastSuccess(gettextCatalog.getString(
                 'Registered'), gettextCatalog.getString(
                 'You are registered!'));

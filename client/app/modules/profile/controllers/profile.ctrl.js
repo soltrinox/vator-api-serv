@@ -40,7 +40,7 @@ app.controller('MyProfileCtrl',function($scope, $location, $state, $route,  $rou
       Name:'',
       Bio:'',
       UUID:'',
-      ProfilePic:'',
+      ProfilePic:'https://s3.amazonaws.com/vatorprofilecache/profile.png',
       CoverPic:'',
       id:''
     };
@@ -518,9 +518,9 @@ $scope.teamFields = [
         $scope.UserRecord.Bio = response.profile.user.Bio;
         $scope.UserRecord.UUID = response.profile.user.UUID;
         $scope.UserRecord.ProfilePic = response.profile.user.ProfilePic;
-        // if(!response.profile.user.ProfilePic || 0 === response.profile.user.ProfilePic){
-        //   $scope.UserRecord.ProfilePic = '/app/img/profile.png';
-        // }
+        if(!response.profile.user.ProfilePic || 0 === response.profile.user.ProfilePic){
+          $scope.UserRecord.ProfilePic = 'https://s3.amazonaws.com/vatorprofilecache/profile.png';
+        }
         $scope.UserRecord.CoverPic = response.profile.user.CoverPic;
         $scope.UserRecord.id = response.profile.user.id;
         $scope.sliceProfile(response.profile);

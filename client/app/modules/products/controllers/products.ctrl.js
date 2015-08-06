@@ -173,7 +173,7 @@ angular.module('com.module.products')
 
           $scope.ProfileRecord.ProfilePic = response.ProfilePic;
           if(!response.ProfilePic || 0 === response.ProfilePic.length){
-            response.ProfilePic = '/app/img/profile.png';
+            response.ProfilePic = 'https://s3.amazonaws.com/vatorprofilecache/profile.png';
           }
           $scope.ProfileRecord.CoverPic = response.CoverPic;
           $scope.ProfileRecord.id = response.id;
@@ -340,7 +340,7 @@ angular.module('com.module.products')
           $scope.lookMember = function(val){
             // TODO:  set the id of the record
             //console.log('SELECTED MEMEBR: '+JSON.stringify(item));
-              $scope.teamLookUp = val.Name;
+            //  $scope.teamLookUp = val.Name;
               //$scope.WorkRecord.companyname = $scope.workLookUp;
           };
 

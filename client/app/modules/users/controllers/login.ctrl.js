@@ -90,10 +90,10 @@ angular.module('com.module.users')
         }, $scope.credentials,
         function(user) {
 
-          console.log(user.id); // => acess token
-          console.log(user.ttl); // => 1209600 time to live
-          console.log(user.created); // => 2013-12-20T21:10:20.377Z
-          console.log(user.userId); // => 1
+          console.log('USER LOGIN: '+JSON.stringify(user)); // => acess token
+
+          // TODO: set default user profilePic
+          // https://s3.amazonaws.com/vatorprofilecache/profile.png
 
           var go = '/app/myprofile';
           var next = $location.nextAfterLogin || go;
