@@ -52,12 +52,12 @@
         <a class="dropdown-toggle" data-toggle="dropdown">
           <div >
             <span>
-              <div ng-if="!$scope.currentUser.ProfilePic">
+              <div ng-if="!$scope.currentUser.ProfilePic && 0 === $scope.currentUser.ProfilePic.length">
                 <img class="nav-img-profile-pic img-circle"  src="https://s3.amazonaws.com/vatorprofilecache/profile.png" alt="User Image" width="50" height="50" >
                 <span>{{currentUser.firstName || currentUser.profiles[0].profile.name.givenName}}<i class="caret"></i></span>
               </div>
-              <div  ng-if="$scope.currentUser.ProfilePic">
-                  <img class="nav-img-profile-pic img-circle" src="{{ currentUser.ProfilePic }}" alt="User Image" width="50" height="50" >
+              <div  ng-if="$scope.currentUser.ProfilePic && 0 !== $scope.currentUser.ProfilePic.length">
+                  <img class="nav-img-profile-pic img-circle" ng-src="currentUser.ProfilePic" alt="User Image" width="50" height="50" >
                   <span>{{currentUser.firstName || currentUser.profiles[0].profile.name.givenName}}<i class="caret"></i></span>
               </div>
             </span>
@@ -65,12 +65,12 @@
         </a>
         <ul class="dropdown-menu">
           <li class="user-header bg-light-blue">
-            <div ng-if="!$scope.currentUser.ProfilePic">
+            <div ng-if="!$scope.currentUser.ProfilePic && 0 === $scope.currentUser.ProfilePic.length">
               <img class="nav-img-profile-pic img-circle"  src="https://s3.amazonaws.com/vatorprofilecache/profile.png" alt="User Image" width="50" height="50" >
               <span>{{currentUser.firstName || currentUser.profiles[0].profile.name.givenName}}<i class="caret"></i></span>
             </div>
-            <div  ng-if="$scope.currentUser.ProfilePic">
-                <img class="nav-img-profile-pic img-circle" src="{{ currentUser.ProfilePic }}" alt="User Image" width="50" height="50" >
+            <div  ng-if="$scope.currentUser.ProfilePic && 0 !== $scope.currentUser.ProfilePic.length">
+                <img class="nav-img-profile-pic img-circle" ng-src="currentUser.ProfilePic" alt="User Image" width="50" height="50" >
                 <span>{{currentUser.firstName || currentUser.profiles[0].profile.name.givenName}}<i class="caret"></i></span>
             </div>
             <p>

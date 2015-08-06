@@ -9,6 +9,7 @@ angular.module('com.module.users')
       login: function(data, cb) {
         var self = this;
         LoopBackAuth.currentUserId = LoopBackAuth.accessTokenId = null;
+
         $http.post('/api/users/login?include=user', {
             email: data.email,
             password: data.password
@@ -48,6 +49,23 @@ angular.module('com.module.users')
         window.location = '/auth/logout';
       },
 
+
+      updateUser: function(user, cb){
+        var self = this;
+
+        if (!user || user.id.length === 0) {
+            console.log('USER IS NULL');
+            LoopBackAuth.clearUser();
+            LoopBackAuth.save();
+            window.location = '/auth/logout';
+        } else {
+          self.currentUser = user;
+          LoopBackAuth.save();
+          cb(self.currentUser);
+        }
+      },
+
+
       ensureHasCurrentUser: function(cb) {
         var self = this;
         if ((!this.currentUser || this.currentUser.id === 'social') &&
@@ -55,6 +73,7 @@ angular.module('com.module.users')
           LoopBackAuth.currentUserId = LoopBackAuth.accessTokenId = null;
           $http.get('/auth/current')
             .then(function(response) {
+
               if (response.data.id) {
                 LoopBackAuth.currentUserId = response.data.id;
                 LoopBackAuth.accessTokenId = $cookies.access_token.substring(
@@ -64,6 +83,7 @@ angular.module('com.module.users')
                 delete $cookies['access_token'];
                 LoopBackAuth.accessTokenId = null;
               }
+
               LoopBackAuth.save();
               self.currentUser = response.data;
               var profile = self.currentUser && self.currentUser.profiles &&
@@ -85,5 +105,8 @@ angular.module('com.module.users')
           cb(self.currentUser);
         }
       }
+
+
+
     };
   });
