@@ -6,7 +6,7 @@
     <span class="icon-bar"></span>
   </a>
 <style>
-.nav-profile-top{
+.menu-lang-user{
   margin-top:10px;
 }
 .nav-img-profile-pic{
@@ -14,8 +14,8 @@
 }
 </style>
   <div class="navbar-right nav-profile-top">
-    <ul class="nav navbar-nav">
-      <li class="dropdown user user-menu">
+    <ul class="nav navbar-nav  menu-all">
+      <li class="dropdown user user-menu menu-lang-user">
         <a class="dropdown-toggle" data-toggle="dropdown">
           <i class="fa fa-flag flag-icon flag-icon-{{selectLocale.country.toLowerCase() }}"></i>
           {{ selectLocale.name | translate }} <i class="caret"></i> </span>
@@ -29,7 +29,7 @@
         </ul>
       </li>
       <!-- admin menu -->
-      <li class="dropdown user user-menu" ng-if="$scope.currentUser.isAdmin">
+!      <li class="dropdown user user-menu menu-admin-user" ng-if="$scope.currentUser.isAdmin">
         <a class="dropdown-toggle" data-toggle="dropdown">
           <i class="fa fa-2x fa-star}}"></i>
           Admin Menu<i class="caret"></i> </span>
@@ -48,7 +48,7 @@
         </ul>
       </li>
       <!-- profile menu -->
-      <li class="dropdown user user-menu">
+      <li class="dropdown user user-menu menu-profile-user">
         <a class="dropdown-toggle" data-toggle="dropdown">
           <div >
             <span>
