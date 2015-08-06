@@ -9,6 +9,9 @@
 .nav-profile-top{
   margin-top:10px;
 }
+.nav-img-profile-pic{
+
+}
 </style>
   <div class="navbar-right nav-profile-top">
     <ul class="nav navbar-nav">
@@ -46,12 +49,17 @@
       <li class="dropdown user user-menu">
         <a class="dropdown-toggle" data-toggle="dropdown">
           <div >
-            <span ng-if="!$scope.currentUser.ProfilePic"><i class="fa fa-3x fa-profile"></i>
-                <span>{{currentUser.firstName || currentUser.profiles[0].profile.name.givenName}}<i class="caret"></i></span></span>
-            <span ng-if="$scope.currentUser.ProfilePic">
-              {{currentUser.ProfilePic}}
-              <img src="{{ currentUser.ProfilePic }}" class="img-circle" alt="User Image" width="50" height="50" >
+            <span>
+              <div ng-if="!$scope.currentUser.ProfilePic">
+                NO PIC
+                <img class="nav-img-profile-pic"  src="https://s3.amazonaws.com/vatorprofilecache/profile.png" class="img-circle" alt="User Image" width="50" height="50" >
                 <span>{{currentUser.firstName || currentUser.profiles[0].profile.name.givenName}}<i class="caret"></i></span>
+              </div>
+              <div  ng-if="$scope.currentUser.ProfilePic">
+                FOUND PIC
+                  <img class="nav-img-profile-pic" src="{{ $scope.currentUser.ProfilePic }}" class="img-circle" alt="User Image" width="50" height="50" >
+                  <span>{{currentUser.firstName || currentUser.profiles[0].profile.name.givenName}}<i class="caret"></i></span>
+              </div>
             </span>
           </div>
         </a>
