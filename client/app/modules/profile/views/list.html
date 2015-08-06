@@ -18,13 +18,13 @@
         <i class="fa fa-pencil fa-3x"></i> &nbsp; Edit Profile
       </a>
 
-      <div ng-hide="!fullprofile.user.CoverPic" style="width:850px; heigth:315px; position:relative; clear:both; background-image: url({{fullprofile.user.ProfilePic}})">
-        <div ng-hide="!fullprofile.user.ProfilePic" style="width:100px;height:100px;position:absolute;left 350px;top:50px;z-index:10;">
+      <div ng-hide="!fullprofile.user.CoverPic" style=" display:block;width:850px; height:315px; position:relative; z-index:2;  clear:both; background: url({{fullprofile.user.CoverPic}})">
+        <div ng-hide="!fullprofile.user.ProfilePic" style="width:100px;height:100px; position:absolute;left 350px;top:50px; z-index:10;">
           <img src="{{fullprofile.user.ProfilePic}}"  style="width:100px;height:100px;" >
         </div>
       </div>
 
-      <div ng-hide="!fullprofile" style=" margin-top:20px;clear:both;" >
+      <div ng-hide="!fullprofile" style="display:block; margin-top:20px;clear:both;" >
         <h1><a href="" ui-sref="^.edit({id: fullprofile.user.id})" >{{fullprofile.user.Name}} [ click to edit ]</a></h1>
         <h3>
           <!-- {{fullprofile.user.id}}<br/> -->
