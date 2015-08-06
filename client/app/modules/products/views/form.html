@@ -69,9 +69,9 @@
   <div style="width:60%;float:left;">
   <script type="text/ng-template" id="customTemplate.html">
     <a>
-        <img ng-src="match.ProfilePic" width="50" height="50">
-        <img ng-src="match.model.ProfilePic" width="50" height="50">
-        <img ng-src="model.ProfilePic" width="50" height="50">
+        <img ng-src="{{match.ProfilePic}}" width="50" height="50">
+        <img ng-src="{{match.model.ProfilePic}}" width="50" height="50">
+        <img ng-src="{{model.ProfilePic}}" width="50" height="50">
         <span bind-html-unsafe="match.label | typeaheadHighlight:query"></span>
     </a>
   </script>
