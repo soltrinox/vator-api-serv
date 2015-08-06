@@ -443,32 +443,6 @@ $scope.teamFields = [
   };
 
 
-  // $scope.toggleBase = function(id) {
-  //   if((!$scope.UserRecord.id || $scope.UserRecord.length === 0 ) && $scope.fullprofile ){
-  //     console.log('scope.profile is valid and user rec undefined');
-  //     $scope.UserRecord.Name = $scope.fullprofile.user.Name;
-  //     $scope.UserRecord.UUID = $scope.fullprofile.user.UUID;
-  //     $scope.UserRecord.id = $scope.fullprofile.user.id;
-  //     $scope.UserRecord.Bio = $scope.fullprofile.user.Bio;
-  //     $scope.UserRecord.ProfilePic = $scope.fullprofile.user.ProfilePic;
-  //     if(!$scope.fullprofile.user.ProfilePic || 0 === $scope.fullprofile.user.ProfilePic){
-  //       $scope.UserRecord.ProfilePic = '/app/img/profile.png';
-  //     }
-  //     $scope.UserRecord.CoverPic = $scope.fullprofile.user.CoverPic;
-  //   }else if(($scope.UserRecord !== $scope.fullprofile.user)  && $scope.fullprofile.user ){
-  //       $scope.UserRecord.Name = $scope.fullprofile.user.Name;
-  //       $scope.UserRecord.Bio = $scope.fullprofile.user.Bio;
-  //       $scope.UserRecord.UUID = $scope.fullprofile.user.UUID;
-  //       $scope.UserRecord.ProfilePic = $scope.fullprofile.user.ProfilePic;
-  //       if((!$scope.fullprofile.user.ProfilePic || 0 === $scope.fullprofile.user.ProfilePic) && !$scope.UserRecord.ProfilePic){
-  //         $scope.UserRecord.ProfilePic = '/app/img/profile.png';
-  //       }
-  //       $scope.UserRecord.CoverPic = $scope.fullprofile.user.CoverPic;
-  //       $scope.UserRecord.id = $scope.fullprofile.user.id;
-  //   }
-  //   $scope.hideBase = $scope.hideBase === false ? true: false;
-  //   id = null;
-  // };
 
 
   $scope.toggleCompany = function(id) {

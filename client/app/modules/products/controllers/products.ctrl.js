@@ -235,7 +235,7 @@ angular.module('com.module.products')
       }
     };
 
-$scope.modd = {};
+    $scope.modd = {};
     $scope.result2 = '';
     $scope.options2 = {
       watchEnter: true,
@@ -297,6 +297,55 @@ $scope.modd = {};
 
 
 
+         /*   =========ASYNC CATS TYPEAHEAD ======
+         *   =====================================
+         *   =====================================
+         *   =====================================
+         *   =====================================
+         *
+         *   =====================================
+         *   =====================================
+         *   =====================================
+         *   =====================================
+         *   =====================================
+          */
+
+          $scope.teamLookUp = {};
+
+          $scope.getTeams = function(val) {
+            return $http.get('//api.vator.co/api/Profiles', {
+              params: {
+                filter: {
+                    where : {
+                        Name : {
+                             like : val
+                            }
+                        }
+                    }
+                }
+            }).then(function(response){
+              return response.data.map(function(item){
+                return item;
+              });
+            });
+          };
+
+          $scope.onTeamMemberSelect = function(item, model, label){
+
+          };
+
+          $scope.lookMember = function(val){
+            // TODO:  set the id of the record
+              $scope.teamLookUp = val;
+              //$scope.WorkRecord.companyname = $scope.workLookUp;
+          };
+
+          $scope.addMembersToTeam = function(){
+
+
+
+
+          };
 
 
   });
