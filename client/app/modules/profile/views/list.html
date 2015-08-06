@@ -55,10 +55,14 @@
   top:50px;
   z-index:10;
 }
+.profilepic{
+  width:150px;
+  height:150px;
+}
 </style>
-      <div ng-hide="!fullprofile.user.CoverPic" class="profile-boundarybox" style=" ">
-        <div ng-hide="!fullprofile.user.ProfilePic"  class="profile-imgbox" style="">
-          <img src="{{fullprofile.user.ProfilePic}}"  style="width:150px;height:150px;" >
+      <div ng-hide="!fullprofile.user.CoverPic" class="profile-boundarybox" >
+        <div ng-hide="!fullprofile.user.ProfilePic"  class="profile-imgbox" >
+          <img src="{{fullprofile.user.ProfilePic}}" class="profilepic img-circle"  >
         </div>
       </div>
 
