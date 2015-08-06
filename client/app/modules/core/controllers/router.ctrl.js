@@ -17,7 +17,7 @@ angular.module('com.module.core')
       console.log('Redirect to login');
       $location.path('/login');
     } else {
-      console.log('CURRENT USER' + JSON.stringify(AppAuth.currentUser));
+    //  console.log('CURRENT USER' + JSON.stringify(AppAuth.currentUser));
 
       console.log('Redirect to app');
       $location.path('/app');
