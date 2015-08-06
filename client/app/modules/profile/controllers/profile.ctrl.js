@@ -538,6 +538,8 @@ $scope.teamFields = [
         $scope.prettyPrint('UPDATED FULL PROFILE : \n' ,response);
         $scope.fullprofile = response.profile;
         $scope.currentUser.pid = response.profile.user.id;
+        $scope.currentUser.ProfilePic = response.profile.user.ProfilePic;
+        $scope.currentUser.CoverPic = response.profile.user.CoverPic;
         $scope.UserRecord.Name = response.profile.user.Name;
         $scope.UserRecord.Bio = response.profile.user.Bio;
         $scope.UserRecord.UUID = response.profile.user.UUID;
@@ -547,7 +549,6 @@ $scope.teamFields = [
         // }
         $scope.UserRecord.CoverPic = response.profile.user.CoverPic;
         $scope.UserRecord.id = response.profile.user.id;
-        $scope.currentUser.pid = response.profile.user.id;
         $scope.sliceProfile(response.profile);
     });
   };
@@ -586,6 +587,7 @@ $scope.teamFields = [
             // lets set our scope id references here
             $scope.profile = response;
             $scope.currentUser.pid = response.id;
+            $scope.currentUser.ProfilePic = response.ProfilePic;
             // fetch the full object and move along
             if(!$scope.fullprofile.user || 0 === $scope.fullprofile.user.length){
               $scope.getEntireProfile($scope.currentUser.pid);
@@ -600,7 +602,7 @@ $scope.teamFields = [
     if ((!$scope.UserRecord.UUID) || (0 === $scope.UserRecord.UUID.length)) {
       $scope.UserRecord.UUID =   $scope.currentUser.id;
     }
-  
+
       ProfileService.upsertProfile($scope.UserRecord, function(response) {
           $scope.prettyPrint('SUCCESS: UPSERT RESPONSE W/ UUID\n',response);
           $scope.profile = response;
