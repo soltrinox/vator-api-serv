@@ -553,9 +553,17 @@ $scope.teamFields = [
           if(!response.id || 0 === response.id.length){
             $scope.prettyPrint('USER.RECORD : ',$scope.UserRecord );
             $scope.prettyPrint('CURRENT.USER : ',$scope.currentUser );
-            $scope.UserRecord.Name = $scope.currentUser.name ;
+            $scope.UserRecord.Name = $scope.currentUser.username ;
             $scope.UserRecord.UUID = $scope.currentUser.id;
-            $scope.UserRecord.ProfilePic = $scope.currentUser.ProfilePic;
+            if(!$scope.currentUser.ProfilePic || 0 === $scope.currentUser.ProfilePic.length){
+              if(!$scope.UserRecord.ProfilePic || 0 === $scope.currentUser.ProfilePic.length){
+                $scope.UserRecord.ProfilePic = 'https://s3.amazonaws.com/vatorprofilecache/profile.png';
+                $scope.currentUser.ProfilePic = 'https://s3.amazonaws.com/vatorprofilecache/profile.png';
+              }
+            }else{
+              $scope.UserRecord.ProfilePic = $scope.currentUser.ProfilePic;
+            }
+
             // if the user is new and no PROFILE record exists
             // we need to delete the empty ID in order to create
             if(!$scope.UserRecord.id || 0 === $scope.UserRecord.id.length){
