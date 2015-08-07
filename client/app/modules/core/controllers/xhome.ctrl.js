@@ -7,7 +7,7 @@
  * @requires $rootScope
  **/
 angular.module('com.module.core')
-  .controller('xHomeCtrl', function($scope, $rootScope) {
+  .controller('HomeCtrlX', function($scope, $rootScope) {
 
     $scope.count = {};
 
@@ -15,7 +15,7 @@ angular.module('com.module.core')
 
     $scope.$on('$viewContentLoaded', function(){
         if($scope.currentUser){
-          
+
             console.log('CURRENT USER' + JSON.stringify($scope.currentUser));
         }
     });

@@ -12,7 +12,7 @@
  * @requires gettextCatalog
  **/
 angular.module('com.module.core')
-  .controller('xMainCtrl', function($scope, $rootScope, $state, $location,
+  .controller('MainCtrlX', function($scope, $rootScope, $state, $location,
     CoreService, User, gettextCatalog, AppAuth) {
 
 
