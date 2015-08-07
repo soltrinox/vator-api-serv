@@ -53,12 +53,12 @@
           <div >
             <span>
               <div ng-if="!masterUser.ProfilePic && !currentUser.profilePic">
-                <img class="nav-img-profile-pic img-circle"  src="https://s3.amazonaws.com/vatorprofilecache/profile.png"
+                <img class="nav-img-profile-pic img-circle profilepic"  src="https://s3.amazonaws.com/vatorprofilecache/profile.png"
                 alt="User Image" width="50" height="50" >
                 <span>{{currentUser.firstName || currentUser.profiles[0].profile.name.givenName}}<i class="caret"></i></span>
               </div>
               <div  ng-if="masterUser.ProfilePic || currentUser.profilePic">
-                  <img class="nav-img-profile-pic img-circle"  src="{{masterUser.ProfilePic || currentUser.profilePic}}"
+                  <img class="nav-img-profile-pic img-circle profilepic"  src="{{masterUser.ProfilePic || currentUser.profilePic}}"
                   alt="User Image" width="50" height="50" >
                   <span>{{currentUser.firstName || currentUser.profiles[0].profile.name.givenName}}<i class="caret"></i></span>
               </div>
@@ -72,12 +72,12 @@
         <ul class="dropdown-menu">
           <li class="user-header bg-light-blue">
             <div ng-if="!masterUser.ProfilePic">
-              <img class="nav-img-profile-pic img-circle"  src="https://s3.amazonaws.com/vatorprofilecache/profile.png"
+              <img class="nav-img-profile-pic img-circle profilepic"  src="https://s3.amazonaws.com/vatorprofilecache/profile.png"
               alt="User Image" width="120" height="120" ><br/>
               <span>{{currentUser.firstName || currentUser.profiles[0].profile.name.givenName}}</span>
             </div>
             <div  ng-if="masterUser.ProfilePic || currentUser.profilePic">
-                <img class="nav-img-profile-pic img-circle" src="{{masterUser.ProfilePic || currentUser.profilePic}}"
+                <img class="nav-img-profile-pic img-circle profilepic" src="{{masterUser.ProfilePic || currentUser.profilePic}}"
                 alt="User Image" width="120" height="120" ><br/>
                 <span>{{masterUser.firstName || masterUser.profiles[0].profile.name.givenName}}</span>
             </div>

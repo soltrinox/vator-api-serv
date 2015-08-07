@@ -19,46 +19,7 @@
       </a>
       <br/>
       <br/>
-<style>
-.profile-boundarybox{
-  display:block;
-  width:850px;
-  height:315px;
-  z-index:2;
-  position: relative;
-  background: #5C97FF;
-  overflow: hidden;
-}
 
-.profile-boundarybox:before{
-   content: ' ';
-    display: block;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    opacity: 0.6;
-    background-image: url({{fullprofile.user.CoverPic}});
-    background-repeat: no-repeat;
-    background-position: 50% 0;
-    -ms-background-size: cover;
-    -o-background-size: cover;
-    -moz-background-size: cover;
-    -webkit-background-size: cover;
-    background-size: cover;
-}
-.profile-imgbox{
-  position:absolute;
-  left: 320px;
-  top:50px;
-  z-index:10;
-}
-.profilepic{
-border: solid 3px white;
-}
-</style>
       <div ng-hide="!fullprofile.user.CoverPic" class="profile-boundarybox" >
         <div ng-hide="!fullprofile.user.ProfilePic"  class="profile-imgbox" >
           <img src="{{fullprofile.user.ProfilePic}}" class="profilepic img-circle"   width="150"
@@ -81,7 +42,7 @@ border: solid 3px white;
   <div class="row">
     <div style="clear:both; margin-top:10px;">
       <br/><pre>{{currentUser | json}}
-        
+
         {{fullprofile | json}}</pre>
     </div>
   </div>
