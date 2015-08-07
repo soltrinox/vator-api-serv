@@ -18,6 +18,11 @@
     },
     "dateend": {
       "type": "date"
+    },
+    "achievements":{
+      "type" :  [
+        "object"
+      ]
     }
   },
   "validations": [],
