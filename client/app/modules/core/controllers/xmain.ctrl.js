@@ -1,7 +1,7 @@
 'use strict';
 /**
  * @ngdoc function
- * @name com.module.core.controller:MainCtrl
+ * @name com.module.core.controller:xMainCtrl
  * @description Login Controller
  * @requires $scope
  * @requires $state
