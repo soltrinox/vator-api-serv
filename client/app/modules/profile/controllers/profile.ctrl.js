@@ -1047,27 +1047,30 @@ $scope.editSocial = function(){
 
 $scope.fullMeal = true;
   $scope.$on('$viewContentLoaded', function(){
-    if(!$scope.currentUser){
+    if(!$scope.currentUser && !$rootScope.masterUser){
       console.log('PROFILE MISSING BASE USER 2  $scope.currentUser -> LOG IN AGAIN' );
       $location.path('/login');
-    }else if((!$scope.fullprofile ||   0 === $scope.fullprofile.length) && ($scope.fullMeal)){
-            console.log('NO CURRENT PROFILE');
-            $scope.getEntireProfile($scope.currentUser.pid);
-            if((!$scope.fullprofile || 0 === $scope.fullprofile.length ) ){
-              console.log('NO PROFILE ID EITHER');
-              $scope.getUserRecord($scope.currentUser.id);
-            }else{
-              $scope.getEntireProfile($scope.currentUser.pid);
-              $scope.fullMeal = false;
-            }
-        }else{
-          if($scope.fullMeal){
-            $scope.getEntireProfile($scope.currentUser.pid);
-            $scope.fullMeal = false;
-          }else{
-            console.log('GOT getEntireProfile');
-          }
-        }
+
+    }else if(!scope.currentUser && $rootScope.masterUser){
+      $scope.currentUser = $rootScope.masterUser;
+      console.log('NO CURRENT PROFILE');
+      $scope.getEntireProfile($scope.currentUser.pid);
+      $scope.fullMeal = false;
+    }else{
+      $scope.getEntireProfile($scope.currentUser.pid);
+      $scope.fullMeal = false;
+    }
+
+    // if((!$scope.fullprofile ||   0 === $scope.fullprofile.length) && ($scope.fullMeal)){
+    //
+    //     }else{
+    //       if($scope.fullMeal){
+    //         $scope.getEntireProfile($scope.currentUser.pid);
+    //         $scope.fullMeal = false;
+    //       }else{
+    //         console.log('GOT getEntireProfile');
+    //       }
+    //     }
 
       angular.element($document[0].querySelector('.work-datestart_date')).css('display', 'none');
       angular.element($document[0].querySelector('.work-dateend_date')).css('display', 'none');
