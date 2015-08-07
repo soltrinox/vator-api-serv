@@ -93,6 +93,7 @@ angular.module('com.module.users')
           console.log('USER LOGIN: '+JSON.stringify(user)); // => acess token
           if(!user.user.ProfilePic ||  0 === user.user.ProfilePic.length ){
             user.user.ProfilePic = 'https://s3.amazonaws.com/vatorprofilecache/profile.png';
+            user.user.CoverPic = 'https://s3.amazonaws.com/vatorprofilecache/456498.jpg';
           }else{
               // TODO: get the Profile here ?
           }

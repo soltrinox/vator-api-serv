@@ -38,7 +38,7 @@ app.controller('MyProfileCtrl',function($scope, $rootScope, $location, $state, $
       Bio:'',
       UUID:'',
       ProfilePic:'https://s3.amazonaws.com/vatorprofilecache/profile.png',
-      CoverPic:'',
+      CoverPic:'https://s3.amazonaws.com/vatorprofilecache/456498.jpg',
       id:''
     };
 
@@ -524,6 +524,9 @@ $scope.teamFields = [
           $scope.UserRecord.ProfilePic = 'https://s3.amazonaws.com/vatorprofilecache/profile.png';
         }
         $scope.UserRecord.CoverPic = response.profile.user.CoverPic;
+        if(!response.profile.user.CoverPic || 0 === response.profile.user.CoverPic.length){
+          $scope.UserRecord.CoverPic = 'https://s3.amazonaws.com/vatorprofilecache/456498.jpg';
+        }
         $scope.UserRecord.id = response.profile.user.id;
         $scope.sliceProfile(response.profile);
 
@@ -555,13 +558,23 @@ $scope.teamFields = [
             $scope.prettyPrint('CURRENT.USER : ',$scope.currentUser );
             $scope.UserRecord.Name = $scope.currentUser.username ;
             $scope.UserRecord.UUID = $scope.currentUser.id;
+
             if(!$scope.currentUser.ProfilePic || 0 === $scope.currentUser.ProfilePic.length){
-              if(!$scope.UserRecord.ProfilePic || 0 === $scope.currentUser.ProfilePic.length){
+              if(!$scope.UserRecord.ProfilePic || 0 === $scope.UserRecord.ProfilePic.length){
                 $scope.UserRecord.ProfilePic = 'https://s3.amazonaws.com/vatorprofilecache/profile.png';
                 $scope.currentUser.ProfilePic = 'https://s3.amazonaws.com/vatorprofilecache/profile.png';
               }
             }else{
               $scope.UserRecord.ProfilePic = $scope.currentUser.ProfilePic;
+            }
+
+            if(!$scope.currentUser.CoverPic || 0 === $scope.currentUser.CoverPic.length){
+              if(!$scope.UserRecord.CoverPic || 0 === $scope.UserRecord.CoverPic.length){
+                $scope.UserRecord.CoverPic = 'https://s3.amazonaws.com/vatorprofilecache/456498.jpg';
+                $scope.currentUser.CoverPic = 'https://s3.amazonaws.com/vatorprofilecache/456498.jpg';
+              }
+            }else{
+              $scope.UserRecord.CoverPic = $scope.currentUser.CoverPic;
             }
 
             // if the user is new and no PROFILE record exists
@@ -583,7 +596,29 @@ $scope.teamFields = [
             $scope.currentUser.pid = response.id;
             var random = (new Date()).toString();
 
-            $scope.currentUser.ProfilePic = response.ProfilePic ;
+
+
+            if(!$scope.currentUser.ProfilePic || 0 === $scope.currentUser.ProfilePic.length){
+              if(!$scope.UserRecord.ProfilePic || 0 === $scope.UserRecord.ProfilePic.length){
+                $scope.UserRecord.ProfilePic = response.ProfilePic;
+                $scope.currentUser.ProfilePic = response.ProfilePic ;
+              }
+            }else{
+              $scope.UserRecord.ProfilePic = response.ProfilePic;
+              $scope.currentUser.ProfilePic = response.ProfilePic ;
+            }
+
+            if(!$scope.currentUser.CoverPic || 0 === $scope.currentUser.CoverPic.length){
+              if(!$scope.UserRecord.CoverPic || 0 === $scope.UserRecord.CoverPic.length){
+                $scope.UserRecord.CoverPic = response.CoverPic;
+                $scope.currentUser.CoverPic = response.CoverPic;
+              }
+            }else{
+              $scope.UserRecord.CoverPic = response.CoverPic;
+              $scope.currentUser.CoverPic = response.CoverPic;
+            }
+
+
             // fetch the full object and move along
             if(!$scope.fullprofile.user || 0 === $scope.fullprofile.user.length){
               $scope.getEntireProfile($scope.currentUser.pid);

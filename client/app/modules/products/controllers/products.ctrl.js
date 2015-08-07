@@ -171,9 +171,12 @@ angular.module('com.module.products')
 
           $scope.ProfileRecord.ProfilePic = response.ProfilePic;
           if(!response.ProfilePic || 0 === response.ProfilePic.length){
-            response.ProfilePic = 'https://s3.amazonaws.com/vatorprofilecache/profile.png';
+            $scope.ProfileRecord.ProfilePic = 'https://s3.amazonaws.com/vatorprofilecache/profile.png';
           }
           $scope.ProfileRecord.CoverPic = response.CoverPic;
+          if(!response.CoverPic || 0 === response.CoverPic.length){
+            $scope.ProfileRecord.CoverPic = 'https://s3.amazonaws.com/vatorprofilecache/456498.jpg';
+          }
           $scope.ProfileRecord.id = response.id;
           // be sure to set the global user object
           $scope.currentUser.pid = response.id;
