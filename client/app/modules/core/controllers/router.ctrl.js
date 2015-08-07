@@ -16,15 +16,13 @@ angular.module('com.module.core')
     if (!AppAuth.currentUser) {
       console.log('Redirect to login');
       $location.path('/login');
-    } else if($rootScope.isXsession){
-    //  console.log('CURRENT USER' + JSON.stringify(AppAuth.currentUser));
-
-      console.log('Redirect to vatorX');
-      $location.path('/x/dashboard');
     } else {
-    //  console.log('CURRENT USER' + JSON.stringify(AppAuth.currentUser));
-
-      console.log('Redirect to vator.co');
-      $location.path('/app');
+        if($rootScope.isXsession){
+          console.log('Redirect to vatorX');
+          $location.path('/x/dashboard');
+        }else{
+          console.log('Redirect to vator.co');
+          $location.path('/app');
+        }
     }
   });
