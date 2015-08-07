@@ -7,7 +7,7 @@
  * @requires $rootScope
  **/
 angular.module('com.module.core')
-  .controller('HomeCtrlX', function($scope, $rootScope) {
+  .controller('XCtrl', function($scope, $rootScope) {
 
     $scope.count = {};
 

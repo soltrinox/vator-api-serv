@@ -35,6 +35,7 @@ angular.module('com.module.core')
       })
       .state('app', {
         url: '/app',
+        abstract: true,
         templateUrl: 'modules/core/views/app.html',
         controller: 'MainCtrl'
       })
@@ -46,7 +47,7 @@ angular.module('com.module.core')
       .state('app.x', {
         url: '/x',
         templateUrl: 'modules/core/views/xhome.html',
-        controller: 'HomeCtrlX'
+        controller: 'XCtrl'
       });
     $urlRouterProvider.otherwise('/router');
   });
