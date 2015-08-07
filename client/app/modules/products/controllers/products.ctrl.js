@@ -16,7 +16,56 @@ angular.module('com.module.products')
 
     var productId = $stateParams.id;
     var categoryId = $stateParams.categoryId;
+    $scope.teamMembers = [];
+    $scope.teamDetails = {};
+    $scope.tags = [];
+    $scope.TagFirst = '0';
+    $scope.members = [];
+    $scope.MemberFirst = '0';
+    $scope.OWNER = '';
+    $scope.details2 = '';
+    $scope.modd = {};
+    $scope.result2 = '';
 
+    $scope.options2 = {
+      watchEnter: true,
+      country: 'us',
+      types: '(cities)'
+    };
+
+    $scope.ProfileRecord = {
+      Name:'',
+      Bio:'',
+      UUID:'',
+      ProfilePic:'',
+      CoverPic:'',
+      id:''
+    };
+
+    $scope.TeamRecord = {
+      Name: '',
+      URL: '',
+      founded: '',
+      pitch: '',
+      tags: [],
+      cats: [],
+      owner: [],
+      location: []
+    };
+
+    $scope.CompanyRecord = {
+      name: '',
+      id : '',
+      categoryId : '55ba9286966a114937493efe',
+      companyId: '',
+      profileId: '',
+      location: '',
+      pitch : '',
+      website : '',
+      founded : '',
+      tags : [],
+      team:{}
+    };
 
     $scope.loadItems = function() {
       $scope.categories = [];
@@ -32,35 +81,36 @@ angular.module('com.module.products')
 
     // is product ID present
     if (productId) {
-      // lest go get the product now
-      $scope.product = Product.find(
+      // lest go get the full product now
+      $scope.product = Product.getEntireProduct(
         {filter : { where : { id : productId}  }  }, function(product) {
+          if(product.length >= 1){
+            $scope.CompanyRecord = product.details;
+            $scope.tags = product.details.tags;
+            $scope.teamMembers = product.team.members;
+            $scope.teamDetails = product.team.details;
 
-          if(product.length === 1){
-            $scope.CompanyRecord = product[0];
-            $scope.tags = product[0].tags;
+            console.log('tags:' + JSON.stringify($scope.tags));
+            console.log('company:' + JSON.stringify($scope.CompanyRecord));
+            console.log('teamMembers:' + JSON.stringify($scope.teamMembers));
+            console.log('teamDetails:' + JSON.stringify($scope.teamDetails));
           }
-          console.log('tags:' + JSON.stringify($scope.tags));
 
         // add the product to the category
-        // product.category = Product.category({
-        //   id: product.id
-        // });
-        // handle in case of bad response
       }, function(err) {
         console.log(err);
       });
     } else {
+      // load for the list view
       $scope.product = {};
       $scope.loadItems();
     }
 
     if (categoryId) {
+      // set this for the category default of specified
+      // at time of creation
       $scope.product.categoryId = categoryId;
     }
-
-
-
 
 
     $scope.delete = function(id) {
@@ -85,20 +135,6 @@ angular.module('com.module.products')
     };
 
 
-
-    $scope.CompanyRecord = {
-      name: '',
-      id : '',
-      categoryId : '55ba9286966a114937493efe',
-      companyId: '',
-      profileId: '',
-      location: '',
-      pitch : '',
-      website : '',
-      founded : '',
-      tags : []
-    };
-
     $scope.formFields = [{
       key: 'name',
       type: 'text',
@@ -107,7 +143,10 @@ angular.module('com.module.products')
     }, {
       key: 'categoryId',
       type: 'hidden',
-      label: gettextCatalog.getString('Group'),
+      required: true
+    }, {
+      key: 'profileId',
+      type: 'hidden',
       required: true
     }, {
       key: 'pitch',
@@ -131,29 +170,7 @@ angular.module('com.module.products')
       submitCopy: gettextCatalog.getString('Save')
     };
 
-    $scope.tags = [];
-    $scope.TagFirst = '0';
-    $scope.members = [];
-    $scope.MemberFirst = '0';
-    $scope.OWNER = '';
-    $scope.details2 = '';
-    $scope.modd = {};
-    $scope.result2 = '';
 
-    $scope.options2 = {
-      watchEnter: true,
-      country: 'us',
-      types: '(cities)'
-    };
-
-    $scope.ProfileRecord = {
-      Name:'',
-      Bio:'',
-      UUID:'',
-      ProfilePic:'',
-      CoverPic:'',
-      id:''
-    };
 
 
 
@@ -318,7 +335,7 @@ angular.module('com.module.products')
           */
 
 
-          $scope.teamMembers = [];
+
 
           $scope.getMembers = function(val) {
             return $http.get('//api.vator.co/api/Profiles', {
@@ -361,9 +378,9 @@ angular.module('com.module.products')
 
           $scope.onSaveMembers = function(){
 
-            $scope.teamMembers = [];
-
-          }
+              console.log('SUBMIT MEMBERS TO TEAM: ' +  JSON.stringify($scope.teamMembers) );
+              $scope.CompanyRecord.team.members = $scope.teamMembers;
+          };
 
 
   });

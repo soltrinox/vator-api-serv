@@ -9,7 +9,7 @@ module.exports = function (Category) {
       }
     }, function (err, products) {
       products.forEach(function (product) {
-        Product.destroyById(product.id);
+        // Product.destroyById(product.id);
       });
     });
     next();
