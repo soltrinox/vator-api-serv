@@ -19,7 +19,7 @@ angular.module('com.module.core')
     } else {
         if($rootScope.isXsession){
           console.log('Redirect to vatorX');
-          $location.path('/x/dashboard');
+          $location.path('/app/x');
         }else{
           console.log('Redirect to vator.co');
           $location.path('/app');
