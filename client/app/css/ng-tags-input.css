@@ -67,9 +67,12 @@ tags-input .tags .tag-item {
   background-color: #fff;
   border: 1px solid darkgray;
   box-shadow: 1px 1px 1px 0 lightgray inset;
-  height: 65px;
+  height: 85px;
 }
 
+#members-box .member-template{
+ padding:2px;
+}
 
 #members-box tags-input .tags .tag-item {
   margin: 5px 10px;
@@ -81,8 +84,8 @@ tags-input .tags .tag-item {
   line-height: 24px;
   border: 1px solid #acacac;
   border-radius: 3px;
-  background: -webkit-linear-gradient(top, #f0f9ff 0%, #cbebff 47%, #a1dbff 100%);
-  background: linear-gradient(to bottom, #f0f9ff 0%, #cbebff 47%, #a1dbff 100%);
+  background: -webkit-linear-gradient(top, #f0f9ff 0%, #FFECCB 47%, #F9A311 100%);
+  background: linear-gradient(to bottom, #f0f9ff 0%, #FFECCB 47%, #F9A311 100%);
 }
 
 

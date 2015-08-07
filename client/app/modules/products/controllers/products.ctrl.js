@@ -336,6 +336,9 @@ angular.module('com.module.products')
                 }
             }).then(function(response){
               return response.data.map(function(item){
+                if(!item.ProfilePic || 0 ===  item.ProfilePic.length){
+                  item.ProfilePic = 'https://s3.amazonaws.com/vatorprofilecache/profile.png';
+                }
                 return item;
               });
             });

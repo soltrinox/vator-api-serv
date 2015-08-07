@@ -102,8 +102,8 @@
 
   <script type="text/ng-template" id="member-template">
     <div class="tag-template member-template">
-    <div class="left-panel" style="float:left; " >
-          <img src="{{data.ProfilePic}}" width="40" height="40" class="" /> <b>{{data.Name}}</b>
+    <div class="left-panel" style="float:left; margin-right:5px; " >
+          <img src="{{data.ProfilePic}}" width="50" height="50" class="img-circle profilepic" /> <b>{{data.Name}}</b>
     </div>
       <div class="right-panel"  style="float:left">
         <a class="remove-button" ng-click="$removeTag()">&#10006;</a>
@@ -114,7 +114,7 @@
   <script type="text/ng-template" id="autocomplete-member-template">
     <div class="autocomplete-template autocomplete-member-template">
     <div class="left-panel" style="float:left; " >
-          <img src="{{data.ProfilePic}}" width="30" height="30" class="" />
+          <img src="{{data.ProfilePic}}" width="30" height="30" class="img-circle" />
     </div>
       <div class="right-panel" style="float:left; font-size:22px;">
         <span ng-bind-html="$highlight($getDisplayText())"></span>
