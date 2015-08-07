@@ -58,7 +58,7 @@
                 <span>{{currentUser.firstName || currentUser.profiles[0].profile.name.givenName}}<i class="caret"></i></span>
               </div>
               <div  ng-if="masterUser.ProfilePic || currentUser.profilePic">
-                  <img class="nav-img-profile-pic img-circle profilepic"  src="{{currentUser.profilePic}}"
+                  <img class="nav-img-profile-pic img-circle profilepic"  src="{{masterUser.ProfilePic}}"
                   alt="User Image" width="50" height="50" >
                   <span>{{currentUser.firstName || currentUser.profiles[0].profile.name.givenName}}<i class="caret"></i></span>
               </div>
@@ -77,7 +77,7 @@
               <span>{{currentUser.firstName || currentUser.profiles[0].profile.name.givenName}}</span>
             </div>
             <div  ng-if="masterUser.ProfilePic || currentUser.profilePic">
-                <img class="nav-img-profile-pic img-circle profilepic" src="{{currentUser.profilePic}}"
+                <img class="nav-img-profile-pic img-circle profilepic" src="{{masterUser.ProfilePic}}"
                 alt="User Image" width="120" height="120" ><br/>
                 <span>{{masterUser.firstName || masterUser.profiles[0].profile.name.givenName}}</span>
             </div>
