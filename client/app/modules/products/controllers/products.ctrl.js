@@ -39,7 +39,7 @@ angular.module('com.module.products')
             $scope.CompanyRecord = product[0];
             $scope.tags = product[0].tags;
           }
-
+          console.log('tags:' + JSON.stringify($scope.tags));
 
         // add the product tot he category
         // product.category = Product.category({
@@ -130,21 +130,7 @@ angular.module('com.module.products')
       submitCopy: gettextCatalog.getString('Save')
     };
 
-    $scope.showdetails = function($tag){
-        var found = $filter('getByName')($scope.tags, $tag.name);
-        if(!found){
-            console.log($tag.name + ' NOT FOUND'  );
-        }else{
-            console.log('FOUND:' + JSON.stringify(found) +' in '+  JSON.stringify($scope.tags) );
-        }
-    };
 
-
-
-    $scope.newTagValue = function($tag){
-      console.log('NEW TAG: ' + JSON.stringify($tag) );
-      $scope.showdetails($tag);
-    };
 
 
     $scope.tags = [];
@@ -298,9 +284,21 @@ angular.module('com.module.products')
        });
      };
 
+     $scope.showdetails = function($tag){
+         var found = $filter('getByName')($scope.tags, $tag.name);
+         if(!found){
+             console.log($tag.name + ' NOT FOUND'  );
+         }else{
+             console.log('FOUND:' + JSON.stringify(found) +' in '+  JSON.stringify($scope.tags) );
+         }
+     };
 
+     $scope.newTagValue = function($tag){
+       console.log('NEW TAG: ' + JSON.stringify($tag) );
+       $scope.showdetails($tag);
+     };
 
-         /*   =========ASYNC CATS TYPEAHEAD ======
+         /*   =========ASYNC MEMBERS TYPEAHEAD ======
          *   =====================================
          *   =====================================
          *   =====================================
