@@ -1051,7 +1051,7 @@ $scope.fullMeal = true;
       console.log('PROFILE MISSING BASE USER 2  $scope.currentUser -> LOG IN AGAIN' );
       $location.path('/login');
 
-    }else if(!scope.currentUser && $rootScope.masterUser){
+    }else if(!$scope.currentUser && $rootScope.masterUser){
       $scope.currentUser = $rootScope.masterUser;
       console.log('NO CURRENT PROFILE');
       $scope.getEntireProfile($scope.currentUser.pid);
