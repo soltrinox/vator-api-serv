@@ -29,5 +29,5 @@ angular.module('com.module.core')
         templateUrl: 'modules/core/views/xhome.html',
         controller: 'HomeCtrlX'
       });
-    $urlRouterProvider.otherwise('/app');
+    $urlRouterProvider.otherwise('/router');
   });
