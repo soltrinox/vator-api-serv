@@ -140,9 +140,9 @@ angular.module('com.module.products')
     };
 
     $scope.showmembers = function($member){
-        var found = $filter('getByName')($scope.members, $tag.name);
+        var found = $filter('getByName')($scope.members, $member.name);
         if(!found){
-            console.log($tag.name + ' NOT FOUND'  );
+            console.log($member.name + ' NOT FOUND'  );
         }else{
             console.log('FOUND:' + JSON.stringify(found) +' in '+  JSON.stringify($scope.members) );
         }
