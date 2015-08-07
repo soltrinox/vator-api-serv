@@ -552,8 +552,10 @@ $scope.teamFields = [
           // with the correct assignment and getting the full object
           if(!response.id || 0 === response.id.length){
             $scope.prettyPrint('USER.RECORD : ',$scope.UserRecord );
+            $scope.prettyPrint('CURRENT.USER : ',$scope.currentUser );
             $scope.UserRecord.Name = $scope.currentUser.name ;
             $scope.UserRecord.UUID = $scope.currentUser.id;
+            $scope.UserRecord.ProfilePic = $scope.currentUser.ProfilePic;
             // if the user is new and no PROFILE record exists
             // we need to delete the empty ID in order to create
             if(!$scope.UserRecord.id || 0 === $scope.UserRecord.id.length){
@@ -562,7 +564,8 @@ $scope.teamFields = [
             // add the UUID for the current user here
             ProfileService.upsertProfile($scope.UserRecord, function(response) {
             $scope.prettyPrint('UPSERT RESPONSE' ,response);
-              if(!$scope.fullprofile || 0 === $scope.fullprofile.length){
+              if(!response.id || 0 === response.id.length){
+                $scope.prettyPrint('NO RESPONSE ID. USING currentUser: ', $scope.currentUser);
                 $scope.getEntireProfile($scope.currentUser.pid);
               }
             });
@@ -572,7 +575,7 @@ $scope.teamFields = [
             $scope.currentUser.pid = response.id;
             var random = (new Date()).toString();
 
-            $scope.currentUser.ProfilePic = response.ProfilePic + '&cb=' + random.replace(/\W+/g, '');
+            $scope.currentUser.ProfilePic = response.ProfilePic ;
             // fetch the full object and move along
             if(!$scope.fullprofile.user || 0 === $scope.fullprofile.user.length){
               $scope.getEntireProfile($scope.currentUser.pid);
@@ -582,8 +585,8 @@ $scope.teamFields = [
               $scope.lastCurrentUser = $scope.currentUser;
             }
           }
-        });
 
+        });
       }
   };
 
