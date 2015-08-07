@@ -54,15 +54,31 @@
     pre {
       display: none;
     }
+    html, body{
+      height: 100% !important;
+      width : 100% !important;
+      margin : 0 !important;
+    }
+    #vatorcobox, #vatorxbox{
+      height: 100% !important;
+      width : 100% !important;
+      margin : 0 !important;
+    }
   </style>
   <!-- endbuild -->
 </head>
 
-<body class="{{getSetting('appTheme') }} {{ getSetting('appLayout') }} "  ng-if="!isXsession"  ng-controller="MainCtrl">
+<body class="{{getSetting('appTheme') }} {{ getSetting('appLayout') }} "  >
   <!--[if lt IE 7]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
+<div ng-if="!isXsession"   ng-controller="MainCtrl" id="vatorcobox" >
   <div ui-view ng-class="{'full-height': currentUser.id === undefined}" id="theroot" ></div>
+</div>
+
+<div ng-if="isXsession"  ng-controller="xMainCtrl" id="vatorxbox" >
+  <div ui-view ng-class="{'full-height': currentUser.id === undefined}" id="theroot" ></div>
+</div>
 
   <div ng-controller="toasty-controller">
     <toasty-container toasty-defaults='{"timeout": 3000, "close-button":true, "sound": false}'></toasty-container>
