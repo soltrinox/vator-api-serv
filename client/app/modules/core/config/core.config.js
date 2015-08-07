@@ -15,8 +15,14 @@ app.run(function($rootScope, Setting, gettextCatalog) {
   };
 
   // Add Menu Dashboard
-  $rootScope.addMenu(gettextCatalog.getString('Dashboard'), 'app.home',
-    'fa-dashboard');
+
+    if($rootScope.isXsession){
+      $rootScope.addMenu(gettextCatalog.getString('X Dashboard'), 'x.home',
+        'fa-dashboard');
+    }else{
+      $rootScope.addMenu(gettextCatalog.getString('Dashboard'), 'app.home',
+        'fa-dashboard');
+    }
 
   // Dashboard
   $rootScope.dashboardBox = [];

@@ -9,7 +9,7 @@ angular.module('com.module.core')
    * @requires CoreService
    * @requires gettextCatalog
    **/
-  .controller('LayoutCtrl', function($scope, $rootScope, $cookies, CoreService,
+  .controller('LayoutCtrl', function($scope, $rootScope, $location, $cookies, CoreService,
     gettextCatalog) {
 
     // angular translate
@@ -65,6 +65,14 @@ angular.module('com.module.core')
         $('.right-side').toggleClass('strech');
       }
     };
+
+    $scope.toggleVatorX = function(){
+      $rootScope.isXsession = true;
+      console.log('Redirect to vatorX');
+      $location.path('/x');
+
+    };
+
 
     $scope.settings = $rootScope.settings;
 

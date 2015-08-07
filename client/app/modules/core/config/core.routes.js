@@ -17,6 +17,17 @@ angular.module('com.module.core')
         url: '',
         templateUrl: 'modules/core/views/home.html',
         controller: 'HomeCtrl'
+      })
+      .state('x', {
+        abstract: true,
+        url: '/x',
+        templateUrl: 'modules/core/views/x.html',
+        controller: 'xMainCtrl'
+      })
+      .state('x.home', {
+        url: '',
+        templateUrl: 'modules/core/views/xhome.html',
+        controller: 'xHomeCtrl'
       });
     $urlRouterProvider.otherwise('/router');
   });

@@ -10,12 +10,14 @@ angular.module('com.module.products')
     }
     return null;
   };
-}).controller('ProductsCtrl', function($scope, $location, $route, $routeParams,
-   $document, $filter, $state, $stateParams, $http,
-    CoreService, ProfileService, gettextCatalog, Product, Category) {
+}).controller('ProductsCtrl', function($scope, $location, $route, $routeParams,$document, $filter,
+  $state, $stateParams, $http, CoreService, ProfileService, gettextCatalog,
+  Product, Category, User, Profile, Team, Media ) {
 
     var productId = $stateParams.id;
     var categoryId = $stateParams.categoryId;
+
+
     $scope.teamMembers = [];
     $scope.teamDetails = {};
     $scope.tags = [];
@@ -102,6 +104,7 @@ angular.module('com.module.products')
     } else {
       // load for the list view
       $scope.product = {};
+
       $scope.loadItems();
     }
 
