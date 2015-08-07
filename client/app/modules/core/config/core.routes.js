@@ -19,7 +19,7 @@ angular.module('com.module.core')
         controller: 'HomeCtrl'
       })
       .state('app.x', {
-        url: '/app/x',
+        url: '/x',
         templateUrl: 'modules/core/views/xhome.html',
         controller: 'XCtrl'
       });
