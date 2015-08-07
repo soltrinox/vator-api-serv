@@ -560,7 +560,7 @@ $scope.teamFields = [
             // add the UUID for the current user here
             ProfileService.upsertProfile($scope.UserRecord, function(response) {
             $scope.prettyPrint('UPSERT RESPONSE' ,response);
-              if(!$scope.fullprofile.user.id || 0 === $scope.fullprofile.user.id.length){
+              if(!$scope.fullprofile || 0 === $scope.fullprofile.length){
                 $scope.getEntireProfile($scope.currentUser.pid);
               }
             });
