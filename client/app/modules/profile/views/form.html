@@ -80,7 +80,7 @@
           <span>Changes Made. Click on update to save.</span>
         </div>
       </div>
-      <div class="row tab-pane">    
+      <div class="row tab-pane">
         <!--  contact for email here ??? -->
         <formly-form result="UserRecord" fields="formFields" id="userForm" options="formOptions" ng-submit="onSubmitProfile()"></formly-form>
         <div class="row">
@@ -94,8 +94,8 @@
                   <input type="hidden" name="type" value="profilePic">
 
               </div>  </form>
-              <img src="{{currentUser.ProfilePic}}" id="" class="" />
-              <br/>{{currentUser.ProfilePic}}
+              <img src="{{masterUser.ProfilePic}}" id="" class="" />
+              <br/>{{masterUser.ProfilePic}}
             </div>
             <hr/>
             <div class="row  vator_form_box ">
@@ -106,8 +106,8 @@
                 <input type="hidden" name="ownerProfileId" ng-model="$scope.currentUser.pid">
                 <input type="hidden" name="type" value="coverPic">
               </div></form>
-              <img src="{{currentUser.CoverPic}}" id="" class="" />
-              <br/>{{currentUser.CoverPic}}
+              <img src="{{masterUser.CoverPic}}" id="" class="" />
+              <br/>{{masterUser.CoverPic}}
             </div>
           </div>
         </div>

@@ -17,17 +17,7 @@ angular.module('com.module.products')
     var productId = $stateParams.id;
     var categoryId = $stateParams.categoryId;
 
-     $scope.loadItems = function() {
-      $scope.categories = [];
-      Category.find(function(categories) {
-        angular.forEach(categories, function(category) {
-          category.products = Category.products({
-            id: category.id
-          });
-          this.push(category);
-        }, $scope.categories);
-      });
-    };
+
 
     // is product ID present
     if (productId) {
@@ -41,7 +31,7 @@ angular.module('com.module.products')
           }
           console.log('tags:' + JSON.stringify($scope.tags));
 
-        // add the product tot he category
+        // add the product to the category
         // product.category = Product.category({
         //   id: product.id
         // });
@@ -130,14 +120,20 @@ angular.module('com.module.products')
       submitCopy: gettextCatalog.getString('Save')
     };
 
-
-
-
     $scope.tags = [];
     $scope.TagFirst = '0';
     $scope.members = [];
     $scope.MemberFirst = '0';
     $scope.OWNER = '';
+    $scope.details2 = '';
+    $scope.modd = {};
+    $scope.result2 = '';
+
+    $scope.options2 = {
+      watchEnter: true,
+      country: 'us',
+      types: '(cities)'
+    };
 
     $scope.ProfileRecord = {
       Name:'',
@@ -147,6 +143,8 @@ angular.module('com.module.products')
       CoverPic:'',
       id:''
     };
+
+
 
 
     $scope.getUserRecord = function(){
@@ -224,14 +222,7 @@ angular.module('com.module.products')
       }
     };
 
-    $scope.modd = {};
-    $scope.result2 = '';
-    $scope.options2 = {
-      watchEnter: true,
-      country: 'us',
-      types: '(cities)'
-    };
-    $scope.details2 = '';
+
 
     $scope.getLocation = function(val) {
         return $http.get('//maps.googleapis.com/maps/api/geocode/json', {
@@ -297,6 +288,18 @@ angular.module('com.module.products')
        console.log('NEW TAG: ' + JSON.stringify($tag) );
        $scope.showdetails($tag);
      };
+
+     $scope.loadItems = function() {
+      $scope.categories = [];
+      Category.find(function(categories) {
+        angular.forEach(categories, function(category) {
+          category.products = Category.products({
+            id: category.id
+          });
+          this.push(category);
+        }, $scope.categories);
+      });
+    };
 
          /*   =========ASYNC MEMBERS TYPEAHEAD ======
          *   =====================================
