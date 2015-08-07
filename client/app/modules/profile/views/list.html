@@ -30,7 +30,7 @@
       height: 100%;
       z-index: 1;
       opacity: 0.3;
-      background-image: url({{fullprofile.user.CoverPic}});
+      background-image: url({{currentUser.CoverPic}});
       background-repeat: no-repeat;
       background-position: 50% 0;
       -ms-background-size: cover;
@@ -56,20 +56,17 @@
       <br/>
       <br/>
 
-      <div ng-hide="!fullprofile.user.CoverPic" class="profile-boundarybox" >
-        <div ng-hide="!fullprofile.user.ProfilePic"  class="profile-imgbox" >
-          <img src="{{fullprofile.user.ProfilePic}}" class="profilepic img-circle"   width="150"
+      <div ng-hide="!currentUser.CoverPic" class="profile-boundarybox" >
+        <div ng-hide="!currentUser.ProfilePic"  class="profile-imgbox" >
+          <img src="{{currentUser.ProfilePic}}" class="profilepic img-circle"   width="150"
             height="150"  >
         </div>
       </div>
 
-      <div ng-hide="!fullprofile" style="display:block; margin-top:20px;clear:both;" >
-        <h1><a href="" ui-sref="^.edit({id: fullprofile.user.id})" >{{fullprofile.user.Name}} [ click to edit ]</a></h1>
-        <h3>
-          <!-- {{fullprofile.user.id}}<br/> -->
-          {{fullprofile.user.Bio}}</h3>
-        <a href="" class="btn btn-sm btn-default" ui-sref="^.edit({id: fullprofile.user.id})">
-          <i class="fa fa-pencil fa-3x"></i> &nbsp; Edit fullprofile
+      <div ng-hide="!currentUser.pid" style="display:block; margin-top:20px;clear:both;" >
+        <h1><a href="" ui-sref="^.edit({id: currentUser.pid})" >{{currentUser.username}} [ click to edit ]</a></h1>
+        <a href="" class="btn btn-sm btn-default" ui-sref="^.edit({id: currentUser.pid})">
+          <i class="fa fa-pencil fa-3x"></i> &nbsp; Edit Profile
         </a>
       </div>
     </div>
