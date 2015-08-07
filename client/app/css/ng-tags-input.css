@@ -29,6 +29,8 @@ tags-input .tags {
 
   height: 65px;
 }
+
+
 tags-input .tags.focused {
   outline: none;
   -webkit-box-shadow: 0 0 3px 1px rgba(5, 139, 242, 0.6);
@@ -53,6 +55,39 @@ tags-input .tags .tag-item {
   background: -webkit-linear-gradient(top, #f0f9ff 0%, #cbebff 47%, #a1dbff 100%);
   background: linear-gradient(to bottom, #f0f9ff 0%, #cbebff 47%, #a1dbff 100%);
 }
+
+
+#members-box tags-input .tags {
+  -moz-appearance: textfield;
+  -webkit-appearance: textfield;
+  padding: 1px;
+  overflow: hidden;
+  word-wrap: break-word;
+  cursor: text;
+  background-color: #fff;
+  border: 1px solid darkgray;
+  box-shadow: 1px 1px 1px 0 lightgray inset;
+  height: 65px;
+}
+
+
+#members-box tags-input .tags .tag-item {
+  margin: 5px 10px;
+  padding: 6px 6px 6px 6px;
+  display: inline-block;
+  float: left;
+  font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  height: 60px;
+  line-height: 24px;
+  border: 1px solid #acacac;
+  border-radius: 3px;
+  background: -webkit-linear-gradient(top, #f0f9ff 0%, #cbebff 47%, #a1dbff 100%);
+  background: linear-gradient(to bottom, #f0f9ff 0%, #cbebff 47%, #a1dbff 100%);
+}
+
+
+
+
 tags-input .tags .tag-item.selected {
   background: -webkit-linear-gradient(top, #febbbb 0%, #fe9090 45%, #ff5c5c 100%);
   background: linear-gradient(to bottom, #febbbb 0%, #fe9090 45%, #ff5c5c 100%);
