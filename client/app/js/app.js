@@ -84,7 +84,7 @@ angular.module('loopbackApp', [
         country: 'FR',
         name: gettextCatalog.getString('Français')
       }
-    }
+    };
 
     // console.log('XXXXXXXXXX => CONTROLLER NAME:' );
 
