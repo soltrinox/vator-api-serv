@@ -1052,6 +1052,7 @@ $scope.fullMeal = true;
       $location.path('/login');
     }else if((!$scope.fullprofile ||   0 === $scope.fullprofile.length) && ($scope.fullMeal)){
             console.log('NO CURRENT PROFILE');
+            $scope.getEntireProfile($scope.currentUser.pid);
             if((!$scope.fullprofile || 0 === $scope.fullprofile.length ) ){
               console.log('NO PROFILE ID EITHER');
               $scope.getUserRecord($scope.currentUser.id);
