@@ -77,13 +77,13 @@
               <span>{{currentUser.firstName || currentUser.profiles[0].profile.name.givenName}}</span>
             </div>
             <div  ng-if="masterUser.ProfilePic || currentUser.profilePic">
-                <img class="nav-img-profile-pic img-circle" ng-src="masterUser.ProfilePic"
+                <img class="nav-img-profile-pic img-circle" src="{{masterUser.ProfilePic}}"
                 alt="User Image" width="120" height="120" ><br/>
-                <img class="nav-img-profile-pic img-circle" ng-src="currentUser.ProfilePic"
+                <img class="nav-img-profile-pic img-circle" src="{{currentUser.ProfilePic}}"
                 alt="User Image" width="120" height="120" >
-                <img class="nav-img-profile-pic img-circle" ng-src="currentUser.user.ProfilePic"
+                <img class="nav-img-profile-pic img-circle" src="{{currentUser.user.ProfilePic}}"
                 alt="User Image" width="120" height="120" >
-                <img class="nav-img-profile-pic img-circle" ng-src="masterUser.user.ProfilePic"
+                <img class="nav-img-profile-pic img-circle" src="{{masterUser.user.ProfilePic}}"
                 alt="User Image" width="120" height="120" >
                 <span>{{masterUser.firstName || masterUser.profiles[0].profile.name.givenName}}</span>
             </div>
