@@ -45,11 +45,6 @@ angular.module('com.module.core')
       })
       .state('app.x', {
         url: '/app/x',
-        templateUrl: 'modules/core/views/x.html',
-        controller: 'MainCtrlX'
-      })
-      .state('app.x.dashboard', {
-        url: '/app/x/dashboard',
         templateUrl: 'modules/core/views/xhome.html',
         controller: 'HomeCtrlX'
       });
