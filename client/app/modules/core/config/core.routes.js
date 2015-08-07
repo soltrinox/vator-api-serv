@@ -18,14 +18,14 @@ angular.module('com.module.core')
         templateUrl: 'modules/core/views/home.html',
         controller: 'HomeCtrl'
       })
-      .state('x', {
+      .state('app.x', {
         abstract: true,
-        url: '/x',
+        url: '/app/x',
         templateUrl: 'modules/core/views/x.html',
         controller: 'MainCtrlX'
       })
-      .state('x.home', {
-        url: '/x/dashboard',
+      .state('app.x.dashboard', {
+        url: '/app/x/dashboard',
         templateUrl: 'modules/core/views/xhome.html',
         controller: 'HomeCtrlX'
       });
