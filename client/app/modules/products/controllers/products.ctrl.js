@@ -139,15 +139,7 @@ angular.module('com.module.products')
         }
     };
 
-    $scope.showmembers = function($member){
-        var found = $filter('getByName')($scope.members, $member.name);
-        if(!found){
-            console.log($member.name + ' NOT FOUND'  );
-        }else{
-            console.log('FOUND:' + JSON.stringify(found) +' in '+  JSON.stringify($scope.members) );
-        }
 
-    };
 
     $scope.newTagValue = function($tag){
       console.log('NEW TAG: ' + JSON.stringify($tag) );
@@ -323,6 +315,8 @@ angular.module('com.module.products')
 
           $scope.teamLookUp = {};
 
+          $scope.teamMembers = [];
+
           $scope.getTeams = function(val) {
             return $http.get('//api.vator.co/api/Profiles', {
               params: {
@@ -346,8 +340,20 @@ angular.module('com.module.products')
 
 
           $scope.newMemberValue = function($member){
-            console.log('NEW member: ' + JSON.stringify($member) );
+
+            $scope.teamMembers.push($member);
+            console.log('NEW MEMBER ADDED ID: ' + $member.id  +'\n'+ JSON.stringify($scope.teamMembers) );
             $scope.showmembers($member);
+          };
+
+          $scope.showmembers = function($member){
+              var found = $filter('getByName')($scope.members, $member.name);
+              if(!found){
+                  console.log($member.name + ' NOT FOUND'  );
+              }else{
+                  console.log('FOUND:' + JSON.stringify(found) +' in '+  JSON.stringify($scope.members) );
+              }
+
           };
 
 
