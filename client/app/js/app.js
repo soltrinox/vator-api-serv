@@ -85,6 +85,8 @@ angular.module('loopbackApp', [
       }
     }
 
+    console.log('XXXXXXXXXX => CONTROLLER NAME:'+this.controller.name);
+
     var lang = $cookies.lang || navigator.language || navigator.userLanguage;
 
     $rootScope.locale = $rootScope.locales[lang];
