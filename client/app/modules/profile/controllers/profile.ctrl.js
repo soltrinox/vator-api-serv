@@ -513,8 +513,8 @@ $scope.teamFields = [
         $scope.currentUser.pid = response.profile.user.id;
 
         var random = (new Date()).toString();
-        $scope.currentUser.ProfilePic = response.profile.user.ProfilePic + '&cb=' + random.replace(/\W+/g, '');
-        $scope.currentUser.CoverPic = response.profile.user.CoverPic + '&cb=' + random.replace(/\W+/g, '');
+        $scope.currentUser.ProfilePic = response.profile.user.ProfilePic ;
+        $scope.currentUser.CoverPic = response.profile.user.CoverPic ;
 
         $scope.UserRecord.Name = response.profile.user.Name;
         $scope.UserRecord.Bio = response.profile.user.Bio;
@@ -1099,9 +1099,9 @@ $scope.fullMeal = true;
         var imgName = response.result.name;
         var imgURL = 'https://vator.imgix.net/'+ imgName  +'?w=200&h=200&fm=png32&fit=facearea&faceindex=1&facepad=1.5';
         var random = (new Date()).toString();
-        $scope.fullprofile.user.ProfilePic = imgURL + '&cb=' + random.replace(/\W+/g, '');
-        $scope.currentUser.ProfilePic = imgURL + '&cb=' + random.replace(/\W+/g, '');
-        $scope.UserRecord.ProfilePic = imgURL + '&cb=' + random.replace(/\W+/g, '');
+        $scope.fullprofile.user.ProfilePic = imgURL ;
+        $scope.currentUser.ProfilePic = imgURL ;
+        $scope.UserRecord.ProfilePic = imgURL ;
 
         if($scope.currentUser !== $scope.lastCurrentUser){
           $scope.saveCurrentUser($scope.currentUser);
