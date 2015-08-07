@@ -18,6 +18,17 @@ angular.module('com.module.products')
     var categoryId = $stateParams.categoryId;
 
 
+    $scope.loadItems = function() {
+      $scope.categories = [];
+      Category.find(function(categories) {
+        angular.forEach(categories, function(category) {
+          category.products = Category.products({
+            id: category.id
+          });
+          this.push(category);
+        }, $scope.categories);
+      });
+    };
 
     // is product ID present
     if (productId) {
@@ -49,17 +60,6 @@ angular.module('com.module.products')
     }
 
 
-         $scope.loadItems = function() {
-          $scope.categories = [];
-          Category.find(function(categories) {
-            angular.forEach(categories, function(category) {
-              category.products = Category.products({
-                id: category.id
-              });
-              this.push(category);
-            }, $scope.categories);
-          });
-        };
 
 
 
