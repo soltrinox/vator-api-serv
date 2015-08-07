@@ -25,7 +25,7 @@ angular.module('com.module.core')
         controller: 'MainCtrlX'
       })
       .state('x.home', {
-        url: '/x/home',
+        url: '/',
         templateUrl: 'modules/core/views/xhome.html',
         controller: 'HomeCtrlX'
       });
