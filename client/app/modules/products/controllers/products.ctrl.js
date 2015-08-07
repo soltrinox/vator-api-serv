@@ -83,7 +83,7 @@ angular.module('com.module.products')
     if (productId) {
       // lest go get the full product now
       $scope.product = Product.getEntireProduct(
-        {filter : { where : { id : productId}  }  }, function(product) {
+            {  id : productId }, function(product) {
           if(product.length >= 1){
             $scope.CompanyRecord = product.details;
             $scope.tags = product.details.tags;
