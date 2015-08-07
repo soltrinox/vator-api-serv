@@ -1099,7 +1099,7 @@ $scope.fullMeal = true;
         var imgName = response.result.name;
         var imgURL = 'https://vator.imgix.net/'+ imgName  +'?w=200&h=200&fm=png32&fit=facearea&faceindex=1&facepad=1.5';
         var random = (new Date()).toString();
-        
+        $scope.masterUser.ProfilePic = imgURL ;
         $scope.currentUser.ProfilePic = imgURL ;
         $scope.UserRecord.ProfilePic = imgURL ;
 
@@ -1131,7 +1131,7 @@ $scope.fullMeal = true;
         var imgName = response.result.name;
         var imgURL = 'https://vator.imgix.net/'+  imgName +'?w=850&h=315&fm=png32&fit=crop';
         $scope.currentUser.CoverPic = imgURL;
-        $scope.fullprofile.user.CoverPic = imgURL;
+        $scope.masterUser.CoverPic = imgURL;
         $scope.UserRecord.CoverPic = imgURL;
         var pid = response.pid;
         // should it auto update on change ?
