@@ -505,7 +505,8 @@ $scope.teamFields = [
 
 
   $scope.getEntireProfile = function(thepId){
-    thepId = $scope.currentUser.pid
+    console.log('getEntireProfile PROFILE ID: '+ thepId);
+
     ProfileService.getProfile(thepId, function(response){
         $scope.prettyPrint('UPDATED FULL PROFILE : \n' ,response);
         $scope.fullprofile = response.profile;
