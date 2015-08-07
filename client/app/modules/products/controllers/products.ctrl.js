@@ -317,11 +317,10 @@ angular.module('com.module.products')
          *   =====================================
           */
 
-          $scope.teamLookUp = {};
 
           $scope.teamMembers = [];
 
-          $scope.getTeams = function(val) {
+          $scope.getMembers = function(val) {
             return $http.get('//api.vator.co/api/Profiles', {
               params: {
                 filter: {
@@ -359,6 +358,12 @@ angular.module('com.module.products')
               }
 
           };
+
+          $scope.onSaveMembers = function(){
+
+            $scope.teamMembers = [];
+
+          }
 
 
   });

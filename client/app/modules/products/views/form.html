@@ -64,27 +64,15 @@
 
   <div class="controls">
       <button class="btn btn-primary btn-success" ng-click="onSubmit()"
-      translate>Create Company</button>
+      translate>Save Company</button>
   </div>
 
 </div>
 
 <div>
   <h4>Team Members</h4>
-  <!-- <div style="width:60%;float:left;">
-  <script type="text/ng-template" id="customTemplate.html">
-    <a>
-        <img ng-src="{{match.model.ProfilePic}}" width="50" height="50">
-        <span bind-html-unsafe="match.model.Name | typeaheadHighlight:query"></span>
-    </a>
-  </script>
-    <input type="text" ng-model="$scope.teamLookUp" placeholder="Search for a team member"
-    typeahead="item for item in getTeams($viewValue) | filter:{Name:$viewValue}" id="search-teamlookup"
-    typeahead-template-url="customTemplate.html"
-    typeahead-on-select="onTeamMemberSelect(item, $scope.teamLookUp, loadingMember )"
-    typeahead-loading="loadingMember"  class="form-control teamlookup_input" />
-    <i ng-show="loadingMember" class="glyphicon glyphicon-refresh"></i>
-  </div> -->
+
+
 <div id="members-box">
   <tags-input ng-model="members"
               display-property="Name"
@@ -97,13 +85,17 @@
               min-length="3"
               maxTags="3"
               template="member-template">
-    <auto-complete source="getTeams($query)"
+    <auto-complete source="getMembers($query)"
                    min-length="3"
                    load-on-focus="true"
                    load-on-empty="false"
                    max-results-to-show="4"
                    template="autocomplete-member-template"></auto-complete>
   </tags-input>
+  <div class="controls">
+      <button class="btn btn-primary btn-success" ng-click="onSaveMembers()"
+      translate>Save Members</button>
+  </div>
 
   <script type="text/ng-template" id="member-template">
     <div class="tag-template member-template">

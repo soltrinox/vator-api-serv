@@ -138,7 +138,7 @@
           <div>
             <div style="width:60%;float:left;">
               <input type="text" ng-model="$scope.workLookUp" placeholder="Search for a company"
-              typeahead="item for item in getTeams($viewValue)" id="work-companylookup"
+              typeahead="item for item in getCompanyProjects($viewValue)" id="work-companylookup"
               typeahead-on-select="onCompanySelect(item, $scope.workLookUp, work.companylookup )"
               typeahead-loading="loadingCompanies"
               class="form-control work_companylookup_input" ng-change="lookCompany($scope.workLookUp)">

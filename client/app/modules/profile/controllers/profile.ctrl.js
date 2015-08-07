@@ -448,7 +448,7 @@ $scope.teamFields = [
   };
 
 
-  $scope.getTeams = function(val) {
+  $scope.getCompanyProjects = function(val) {
     //  http://api.vator.co/api/Teams?filter={%20%22where%22%20:%20{%20%22Name%22%20:%20{%22like%22%20:%22Co%22%20}%20}%20}
     return $http.get('//api.vator.co/api/products', {
       params: {
