@@ -137,6 +137,15 @@ angular.module('com.module.products')
         }else{
             console.log('FOUND:' + JSON.stringify(found) +' in '+  JSON.stringify($scope.tags) );
         }
+    };
+
+    $scope.showmembers = function($member){
+        var found = $filter('getByName')($scope.members, $tag.name);
+        if(!found){
+            console.log($tag.name + ' NOT FOUND'  );
+        }else{
+            console.log('FOUND:' + JSON.stringify(found) +' in '+  JSON.stringify($scope.members) );
+        }
 
     };
 
@@ -148,6 +157,8 @@ angular.module('com.module.products')
 
     $scope.tags = [];
     $scope.TagFirst = '0';
+    $scope.members = [];
+    $scope.MemberFirst = '0';
     $scope.OWNER = '';
 
     $scope.ProfileRecord = {
@@ -330,23 +341,10 @@ angular.module('com.module.products')
             });
           };
 
-          $scope.onTeamMemberSelect = function(item, model, label){
 
-            console.log('SELECTED model: '+JSON.stringify(model));
-
-            $scope.teamLookUp = model.Name;
-          };
-
-          $scope.lookMember = function(val){
-            // TODO:  set the id of the record
-            //console.log('SELECTED MEMEBR: '+JSON.stringify(item));
-            //  $scope.teamLookUp = val.Name;
-              //$scope.WorkRecord.companyname = $scope.workLookUp;
-          };
-
-          $scope.addMembersToTeam = function(){
-
-
+          $scope.newMemberValue = function($member){
+            console.log('NEW member: ' + JSON.stringify($member) );
+            $scope.showmembers($member);
           };
 
 
