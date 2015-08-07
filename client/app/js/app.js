@@ -31,6 +31,7 @@ angular.module('loopbackApp', [
     'ui.gravatar',
     'ui.grid',
     'ui.router',
+    'ui.router.stateHelper',
     'toasty',
     'autofields',
     'gettext',
