@@ -17,7 +17,7 @@ app.run(function($rootScope, Setting, gettextCatalog) {
   // Add Menu Dashboard
 
     if($rootScope.isXsession){
-
+        
     }else{
 
     }
