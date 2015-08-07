@@ -88,6 +88,7 @@ angular.module('com.module.products')
             $scope.CompanyRecord = product.company.details;
             $scope.tags = product.company.details.tags;
             $scope.teamMembers = product.company.team.members;
+            $scope.members = product.company.team.members;
             $scope.teamDetails = product.company.team.details;
 
             console.log('tags:' + JSON.stringify($scope.tags));
