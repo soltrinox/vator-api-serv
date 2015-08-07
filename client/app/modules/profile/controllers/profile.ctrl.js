@@ -505,6 +505,7 @@ $scope.teamFields = [
 
 
   $scope.getEntireProfile = function(thepId){
+    thepId = $scope.currentUser.pid
     ProfileService.getProfile(thepId, function(response){
         $scope.prettyPrint('UPDATED FULL PROFILE : \n' ,response);
         $scope.fullprofile = response.profile;
@@ -603,7 +604,7 @@ $scope.teamFields = [
   $scope.onSubmitProfile = function() {
     // run validation here
     if (!$scope.currentUser.id || 0 === $scope.currentUser.id.length) {
-      console.log('MISSING BASE USER  $scope.currentUser -> LOG IN AGAIN' );
+      console.log('PROFILE MISSING BASE USER 1 $scope.currentUser -> LOG IN AGAIN' );
       $location.path('/login');
     }else if (!$scope.currentUser.pid || 0 === $scope.currentUser.pid.length) {
       $scope.prettyPrint('currentUser.pid NOT SET : \n',$scope.currentUser );
@@ -1000,7 +1001,7 @@ $scope.editSocial = function(){
 $scope.fullMeal = true;
   $scope.$on('$viewContentLoaded', function(){
     if(!$scope.currentUser){
-      console.log('MISSING BASE USER  $scope.currentUser -> LOG IN AGAIN' );
+      console.log('PROFILE MISSING BASE USER 2  $scope.currentUser -> LOG IN AGAIN' );
       $location.path('/login');
     }else if((!$scope.fullprofile ||   0 === $scope.fullprofile.length) && ($scope.fullMeal)){
             console.log('NO CURRENT PROFILE');

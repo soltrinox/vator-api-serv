@@ -161,7 +161,7 @@ angular.module('com.module.products')
     $scope.getUserRecord = function(){
 
       if(!$scope.currentUser.id || 0 === $scope.currentUser.id.length){
-        console.log('MISSING BASE USER  $scope.currentUser -> LOG IN AGAIN' );
+        console.log('PRODUCT MISSING BASE USER 1 $scope.currentUser -> LOG IN AGAIN' );
           $location.path('/login');
       }else{
         ProfileService.getProfileByUUID($scope.currentUser.id, function(response){
@@ -216,7 +216,7 @@ angular.module('com.module.products')
       if(!$scope.CompanyRecord.profileId || 0 === $scope.CompanyRecord.profileId.length  ){
         if(!$scope.currentUser.pid || 0 === $scope.currentUser.pid.length  ){
           if(!$scope.currentUser.id || 0 === $scope.currentUser.id.length  ){
-            console.log('MISSING BASE USER  $scope.currentUser -> LOG IN AGAIN' );
+            console.log('PRODUCT MISSING BASE USER 2 $scope.currentUser -> LOG IN AGAIN' );
               $location.path('/login');
           }else {
             console.log('MISSING PROFILEID'  + JSON.stringify($scope.currentUser));
