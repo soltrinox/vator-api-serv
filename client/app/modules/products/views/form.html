@@ -81,8 +81,8 @@
     <i ng-show="loadingMember" class="glyphicon glyphicon-refresh"></i>
   </div> -->
 
-  <tags-input ng-model="tags"
-              display-property="name"
+  <tags-input ng-model="members"
+              display-property="Name"
               key-property="id"
               placeholder="Find Team Members"
               min-length="3"
@@ -113,10 +113,10 @@
 
   <script type="text/ng-template" id="autocomplete-member-template">
     <div class="autocomplete-template autocomplete-member-template">
-    <div class="left-panel" >
-          {{data.ProfilePic}}
+    <div class="left-panel" style="float:left;" >
+          <img src="{{data.ProfilePic}}" width="25" height="25" class="" />
     </div>
-      <div class="right-panel">
+      <div class="right-panel" style="float:left;">
         <span ng-bind-html="$highlight($getDisplayText())"></span>
       </div>
     </div>
