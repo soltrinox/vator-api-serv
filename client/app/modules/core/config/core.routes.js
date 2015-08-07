@@ -19,7 +19,6 @@ angular.module('com.module.core')
         controller: 'HomeCtrl'
       })
       .state('app.x', {
-        abstract: true,
         url: '/app/x',
         templateUrl: 'modules/core/views/x.html',
         controller: 'MainCtrlX'
