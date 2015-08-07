@@ -84,7 +84,7 @@ angular.module('com.module.products')
       // lest go get the full product now
       $scope.product = Product.getEntireProduct(
             {  id : productId }, function(product) {
-          if(product.length >= 1){
+              console.log('SUCCESS Product.getEntireProduct:');
             $scope.CompanyRecord = product.company.details;
             $scope.tags = product.company.details.tags;
             $scope.teamMembers = product.company.team.members;
@@ -94,9 +94,7 @@ angular.module('com.module.products')
             console.log('company:' + JSON.stringify($scope.CompanyRecord));
             console.log('teamMembers:' + JSON.stringify($scope.teamMembers));
             console.log('teamDetails:' + JSON.stringify($scope.teamDetails));
-          }
 
-        // add the product to the category
       }, function(err) {
         console.log(err);
       });
