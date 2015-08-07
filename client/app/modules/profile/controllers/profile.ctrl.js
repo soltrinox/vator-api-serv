@@ -512,7 +512,7 @@ $scope.teamFields = [
         $scope.fullprofile = response.profile;
         $scope.currentUser.pid = response.profile.user.id;
 
-        var random = (new Date()).toString();
+        // var random = (new Date()).toString();
         $scope.currentUser.ProfilePic = response.profile.user.ProfilePic ;
         $scope.currentUser.CoverPic = response.profile.user.CoverPic ;
 
@@ -594,7 +594,7 @@ $scope.teamFields = [
             // lets set our scope id references here
             $scope.profile = response;
             $scope.currentUser.pid = response.id;
-            var random = (new Date()).toString();
+            // var random = (new Date()).toString();
 
 
 
@@ -1054,7 +1054,7 @@ $scope.fullMeal = true;
     }else if(!$scope.currentUser && $rootScope.masterUser){
       $scope.currentUser = $rootScope.masterUser;
       console.log('NO CURRENT PROFILE');
-      $scope.getEntireProfile($scope.currentUser.pid);
+      $scope.getUserRecord($scope.currentUser.id);
       $scope.fullMeal = false;
     }else{
       $scope.getEntireProfile($scope.currentUser.pid);
@@ -1102,7 +1102,7 @@ $scope.fullMeal = true;
         console.log(response);
         var imgName = response.result.name;
         var imgURL = 'https://vator.imgix.net/'+ imgName  +'?w=200&h=200&fm=png32&fit=facearea&faceindex=1&facepad=1.5';
-        var random = (new Date()).toString();
+        // var random = (new Date()).toString();
         $rootScope.masterUser.ProfilePic = imgURL ;
         $scope.currentUser.ProfilePic = imgURL ;
         $scope.UserRecord.ProfilePic = imgURL ;
