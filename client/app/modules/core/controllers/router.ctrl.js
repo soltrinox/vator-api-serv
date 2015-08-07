@@ -20,7 +20,7 @@ angular.module('com.module.core')
     //  console.log('CURRENT USER' + JSON.stringify(AppAuth.currentUser));
 
       console.log('Redirect to vatorX');
-      $location.path('/x');
+      $location.path('/x/dashboard');
     } else {
     //  console.log('CURRENT USER' + JSON.stringify(AppAuth.currentUser));
 

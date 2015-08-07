@@ -69,7 +69,7 @@ angular.module('com.module.core')
     $scope.toggleVatorX = function(){
       $rootScope.isXsession = true;
       console.log('Redirect to vatorX');
-      $location.path('/x');
+      $location.path('/x/dashboard');
 
     };
 

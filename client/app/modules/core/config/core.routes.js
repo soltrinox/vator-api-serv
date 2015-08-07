@@ -14,7 +14,7 @@ angular.module('com.module.core')
         controller: 'MainCtrl'
       })
       .state('app.home', {
-        url: '/app/home',
+        url: '',
         templateUrl: 'modules/core/views/home.html',
         controller: 'HomeCtrl'
       })
@@ -25,9 +25,9 @@ angular.module('com.module.core')
         controller: 'MainCtrlX'
       })
       .state('x.home', {
-        url: '/',
+        url: '/x/dashboard',
         templateUrl: 'modules/core/views/xhome.html',
         controller: 'HomeCtrlX'
       });
-    $urlRouterProvider.otherwise('/router');
+    $urlRouterProvider.otherwise('/app');
   });
