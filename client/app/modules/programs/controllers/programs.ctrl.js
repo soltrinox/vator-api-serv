@@ -19,11 +19,16 @@ angular.module('com.module.programs')
     var programId = $stateParams.id;
 
     if (programId) {
-      $scope.program = Program.findById({
+      $scope.ProgramObject = Program.findById({
         id: programId
       }, function() {}, function(err) {
         console.log(err);
       });
+
+      $scope.program.Name = $scope.ProgramObject.Name;
+      $scope.program.Details = $scope.ProgramObject.Details.body;
+      $scope.program.Image = $scope.ProgramObject.Image;
+
     } else {
       $scope.program = {};
 
@@ -35,7 +40,8 @@ angular.module('com.module.programs')
       Name: '',
       Details:  '',
       Image:  '',
-      Owner:  ''
+      Owner:  '',
+      adminId : ''
     };
 
 
@@ -63,7 +69,20 @@ angular.module('com.module.programs')
     };
 
     $scope.onSubmit = function() {
-      Program.upsert($scope.program, function() {
+
+      // when we create a new program always create a new admins (Group object)
+      // then we add the current user to that Admin Object
+      // save the group object and or update on upsert at the program object on API server
+
+        $scope.ProgramObject.Name =   $scope.program.Name;
+        var obj1 = { body : $scope.program.Details }
+        $scope.ProgramObject.Details =  obj1 ;
+        $scope.ProgramObject.Image =   $scope.program.Image;
+        $scope.ProgramObject.Owner = $scope.currentUser.pid;
+        // TODO: this should pull from the selected programs admins list
+        $scope.ProgramObject.adminId = '55c8ddf6a2abdc8a0672544e';
+
+      Program.upsert($scope.ProgramObject , function() {
         CoreService.toastSuccess(gettextCatalog.getString('Program saved'),
           gettextCatalog.getString('Your program is safe with us!'));
         $state.go('^.list');
