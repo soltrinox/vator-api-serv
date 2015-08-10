@@ -42,6 +42,7 @@ angular.module('loopbackApp', [
     'com.module.notes',
     'com.module.pages',
     'com.module.posts',
+    'com.module.programs',
     'com.module.products',
     'com.module.sandbox',
     'com.module.settings',
