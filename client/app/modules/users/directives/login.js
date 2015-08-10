@@ -12,4 +12,11 @@ angular.module('com.module.users')
       templateUrl: 'modules/users/views/login.html',
       restrict: 'E'
     };
-  });
+  })
+  .directive('loginx', function() {
+    return {
+      templateUrl: 'modules/users/views/loginx.html',
+      restrict: 'E'
+    };
+  })
+;
