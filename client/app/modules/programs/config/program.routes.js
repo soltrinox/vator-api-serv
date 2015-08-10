@@ -13,8 +13,8 @@ app.config(function($stateProvider) {
     url: '',
     templateUrl: 'modules/programs/views/list.html',
     resolve: {
-      programs: ['ProgramsService', function(ProgramsService) {
-        return ProgramsService.getPrograms();
+      programs: ['ProgramService', function(ProgramService) {
+        return ProgramService.getPrograms();
       }]
     },
     controller: function($scope, programs) {
@@ -32,9 +32,9 @@ app.config(function($stateProvider) {
     url: '/:id',
     templateUrl: 'modules/programs/views/view.html',
     resolve: {
-      program: ['$stateParams', 'ProgramsService', function($stateParams,
-        ProgramsService) {
-        return ProgramsService.getProgram($stateParams.id);
+      program: ['$stateParams', 'ProgramService', function($stateParams,
+        ProgramService) {
+        return ProgramService.getProgram($stateParams.id);
       }]
     },
     controller: function($scope, program) {

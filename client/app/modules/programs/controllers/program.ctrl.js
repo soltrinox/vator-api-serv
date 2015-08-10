@@ -4,7 +4,7 @@ angular.module('com.module.programs')
     FormHelper, gettextCatalog, Program, ProgramService) {
 
     $scope.delete = function(id) {
-      ProgramsService.deleteProgram(id, function() {
+      ProgramService.deleteProgram(id, function() {
         $state.reload();
       });
     };
