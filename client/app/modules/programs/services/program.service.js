@@ -1,7 +1,7 @@
 'use strict';
 var app = angular.module('com.module.programs');
 
-app.service('programsService', ['CoreService', 'gettextCatalog', 'Program', function(
+app.service('ProgramService', ['CoreService', 'gettextCatalog', 'Program', function(
   CoreService, gettextCatalog, Program) {
 
   this.getprograms = function() {

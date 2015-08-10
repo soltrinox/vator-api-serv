@@ -1,7 +1,7 @@
 'use strict';
 angular.module('com.module.programs')
   .controller('ProgramsCtrl', function($scope, $state, $stateParams, CoreService,
-    FormHelper, gettextCatalog, Program, ProgramsService) {
+    FormHelper, gettextCatalog, Program, ProgramService) {
 
     $scope.delete = function(id) {
       ProgramsService.deleteProgram(id, function() {
