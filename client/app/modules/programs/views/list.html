@@ -1,14 +1,14 @@
 <div class="box" ng-repeat="item in programs">
 
   <div class="box-header">
-    <h3 class="box-title">
+    <h2 class="box-title">
       <a href="" ui-sref="^.view({id: item.id})">{{item.Name}}</a>
       <br/>
       <small>
         Created:
         {{item.Created | date:'medium'}}
       </small>
-    </h3>
+    </h2>
 
     <div class="box-tools pull-right">
 
@@ -25,14 +25,14 @@
 
     </div>
   </div>
-  <div class="box-body">
+  <!-- <div class="box-body">
     <div class="row">
       <div class="" style="white-space: pre;"><h3>{{item.Details.body}}</h3>
       <br/>
         <img ng-if="item.Image" ng-src="{{item.Image}}?id={{item.id}}"/>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <div class="box-footer">
     <span class="text-muted">
