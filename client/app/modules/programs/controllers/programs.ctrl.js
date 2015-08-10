@@ -19,22 +19,19 @@ angular.module('com.module.programs')
     var programId = $stateParams.id;
 
     if (programId) {
-      $scope.ProgramObject = Program.findById({
+      $scope.program = Program.findById({
         id: programId
-      }, function(response) {
-
-        console.log('RESP PROGRAM OBJ \n' + JSON.stringify(response));
-
+      }, function() {
       }, function(err) {
         console.log(err);
       });
 
       console.log('PROGRAM OBJ 2 \n' + JSON.stringify($scope.ProgramObject));
 
-      $scope.program.Name = $scope.ProgramObject.Name;
+      // $scope.program.Name = $scope.ProgramObject.Name;
       // var iix = $scope.ProgramObject.Details;
       // $scope.program.Details = iix.body;
-      $scope.program.Image = $scope.ProgramObject.Image;
+      // $scope.program.Image = $scope.ProgramObject.Image;
 
     } else {
       $scope.program = {};
