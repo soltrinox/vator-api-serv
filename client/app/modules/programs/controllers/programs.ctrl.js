@@ -32,8 +32,8 @@ angular.module('com.module.programs')
       console.log('PROGRAM OBJ 2 \n' + JSON.stringify($scope.ProgramObject));
 
       $scope.program.Name = $scope.ProgramObject.Name;
-      var iix = $scope.ProgramObject.Details;
-      $scope.program.Details = iix.body;
+      // var iix = $scope.ProgramObject.Details;
+      // $scope.program.Details = iix.body;
       $scope.program.Image = $scope.ProgramObject.Image;
 
     } else {
@@ -59,7 +59,7 @@ angular.module('com.module.programs')
       required: true
     }, {
       key: 'Details',
-      type: 'textarea',
+      type: 'hidden',
       label: gettextCatalog.getString('Details'),
       required: true
     }, {
@@ -82,7 +82,7 @@ angular.module('com.module.programs')
       // save the group object and or update on upsert at the program object on API server
 
         $scope.ProgramObject.Name =   $scope.program.Name;
-        var obj1 = { body : $scope.program.Details };
+        var obj1 = { 'body' : $scope.program.Details };
         $scope.ProgramObject.Details =  obj1 ;
         $scope.ProgramObject.Image =   $scope.program.Image;
         $scope.ProgramObject.Owner = $scope.currentUser.pid;
