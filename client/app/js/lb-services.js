@@ -26391,10 +26391,58 @@ module.factory(
           method: "PUT"
         },
 
-        // INTERNAL. Use Program.admins() instead.
-        "prototype$__get__admins": {
-          url: urlBase + "/Programs/:id/admins",
+        // INTERNAL. Use Program.admins.findById() instead.
+        "prototype$__findById__admins": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/Programs/:id/admins/:fk",
           method: "GET"
+        },
+
+        // INTERNAL. Use Program.admins.destroyById() instead.
+        "prototype$__destroyById__admins": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/Programs/:id/admins/:fk",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Program.admins.updateById() instead.
+        "prototype$__updateById__admins": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/Programs/:id/admins/:fk",
+          method: "PUT"
+        },
+
+        // INTERNAL. Use Program.admins.link() instead.
+        "prototype$__link__admins": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/Programs/:id/admins/rel/:fk",
+          method: "PUT"
+        },
+
+        // INTERNAL. Use Program.admins.unlink() instead.
+        "prototype$__unlink__admins": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/Programs/:id/admins/rel/:fk",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Program.admins.exists() instead.
+        "prototype$__exists__admins": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/Programs/:id/admins/rel/:fk",
+          method: "HEAD"
         },
 
         // INTERNAL. Use Program.rounds() instead.
@@ -26419,6 +26467,31 @@ module.factory(
         // INTERNAL. Use Program.rounds.count() instead.
         "prototype$__count__rounds": {
           url: urlBase + "/Programs/:id/rounds/count",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Program.admins() instead.
+        "prototype$__get__admins": {
+          isArray: true,
+          url: urlBase + "/Programs/:id/admins",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Program.admins.create() instead.
+        "prototype$__create__admins": {
+          url: urlBase + "/Programs/:id/admins",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Program.admins.destroyAll() instead.
+        "prototype$__delete__admins": {
+          url: urlBase + "/Programs/:id/admins",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Program.admins.count() instead.
+        "prototype$__count__admins": {
+          url: urlBase + "/Programs/:id/admins/count",
           method: "GET"
         },
 
@@ -27369,6 +27442,20 @@ module.factory(
           var action = TargetResource["::updateById::Program::rounds"];
           return action.apply(R, arguments);
         };
+    /**
+     * @ngdoc object
+     * @name lbServices.Program.admins
+     * @header lbServices.Program.admins
+     * @object
+     * @description
+     *
+     * The object `Program.admins` groups methods
+     * manipulating `Group` instances related to `Program`.
+     *
+     * Call {@link lbServices.Program#admins Program.admins()}
+     * to query all related instances.
+     */
+
 
         /**
          * @ngdoc method
@@ -27377,13 +27464,86 @@ module.factory(
          *
          * @description
          *
-         * Fetches belongsTo relation admins.
+         * Queries admins of Program.
          *
          * @param {Object=} parameters Request parameters.
          *
          *  - `id` – `{*}` - PersistedModel id
          *
-         *  - `refresh` – `{boolean=}` -
+         *  - `filter` – `{object=}` -
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Group` object.)
+         * </em>
+         */
+        R.admins = function() {
+          var TargetResource = $injector.get("Group");
+          var action = TargetResource["::get::Program::admins"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Program.admins#count
+         * @methodOf lbServices.Program.admins
+         *
+         * @description
+         *
+         * Counts admins of Program.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `where` – `{object=}` - Criteria to match model instances
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `count` – `{number=}` -
+         */
+        R.admins.count = function() {
+          var TargetResource = $injector.get("Group");
+          var action = TargetResource["::count::Program::admins"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Program.admins#create
+         * @methodOf lbServices.Program.admins
+         *
+         * @description
+         *
+         * Creates a new instance in admins of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
          *
          * @param {function(Object,Object)=} successCb
          *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -27400,9 +27560,296 @@ module.factory(
          * This usually means the response is a `Group` object.)
          * </em>
          */
-        R.admins = function() {
+        R.admins.create = function() {
           var TargetResource = $injector.get("Group");
-          var action = TargetResource["::get::Program::admins"];
+          var action = TargetResource["::create::Program::admins"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Program.admins#createMany
+         * @methodOf lbServices.Program.admins
+         *
+         * @description
+         *
+         * Creates a new instance in admins of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Group` object.)
+         * </em>
+         */
+        R.admins.createMany = function() {
+          var TargetResource = $injector.get("Group");
+          var action = TargetResource["::createMany::Program::admins"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Program.admins#destroyAll
+         * @methodOf lbServices.Program.admins
+         *
+         * @description
+         *
+         * Deletes all admins of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * This method returns no data.
+         */
+        R.admins.destroyAll = function() {
+          var TargetResource = $injector.get("Group");
+          var action = TargetResource["::delete::Program::admins"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Program.admins#destroyById
+         * @methodOf lbServices.Program.admins
+         *
+         * @description
+         *
+         * Delete a related item by id for admins.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for admins
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * This method returns no data.
+         */
+        R.admins.destroyById = function() {
+          var TargetResource = $injector.get("Group");
+          var action = TargetResource["::destroyById::Program::admins"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Program.admins#exists
+         * @methodOf lbServices.Program.admins
+         *
+         * @description
+         *
+         * Check the existence of admins relation to an item by id.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for admins
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Group` object.)
+         * </em>
+         */
+        R.admins.exists = function() {
+          var TargetResource = $injector.get("Group");
+          var action = TargetResource["::exists::Program::admins"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Program.admins#findById
+         * @methodOf lbServices.Program.admins
+         *
+         * @description
+         *
+         * Find a related item by id for admins.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for admins
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Group` object.)
+         * </em>
+         */
+        R.admins.findById = function() {
+          var TargetResource = $injector.get("Group");
+          var action = TargetResource["::findById::Program::admins"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Program.admins#link
+         * @methodOf lbServices.Program.admins
+         *
+         * @description
+         *
+         * Add a related item by id for admins.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for admins
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Group` object.)
+         * </em>
+         */
+        R.admins.link = function() {
+          var TargetResource = $injector.get("Group");
+          var action = TargetResource["::link::Program::admins"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Program.admins#unlink
+         * @methodOf lbServices.Program.admins
+         *
+         * @description
+         *
+         * Remove the admins relation to an item by id.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for admins
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * This method returns no data.
+         */
+        R.admins.unlink = function() {
+          var TargetResource = $injector.get("Group");
+          var action = TargetResource["::unlink::Program::admins"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Program.admins#updateById
+         * @methodOf lbServices.Program.admins
+         *
+         * @description
+         *
+         * Update a related item by id for admins.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for admins
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Group` object.)
+         * </em>
+         */
+        R.admins.updateById = function() {
+          var TargetResource = $injector.get("Group");
+          var action = TargetResource["::updateById::Program::admins"];
           return action.apply(R, arguments);
         };
 
@@ -32067,9 +32514,89 @@ module.factory(
           method: "GET"
         },
 
+        // INTERNAL. Use Program.admins.findById() instead.
+        "::findById::Program::admins": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/Programs/:id/admins/:fk",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Program.admins.destroyById() instead.
+        "::destroyById::Program::admins": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/Programs/:id/admins/:fk",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Program.admins.updateById() instead.
+        "::updateById::Program::admins": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/Programs/:id/admins/:fk",
+          method: "PUT"
+        },
+
+        // INTERNAL. Use Program.admins.link() instead.
+        "::link::Program::admins": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/Programs/:id/admins/rel/:fk",
+          method: "PUT"
+        },
+
+        // INTERNAL. Use Program.admins.unlink() instead.
+        "::unlink::Program::admins": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/Programs/:id/admins/rel/:fk",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Program.admins.exists() instead.
+        "::exists::Program::admins": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/Programs/:id/admins/rel/:fk",
+          method: "HEAD"
+        },
+
         // INTERNAL. Use Program.admins() instead.
         "::get::Program::admins": {
+          isArray: true,
           url: urlBase + "/Programs/:id/admins",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Program.admins.create() instead.
+        "::create::Program::admins": {
+          url: urlBase + "/Programs/:id/admins",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Program.admins.createMany() instead.
+        "::createMany::Program::admins": {
+          isArray: true,
+          url: urlBase + "/Programs/:id/admins",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Program.admins.destroyAll() instead.
+        "::delete::Program::admins": {
+          url: urlBase + "/Programs/:id/admins",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Program.admins.count() instead.
+        "::count::Program::admins": {
+          url: urlBase + "/Programs/:id/admins/count",
           method: "GET"
         },
 
