@@ -1,6 +1,6 @@
 'use strict';
 angular.module('com.module.programs')
-  .controller('ProgramsCtrl', function($scope, $state, $stateParams, CoreService,
+  .controller('ProgramsCtrl', function($scope, $rootScope, $location, $state, $routeParams, $stateParams, CoreService,
     FormHelper, gettextCatalog, Program, ProgramService) {
 
     $scope.delete = function(id) {
@@ -31,20 +31,28 @@ angular.module('com.module.programs')
 
     }
 
+    $scope.ProgramObject = {
+      Name: '',
+      Details:  '',
+      Image:  '',
+      Owner:  ''
+    };
+
+
     $scope.formFields = [{
-      key: 'title',
+      key: 'Name',
       type: 'text',
-      label: gettextCatalog.getString('Title'),
+      label: gettextCatalog.getString('Name'),
       required: true
     }, {
-      key: 'content',
+      key: 'Details',
       type: 'textarea',
-      label: gettextCatalog.getString('Content'),
+      label: gettextCatalog.getString('Details'),
       required: true
     }, {
-      key: 'image',
+      key: 'Image',
       type: 'text',
-      label: gettextCatalog.getString('image'),
+      label: gettextCatalog.getString('Image'),
       required: true
     }];
 
@@ -63,5 +71,13 @@ angular.module('com.module.programs')
         console.log(err);
       });
     };
+
+
+    $rootScope.$on('$routeChangeSuccess', function(e, current, pre) {
+      console.log('Current route name: ' + $location.path());
+      // Get all URL parameter
+      console.log($routeParams);
+    });
+
 
   });
