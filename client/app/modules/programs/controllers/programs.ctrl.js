@@ -75,7 +75,7 @@ angular.module('com.module.programs')
       // save the group object and or update on upsert at the program object on API server
 
         $scope.ProgramObject.Name =   $scope.program.Name;
-        var obj1 = { body : $scope.program.Details }
+        var obj1 = { body : $scope.program.Details };
         $scope.ProgramObject.Details =  obj1 ;
         $scope.ProgramObject.Image =   $scope.program.Image;
         $scope.ProgramObject.Owner = $scope.currentUser.pid;
