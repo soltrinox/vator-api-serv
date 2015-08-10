@@ -30,7 +30,6 @@
 
   <link href="/css/dashboard/root.css" rel="stylesheet">
   <style>
-
     .profilepic {
       border: solid 3px white;
     }
@@ -54,26 +53,30 @@
     pre {
       display: none;
     }
-    html, body{
+
+    html,
+    body {
       height: 100% !important;
-      width : 100% !important;
-      margin : 0 !important;
+      width: 100% !important;
+      margin: 0 !important;
     }
-    #vatorcobox, #vatorxbox{
+
+    #vatorcobox,
+    #vatorxbox {
       height: 100% !important;
-      width : 100% !important;
-      margin : 0 !important;
+      width: 100% !important;
+      margin: 0 !important;
     }
   </style>
   <!-- endbuild -->
 </head>
 
-<body class="{{getSetting('appTheme') }} {{ getSetting('appLayout') }} " ng-controller="MainCtrl" >
+<body class="{{getSetting('appTheme') }} {{ getSetting('appLayout') }} " ng-controller="MainCtrl">
   <!--[if lt IE 7]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
 
-  <div ui-view ng-class="{'full-height': currentUser.id === undefined}" id="theroot" ></div>
+  <div ui-view ng-class="{'full-height': currentUser.id === undefined}" id="theroot"></div>
 
 
   <div ng-controller="toasty-controller">
@@ -167,10 +170,10 @@
   <script src="/modules/core/config/core.config.js"></script>
   <script src="/modules/core/config/core.routes.js"></script>
   <script src="/modules/core/controllers/home.ctrl.js"></script>
-    <script src="/modules/core/controllers/xhome.ctrl.js"></script>
+  <script src="/modules/core/controllers/xhome.ctrl.js"></script>
   <script src="/modules/core/controllers/layout.ctrl.js"></script>
   <script src="/modules/core/controllers/main.ctrl.js"></script>
-    <script src="/modules/core/controllers/xmain.ctrl.js"></script>
+  <script src="/modules/core/controllers/xmain.ctrl.js"></script>
   <script src="/modules/core/controllers/router.ctrl.js"></script>
   <script src="/modules/core/directives/admin-box.js"></script>
   <script src="/modules/core/directives/admin-form.js"></script>
@@ -206,11 +209,10 @@
   <script src="/modules/posts/services/posts.service.js"></script>
 
   <script src="/modules/programs/app.programs.js"></script>
-  <script src="/modules/programs/config/program.config.js"></script>
-  <script src="/modules/programs/config/program.routes.js"></script>
-  <script src="/modules/programs/controllers/program.ctrl.js"></script>
-  <script src="/modules/programs/services/program.service.js"></script>
-
+  <script src="/modules/programs/config/programs.config.js"></script>
+  <script src="/modules/programs/config/programs.routes.js"></script>
+  <script src="/modules/programs/controllers/programs.ctrl.js"></script>
+  <script src="/modules/programs/services/programs.service.js"></script>
 
   <script src="/modules/products/app.products.js"></script>
   <script src="/modules/products/config/products.config.js"></script>
