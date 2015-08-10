@@ -21,9 +21,15 @@ angular.module('com.module.programs')
     if (programId) {
       $scope.ProgramObject = Program.findById({
         id: programId
-      }, function() {}, function(err) {
+      }, function(response) {
+
+        console.log('RESP PROGRAM OBJ \n' + JSON.stringify(response));
+
+      }, function(err) {
         console.log(err);
       });
+
+      console.log('PROGRAM OBJ 2 \n' + JSON.stringify($scope.ProgramObject));
 
       $scope.program.Name = $scope.ProgramObject.Name;
       $scope.program.Details = $scope.ProgramObject.Details.body;
