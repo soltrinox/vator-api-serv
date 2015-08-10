@@ -32,7 +32,8 @@ angular.module('com.module.programs')
       console.log('PROGRAM OBJ 2 \n' + JSON.stringify($scope.ProgramObject));
 
       $scope.program.Name = $scope.ProgramObject.Name;
-      $scope.program.Details = $scope.ProgramObject.Details.body;
+      var iix = $scope.ProgramObject.Details;
+      $scope.program.Details = iix.body;
       $scope.program.Image = $scope.ProgramObject.Image;
 
     } else {
