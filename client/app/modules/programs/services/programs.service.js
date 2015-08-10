@@ -4,7 +4,7 @@ var app = angular.module('com.module.programs');
 app.service('ProgramService', ['CoreService', 'gettextCatalog', 'Program', function(
   CoreService, gettextCatalog, Program) {
 
-  this.getprograms = function() {
+  this.getPrograms = function() {
     return Program.find({
       filter: {
         order: 'created DESC'

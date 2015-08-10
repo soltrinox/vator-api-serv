@@ -26,6 +26,9 @@ angular.module('com.module.programs')
       });
     } else {
       $scope.program = {};
+
+      $scope.programs = Program.findById();
+
     }
 
     $scope.formFields = [{
