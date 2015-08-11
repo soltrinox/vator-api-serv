@@ -38,8 +38,8 @@ function($state, CoreService, Profile, User, Education, Social, WorkHistory, Inv
         //console.log('DATA UPSERT : '+JSON.stringify(response));
       cb(response);
     }, function(err) {
-      
-      console.log('ERROR OBJECT: '+ JSON.stringify( err.config ) );
+
+      console.log('ERROR OBJECT: '+ JSON.stringify( err.config.data ) );
       // if(err.config.data && err.config.data.length > 0){
       //    console.log('ERROR OBJECT: '+ JSON.stringify(err.config.data.length) );
       // }
