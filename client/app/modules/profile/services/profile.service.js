@@ -22,7 +22,7 @@ function($state, CoreService, Profile, User, Education, Social, WorkHistory, Inv
     //console.log('find by UUID : '+id);
     var response =  Profile.find({ filter:{where: {UUID: id}, limit : 1}}, function(){
       //console.log('GOT BY UUID : '+ JSON.stringify(response));
-      cb( response );
+      cb( response[0] );
     }, function(err) {
         console.log('NO PROFILE WITH UUID : '+ JSON.stringify(id));
         cb(response);
@@ -36,7 +36,7 @@ function($state, CoreService, Profile, User, Education, Social, WorkHistory, Inv
       //   'Profile saved'), gettextCatalog.getString(
       //   'Your profile is safe with us!'));
       //console.log('DATA UPSERT : '+JSON.stringify(response));
-      cb(response[0]);
+      cb(response);
     }, function(err) {
       console.log('ERROR OBJECT: '+ JSON.stringify( err ) );
     });
