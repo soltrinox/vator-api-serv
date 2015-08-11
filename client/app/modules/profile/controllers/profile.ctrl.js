@@ -532,19 +532,25 @@ $scope.teamFields = [
 
     if(!$scope.fullprofile.user || 0 === $scope.fullprofile.user.length){
 
+      var iUUID = '';
+
       // look for the user by their vator auth UUID
-      if(!$scope.currentUser.pid || 0 === $scope.currentUser.pid.length){
-        $scope.currentUser.pid = UUID;
+      if($scope.currentUser.pid || 0 < $scope.currentUser.pid.length){
+        iUUID = $scope.currentUser.pid ;
+      }else if($rootScope.masterUser.pid || 0 < $rootScope.masterUser.pid.length){
+        iUUID = $rootScope.masterUser.pid;
       }else if(!UUID || 0 === UUID.length){
-        UUID = $scope.currentUser.pid;
+        iUUID = UUID;
       }
         // go get profile or create new one....
         ProfileService.getProfileByUUID($scope.currentUser.id, function(response){
+          $scope.prettyPrint('getProfileByUUID : ', response );
+
           // if we can detect a correct PROFILE.ID than move forward
           // with the correct assignment and getting the full object
           if(!response.id || 0 === response.id.length){
-            $scope.prettyPrint('USER.RECORD : ',$scope.UserRecord );
-            $scope.prettyPrint('CURRENT.USER : ',$scope.currentUser );
+            // $scope.prettyPrint('USER.RECORD : ',$scope.UserRecord );
+            // $scope.prettyPrint('CURRENT.USER : ',$scope.currentUser );
             $scope.UserRecord.Name = $scope.currentUser.username ;
             $scope.UserRecord.UUID = $scope.currentUser.id;
 
@@ -818,7 +824,7 @@ $scope.onSubmitExperience = function(){
 
 $scope.$watchCollection('WorkRecord', function(newValue, oldValue){
     // $scope.prettyPrint('!!! WATCH WORK  OLD!!!!\n',oldValue);
-     $scope.prettyPrint('!!! WATCH WORK  NEW!!!! \n',newValue);
+    //  $scope.prettyPrint('!!! WATCH WORK  NEW!!!! \n',newValue);
 
     $scope.swapipo = 'none';
 
@@ -855,7 +861,7 @@ $scope.$watchCollection('WorkRecord', function(newValue, oldValue){
     angular.element($document[0].querySelector('.investorForm')).css('display', 'none');
     angular.element($document[0].querySelector('.investorForm2')).css('display', 'none');
   }else{
-    console.log('$scope.WorkRecord.Type NOT SET');
+    // console.log('$scope.WorkRecord.Type NOT SET');
   }
 });
 

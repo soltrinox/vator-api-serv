@@ -25,9 +25,9 @@ angular.module('com.module.core')
     $scope.menuoptions = $rootScope.menu;
 
 
-    if($scope.currentUser){
-      console.log('CURRENT USER' + JSON.stringify($scope.currentUser));
-    }
+    // if($scope.currentUser){
+    //   console.log('CURRENT USER' + JSON.stringify($scope.currentUser));
+    // }
 
 
     $scope.logout = function() {
