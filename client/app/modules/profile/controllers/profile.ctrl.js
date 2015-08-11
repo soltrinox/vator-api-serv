@@ -262,8 +262,7 @@ $scope.investFields =
       type: 'text',
       label: 'Amount',
       id : 'invest-amount',
-      uniqueFormId : 'invest-amount-box',
-      required: true
+      uniqueFormId : 'invest-amount-box'
     },{
       key: 'date',
       type: 'date',
@@ -297,8 +296,7 @@ $scope.investFields =
       key: 'companyname',
       type: 'hidden',
       id : 'invest-companyname',
-      uniqueFormId : 'invest-companyname-box',
-      required: true
+      uniqueFormId : 'invest-companyname-box'
     },{
       key: 'companyid',
       type: 'hidden',
@@ -548,7 +546,8 @@ $scope.teamFields = [
 
           // if we can detect a correct PROFILE.ID than move forward
           // with the correct assignment and getting the full object
-          if(!response.id || 0 === response.id.length){
+          
+	if(!response || 0 === response.length){
             $scope.prettyPrint('RESPONSE getProfileByUUID FAILED : \n', response );
             // $scope.prettyPrint('CURRENT.USER : ',$scope.currentUser );
             $scope.UserRecord.Name = $scope.currentUser.username ;

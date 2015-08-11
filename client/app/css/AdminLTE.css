@@ -1030,7 +1030,7 @@ header.header .logo .icon {
   color: #0073b7;
 }
 .navbar-nav > .user-menu > .dropdown-menu > li.user-footer {
-  background-color: #f9f9f9;
+  background-color: rgb(182, 222, 228);
   padding: 10px;
 }
 .navbar-nav > .user-menu > .dropdown-menu > li.user-footer:before,

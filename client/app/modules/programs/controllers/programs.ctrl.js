@@ -75,18 +75,18 @@ angular.module('com.module.programs')
     $scope.formFields = [{
       key: 'Name',
       type: 'text',
-      label: gettextCatalog.getString('Name'),
+      label: gettextCatalog.getString('Program Name'),
       required: true
     },
     {
       key: 'Brief',
       type: 'text',
-      label: gettextCatalog.getString('Details'),
+      label: gettextCatalog.getString('Short Description'),
       required: true
     }, {
       key: 'Desc',
       type: 'textarea',
-      label: gettextCatalog.getString('Description'),
+      label: gettextCatalog.getString('Long Description'),
       required: true
     }, {
       key: 'Image',
@@ -225,7 +225,7 @@ $scope.getLocation = function(val) {
       //Take the first selected file
       fd.append('file', files[0]);
       console.log('FILE: '+files[0]);
-      var go = $scope.logoImageURL + '/' + $scope.currentUser.pid;
+      var go = $scope.logoImageURL + '/' + 'programlogo';
       $http.post(go, fd, {
           withCredentials: true,
           dataType: 'jsonp',

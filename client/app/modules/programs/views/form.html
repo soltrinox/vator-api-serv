@@ -12,10 +12,9 @@
     <div class="alert alert-danger" ng-if="addError" translate>Could not add program!</div>
     <formly-form result="program" fields="formFields" options="formOptions" ng-submit="onSubmit()"></formly-form>
 
-    <div class="row  vator_form_box " style="height:300px;">
+    <div class="row  vator_form_box " style="">
       <div style="float:left; width: 200px;">
         <img src="{{program.Image}}" id="" class="" />
-        <br/>{{program.Image}}
       </div>
       <div style="float:left;">
         <form method="POST" target="_blank" enctype="multipart/form-data" action="http://api.vator.co/uploadmedia/vatorprofilecache">
@@ -35,7 +34,7 @@
       <input type="text" id="Autocomplete" class="form-control" placeholder="Select a city" ng-autocomplete ng-model="CompanyRecord.location" details="details2" options="options2" />
     </div>
 
-
+     <label for="cats">Categories</label>
     <tags-input ng-model="tags" display-property="name" key-property="id" placeholder="Select a category" min-length="3" add-from-autocomplete-only="true" on-tag-added="newTagValue($tag)" replace-spaces-with-dashes="false" min-length="3" maxTags="3" template="tag-template">
       <auto-complete source="loadCats($query)" min-length="3" load-on-focus="true" load-on-empty="false" max-results-to-show="4" template="autocomplete-template"></auto-complete>
     </tags-input>
