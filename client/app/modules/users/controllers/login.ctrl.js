@@ -9,7 +9,7 @@
  * Contrller for Login Page
  **/
 angular.module('com.module.users')
-  .controller('LoginCtrl', function($scope, $routeParams, $location,
+  .controller('LoginCtrl', function($scope, $rootScope, $routeParams, $location,
     CoreService, ProfileService, Profile, User, AppAuth, AuthProvider, gettextCatalog) {
 
     var TWO_WEEKS = 1000 * 60 * 60 * 24 * 7 * 2;
@@ -90,7 +90,7 @@ angular.module('com.module.users')
         }, $scope.credentials,
         function(user) {
 
-          console.log('USER LOGIN: '+JSON.stringify(user)); // => acess token
+          // console.log('USER LOGIN: '+JSON.stringify(user)); // => acess token
           if(!user.user.ProfilePic ||  0 === user.user.ProfilePic.length ){
             user.user.ProfilePic = 'https://s3.amazonaws.com/vatorprofilecache/profile.png';
           }
@@ -115,6 +115,9 @@ angular.module('com.module.users')
           if (next === '/login') {
             next = go;
           }
+
+          $rootScope.masterUser = $scope.loginResult.user;
+          $scope.currentUser = $scope.loginResult.user;
 
           $location.path(next);
 

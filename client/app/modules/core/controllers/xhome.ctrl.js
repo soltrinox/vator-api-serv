@@ -15,8 +15,7 @@ angular.module('com.module.core')
 
     $scope.$on('$viewContentLoaded', function(){
         if($scope.currentUser){
-
-            console.log('CURRENT USER' + JSON.stringify($scope.currentUser));
+            // console.log('CURRENT USER' + JSON.stringify($scope.currentUser));
         }
     });
 
