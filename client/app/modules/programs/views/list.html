@@ -9,29 +9,27 @@
         {{item.Created | date:'medium'}}
       </small>
     </h2>
+  </div>
 
+  <div class="box-footer">
     <div class="box-tools pull-left">
 
       <span class="pull-right btn-group" style="margin-top: 7px;">
         <a href="" class="btn btn-xs btn-default"
            ui-sref="^.edit({id: item.id})">
-          <i class="fa fa-pencil"></i>
+          <i class="fa fa-pencil"></i> &nbsp; Edit
         </a>
         <a href="" class="btn btn-xs btn-default"
-           ng-click="delete({id: item.id})">
+           ng-click="delete({id: item.id})"> &nbsp; Delete
           <i class="fa fa-trash-o"></i>
         </a>
       </span>
 
     </div>
-  </div>
-
-  <div class="box-footer">
     <span class="text-muted">
       {{item.Created | date:'medium'}}
       &middot;
       0 rounds
-
     </span>
   </div>
 </div>
