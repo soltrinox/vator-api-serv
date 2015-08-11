@@ -571,7 +571,6 @@ $scope.teamFields = [
             }else{
               $scope.UserRecord.CoverPic = $scope.currentUser.CoverPic;
             }
-
             // if the user is new and no PROFILE record exists
             // we need to delete the empty ID in order to create
             if(!$scope.UserRecord.id || 0 === $scope.UserRecord.id.length){
@@ -587,12 +586,10 @@ $scope.teamFields = [
             });
           }else{
             // lets set our scope id references here
-            $scope.prettyPrint('RESPONSE getProfileByUUID SUCCESS : \n', response );
+            // $scope.prettyPrint('RESPONSE getProfileByUUID SUCCESS : \n', response );
             $scope.profile = response;
             $scope.currentUser.pid = response.id;
             // var random = (new Date()).toString();
-
-
 
             if(!$scope.currentUser.ProfilePic || 0 === $scope.currentUser.ProfilePic.length){
               if(!$scope.UserRecord.ProfilePic || 0 === $scope.UserRecord.ProfilePic.length){

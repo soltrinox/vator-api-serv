@@ -15,20 +15,13 @@ angular.module('com.module.core')
   .controller('MainCtrl', function($scope, $rootScope, $state, $location,
     CoreService, User, gettextCatalog, AppAuth) {
 
-
-    	AppAuth.ensureHasCurrentUser(function(user)
-        {
-          $scope.currentUser = user;
-          $rootScope.masterUser = $scope.currentUser;
-    	});
+  	AppAuth.ensureHasCurrentUser(function(user)
+      {
+        $scope.currentUser = user;
+        $rootScope.masterUser = $scope.currentUser;
+  	});
 
     $scope.menuoptions = $rootScope.menu;
-
-
-    // if($scope.currentUser){
-    //   console.log('CURRENT USER' + JSON.stringify($scope.currentUser));
-    // }
-
 
     $scope.logout = function() {
       User.logout(function() {
@@ -42,7 +35,7 @@ angular.module('com.module.core')
     };
 
     $scope.saveCurrentUser = function(user){
-      console.log('USER OBJECT SAVE: ' + JSON.stringify($scope.currentUser) );
+      // console.log('USER OBJECT SAVE: ' + JSON.stringify($scope.currentUser) );
       $scope.currentUser = user;
       User.upsert($scope.currentUser, function() {
         CoreService.toastSuccess(gettextCatalog.getString(
