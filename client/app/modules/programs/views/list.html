@@ -15,6 +15,10 @@
     <div class="box-tools pull-left">
 
       <span class="pull-right btn-group" style="margin-top: 7px;">
+        <a href="" class="btn btn-xs btn-default" >
+           <!-- ui-sref="^.edit({id: item.id})"> -->
+          <i class="fa fa-cog"></i> &nbsp; Manage &nbsp;&nbsp;
+        </a>
         <a href="" class="btn btn-xs btn-default"
            ui-sref="^.edit({id: item.id})">
           <i class="fa fa-pencil"></i> &nbsp; Edit &nbsp;&nbsp;
@@ -26,11 +30,11 @@
       </span>
 
     </div>
-    <span class="text-muted">
+    <!-- <span class="text-muted">
       {{item.Created | date:'medium'}}
       &middot;
       0 rounds
-    </span>
+    </span> -->
   </div>
 </div>
 
