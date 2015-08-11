@@ -1,7 +1,7 @@
 'use strict';
 angular.module('com.module.products')
   .run(function($rootScope, Product, Category, gettextCatalog) {
-
+    console.log('ROOT XSESSION : ' + $rootScope.isXsession);
     if($rootScope.isXsession){
 
     }else{
