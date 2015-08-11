@@ -654,20 +654,21 @@ $scope.teamFields = [
       // get the profile by uuid
       $scope.getUserRecord($scope.currentUser.id);
 
-    }else if (((!$scope.UserRecord.id) || (0 === $scope.UserRecord.id.length)) &&  $scope.currentUser.pid.length > 0 ) {
+    }else if (!$scope.UserRecord.id || 0 === $scope.UserRecord.id.length ) {
     $scope.prettyPrint('UPSERT USER RECORD ID NOT SET : \n',$scope.UserRecord );
 
       if($scope.currentUser.pid){
         $scope.UserRecord.id = $scope.currentUser.pid;
       }
-      if ($scope.currentUser.pid) {
-        $scope.UserRecord.id = $scope.currentUser.pid;
+      if ($rootScope.masterUser.pid) {
+        $scope.UserRecord.id = $rootScope.masterUser.pid;
       }
-
         $scope.upsertProfileRecord($scope.UserRecord);
         $scope.hideaddWorkButton = false;
         $scope.hideBase = true;
         $scope.saveUserRecord = false;
+    // }else if($scope.currentUser.pid ||  $scope.currentUser.pid.length > 0 )){
+
     }else{
 
       // verify its not a new record
