@@ -12,6 +12,20 @@
     <div class="alert alert-danger" ng-if="addError" translate>Could not add program!</div>
     <formly-form result="program" fields="formFields" options="formOptions" ng-submit="onSubmit()"></formly-form>
 
+    <div class="row  vator_form_box ">
+      <img src="{{program.Image}}" id="" class="" />
+      <br/>{{program.Image}}
+      <form method="POST" target="_blank" enctype="multipart/form-data" action="http://api.vator.co/uploadprofile/vatorprofilecache">
+      <div class=" form-group">
+        <label>Logo: <input class="form-control" type="file"
+          name="uploadedFiles" multiple="true"  onchange="angular.element(this).scope().uploadProfilePic(this.files)">
+          <input type="hidden" name="Owner" ng-model="$scope.currentUser.pid">
+          <input type="hidden" name="Image" ng-model="$scope.program.Image">
+
+      </div>  </form>
+
+    </div>
+
     <div class="form-group move-down">
         <label for="Autocomplete">Location</label>
         <input type="text" id="Autocomplete" class="form-control" placeholder="Select a city" ng-autocomplete
