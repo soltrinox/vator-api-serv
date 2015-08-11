@@ -11,6 +11,54 @@
   <div class="col-md-4">
     <div class="alert alert-danger" ng-if="addError" translate>Could not add program!</div>
     <formly-form result="program" fields="formFields" options="formOptions" ng-submit="onSubmit()"></formly-form>
+
+    <div class="form-group move-down">
+        <label for="Autocomplete">Location</label>
+        <input type="text" id="Autocomplete" class="form-control" placeholder="Select a city" ng-autocomplete
+        ng-model="CompanyRecord.location" details="details2" options="options2"/>
+    </div>
+
+
+    <tags-input ng-model="tags"
+                display-property="name"
+                key-property="id"
+                placeholder="Select a category"
+                min-length="3"
+                add-from-autocomplete-only="true"
+                on-tag-added="newTagValue($tag)"
+                replace-spaces-with-dashes="false"
+                min-length="3"
+                maxTags="3"
+                template="tag-template">
+      <auto-complete source="loadCats($query)"
+                     min-length="3"
+                     load-on-focus="true"
+                     load-on-empty="false"
+                     max-results-to-show="4"
+                     template="autocomplete-template"></auto-complete>
+    </tags-input>
+
+    <script type="text/ng-template" id="tag-template">
+      <div class="tag-template">
+        <div class="left-panel" style="float:left">
+          <b>{{data.name}}</b>
+        </div>
+        <div class="right-panel"  style="float:left">
+          <a class="remove-button" ng-click="$removeTag()">&#10006;</a>
+        </div>
+      </div>
+    </script>
+
+    <script type="text/ng-template" id="autocomplete-template">
+      <div class="autocomplete-template">
+        <div class="right-panel">
+          <span ng-bind-html="$highlight($getDisplayText())"></span>
+        </div>
+      </div>
+    </script>
+
+        <pre>{{CompanyRecord | json}}</pre>
+
   </div>
 </div>
 <div class="controls">
