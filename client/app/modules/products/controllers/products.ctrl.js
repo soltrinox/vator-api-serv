@@ -363,7 +363,7 @@ angular.module('com.module.products')
 
           $scope.newMemberValue = function($member){
 	           $scope.members.push($member);
-             $scope.teamMembers.push($member);
+             //$scope.teamMembers.push($member);
              console.log('NEW MEMBER ADDED ID: ' + $member.id  +'\n'+ JSON.stringify($scope.teamMembers) );
              $scope.showmembers($member);
           };
