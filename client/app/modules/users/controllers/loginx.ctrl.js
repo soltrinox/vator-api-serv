@@ -102,6 +102,8 @@ angular.module('com.module.users')
           // TODO: set default user profilePic
           // https://s3.amazonaws.com/vatorprofilecache/profile.png
 
+          $rootScope.isXsession = true;
+
           var go = '/app/x';
           var next = $location.nextAfterLogin || go;
 
