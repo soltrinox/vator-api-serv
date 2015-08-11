@@ -23,8 +23,8 @@ angular.module('com.module.core')
         templateUrl: 'modules/core/views/xhome.html',
         controller: 'XCtrl'
       })
-      .state('app.x.confirm', {
-        url: '/x/confirm',
+      .state('app.confirm', {
+        url: '/confirm',
         templateUrl: 'modules/core/views/xconfirm.html',
         controller: 'XCtrl'
       });
