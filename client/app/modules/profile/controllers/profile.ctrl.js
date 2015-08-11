@@ -535,10 +535,10 @@ $scope.teamFields = [
       var iUUID = '';
 
       // look for the user by their vator auth UUID
-      if($scope.currentUser.pid || 0 < $scope.currentUser.pid.length){
+      if((!$scope.currentUser.pid || 0 === $scope.currentUser.pid.length) && $rootScope.masterUser.pid){
+          iUUID = $rootScope.masterUser.pid;
+      }else if((!$rootScope.masterUser.pid || 0 === $rootScope.masterUser.pid.length) && $scope.currentUser.pid){
         iUUID = $scope.currentUser.pid ;
-      }else if($rootScope.masterUser.pid || 0 < $rootScope.masterUser.pid.length){
-        iUUID = $rootScope.masterUser.pid;
       }else if(!UUID || 0 === UUID.length){
         iUUID = UUID;
       }
