@@ -36,7 +36,7 @@ function($state, CoreService, Profile, User, Education, Social, WorkHistory, Inv
       //   'Profile saved'), gettextCatalog.getString(
       //   'Your profile is safe with us!'));
       //console.log('DATA UPSERT : '+JSON.stringify(response));
-      cb(response);
+      cb(response[0]);
     }, function(err) {
       console.log('ERROR OBJECT: '+ JSON.stringify( err ) );
     });

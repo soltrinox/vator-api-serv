@@ -579,11 +579,11 @@ $scope.teamFields = [
             }
             // add the UUID for the current user here
             ProfileService.upsertProfile($scope.UserRecord, function(response) {
-            $scope.prettyPrint('UPSERT RESPONSE' ,response);
-              if(!response.id || 0 === response.id.length){
-                $scope.prettyPrint('NO RESPONSE ID. USING currentUser: \n', $scope.currentUser);
-                $scope.getEntireProfile($scope.currentUser.pid);
-              }
+                $scope.prettyPrint('UPSERT RESPONSE' ,response);
+                if(!response.id || 0 === response.id.length){
+                  $scope.prettyPrint('NO RESPONSE ID. USING currentUser: \n', $scope.currentUser);
+                  $scope.getEntireProfile($scope.currentUser.pid);
+                }
             });
           }else{
             // lets set our scope id references here
