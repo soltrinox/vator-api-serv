@@ -544,12 +544,12 @@ $scope.teamFields = [
       }
         // go get profile or create new one....
         ProfileService.getProfileByUUID($scope.currentUser.id, function(response){
-          $scope.prettyPrint('getProfileByUUID : ', response );
+          $scope.prettyPrint('RESPONSE getProfileByUUID : \n', response );
 
           // if we can detect a correct PROFILE.ID than move forward
           // with the correct assignment and getting the full object
           if(!response.id || 0 === response.id.length){
-            // $scope.prettyPrint('USER.RECORD : ',$scope.UserRecord );
+            $scope.prettyPrint('RESPONSE getProfileByUUID FAILED : \n', response );
             // $scope.prettyPrint('CURRENT.USER : ',$scope.currentUser );
             $scope.UserRecord.Name = $scope.currentUser.username ;
             $scope.UserRecord.UUID = $scope.currentUser.id;
@@ -581,12 +581,13 @@ $scope.teamFields = [
             ProfileService.upsertProfile($scope.UserRecord, function(response) {
             $scope.prettyPrint('UPSERT RESPONSE' ,response);
               if(!response.id || 0 === response.id.length){
-                $scope.prettyPrint('NO RESPONSE ID. USING currentUser: ', $scope.currentUser);
+                $scope.prettyPrint('NO RESPONSE ID. USING currentUser: \n', $scope.currentUser);
                 $scope.getEntireProfile($scope.currentUser.pid);
               }
             });
           }else{
             // lets set our scope id references here
+            $scope.prettyPrint('RESPONSE getProfileByUUID SUCCESS : \n', response );
             $scope.profile = response;
             $scope.currentUser.pid = response.id;
             // var random = (new Date()).toString();
