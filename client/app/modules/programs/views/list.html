@@ -1,18 +1,18 @@
 <div class="box" ng-repeat="item in programs">
 
-  <div class="box-header">
+  <div class="box-header"  style="clear:both;">
     <h2 class="box-title">
       <a href="" ui-sref="^.view({id: item.id})">{{item.Name}}</a>
       <br/>
       <small>
         Created:
-        {{item.created | date:'medium'}}
+        {{item.Created | date:'medium'}}
       </small>
     </h2>
   </div>
 
-  <div class="box-footer">
-
+  <div class="box-footer"  style="clear:both;" >
+    <div class="box-tools " style="clear:both;float:left;">
 
       <span class="pull-right btn-group" style="margin-top: 7px;">
         <a href="" class="btn btn-xs btn-default" >
@@ -29,12 +29,8 @@
         </a>
       </span>
 
+    </div>
 
-    <!-- <span class="text-muted">
-      {{item.Created | date:'medium'}}
-      &middot;
-      0 rounds
-    </span> -->
   </div>
 </div>
 
