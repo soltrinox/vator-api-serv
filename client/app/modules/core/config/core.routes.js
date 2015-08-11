@@ -22,8 +22,12 @@ angular.module('com.module.core')
         url: '/x/confirm',
         templateUrl: 'modules/core/views/xconfirm.html',
         controller: 'XCtrl'
+      })
+      .state('app.x', {
+        url: '/x',
+        templateUrl: 'modules/core/views/xhome.html',
+        controller: 'XCtrl'
       });
-
     $urlRouterProvider.otherwise('/router');
 
 
