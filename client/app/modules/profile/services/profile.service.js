@@ -39,9 +39,14 @@ function($state, CoreService, Profile, User, Education, Social, WorkHistory, Inv
       cb(response);
     }, function(err) {
       console.log('!!  DATA UPSERT FAILED : '+ JSON.stringify(err));
-      CoreService.toastSuccess(gettextCatalog.getString(
-        'Error saving profile '), gettextCatalog.getString(
-        'This profile could not be saved: ') + err);
+      // CoreService.toastSuccess(gettextCatalog.getString(
+      //   'Error saving profile '), gettextCatalog.getString(
+      //   'This profile could not be saved: ') + err);
+
+      if(err.config.data && err.config.data.length > 0){
+         console.log('ERROR OBJECT: '+ JSON.stringify(err.config.data.length) );
+      }
+
     });
   };
 
