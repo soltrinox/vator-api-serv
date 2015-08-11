@@ -1040,14 +1040,15 @@ $scope.fullMeal = true;
       console.log('PROFILE MISSING BASE USER 2  $scope.currentUser -> LOG IN AGAIN' );
       $location.path('/login');
 
-    }else if(!$scope.currentUser && $rootScope.masterUser){
+    }else if(!$scope.currentUser && !$rootScope.masterUser){
       $scope.currentUser = $rootScope.masterUser;
       console.log('NO CURRENT PROFILE');
       $scope.getUserRecord($scope.currentUser.id);
       $scope.fullMeal = false;
     }else{
-      $scope.getEntireProfile($scope.currentUser.pid);
-      $scope.fullMeal = false;
+       $scope.getUserRecord($scope.currentUser.id);
+      //$scope.getEntireProfile($scope.currentUser.pid);
+      //$scope.fullMeal = false;
     }
 
     // if((!$scope.fullprofile ||   0 === $scope.fullprofile.length) && ($scope.fullMeal)){
