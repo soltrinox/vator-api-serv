@@ -988,15 +988,13 @@ header.header .logo .icon {
   margin-left: -10px;
 }
 .navbar-nav > .user-menu > .dropdown-menu > li.user-header {
-  height: 175px;
-  padding: 10px;
-  background: #B6DEE4;
+  padding: 0px;
   text-align: center;
 }
 .navbar-nav > .user-menu > .dropdown-menu > li.user-header > img {
   z-index: 5;
-  height: 90px;
-  width: 90px;
+  height: auto;
+  width: auto;
   border: 8px solid;
   border-color: transparent;
   border-color: rgba(255, 255, 255, 0.2);
@@ -1030,7 +1028,7 @@ header.header .logo .icon {
   color: #0073b7;
 }
 .navbar-nav > .user-menu > .dropdown-menu > li.user-footer {
-  background-color: rgb(182, 222, 228);
+  background-color: #f9f9f9;
   padding: 10px;
 }
 .navbar-nav > .user-menu > .dropdown-menu > li.user-footer:before,
