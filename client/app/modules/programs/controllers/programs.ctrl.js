@@ -1,6 +1,6 @@
 'use strict';
 angular.module('com.module.programs')
-  .controller('ProgramsCtrl', function($scope, $rootScope, $location, $state, $routeParams, $stateParams, CoreService,
+  .controller('ProgramsCtrl', function($scope, $rootScope, $location, $http, $state, $routeParams, $stateParams, CoreService,
     FormHelper, gettextCatalog, Program, ProgramService, Category) {
 
 
