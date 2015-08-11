@@ -24,7 +24,7 @@ angular.module('com.module.core')
         controller: 'XCtrl'
       })
       .state('app.x.confirm', {
-        url: '/app/x/confirm',
+        url: '/x/confirm',
         templateUrl: 'modules/core/views/xconfirm.html',
         controller: 'XCtrl'
       });
