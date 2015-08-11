@@ -18,14 +18,14 @@ angular.module('com.module.core')
         templateUrl: 'modules/core/views/home.html',
         controller: 'HomeCtrl'
       })
-      .state('app.x.confirm', {
-        url: '/x/confirm',
-        templateUrl: 'modules/core/views/xconfirm.html',
-        controller: 'XCtrl'
-      })
       .state('app.x', {
         url: '/x',
         templateUrl: 'modules/core/views/xhome.html',
+        controller: 'XCtrl'
+      })
+      .state('app.x.confirm', {
+        url: '/app/x/confirm',
+        templateUrl: 'modules/core/views/xconfirm.html',
         controller: 'XCtrl'
       });
     $urlRouterProvider.otherwise('/router');
