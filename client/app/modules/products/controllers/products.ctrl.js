@@ -10,7 +10,7 @@ angular.module('com.module.products')
     }
     return null;
   };
-}).controller('ProductsCtrl', function($scope, $location, $route, $http,  $rootScope,  $routeParams,$document, $filter,
+}).controller('ProductsCtrl', function($scope, $location, $route,  $rootScope,  $routeParams,$document, $filter,
   $state, $stateParams, $http, CoreService, ProfileService, gettextCatalog,
   Product, Category, User, Profile, Team, Media ) {
 
