@@ -42,10 +42,13 @@ angular.module('com.module.programs')
 
     $scope.ProgramObject = {
       Name: '',
-      Details:  '',
+      Desc : '',
+      Brief:  '',
       Image:  '',
       Owner:  '',
-      adminId : ''
+      adminId : '',
+      Cats: '',
+      Location : ''
     };
 
 
@@ -54,17 +57,35 @@ angular.module('com.module.programs')
       type: 'text',
       label: gettextCatalog.getString('Name'),
       required: true
-    }, {
-      key: 'Details',
-      type: 'hidden',
+    },
+    {
+      key: 'Brief',
+      type: 'text',
       label: gettextCatalog.getString('Details'),
       required: true
     }, {
+      key: 'Desc',
+      type: 'textarea',
+      label: gettextCatalog.getString('Description'),
+      required: true
+    }, {
       key: 'Image',
-      type: 'text',
+      type: 'hidden',
       label: gettextCatalog.getString('Image'),
       required: true
-    }];
+    },
+    {
+      key: 'Cats',
+      type: 'hidden',
+      required: true
+    },
+    {
+      key: 'Location',
+      type: 'hidden',
+      required: true
+    },
+
+  ];
 
     $scope.formOptions = {
       uniqueFormId: true,

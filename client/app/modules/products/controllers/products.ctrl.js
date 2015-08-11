@@ -88,15 +88,23 @@ angular.module('com.module.products')
             {  id : productId }, function(product) {
               console.log('SUCCESS Product.getEntireProduct:');
             $scope.CompanyRecord = product.company.details;
-            $scope.tags = product.company.details.tags;
-            $scope.teamMembers = product.company.team.members;
-            $scope.members = product.company.team.members;
-            $scope.teamDetails = product.company.team.details;
 
-            console.log('tags:' + JSON.stringify($scope.tags));
             console.log('company:' + JSON.stringify($scope.CompanyRecord));
-            console.log('teamMembers:' + JSON.stringify($scope.teamMembers));
-            console.log('teamDetails:' + JSON.stringify($scope.teamDetails));
+            if(!product.company.team || 0 === product.company.team.length){
+              product.company.team
+            }else{
+              $scope.teamMembers = product.company.team.members;
+              $scope.members = product.company.team.members;
+              $scope.teamDetails = product.company.team.details;
+              console.log('teamMembers:' + JSON.stringify($scope.teamMembers));
+              console.log('teamDetails:' + JSON.stringify($scope.teamDetails));
+            }
+
+
+            $scope.tags = product.company.details.tags;
+            console.log('tags:' + JSON.stringify($scope.tags));
+
+
 
       }, function(err) {
         console.log(err);
