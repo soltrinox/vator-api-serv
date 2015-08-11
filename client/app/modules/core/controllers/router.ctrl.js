@@ -10,19 +10,28 @@
  * @requires AppAuth
  **/
 angular.module('com.module.core')
-  .controller('RouteCtrl', function($q, $scope, $rootScope, $state, $location, AppAuth) {
+  .controller('RouteCtrl', function($q, $scope, $rootScope, $state, $location, ApiService, AppAuth) {
 
-    // is the user logged in ?
-    if (!AppAuth.currentUser) {
-      console.log('Redirect to login');
-      $location.path('/login');
-    } else {
-        if($rootScope.isXsession){
-          console.log('Redirect to vatorX');
-          $location.path('/app/x');
-        }else{
-          console.log('Redirect to vator.co');
-          $location.path('/app');
-        }
-    }
+
+    ApiService.checkConnection()
+     .then(function() {
+       console.log('ApiService.checkConnection success');
+       if (!AppAuth.currentUser) {
+         $location.path('/login');
+       } else {
+         if($rootScope.isXsession){
+           console.log('Redirect to vatorX');
+           $location.path('/app/x');
+         }else{
+           console.log('Redirect to vator.co');
+           $location.path('/app');
+         }
+       }
+     })
+     .catch(function(err) {
+       console.log('ApiService.checkConnection err: ' + err);
+       $location.path('/error');
+     });
+
+
   });

@@ -15,11 +15,11 @@ angular.module('com.module.core')
   .controller('MainCtrl', function($scope, $rootScope, $state, $location,
     CoreService, User, gettextCatalog, AppAuth) {
 
-  	AppAuth.ensureHasCurrentUser(function(user)
-      {
-        $scope.currentUser = user;
+  	// AppAuth.ensureHasCurrentUser(function(user)
+    //   {
+        $scope.currentUser = User.getCurrent();
         $rootScope.masterUser = $scope.currentUser;
-  	});
+  	// });
 
     $scope.menuoptions = $rootScope.menu;
 
