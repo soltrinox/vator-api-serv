@@ -20,7 +20,7 @@ function($state, CoreService, Profile, User, Education, Social, WorkHistory, Inv
 
   this.getProfileByUUID = function(id, cb) {
     //console.log('find by UUID : '+id);
-    var response =  Profile.find({ filter:{where: {UUID: id}}}, function(){
+    var response =  Profile.findOne({ filter:{where: {UUID: id}, limit : 1}}, function(){
       //console.log('GOT BY UUID : '+ JSON.stringify(response));
       cb(response);
     }, function(err) {
