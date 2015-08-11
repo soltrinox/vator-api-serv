@@ -362,24 +362,22 @@ angular.module('com.module.products')
 
 
           $scope.newMemberValue = function($member){
-	    $scope.members.push($member);
-            $scope.teamMembers.push($member);
-            console.log('NEW MEMBER ADDED ID: ' + $member.id  +'\n'+ JSON.stringify($scope.teamMembers) );
-            $scope.showmembers($member);
+	           $scope.members.push($member);
+             $scope.teamMembers.push($member);
+             console.log('NEW MEMBER ADDED ID: ' + $member.id  +'\n'+ JSON.stringify($scope.teamMembers) );
+             $scope.showmembers($member);
           };
 
           $scope.showmembers = function($member){
-              var found = $filter('getByName')($scope.members, $member.name);
+              var found = $filter('getByName')($scope.members, $member.Name);
               if(!found){
-                  console.log($member.name + ' NOT FOUND'  );
+                  console.log($member.Name + ' NOT FOUND'  );
               }else{
                   console.log('FOUND:' + JSON.stringify(found) +' in '+  JSON.stringify($scope.members) );
               }
-
           };
 
           $scope.onSaveMembers = function(){
-
               console.log('SUBMIT MEMBERS TO TEAM: ' +  JSON.stringify($scope.teamMembers) );
               $scope.CompanyRecord.team.members = $scope.teamMembers;
           };
