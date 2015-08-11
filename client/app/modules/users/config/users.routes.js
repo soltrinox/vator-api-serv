@@ -10,7 +10,7 @@ angular.module('com.module.users')
       .state('loginx', {
         url: '/x/login',
         template: '<loginx></loginx>',
-        controller: 'LoginCtrl'
+        controller: 'LoginCtrlx'
       })
       .state('register', {
         url: '/register',
@@ -56,4 +56,5 @@ angular.module('com.module.users')
         controller: 'UsersCtrl',
         authenticate: true
       });
+      // x
   });
