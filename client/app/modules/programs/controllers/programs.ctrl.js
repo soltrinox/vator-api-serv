@@ -215,4 +215,34 @@ $scope.getLocation = function(val) {
   };
 
 
+  // picture logo
+
+      $scope.logoImageURL = 'http://api.vator.co/uploadmedia/vatorprofilecache';
+
+
+  $scope.uploadLogo = function(files) {
+      var fd = new FormData();
+      //Take the first selected file
+      fd.append('file', files[0]);
+      console.log('FILE: '+files[0]);
+      var go = $scope.logoImageURL + '/' + $scope.currentUser.pid;
+      $http.post(go, fd, {
+          withCredentials: true,
+          dataType: 'jsonp',
+          headers: {'Content-Type': undefined },
+          transformRequest: angular.identity
+      }).success( function(response) {
+        console.log(response);
+        var imgName = response.result.name;
+        var imgURL = 'https://vator.imgix.net/'+ imgName  +'?w=200&h=200&fm=png32&fit=fill';
+        // var random = (new Date()).toString();
+
+        $scope.program.Image = imgURL ;
+      }).error(  function(err) {
+        console.log(err);
+      } );
+
+  };
+
+
   });

@@ -15,12 +15,12 @@
     <div class="row  vator_form_box ">
       <img src="{{program.Image}}" id="" class="" />
       <br/>{{program.Image}}
-      <form method="POST" target="_blank" enctype="multipart/form-data" action="http://api.vator.co/uploadprofile/vatorprofilecache">
+      <form method="POST" target="_blank" enctype="multipart/form-data" action="http://api.vator.co/uploadmedia/vatorprofilecache">
       <div class=" form-group">
         <label>Logo: <input class="form-control" type="file"
-          name="uploadedFiles" multiple="true"  onchange="angular.element(this).scope().uploadProfilePic(this.files)">
+          name="uploadedFiles" multiple="true"  onchange="angular.element(this).scope().uploadLogo(this.files)">
           <input type="hidden" name="Owner" ng-model="$scope.currentUser.pid">
-          <input type="hidden" name="Image" ng-model="$scope.program.Image">
+          <input type="hidden" name="type" value="logo">
 
       </div>  </form>
 
