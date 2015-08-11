@@ -108,6 +108,7 @@ angular.module('com.module.users')
           $location.nextAfterLogin = null;
 
           AppAuth.currentUser = $scope.loginResult.user;
+            console.log('AppAuth.currentUser: '+JSON.stringify(AppAuth.currentUser)); // => acess token
           CoreService.toastSuccess(gettextCatalog.getString('Logged in'),
             gettextCatalog.getString('You are logged in!'));
 
