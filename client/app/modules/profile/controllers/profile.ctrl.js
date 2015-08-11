@@ -544,7 +544,7 @@ $scope.teamFields = [
       }
         // go get profile or create new one....
         ProfileService.getProfileByUUID($scope.currentUser.id, function(response){
-          $scope.prettyPrint('RESPONSE getProfileByUUID : \n', response );
+          // $scope.prettyPrint('RESPONSE getProfileByUUID : \n', response );
 
           // if we can detect a correct PROFILE.ID than move forward
           // with the correct assignment and getting the full object

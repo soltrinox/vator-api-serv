@@ -22,7 +22,7 @@ function($state, CoreService, Profile, User, Education, Social, WorkHistory, Inv
     //console.log('find by UUID : '+id);
     var response =  Profile.find({ filter:{where: {UUID: id}, limit : 1}}, function(){
       //console.log('GOT BY UUID : '+ JSON.stringify(response));
-      cb(response);
+      cb( response );
     }, function(err) {
         console.log('NO PROFILE WITH UUID : '+ JSON.stringify(id));
         cb(response);
@@ -32,18 +32,13 @@ function($state, CoreService, Profile, User, Education, Social, WorkHistory, Inv
 
   this.upsertProfile = function(profile, cb) {
     var response = Profile.upsert(profile, function() {
-      CoreService.toastSuccess(gettextCatalog.getString(
-        'Profile saved'), gettextCatalog.getString(
-        'Your profile is safe with us!'));
-        //console.log('DATA UPSERT : '+JSON.stringify(response));
+      // CoreService.toastSuccess(gettextCatalog.getString(
+      //   'Profile saved'), gettextCatalog.getString(
+      //   'Your profile is safe with us!'));
+      //console.log('DATA UPSERT : '+JSON.stringify(response));
       cb(response);
     }, function(err) {
-
-      console.log('ERROR OBJECT: '+ JSON.stringify( err.config.data ) );
-      // if(err.config.data && err.config.data.length > 0){
-      //    console.log('ERROR OBJECT: '+ JSON.stringify(err.config.data.length) );
-      // }
-
+      console.log('ERROR OBJECT: '+ JSON.stringify( err ) );
     });
   };
 
