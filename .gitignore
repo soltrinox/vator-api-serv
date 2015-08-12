@@ -5,6 +5,9 @@ downloaded
 docular_generated
 .idea/
 storage/
+node_modules/
+node_modules/bower/
+node_modules/bower/*
 node_modules/*
 .strong-pm
 .sass-cache
