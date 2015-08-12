@@ -34,6 +34,14 @@ li a {
   color: #555;
 }
 
+.custom-latest-list{
+  color : white;
+}
+
+.custom-latest-heading{
+  color:white;
+}
+
 a {
   color: #72c02c;
   text-decoration: none;
