@@ -28,9 +28,11 @@ angular.module('com.module.users')
             $rootScope.isXsession  = true;
             console.log('IS XSESSION');
             $location.search('t', null);
-            if('cc' === nn){
+            if(nn  === 'cc'){
+              console.log('IS XSESSION');
                $rootScope.goLocation = '/app/programs/add';
                $location.search('n', null);
+               $location.search('t', null);
             }
         }else{
           $rootScope.isXsession  = false;
