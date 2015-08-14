@@ -745,6 +745,7 @@ $scope.onSubmitInvest = function() {
     }
 
     // TODO: get the value for the companyId
+    // secondary lookup
     //   add it to to the $scope.InvestorRecord
 
     if(!$scope.currentUser.pid || 0 ===  $scope.currentUser.pid.length){
