@@ -30,7 +30,7 @@ angular.module('com.module.core')
           function() {
             $rootScope.isXsession = true;
             $rootScope.masterUser = $scope.currentUser;
-            $route.reload();
+            // $route.reload();
             CoreService.alert('Welcome to vatorX!');
             $location.path('/app/x');
           },
