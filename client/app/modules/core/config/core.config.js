@@ -16,17 +16,17 @@ app.run(function($rootScope, Setting, gettextCatalog) {
 
   // Add Menu Dashboard
 
-    if($rootScope.isXsession){
-        
-    }else{
-
-    }
-
     $rootScope.addMenu(gettextCatalog.getString('vatorCO'), 'app.home',
       'fa-dashboard');
 
-    $rootScope.addMenu(gettextCatalog.getString('vatorX'), 'app.x',
-      'fa-cog');
+
+
+      if($rootScope.isXsession){
+        $rootScope.addMenu(gettextCatalog.getString('vatorX'), 'app.x',
+          'fa-cog');
+      }else{
+
+      }
 
   // Dashboard
   $rootScope.dashboardBox = [];
