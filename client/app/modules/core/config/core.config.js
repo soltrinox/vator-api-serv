@@ -9,7 +9,7 @@ app.run(function($rootScope, Setting, gettextCatalog) {
   $rootScope.addMenu = function(name, uisref, icon) {
 
     if($rootScope.isXsession){
-      if('app.products.list'=== uisref){
+      if(uisref === 'app.products.list' ){
       }else{
         $rootScope.menu.push({
           name: name,
@@ -17,7 +17,12 @@ app.run(function($rootScope, Setting, gettextCatalog) {
           icon: icon
         });
       }
-
+    }else{
+      $rootScope.menu.push({
+        name: name,
+        sref: uisref,
+        icon: icon
+      });
     }
   };
 
