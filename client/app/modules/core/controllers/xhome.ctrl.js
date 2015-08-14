@@ -18,7 +18,7 @@ angular.module('com.module.core')
             // console.log('CURRENT USER' + JSON.stringify($scope.currentUser));
         }
 
-        // $route.reload();
+        $route.reload();
     });
 
     $scope.confirmXUpgrade = function(){
