@@ -26,6 +26,7 @@ angular.module('com.module.users')
         if(tt === 'x'){
             $rootScope.isXsession  = true;
             console.log('IS XSESSION');
+            $location.search('t', null);
         }
     });
 
