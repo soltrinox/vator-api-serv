@@ -26,12 +26,12 @@ angular.module('com.module.core')
       CoreService.confirm('Join vatorX', 'Terms and policy agreement here',
         function() {
           $scope.currentUser.vatorX = 'valid';
-          $scope.currentUser = User.save($scope.currentUser,
+          $scope.currentUser.save($scope.currentUser,
           function() {
             $rootScope.isXsession = true;
             $rootScope.masterUser = $scope.currentUser;
             $route.reload();
-            CoreService.alert('You agree!');
+            CoreService.alert('Welcome to vatorX!');
             $location.path('/app/x');
           },
           function(res) {
