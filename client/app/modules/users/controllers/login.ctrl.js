@@ -24,8 +24,8 @@ angular.module('com.module.users')
     }else{
       console.log('RT PARAMS: ' + JSON.stringify($location.search()) );
       var queryString = $location.search();
-      if(!queryString.t || 0 === queryString.t.length){
-        if(queryString.t === 'x'){
+      if(!$location.search().t || 0 === $location.search().t.length){
+        if($location.search().t === 'x'){
           $rootScope.isXsession  = true;
           console.log('IS XSESSION');
         }
