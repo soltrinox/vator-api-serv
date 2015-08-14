@@ -32,7 +32,7 @@ angular.module('com.module.core')
             $rootScope.masterUser = $scope.currentUser;
              $route.reload();
             CoreService.alert('Welcome to vatorX!');
-            $location.path('/app/x');
+            window.location = '/#/app/x';
           },
           function(res) {
             CoreService.toastError(gettextCatalog.getString(
