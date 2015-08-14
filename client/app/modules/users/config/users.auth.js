@@ -18,9 +18,9 @@ angular.module('com.module.users')
               if ($location.path() !== '/register') {
                 $location.path('/login');
               }
-              CoreService.toastWarning('Error 401 received',
-                'We received a 401 error from the API! Redirecting to login'
-              );
+              // CoreService.toastWarning('Error 401 received',
+              //   'We received a 401 error from the API! Redirecting to login'
+              // );
             }
           }
           if (rejection.status === 404) {

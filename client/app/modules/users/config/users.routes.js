@@ -12,6 +12,11 @@ angular.module('com.module.users')
         template: '<loginx></loginx>',
         controller: 'LoginCtrlx'
       })
+      .state('registerx', {
+        url: '/x/register',
+        template: '<registerx></registerx>',
+        controller: 'RegisterCtrlx'
+      })
       .state('register', {
         url: '/register',
         template: '<register></register>',
