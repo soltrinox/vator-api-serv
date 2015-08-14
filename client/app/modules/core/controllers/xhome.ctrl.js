@@ -26,7 +26,7 @@ angular.module('com.module.core')
       CoreService.confirm('Join vatorX', 'Terms and policy agreement here',
         function() {
           $scope.currentUser.vatorX = 'valid';
-          $scope.currentUser.save($scope.currentUser,
+          $scope.current = User.upsert($scope.currentUser,
           function() {
             $rootScope.isXsession = true;
             $rootScope.masterUser = $scope.currentUser;
