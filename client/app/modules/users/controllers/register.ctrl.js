@@ -21,12 +21,15 @@ angular.module('com.module.users')
 
 
     $scope.$on('$viewContentLoaded', function(){
-        console.log('RT PARAMS: ' + JSON.stringify($location.search()) );
+        // console.log('RT PARAMS: ' + JSON.stringify($location.search()) );
         var tt = $location.search().t;
         if(tt === 'x'){
             $rootScope.isXsession  = true;
             console.log('IS XSESSION');
             $location.search('t', null);
+        }else{
+          $rootScope.isXsession  = false;
+          console.log('NOT XSESSION');
         }
     });
 
@@ -142,7 +145,7 @@ angular.module('com.module.users')
                 'Registered'), gettextCatalog.getString(
                 'You are registered!'));
 
-                var go = '/';
+                var go = '/app/myprofile';
                 if($rootScope.isXsession){
                   go = '/app/x'
                 }
