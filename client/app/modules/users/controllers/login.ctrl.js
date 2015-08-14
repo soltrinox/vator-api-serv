@@ -19,7 +19,7 @@ angular.module('com.module.users')
       rememberMe: true
     };
 
-    console.log('RT PARAMS: %j', $routeParams);
+    console.log('RT PARAMS: ' + JSON.stringify($routeParams) );
 
     $scope.buttoncolors = ['default','primary','danger','basic', 'info'];
 

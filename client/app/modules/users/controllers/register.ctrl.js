@@ -19,7 +19,7 @@ angular.module('com.module.users')
       password: ''
     };
 
-      console.log('RT PARAMS: %j', $routeParams);
+    console.log('RT PARAMS: ' + JSON.stringify($routeParams) );
 
     $scope.schema = [{
         label: '',
