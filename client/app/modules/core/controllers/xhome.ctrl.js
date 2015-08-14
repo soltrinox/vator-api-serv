@@ -7,7 +7,7 @@
  * @requires $rootScope
  **/
 angular.module('com.module.core')
-  .controller('XCtrl', function($scope, $route, $rootScope, CoreService, User, gettextCatalog) {
+  .controller('XCtrl', function($scope, $route, $rootScope, CoreService, $location, User, gettextCatalog) {
 
     $scope.count = {};
 
@@ -23,14 +23,16 @@ angular.module('com.module.core')
 
     $scope.confirmXUpgrade = function(){
 
-      CoreService.confirm('This is an agreement', 'So do you agree?',
+      CoreService.confirm('Join vatorX', 'Terms and policy agreement here',
         function() {
           $scope.currentUser.vatorX = 'valid';
           $scope.currentUser = User.save($scope.currentUser,
           function() {
             $rootScope.isXsession = true;
             $rootScope.masterUser = $scope.currentUser;
+            $route.reload();
             CoreService.alert('You agree!');
+            $location.path('/app/x');
           },
           function(res) {
             CoreService.toastError(gettextCatalog.getString(
@@ -41,6 +43,7 @@ angular.module('com.module.core')
         },
         function() {
           CoreService.alert('You don\'t agree!');
+          $location.path('/app');
         });
     };
 
