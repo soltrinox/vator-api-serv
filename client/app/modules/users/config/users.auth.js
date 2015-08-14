@@ -1,6 +1,6 @@
 'use strict';
 angular.module('com.module.users')
-  .config(function($routeProvider, $httpProvider) {
+  .config(function($routeProvider, $rootScope, $httpProvider) {
 
     // Intercept 401 responses and redirect to login screen
     $httpProvider.interceptors.push(function($q, $location, CoreService) {
@@ -12,7 +12,19 @@ angular.module('com.module.users')
             $location.nextAfterLogin = $location.path();
 
             if ($location.path() === '/router' || $location.path() ===
-              '/login') {
+              '/x/login' ) {
+              console.log('401 while on router on login path');
+            } else {
+              if ($location.path() !== '/x/register') {
+                $location.path('/x/login');
+              }
+              // CoreService.toastWarning('Error 401 received',
+              //   'We received a 401 error from the API! Redirecting to login'
+              // );
+            }
+
+            if ($location.path() === '/router' || $location.path() ===
+              '/login' ) {
               console.log('401 while on router on login path');
             } else {
               if ($location.path() !== '/register') {
