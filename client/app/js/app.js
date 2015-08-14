@@ -96,6 +96,7 @@ angular.module('loopbackApp', [
     $rootScope.masterUser = {};
 
     $rootScope.isXsession = false;
+    $rootScope.goLocation = '';
 
     if ($rootScope.locale === undefined) {
       $rootScope.locale = $rootScope.locales[lang];

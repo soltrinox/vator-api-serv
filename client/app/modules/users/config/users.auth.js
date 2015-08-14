@@ -12,27 +12,15 @@ angular.module('com.module.users')
             $location.nextAfterLogin = $location.path();
 
             if ($location.path() === '/router' || $location.path() ===
-              '/x/login' ) {
-              console.log('401 while on router on login path');
-            } else {
-              if ($location.path() !== '/x/register') {
-                $location.path('/x/login');
-              }
-              // CoreService.toastWarning('Error 401 received',
-              //   'We received a 401 error from the API! Redirecting to login'
-              // );
-            }
-
-            if ($location.path() === '/router' || $location.path() ===
               '/login' ) {
               console.log('401 while on router on login path');
             } else {
               if ($location.path() !== '/register') {
+                CoreService.toastWarning('Error 401 received',
+                  'We received a 401 error from the API! Redirecting to login'
+                );
                 $location.path('/login');
               }
-              // CoreService.toastWarning('Error 401 received',
-              //   'We received a 401 error from the API! Redirecting to login'
-              // );
             }
           }
           if (rejection.status === 404) {

@@ -23,10 +23,15 @@ angular.module('com.module.users')
     $scope.$on('$viewContentLoaded', function(){
         // console.log('RT PARAMS: ' + JSON.stringify($location.search()) );
         var tt = $location.search().t;
+        var nn = $location.search().n;
         if(tt === 'x'){
             $rootScope.isXsession  = true;
             console.log('IS XSESSION');
             $location.search('t', null);
+            if('cc' === nn){
+               $rootScope.goLocation = '/app/programs/add';
+               $location.search('n', null);
+            }
         }else{
           $rootScope.isXsession  = false;
           console.log('NOT XSESSION');
@@ -147,7 +152,12 @@ angular.module('com.module.users')
 
                 var go = '/app/myprofile';
                 if($rootScope.isXsession){
-                  go = '/app/x'
+                  if($rootScope.goLocation !== ''){
+                    go = $rootScope.goLocation;
+                    $rootScope.goLocation = '';
+                  }else{
+                    go = '/app/x';
+                  }
                 }
                 $location.path(go);
 
