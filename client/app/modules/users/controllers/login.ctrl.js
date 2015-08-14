@@ -30,6 +30,7 @@ angular.module('com.module.users')
           $rootScope.isXsession  = false;
           console.log('NOT XSESSION');
         }
+
     });
 
 

@@ -7,19 +7,24 @@ app.run(function($rootScope, Setting, gettextCatalog) {
 
   // Add Sidebar Menu
   $rootScope.addMenu = function(name, uisref, icon) {
-    $rootScope.menu.push({
-      name: name,
-      sref: uisref,
-      icon: icon
-    });
+
+    if($rootScope.isXsession){
+      if('app.products.list'=== uisref){
+      }else{
+        $rootScope.menu.push({
+          name: name,
+          sref: uisref,
+          icon: icon
+        });
+      }
+
+    }
   };
 
   // Add Menu Dashboard
 
     $rootScope.addMenu(gettextCatalog.getString('vatorCO'), 'app.home',
       'fa-dashboard');
-
-
 
       if($rootScope.isXsession){
         $rootScope.addMenu(gettextCatalog.getString('vatorX'), 'app.x',
