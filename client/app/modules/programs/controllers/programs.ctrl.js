@@ -82,27 +82,27 @@ angular.module('com.module.programs')
       key: 'Brief',
       type: 'text',
       label: gettextCatalog.getString('Short Description'),
-      required: true
+      required: false
     }, {
       key: 'Desc',
-      type: 'textarea',
+      type: 'hidden',
       label: gettextCatalog.getString('Long Description'),
-      required: true
+      required: false
     }, {
       key: 'Image',
       type: 'hidden',
       label: gettextCatalog.getString('Image'),
-      required: true
+      required: false
     },
     {
       key: 'Cats',
       type: 'hidden',
-      required: true
+      required: false
     },
     {
       key: 'Location',
       type: 'hidden',
-      required: true
+      required: false
     },
 
   ];

@@ -7,7 +7,7 @@
  * @requires $rootScope
  **/
 angular.module('com.module.core')
-  .controller('XCtrl', function($scope, $rootScope) {
+  .controller('XCtrl', function($scope, $route, $rootScope) {
 
     $scope.count = {};
 
@@ -17,6 +17,8 @@ angular.module('com.module.core')
         if($scope.currentUser){
             // console.log('CURRENT USER' + JSON.stringify($scope.currentUser));
         }
+
+        // $route.reload();
     });
 
   });

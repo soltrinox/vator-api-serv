@@ -137,12 +137,29 @@ angular.module('com.module.users')
 
     $scope.confirmPassword = '';
 
+    $scope.basicConfirm = function() {
+      CoreService.confirm('vatorX Terms and Policy', 'Text goes here',
+        function() {
+          CoreService.alert('Welcome to vatorX');
+        },
+        function() {
+          CoreService.alert('You don\'t agree!');
+        });
+    };
+
     $scope.register = function() {
 
-      $scope.registration.username = $scope.registration.email;
-      delete $scope.registration.confirmPassword;
-      $scope.user = User.save($scope.registration,
+      CoreService.confirm('This is an agreement', 'Terms and Policy here',
         function() {
+          // sett he x flag
+          if($rootScope.isXsession){
+            $scope.registration.vatorX = 'valid';
+          }
+
+          $scope.registration.username = $scope.registration.email;
+          delete $scope.registration.confirmPassword;
+          $scope.user = User.save($scope.registration,
+          function() {
 
           $scope.loginResult = User.login({
               include: 'user',
@@ -157,6 +174,7 @@ angular.module('com.module.users')
               CoreService.toastSuccess(gettextCatalog.getString(
                 'Registered'), gettextCatalog.getString(
                 'You are registered!'));
+                CoreService.alert('Welcome to vatorX');
 
                 var go = '/app/myprofile';
                 if($rootScope.isXsession){
@@ -178,13 +196,21 @@ angular.module('com.module.users')
             }
           );
 
-        },
-        function(res) {
+          },
+          function(res) {
           CoreService.toastError(gettextCatalog.getString(
             'Error registering!'), res.data.error.message);
           $scope.registerError = res.data.error;
-        }
-      );
+          }
+          );
+
+        },
+        function() {
+          CoreService.alert('You don\'t agree');
+          $location.path('/');
+        });
+
+
     };
 
   })
