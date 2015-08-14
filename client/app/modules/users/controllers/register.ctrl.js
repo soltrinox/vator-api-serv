@@ -34,9 +34,15 @@ angular.module('com.module.users')
                $location.search('n', null);
                $location.search('t', null);
             }
+
         }else{
           $rootScope.isXsession  = false;
           console.log('NOT XSESSION');
+          if(nn === 'ss'){
+            $rootScope.goLocation = '/app/products/add/55ba9286966a114937493efe';
+            $location.search('n', null);
+            $location.search('t', null);
+          }
         }
     });
 
