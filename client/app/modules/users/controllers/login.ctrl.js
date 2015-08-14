@@ -19,7 +19,19 @@ angular.module('com.module.users')
       rememberMe: true
     };
 
-    console.log('RT PARAMS: ' + JSON.stringify($location.search()) );
+    if(!$location.search() || 0 === $location.search().length){
+
+    }else{
+      console.log('RT PARAMS: ' + JSON.stringify($location.search()) );
+      var queryString = $location.search();
+      if(!queryString.t || 0 === queryString.t.length){
+        if(queryString.t === 'x'){
+          $rootScope.isXsession  = true;
+          console.log('IS XSESSION');
+        }
+      }
+    }
+
 
     $scope.buttoncolors = ['default','primary','danger','basic', 'info'];
 
@@ -105,6 +117,9 @@ angular.module('com.module.users')
           // https://s3.amazonaws.com/vatorprofilecache/profile.png
 
           var go = '/app/myprofile';
+          if($rootScope.isXsession){
+            go = '/app/x';
+          }
           var next = $location.nextAfterLogin || go;
 
           $location.nextAfterLogin = null;
@@ -115,6 +130,8 @@ angular.module('com.module.users')
             gettextCatalog.getString('You are logged in!'));
 
           if (next === '/login') {
+            next = go;
+          }else if(next === '/x/login'){
             next = go;
           }
 

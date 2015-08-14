@@ -9,7 +9,7 @@
  * Controller for Register Page
  **/
 angular.module('com.module.users')
-  .controller('RegisterCtrl', function($scope, $routeParams, $location, $filter,
+  .controller('RegisterCtrl', function($scope, $rootScope, $routeParams, $location, $filter,
     CoreService, ProfileService, Profile, User, AppAuth, gettextCatalog) {
 
     $scope.registration = {
@@ -19,7 +19,18 @@ angular.module('com.module.users')
       password: ''
     };
 
-    console.log('RT PARAMS: ' + JSON.stringify($location.search()) );
+    if(!$location.search() || 0 === $location.search().length){
+
+    }else{
+      console.log('RT PARAMS: ' + JSON.stringify($location.search()) );
+      var queryString = $location.search();
+      if(!queryString.t || 0 === queryString.t.length){
+        if(queryString.t === 'x'){
+          $rootScope.isXsession  = true;
+          console.log('IS XSESSION');
+        }
+      }
+    }
 
     $scope.schema = [{
         label: '',
@@ -130,7 +141,13 @@ angular.module('com.module.users')
               CoreService.toastSuccess(gettextCatalog.getString(
                 'Registered'), gettextCatalog.getString(
                 'You are registered!'));
-              $location.path('/');
+
+                var go = '/';
+                if($rootScope.isXsession){
+                  go = '/app/x'
+                }
+                $location.path(go);
+
             },
             function(res) {
               CoreService.toastWarning(gettextCatalog.getString(
