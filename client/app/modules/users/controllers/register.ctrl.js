@@ -21,16 +21,12 @@ angular.module('com.module.users')
 
 
     $scope.$on('$viewContentLoaded', function(){
-      if(!$location.search() || 0 === $location.search().length){
-        console.log('STANDARD SESSION');
-      }else{
         console.log('RT PARAMS: ' + JSON.stringify($location.search()) );
         var tt = $location.search().t;
         if(tt === 'x'){
             $rootScope.isXsession  = true;
             console.log('IS XSESSION');
         }
-      }
     });
 
 
