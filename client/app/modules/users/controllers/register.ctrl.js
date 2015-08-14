@@ -19,6 +19,8 @@ angular.module('com.module.users')
       password: ''
     };
 
+      console.log('RT PARAMS: %j', $routeParams);
+
     $scope.schema = [{
         label: '',
         property: 'firstName',
@@ -121,7 +123,7 @@ angular.module('com.module.users')
             }, $scope.registration,
             function() {
               AppAuth.currentUser = $scope.loginResult.user;
-              
+
               // TODO: set default user profilePic
               // https://s3.amazonaws.com/vatorprofilecache/profile.png
 

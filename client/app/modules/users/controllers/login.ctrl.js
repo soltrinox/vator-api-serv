@@ -19,6 +19,8 @@ angular.module('com.module.users')
       rememberMe: true
     };
 
+    console.log('RT PARAMS: %j', $routeParams);
+
     $scope.buttoncolors = ['default','primary','danger','basic', 'info'];
 
     if (CoreService.env.name === 'development') {
