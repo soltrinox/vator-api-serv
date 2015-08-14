@@ -23,7 +23,8 @@ angular.module('com.module.users')
 
     }else{
       console.log('RT PARAMS: ' + JSON.stringify($location.search()) );
-      var queryString = $location.search();
+      var tt = $location.search().t;
+      console.log('tt: '+tt);
       if(!$location.search().t || 0 === $location.search().t.length){
         if($location.search().t === 'x'){
           $rootScope.isXsession  = true;
