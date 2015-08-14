@@ -231,7 +231,7 @@ $scope.workFields =[
     label: 'Start Date',
     id : 'work-datestart',
     uniqueFormId : 'work-datestart-box',
-    required: true
+    required: false
   }, {
     key: 'dateend',
     type: 'date',
@@ -269,7 +269,7 @@ $scope.investFields =
       id : 'invest-date',
       uniqueFormId : 'invest-date-box',
       label: 'Date',
-      required: true
+      required: false
     },{
       key: 'roundtotal',
       type: 'text',
@@ -546,7 +546,7 @@ $scope.teamFields = [
 
           // if we can detect a correct PROFILE.ID than move forward
           // with the correct assignment and getting the full object
-          
+
 	if(!response || 0 === response.length){
             $scope.prettyPrint('RESPONSE getProfileByUUID FAILED : \n', response );
             // $scope.prettyPrint('CURRENT.USER : ',$scope.currentUser );
@@ -736,6 +736,13 @@ $scope.onSubmitInvest = function() {
     $scope.prettyPrint('$scope.InvestorRecord : ',$scope.WorkRecord );
     $scope.InvestorRecord.profileId =  $scope.fullprofile.user.id;
     $scope.InvestorRecord.companyname =  $scope.workLookUp;
+
+    if(!$scope.InvestorRecord.date || 0 ===  $scope.InvestorRecord.date.length){
+      delete $scope.InvestorRecord.date;
+    }
+    if(!$scope.InvestorRecord.exitdate || 0 ===  $scope.InvestorRecord.exitdate.length){
+      delete $scope.InvestorRecord.exitdate;
+    }
 
     // TODO: get the value for the companyId
     //   add it to to the $scope.InvestorRecord
