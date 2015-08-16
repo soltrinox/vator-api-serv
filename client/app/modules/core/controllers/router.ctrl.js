@@ -12,7 +12,6 @@
 angular.module('com.module.core')
   .controller('RouteCtrl', function($q, $scope, $rootScope, $state, $location, ApiService, AppAuth) {
 
-
     ApiService.checkConnection()
      .then(function() {
        console.log('ApiService.checkConnection success');

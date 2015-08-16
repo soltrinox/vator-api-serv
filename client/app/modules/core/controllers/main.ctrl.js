@@ -15,14 +15,9 @@ angular.module('com.module.core')
   .controller('MainCtrl', function($scope, $rootScope, $state, $location,
     CoreService, User, gettextCatalog, AppAuth) {
 
-      console.log('MAIN XSESS:' + $rootScope.isXsession);
 
-  	// AppAuth.ensureHasCurrentUser(function(user)
-    //   {
-        $scope.currentUser = User.getCurrent();
-        $rootScope.masterUser = $scope.currentUser;
-  	// });
-
+    $scope.currentUser = User.getCurrent();
+    $rootScope.masterUser = $scope.currentUser;
     $scope.menuoptions = $rootScope.menu;
 
     $scope.logout = function() {
@@ -55,26 +50,27 @@ angular.module('com.module.core')
 
 
     $scope.$on('$viewContentLoaded', function(){
-
         if(!$rootScope.ranMenu){
-            console.log('CURRENT USER' + JSON.stringify($scope.currentUser));
-            $rootScope.addMenu(gettextCatalog.getString('vatorCO'), 'app.home',
-              'fa-dashboard');
 
               if($rootScope.isXsession){
                 console.log('MENU:' + JSON.stringify($rootScope.menu));
-                $rootScope.addMenu(gettextCatalog.getString('vatorX'), 'app.x',
+                $rootScope.addMenu(gettextCatalog.getString('Dashboard'), 'app.x',
                   'fa-dashboard');
+                $rootScope.addMenu(gettextCatalog.getString('Programs'), 'app.programs.list',
+                    'fa-star');
+                $rootScope.addMenu(gettextCatalog.getString('Activity'), 'app.x',
+                          'fa-check');
+                $rootScope.addMenu(gettextCatalog.getString('Profile'), 'app.myprofile.list',
+                          'fa-user');
               }else{
+                $rootScope.addMenu(gettextCatalog.getString('Dashboard'), 'app.home',
+                  'fa-dashboard');
+                $rootScope.addMenu(gettextCatalog.getString('Company'),
+                    'app.products.list', 'fa-bank');
+                $rootScope.addMenu(gettextCatalog.getString('Profile'), 'app.myprofile.list',
+                      'fa-user');
               }
-
-              $rootScope.addMenu(gettextCatalog.getString('Programs'), 'app.programs.list',
-                'fa-star');
-              $rootScope.addMenu(gettextCatalog.getString('Company'),
-                  'app.products.list', 'fa-bank');
-              $rootScope.addMenu(gettextCatalog.getString('Profile'), 'app.myprofile.list',
-                    'fa-user');
-                    $rootScope.ranMenu = true;
+              $rootScope.ranMenu = true;
         }
     });
 
