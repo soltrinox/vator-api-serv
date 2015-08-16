@@ -15,7 +15,7 @@ angular.module('com.module.core')
   .controller('MainCtrl', function($scope, $rootScope, $state, $location,
     CoreService, User, gettextCatalog, AppAuth) {
 
-
+    $scope.AppName = $rootScope.siteVersion;
     $scope.currentUser = User.getCurrent();
     $rootScope.masterUser = $scope.currentUser;
     $scope.menuoptions = $rootScope.menu;
@@ -50,7 +50,7 @@ angular.module('com.module.core')
 
 
     $scope.$on('$viewContentLoaded', function(){
-
+        $scope.AppName = $rootScope.siteVersion;
     });
 
   });

@@ -1,7 +1,6 @@
 'use strict';
 var app = angular.module('com.module.core');
-app.run(function($rootScope, Setting, gettextCatalog) {
-console.log('XSESSION: ' + $rootScope.isXsession);
+app.run(function( Setting, gettextCatalog) {
   // Left Sidemenu
 
 
