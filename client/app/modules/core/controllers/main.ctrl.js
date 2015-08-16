@@ -56,8 +56,23 @@ angular.module('com.module.core')
     $scope.$on('$viewContentLoaded', function(){
 
         if($scope.currentUser){
-
             console.log('CURRENT USER' + JSON.stringify($scope.currentUser));
+            $rootScope.addMenu(gettextCatalog.getString('vatorCO'), 'app.home',
+              'fa-dashboard');
+
+              if($rootScope.isXsession){
+                console.log('MENU:' + JSON.stringify($rootScope.menu));
+                $rootScope.addMenu(gettextCatalog.getString('vatorX'), 'app.x',
+                  'fa-dashboard');
+              }else{
+              }
+
+              $rootScope.addMenu(gettextCatalog.getString('Programs'), 'app.programs.list',
+                'fa-star');
+              $rootScope.addMenu(gettextCatalog.getString('Company'),
+                  'app.products.list', 'fa-bank');
+              $rootScope.addMenu(gettextCatalog.getString('Profile'), 'app.myprofile.list',
+                    'fa-user');
         }
     });
 
