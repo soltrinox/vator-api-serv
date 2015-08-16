@@ -1,14 +1,14 @@
 'use strict';
 var app = angular.module('com.module.core');
 app.run(function($rootScope, Setting, gettextCatalog) {
-
+console.log('XSESSION: ' + $rootScope.isXsession);
   // Left Sidemenu
   $rootScope.menu = [];
 
   // Add Sidebar Menu
   $rootScope.addMenu = function(name, uisref, icon) {
     console.log('MENU:' + JSON.stringify($rootScope.menu));
-    console.log('XSESSION: ' + $rootScope.isXsession);
+    
       $rootScope.menu.push({
         name: name,
         sref: uisref,

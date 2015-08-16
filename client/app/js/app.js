@@ -53,6 +53,11 @@ angular.module('loopbackApp', [
 
   }]).run(function($rootScope, $cookies, gettextCatalog) {
 
+    $rootScope.masterUser = {};
+    $rootScope.isXsession = false;
+    $rootScope.goLocation = '';
+
+
     $rootScope.locales = {
 
       'en': {
@@ -93,10 +98,7 @@ angular.module('loopbackApp', [
 
     $rootScope.locale = $rootScope.locales[lang];
 
-    $rootScope.masterUser = {};
 
-    $rootScope.isXsession = false;
-    $rootScope.goLocation = '';
 
     if ($rootScope.locale === undefined) {
       $rootScope.locale = $rootScope.locales[lang];
