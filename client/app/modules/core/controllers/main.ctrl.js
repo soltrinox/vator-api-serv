@@ -50,6 +50,9 @@ angular.module('com.module.core')
 
 
     $scope.$on('$viewContentLoaded', function(){
+      if(  $rootScope.isXsession === undefined){
+        // re run til defined
+      }else{
         if(!$rootScope.ranMenu){
 
               if($rootScope.isXsession){
@@ -72,6 +75,8 @@ angular.module('com.module.core')
               }
               $rootScope.ranMenu = true;
         }
+
+      }
     });
 
   });
