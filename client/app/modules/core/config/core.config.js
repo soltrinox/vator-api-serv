@@ -3,33 +3,7 @@ var app = angular.module('com.module.core');
 app.run(function($rootScope, Setting, gettextCatalog) {
 console.log('XSESSION: ' + $rootScope.isXsession);
   // Left Sidemenu
-  $rootScope.menu = [];
 
-  // Add Sidebar Menu
-  $rootScope.addMenu = function(name, uisref, icon) {
-    console.log('MENU:' + JSON.stringify($rootScope.menu));
-    
-      $rootScope.menu.push({
-        name: name,
-        sref: uisref,
-        icon: icon
-      });
-  };
-
-  // Add Menu Dashboard
-
-    $rootScope.addMenu(gettextCatalog.getString('vatorCO'), 'app.home',
-      'fa-dashboard');
-
-      if($rootScope.isXsession){
-
-        console.log('MENU:' + JSON.stringify($rootScope.menu));
-
-        $rootScope.addMenu(gettextCatalog.getString('vatorX'), 'app.x',
-          'fa-cog');
-      }else{
-
-      }
 
   // Dashboard
   $rootScope.dashboardBox = [];
