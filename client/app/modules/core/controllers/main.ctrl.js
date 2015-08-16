@@ -15,6 +15,8 @@ angular.module('com.module.core')
   .controller('MainCtrl', function($scope, $rootScope, $state, $location,
     CoreService, User, gettextCatalog, AppAuth) {
 
+      console.log('MAIN XSESS:' + $rootScope.isXsession);
+
   	// AppAuth.ensureHasCurrentUser(function(user)
     //   {
         $scope.currentUser = User.getCurrent();
@@ -49,5 +51,14 @@ angular.module('com.module.core')
       });
       user = null;
     };
+
+
+    $scope.$on('$viewContentLoaded', function(){
+
+        if($scope.currentUser){
+
+            console.log('CURRENT USER' + JSON.stringify($scope.currentUser));
+        }
+    });
 
   });
