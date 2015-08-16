@@ -47,8 +47,6 @@ angular.module('com.module.core')
       user = null;
     };
 
-
-
     $scope.$on('$viewContentLoaded', function(){
         $scope.AppName = $rootScope.siteVersion;
     });

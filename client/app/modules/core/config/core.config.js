@@ -1,6 +1,6 @@
 'use strict';
 var app = angular.module('com.module.core');
-app.run(function( Setting, gettextCatalog) {
+app.run(function($rootScope, Setting, gettextCatalog) {
   // Left Sidemenu
 
 
