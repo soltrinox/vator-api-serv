@@ -198,9 +198,14 @@ angular.module('com.module.users')
 
           },
           function(res) {
-          CoreService.toastError(gettextCatalog.getString(
-            'Error registering!'), res.data.error.message);
-          $scope.registerError = res.data.error;
+            CoreService.toastError(gettextCatalog.getString(
+              'Error registering!'), res.data.error.message);
+            for(message in res.data.errordetails.messages){
+              console.log('REGISTER ERROR MESSAGE: \n '+JSON.stringify(message));
+            }
+
+
+
           }
           );
 
