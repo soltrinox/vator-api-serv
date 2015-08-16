@@ -76,7 +76,6 @@ angular.module('loopbackApp', [
         'fa-dashboard');
 
         if($rootScope.isXsession){
-
           console.log('MENU:' + JSON.stringify($rootScope.menu));
 
           $rootScope.addMenu(gettextCatalog.getString('vatorX'), 'app.x',
@@ -87,12 +86,9 @@ angular.module('loopbackApp', [
 
         $rootScope.addMenu(gettextCatalog.getString('Programs'), 'app.programs.list',
           'fa-star');
-
-          $rootScope.addMenu(gettextCatalog.getString('Company'),
+        $rootScope.addMenu(gettextCatalog.getString('Company'),
             'app.products.list', 'fa-bank');
-
-
-          $rootScope.addMenu(gettextCatalog.getString('Profile'), 'app.myprofile.list',
+        $rootScope.addMenu(gettextCatalog.getString('Profile'), 'app.myprofile.list',
               'fa-user');
 
 
