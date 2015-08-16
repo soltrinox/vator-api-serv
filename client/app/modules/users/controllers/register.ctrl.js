@@ -200,7 +200,7 @@ angular.module('com.module.users')
           function(res) {
             CoreService.toastError(gettextCatalog.getString(
               'Error registering!'), res.data.error.message);
-            for(message in res.data.errordetails.messages){
+            for(message in res.data.error.details.messages){
               console.log('REGISTER ERROR MESSAGE: \n '+JSON.stringify(message));
             }
 
