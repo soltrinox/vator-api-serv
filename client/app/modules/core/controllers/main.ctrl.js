@@ -52,11 +52,11 @@ angular.module('com.module.core')
       user = null;
     };
 
-var ranMenu = false;
+
 
     $scope.$on('$viewContentLoaded', function(){
 
-        if(!ranMenu){
+        if(!$rootScope.ranMenu){
             console.log('CURRENT USER' + JSON.stringify($scope.currentUser));
             $rootScope.addMenu(gettextCatalog.getString('vatorCO'), 'app.home',
               'fa-dashboard');
