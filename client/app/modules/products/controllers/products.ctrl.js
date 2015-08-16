@@ -90,8 +90,9 @@ angular.module('com.module.products')
             $scope.CompanyRecord = product.company.details;
 
             console.log('company:' + JSON.stringify($scope.CompanyRecord));
-            if(!product.company.team || 0 === product.company.team.length){
-              product.company.team
+            if(!product.company.team || 0 === product.company.team.length || (typeof product.company.team === 'undefined')){
+              // product.company.team =
+              // TODO: create new product object
             }else{
               $scope.teamMembers = product.company.team.members;
               $scope.members = product.company.team.members;
@@ -187,7 +188,7 @@ angular.module('com.module.products')
 
     $scope.getUserRecord = function(){
 
-      if(!$scope.currentUser.id || 0 === $scope.currentUser.id.length){
+      if(!$scope.currentUser.id || 0 === $scope.currentUser.id.length || (typeof $scope.currentUser.id === 'undefined')){
         console.log('PRODUCT MISSING BASE USER 1 $scope.currentUser -> LOG IN AGAIN' );
           $location.path('/login');
       }else{

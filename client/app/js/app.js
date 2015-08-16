@@ -71,11 +71,6 @@ angular.module('loopbackApp', [
         });
     };
 
-    // Add Menu Dashboard
-
-
-
-
 
     $rootScope.locales = {
 
@@ -119,9 +114,9 @@ angular.module('loopbackApp', [
 
 
 
-    if ($rootScope.locale === undefined) {
+    if ($rootScope.locale === 'undefined') {
       $rootScope.locale = $rootScope.locales[lang];
-      if ($rootScope.locale === undefined) {
+      if ($rootScope.locale === 'undefined') {
         $rootScope.locale = $rootScope.locales['en'];
       }
     }
