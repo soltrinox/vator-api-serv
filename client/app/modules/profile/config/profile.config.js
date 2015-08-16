@@ -3,8 +3,7 @@ var app = angular.module('com.module.profile');
 
 app.run(function($rootScope,  Profile, gettextCatalog) {
 
-  $rootScope.addMenu(gettextCatalog.getString('Profile'), 'app.myprofile.list',
-    'fa-user');
+
   //
   // Profile.find(function(data) {
   //   $rootScope.addDashboardBox(gettextCatalog.getString('Profiles'),

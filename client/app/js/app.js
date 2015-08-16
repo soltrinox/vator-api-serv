@@ -85,6 +85,17 @@ angular.module('loopbackApp', [
 
         }
 
+        $rootScope.addMenu(gettextCatalog.getString('Programs'), 'app.programs.list',
+          'fa-star');
+
+          $rootScope.addMenu(gettextCatalog.getString('Company'),
+            'app.products.list', 'fa-bank');
+
+
+          $rootScope.addMenu(gettextCatalog.getString('Profile'), 'app.myprofile.list',
+              'fa-user');
+
+
 
     $rootScope.locales = {
 
