@@ -74,7 +74,7 @@ angular.module('com.module.core')
                   'app.products.list', 'fa-bank');
               $rootScope.addMenu(gettextCatalog.getString('Profile'), 'app.myprofile.list',
                     'fa-user');
-                    ranMenu = true;
+                    $rootScope.ranMenu = true;
         }
     });
 
