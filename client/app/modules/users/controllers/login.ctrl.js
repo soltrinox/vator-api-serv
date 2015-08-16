@@ -137,6 +137,7 @@ angular.module('com.module.users')
               if(!$rootScope.ranMenu){
 
                     if($rootScope.isXsession){
+                      $rootScope.siteVersion = 'vatorX';
                       console.log('MENU:' + JSON.stringify($rootScope.menu));
                       $rootScope.addMenu(gettextCatalog.getString('Dashboard'), 'app.x',
                         'fa-dashboard');
@@ -147,6 +148,7 @@ angular.module('com.module.users')
                       $rootScope.addMenu(gettextCatalog.getString('Profile'), 'app.myprofile.list',
                                 'fa-user');
                     }else{
+                        $rootScope.siteVersion = 'vator';
                       $rootScope.addMenu(gettextCatalog.getString('Dashboard'), 'app.home',
                         'fa-dashboard');
                       $rootScope.addMenu(gettextCatalog.getString('Company'),
