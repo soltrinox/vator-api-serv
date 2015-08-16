@@ -52,10 +52,11 @@ angular.module('com.module.core')
       user = null;
     };
 
+var ranMenu = false;
 
     $scope.$on('$viewContentLoaded', function(){
 
-        if($scope.currentUser){
+        if(!ranMenu){
             console.log('CURRENT USER' + JSON.stringify($scope.currentUser));
             $rootScope.addMenu(gettextCatalog.getString('vatorCO'), 'app.home',
               'fa-dashboard');
@@ -73,6 +74,7 @@ angular.module('com.module.core')
                   'app.products.list', 'fa-bank');
               $rootScope.addMenu(gettextCatalog.getString('Profile'), 'app.myprofile.list',
                     'fa-user');
+                    ranMenu = true;
         }
     });
 
