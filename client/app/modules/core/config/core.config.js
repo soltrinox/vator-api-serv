@@ -7,23 +7,12 @@ app.run(function($rootScope, Setting, gettextCatalog) {
 
   // Add Sidebar Menu
   $rootScope.addMenu = function(name, uisref, icon) {
-
-    if($rootScope.isXsession){
-      if(uisref === 'app.products.list' ){
-      }else{
-        $rootScope.menu.push({
-          name: name,
-          sref: uisref,
-          icon: icon
-        });
-      }
-    }else{
+    console.log('XSESSION: ' + $rootScope.isXsession);
       $rootScope.menu.push({
         name: name,
         sref: uisref,
         icon: icon
       });
-    }
   };
 
   // Add Menu Dashboard
@@ -32,6 +21,9 @@ app.run(function($rootScope, Setting, gettextCatalog) {
       'fa-dashboard');
 
       if($rootScope.isXsession){
+
+        console.log('MENU:' + JSON.stringify($rootScope.menu));
+
         $rootScope.addMenu(gettextCatalog.getString('vatorX'), 'app.x',
           'fa-cog');
       }else{
