@@ -50,33 +50,7 @@ angular.module('com.module.core')
 
 
     $scope.$on('$viewContentLoaded', function(){
-      if(  $rootScope.isXsession === undefined){
-        // re run til defined
-      }else{
-        if(!$rootScope.ranMenu){
 
-              if($rootScope.isXsession){
-                console.log('MENU:' + JSON.stringify($rootScope.menu));
-                $rootScope.addMenu(gettextCatalog.getString('Dashboard'), 'app.x',
-                  'fa-dashboard');
-                $rootScope.addMenu(gettextCatalog.getString('Programs'), 'app.programs.list',
-                    'fa-star');
-                $rootScope.addMenu(gettextCatalog.getString('Activity'), 'app.x',
-                          'fa-check');
-                $rootScope.addMenu(gettextCatalog.getString('Profile'), 'app.myprofile.list',
-                          'fa-user');
-              }else{
-                $rootScope.addMenu(gettextCatalog.getString('Dashboard'), 'app.home',
-                  'fa-dashboard');
-                $rootScope.addMenu(gettextCatalog.getString('Company'),
-                    'app.products.list', 'fa-bank');
-                $rootScope.addMenu(gettextCatalog.getString('Profile'), 'app.myprofile.list',
-                      'fa-user');
-              }
-              $rootScope.ranMenu = true;
-        }
-
-      }
     });
 
   });
