@@ -114,9 +114,9 @@ angular.module('loopbackApp', [
 
 
 
-    if (typeof $rootScope.locale === 'undefined') {
+    if (typeof ($rootScope.locale ) === 'undefined') {
       $rootScope.locale = $rootScope.locales[lang];
-      if (typeof $rootScope.locale === 'undefined') {
+      if (typeof ($rootScope.locale )  === 'undefined') {
         $rootScope.locale = $rootScope.locales['en'];
       }
     }
