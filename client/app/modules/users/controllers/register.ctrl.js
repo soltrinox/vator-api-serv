@@ -9,7 +9,7 @@
  * Controller for Register Page
  **/
 angular.module('com.module.users')
-  .controller('RegisterCtrl', function($scope, $rootScope, ngModel, $routeParams, $location, $filter,
+  .controller('RegisterCtrl', function($scope, $rootScope,  $routeParams, $location, $filter,
     CoreService, ProfileService, Profile, User, AppAuth, gettextCatalog) {
 
 
