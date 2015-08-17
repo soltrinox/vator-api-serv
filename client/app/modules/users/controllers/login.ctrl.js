@@ -159,6 +159,7 @@ angular.module('com.module.users')
             // detect user is a
             if($scope.loginResult.user.vatorX === 'valid'){
               $rootScope.isXsession = true;
+              go = '/app/x';
               console.log('IS XSESSION');
             }
             $scope.continue(next, go);
