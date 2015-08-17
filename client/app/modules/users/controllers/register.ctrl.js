@@ -215,15 +215,15 @@ angular.module('com.module.users')
                           'Error registering!'), res.data.error.message);
                         for(var message in res.data.error.details.messages){
                           console.log('REGISTER ERROR MESSAGE: \n '+JSON.stringify(message));
-                          if(!message.email || 0 === message.email.length){
-
-                          }else{
-
-                            console.log('EMAIL message : '+ JSON.stringify(message.email));
-                              if(message.email[0] === 'Email already exists'){
-                                      $scope.errorEmail();
-                              }
+                          if(message === 'email'){
+                            $scope.errorEmail();
                           }
+                          // if(!message.email || 0 === message.email.length){
+                          // }else{
+                          //   console.log('EMAIL message : '+ JSON.stringify(message.email));
+                          //     if(message.email[0] === 'Email already exists'){
+                          //     }
+                          // }
                         }
                   }
                 );
