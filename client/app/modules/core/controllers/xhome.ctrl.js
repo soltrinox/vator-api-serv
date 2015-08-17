@@ -76,11 +76,12 @@ angular.module('com.module.core')
         size: size
       });
 
-      modalInstance.result.then(function (selectedItem) {
-        $scope.selected = selectedItem;
-      }, function () {
+      modalInstance.result.then(
+        function () {
+
+        }, function () {
         console.log('Modal dismissed at: ' + new Date());
-      });
+        });
 
     };
 
