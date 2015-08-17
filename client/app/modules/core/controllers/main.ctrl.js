@@ -26,6 +26,7 @@ angular.module('com.module.core')
         $rootScope.ranMenu = false;
         $rootScope.masterUser = null;
         $scope.currentUser = null;
+        $rootScope.menu = null;
         $state.go('login');
         CoreService.toastSuccess(gettextCatalog.getString('Logged out'),
           gettextCatalog.getString('You are logged out!'));
@@ -33,6 +34,7 @@ angular.module('com.module.core')
       $rootScope.isXsession = false;
       $rootScope.ranMenu = false;
       $rootScope.masterUser = null;
+      $rootScope.menu = null;
       $scope.currentUser = null;
       $state.go('login');
       CoreService.toastSuccess(gettextCatalog.getString('Logged out'),
