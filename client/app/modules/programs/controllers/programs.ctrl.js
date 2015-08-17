@@ -221,10 +221,10 @@ angular.module('com.module.programs')
      };
 
      $scope.showdetails = function($tag){
-         var found = $filter('getItemName')($scope.tags, $tag.name);
+         var found = $filter('getItemName')($scope.tags, $tag.Name);
          if(!found){
-             console.log($tag.name + ' NOT FOUND'  );
-             $scope.tags.push($tag);
+             console.log($tag.Name + ' NOT FOUND'  );
+             //$scope.tags.push($tag);
          }else{
              console.log('FOUND:' + JSON.stringify(found) +' in '+  JSON.stringify($scope.tags) );
          }
