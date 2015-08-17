@@ -7,7 +7,7 @@
  * @requires $rootScope
  **/
 angular.module('com.module.core')
-  .controller('XCtrl', function($scope, $route, $rootScope, CoreService, $location, User, gettextCatalog) {
+  .controller('XCtrl', function($scope, $route, $rootScope, CoreService, $location, AppAuth, User, gettextCatalog) {
 
     $scope.count = {};
     $scope.upp = false;
@@ -21,14 +21,13 @@ angular.module('com.module.core')
         if(upp === 'true'){
           $location.search('upgrade', null);
           $scope.upp = true;
-          $scope.confirmXUpgrade();
-          $route.reload();
         }else {
           $scope.upp = false;
         }
     });
 
     $scope.closeAlert = function(index) {
+        $scope.upp = false;
         $scope.alerts.splice(index, 1);
     };
 
@@ -40,14 +39,16 @@ angular.module('com.module.core')
           $scope.current = User.upsert($scope.currentUser,
           function() {
             $rootScope.isXsession = true;
-            $rootScope.masterUser = $scope.currentUser;
-             $route.reload();
-            CoreService.alert('Welcome to vatorX!');
+            $rootScope.masterUser = $scope.current;
+            $scope.currentUser = $scope.current;
+            AppAuth.currentUser = $scope.current;
+
             if($scope.upp){
-              $scope.upp = false;
+
             }else{
               $scope.upp = false;
               window.location = '/#/app/x';
+              //$route.reload();
             }
 
           },

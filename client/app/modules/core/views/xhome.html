@@ -11,16 +11,18 @@
     <!-- Start Options Row -->
     <div class="row">
       <div class="col-md-12 ">
+
+        <div class="panel panel-widget " style="background:#B6DEE4">
+          <alert  type="success" ng-show="upp" close="closeAlert($index)">Account Upgraded to Enterprise</alert>
+          type: 'success', msg: 'Well done! You successfully read this important alert message.'
+        </div>
         <div class="panel panel-widget " style="background:#B6DEE4">
           <div class="panel-title" style="background:#B6DEE4">
-          <!-- <span class="label label-danger">UPDATE</span> -->
-          <a href="/#/app/programs/add" >Start a new Program</a> <br/>
-                <a href="/#/app/programs" >View all Programs</a>
+            Programs
           </div>
-
-
-
           <div class="panel-body">
+            <a href="/#/app/programs/add" >Start a new Program</a> <br/>
+                  <a href="/#/app/programs" >View all Programs</a>
 
 <!--             <div class="col-md-4">
               <a href="/#/app/programs/add" class="btn btn-default"><i class="fa fa-rocket"></i>DEMO PROGRAM ORGANIZER</a>
