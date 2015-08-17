@@ -222,7 +222,7 @@ angular.module('com.module.users')
                             CoreService.confirm('Email Found !', 'We noticed you already have an account on Vator.co. Would you like to upgrade to VatorX Enterprise Account?',
                               function() {
                                 $rootScope.isXsession = true;
-                                $location.path('/login?t=x&upgrade=true');
+                                $location.path('/login').search('t','x').search('upgrade','true');
                                   $route.reload();
                               },
                               function(){

@@ -195,15 +195,9 @@ angular.module('com.module.users')
         }
       }
 
-
-
     if (next === '/login') {
       next = go;
-    }else if(next === '/x/login'){
-      next = go;
     }
-
-
 
     $rootScope.masterUser = $scope.loginResult.user;
     $scope.currentUser = $scope.loginResult.user;
