@@ -216,11 +216,11 @@ angular.module('com.module.programs')
         $state.go('app.programs.list');
 
       }else{
-        .dismiss('completed');
+        modalInstance.dismiss('completed');
         $state.go('app.programs.list');
       }
 
-    }
+    };
 
 
     $rootScope.$on('$routeChangeSuccess', function(e, current, pre) {
