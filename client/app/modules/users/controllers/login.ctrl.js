@@ -9,7 +9,7 @@
  * Contrller for Login Page
  **/
 angular.module('com.module.users')
-  .controller('LoginCtrl', function($scope, $rootScope, $route, $routeParams, $location,
+  .controller('LoginCtrl', function($scope, $rootScope, $route, $routeParams, $window, $location,
     CoreService, ProfileService, Profile, User, AppAuth, AuthProvider, gettextCatalog) {
 
     var TWO_WEEKS = 1000 * 60 * 60 * 24 * 7 * 2;
@@ -19,6 +19,11 @@ angular.module('com.module.users')
       ttl: TWO_WEEKS,
       rememberMe: true
     };
+
+    $scope.reloadRoute = function() {
+        $window.location.reload();
+         $state.reload();
+    }
 
     $scope.$on('$viewContentLoaded', function(){
         // console.log('RT PARAMS: ' + JSON.stringify($location.search()) );
