@@ -22,7 +22,7 @@ angular.module('com.module.core')
     return null;
   };
 })
-  .controller('XCtrl', function($scope, $route, $rootScope, CoreService, $modal,  $location, AppAuth, User, gettextCatalog) {
+  .controller('XCtrl', function($scope, $route, $rootScope, CoreService, $modal, $http, $location, AppAuth, User, gettextCatalog) {
 
     $scope.count = {};
     $scope.upp = false;
@@ -83,22 +83,26 @@ angular.module('com.module.core')
     $scope.animationsEnabled = true;
 
     $scope.open = function (size) {
-
-     $modal.open({
-        animation: $scope.animationsEnabled,
-        templateUrl: 'addProgram.html',
-        controller:  'ProgramsCtrl',
-        size: size
-      });
-
-        // modalInstance.result.then(
-        // function () {
-        //
-        // }, function () {
-        // console.log('Modal dismissed at: ' + new Date());
-        // });
-
+       $modal.open({
+          animation: $scope.animationsEnabled,
+          templateUrl: 'addProgram.html',
+          controller:  'ProgramsCtrl',
+          size: size
+        });
     };
+
+    $scope.getLocation = function(val) {
+        return $http.get('//maps.googleapis.com/maps/api/geocode/json', {
+          params: {
+            address: val,
+            sensor: false
+          }
+        }).then(function(response){
+          return response.data.results.map(function(item){
+            return item.formattedAddress;
+          });
+        });
+      };
 
 
 
