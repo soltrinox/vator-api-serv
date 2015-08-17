@@ -187,12 +187,7 @@ angular.module('com.module.programs')
       Program.upsert($scope.ProgramObject , function() {
         CoreService.toastSuccess(gettextCatalog.getString('Program saved'),
           gettextCatalog.getString('Your program is safe with us!'));
-          if( typeof ($modalInstance) === 'undefined'){
-            $state.go('^.list');
-          }else{
-            $modalInstance.dismiss('completed');
-            $state.go('app.programs.list');
-          }
+          $scope.goAway();
 
       }, function(err) {
         if( typeof ($modalInstance) === 'undefined'){
@@ -201,6 +196,17 @@ angular.module('com.module.programs')
         console.log(err);
       });
     };
+    
+    $scope.goAway = function(){
+
+      if( typeof ($modalInstance) === 'undefined'){
+        $state.go('^.list');
+      }else{
+        $modalInstance.dismiss('completed');
+        $state.go('app.programs.list');
+      }
+
+    }
 
 
     $rootScope.$on('$routeChangeSuccess', function(e, current, pre) {
