@@ -156,19 +156,17 @@ angular.module('com.module.users')
 
 
         $scope.errorEmail = function(){
-              CoreService.confirm('Email Found !', 'We noticed you already have an account on Vator.co. Would you like to upgrade to VatorX Enterprise Account?',
-                function() {
-                  $rootScope.isXsession = true;
-                  $location.path('/login?t=x&upgrade=true');
-                    $route.reload();
-                },
-                function(){
-                  $rootScope.isXsession = false;
-                    $location.path('/app/myprofile');
-                      $route.reload();
-                }
-              );
-          };
+          CoreService.confirm('Email Found !', 'We noticed you already have an account on Vator.co. Would you like to upgrade to VatorX Enterprise Account?',
+            function() {
+              $rootScope.isXsession = true;
+              $location.path('/login').search('t','x').search('upgrade','true');
+            },
+            function(){
+              $rootScope.isXsession = false;
+                $location.path('/app/myprofile');
+            }
+          );
+        };
 
     $scope.register = function() {
       CoreService.confirm('AGree to terms', 'Terms and Policy text here',
@@ -218,17 +216,7 @@ angular.module('com.module.users')
                         for(var message in res.data.error.details.messages){
                           console.log('REGISTER ERROR MESSAGE: \n '+JSON.stringify(message));
                           if(message === 'email'){
-                            //$scope.errorEmail();
-                            CoreService.confirm('Email Found !', 'We noticed you already have an account on Vator.co. Would you like to upgrade to VatorX Enterprise Account?',
-                              function() {
-                                $rootScope.isXsession = true;
-                                $location.path('/login').search('t','x').search('upgrade','true');
-                              },
-                              function(){
-                                $rootScope.isXsession = false;
-                                  $location.path('/app/myprofile');
-                              }
-                            );
+                            $scope.errorEmail();
                           }
                         }
                   }
