@@ -9,7 +9,7 @@
  * Contrller for Login Page
  **/
 angular.module('com.module.users')
-  .controller('LoginCtrl', function($scope, $rootScope, $route, $routeParams, $window, $location,
+  .controller('LoginCtrl', function($scope, $rootScope, $route, $state, $routeParams, $window, $location,
     CoreService, ProfileService, Profile, User, AppAuth, AuthProvider, gettextCatalog) {
 
     var TWO_WEEKS = 1000 * 60 * 60 * 24 * 7 * 2;
