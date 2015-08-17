@@ -15,7 +15,7 @@ angular.module('com.module.programs')
     return null;
   };
 })
-.controller('ProgramsCtrl', function($scope, $rootScope, $location, $http, $filter, $state, $routeParams,  $modal, $modalInstance, $stateParams, CoreService,
+.controller('ProgramsCtrl', function($scope, $rootScope, $location, $http, $filter, $state, $routeParams,  $modal, $modalInstance, modalInstance, $stateParams, CoreService,
     FormHelper, gettextCatalog, Program,  ProgramService, Category) {
 
 
@@ -165,6 +165,16 @@ angular.module('com.module.programs')
       };
 
 
+      $scope.ok = function () {
+        $scope.onSubmit();
+        $modalInstance.close();
+      };
+
+      $scope.cancel = function () {
+        $modalInstance.dismiss('cancel');
+      };
+
+
     $scope.onSubmit = function() {
       // $rootScope.masterUser = $scope.currentUser;
       // when we create a new program always create a new admins (Group object)
@@ -196,13 +206,17 @@ angular.module('com.module.programs')
         console.log(err);
       });
     };
-    
+
     $scope.goAway = function(){
 
       if( typeof ($modalInstance) === 'undefined'){
         $state.go('^.list');
+      }else if( typeof (modalInstance) !== 'undefined'){
+        modalInstance.dismiss('completed');
+        $state.go('app.programs.list');
+
       }else{
-        $modalInstance.dismiss('completed');
+        .dismiss('completed');
         $state.go('app.programs.list');
       }
 

@@ -95,15 +95,21 @@ angular.module('com.module.core')
         });
       };
 
-      var modalInstance = null;
+      // var modalInstance = null;
 
     $scope.open = function (size) {
-       modalInstance =  $modal.open({
+      var modalInstance =  $modal.open({
           animation: $scope.animationsEnabled,
           templateUrl: 'addProgram.html',
-          controller:  'ProgramsCtrl',
+          controllerAs:  'ProgramsCtrl as modalInstance',
           bindToController : true,
           size: size
+        });
+
+        modalInstance.result.then(function () {
+          
+        }, function () {
+          $log.info('Modal dismissed at: ' + new Date());
         });
     };
 
