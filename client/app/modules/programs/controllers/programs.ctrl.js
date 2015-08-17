@@ -175,7 +175,7 @@ angular.module('com.module.programs')
           gettextCatalog.getString('Your program is safe with us!'));
           if( typeof ($modalInstance) === 'undefined'){
             $modalInstance.dismiss('completed');
-            $state.go('^.list');
+            $state.go('app.programs.list');
           }else{
             $state.go('^.list');
           }
