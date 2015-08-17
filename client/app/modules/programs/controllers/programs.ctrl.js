@@ -288,7 +288,7 @@ $scope.getLocation = function(val) {
 
 
       $scope.createObject = function () {
-        $modalInstance.close();
+        // $modalInstance.close();
       };
 
       $scope.cancel = function () {
