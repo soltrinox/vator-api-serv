@@ -86,6 +86,7 @@ angular.module('com.module.programs')
       $scope.program = Program.findById({
         id: programId
       }, function() {
+        $scope.tags = $scope.program.Cats;
       }, function(err) {
         console.log(err);
       });
@@ -155,8 +156,6 @@ angular.module('com.module.programs')
       // save the group object and or update on upsert at the program object on API server
 
         $scope.ProgramObject.Name =   $scope.program.Name;
-
-
         $scope.ProgramObject.Company = $scope.program.Company;
         $scope.ProgramObject.location = $scope.program.location;
         $scope.ProgramObject.Brief = $scope.program.Brief;
@@ -166,6 +165,7 @@ angular.module('com.module.programs')
         $scope.ProgramObject.Owner = $scope.currentUser.pid;
         // TODO: this should pull from the selected programs admins list
         $scope.ProgramObject.adminId = $scope.currentUser.pid;
+        console.log('FULL PROGRAM'+ JSON.stringify($scope.ProgramObject));
 
       Program.upsert($scope.ProgramObject , function() {
         CoreService.toastSuccess(gettextCatalog.getString('Program saved'),
