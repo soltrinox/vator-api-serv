@@ -371,23 +371,30 @@ angular.module('com.module.products')
           };
 
           $scope.newMemberValue = function($member){
-	           $scope.teamMembers.push($member);
-             console.log('NEW MEMBER ADDED ID: ' + $member.id  +'\n'+ JSON.stringify($scope.teamMembers) );
-             $scope.showmembers($member);
+	          //  $scope.teamMembers.push($member);
+            //  console.log('NEW MEMBER ADDED ID: ' + $member.id  +'\n'+ JSON.stringify($scope.teamMembers) );
+            //  $scope.showmembers($member);
+            var found = $filter('getByName')($scope.members, $member.Name);
+            if(!found){
+                console.log($member.Name + ' NOT MEMBER YET : adding member'  );
+                $scope.teamMembers.push($member);
+            }else{
+                console.log('ALREADY MEMBER:' + JSON.stringify(found) +' in '+  JSON.stringify($scope.teamMembers) );
+            }
           };
 
           $scope.showmembers = function($member){
               var found = $filter('getByName')($scope.members, $member.Name);
               if(!found){
                   console.log($member.Name + ' NOT MEMBER YET : adding member'  );
-                  $scope.members.push($member);
+                  $scope.teamMembers.push($member);
               }else{
                   console.log('ALREADY MEMBER:' + JSON.stringify(found) +' in '+  JSON.stringify($scope.teamMembers) );
               }
           };
 
           $scope.onSaveMembers = function(){
-              console.log('SUBMIT MEMBERS TO TEAM: ' +  JSON.stringify($scope.teamMembers) );
+              console.log('SAVING MEMBERS TO TEAM: ' +  JSON.stringify($scope.teamMembers) );
               $scope.members = $scope.teamMembers;
               $scope.CompanyRecord.team.members = $scope.members ;
           };

@@ -25,7 +25,7 @@
       </tab>
       <tab heading="{{ 'TeamMembers' | translate }}">
         <div id="members-box">
-          <tags-input ng-model="teamMembers" display-property="Name" key-property="id" placeholder="Find Team Members" min-length="3" add-from-autocomplete-only="true" on-tag-added="newMemberValue($tag)" replace-spaces-with-dashes="false" min-length="3" maxTags="3"
+          <tags-input ng-model="members" display-property="Name" key-property="id" placeholder="Find Team Members" min-length="3" add-from-autocomplete-only="true" on-tag-added="newMemberValue($tag)" replace-spaces-with-dashes="false" min-length="3" maxTags="3"
           template="member-template">
             <auto-complete source="getMembers($query)" min-length="3" load-on-focus="true" load-on-empty="false" max-results-to-show="4" template="autocomplete-member-template"></auto-complete>
           </tags-input>
