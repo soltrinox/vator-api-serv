@@ -89,15 +89,15 @@ angular.module('com.module.products')
               console.log('SUCCESS Product.getEntireProduct:');
             $scope.CompanyRecord = product.company.details;
 
-            console.log('$scope.product:\n' + JSON.stringify($scope.product));
-            console.log('team obj: \n' + JSON.stringify(product.team));
-            if(!product.team || 0 === product.team.length || (typeof product.team === 'undefined')){
+            console.log('$scope.product:\n' + JSON.stringify(product));
+            console.log('team obj: \n' + JSON.stringify(product.company.details.team));
+            if(!product.company.details.team || 0 === product.company.details.team.length || (typeof product.company.details.team === 'undefined')){
               // product.company.team =
               // TODO: create new product object
             }else{
-              $scope.teamMembers = product.team.members;
-              $scope.members = product.team.members;
-              $scope.teamDetails = product.company.team.details;
+              $scope.teamMembers = product.company.details.team.members;
+              $scope.members = product.company.details.team.members;
+              // $scope.teamDetails = product.company.team.details;
               console.log('teamMembers:' + JSON.stringify($scope.teamMembers));
               console.log('teamDetails:' + JSON.stringify($scope.teamDetails));
             }
