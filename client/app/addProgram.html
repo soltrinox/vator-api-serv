@@ -1,0 +1,87 @@
+<div class="modal-header">
+    <h3 class="modal-title">Create Program!</h3>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="alert alert-danger" ng-if="addError" translate>Could not add program!</div>
+      <div class="form-group vator_form_box work-companylookup-box" ng-class="{'has-error': options.formField.$invalid}">
+        <label for="work.title" class="ng-binding"> Search for a company on vator </label>
+        <div  style="clear:both !important;">
+          <div style="width:40%;float:left;">
+            <input type="text" ng-model="workLookUp" placeholder="Search for a company"
+            typeahead="item for item in getCompanyProjects($viewValue)" id="work-companylookup"
+            typeahead-on-select="onCompanySelect(item, workLookUp, program.Company )"
+            typeahead-loading="loadingCompanies"
+            class="form-control work_companylookup_input" ng-change="lookCompany(workLookUp)">
+            <i ng-show="loadingCompanies" class="glyphicon glyphicon-refresh"></i>
+          </div>
+          <div style="width:20%; margin-left:5px; float:left">
+            <a href="/#/app/products/add/55ba9286966a114937493efe" class="btn btn-info fa fa-rocket"> &nbsp; Add New Company</a>
+          </div>
+        </div>
+
+      </div>
+      <div style="clear:both !important; margin-top:5px;">
+        <formly-form result="program" fields="formFields" options="formOptions" ng-submit="onSubmit()"></formly-form>
+      </div>
+      <div class="row  vator_form_box " style="">
+        <div style="float:left; width: 200px; m argin-left:20px;">
+          <img src="{{program.Image}}" id="" class="" />
+        </div>
+        <div style="float:left;">
+          <form method="POST" target="_blank" enctype="multipart/form-data" action="http://api.vator.co/uploadmedia/vatorprofilecache">
+            <div class=" form-group">
+              <label>Logo:
+                <input class="form-control" type="file" name="uploadedFiles" multiple="true" onchange="angular.element(this).scope().uploadLogo(this.files)">
+                <input type="hidden" name="Owner" ng-model="$scope.currentUser.pid">
+                <input type="hidden" name="type" value="logo">
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="form-group move-down">
+        <label for="Autocomplete">Location</label>
+        <input type="text" id="Autocomplete" class="form-control" placeholder="Select a city" ng-autocomplete
+        ng-model="program.location" details="details2" options="options2" name="location" />
+      </div>
+
+       <label for="cats">Categories</label>
+      <tags-input ng-model="tags" display-property="name" key-property="id" placeholder="Select a category"
+      min-length="3" add-from-autocomplete-only="true" on-tag-added="newTagValue($tag)" replace-spaces-with-dashes="false"
+      min-length="3" maxTags="3" template="tag-template">
+        <auto-complete source="loadCats($query)" min-length="3" load-on-focus="true"
+        load-on-empty="false" max-results-to-show="10"
+        template="autocomplete-template"></auto-complete>
+      </tags-input>
+
+      <script type="text/ng-template" id="tag-template">
+        <div class="tag-template">
+          <div class="left-panel" style="float:left">
+            <b>{{data.name}}</b>
+          </div>
+          <div class="right-panel" style="float:left">
+            <a class="remove-button" ng-click="$removeTag()">&#10006;</a>
+          </div>
+        </div>
+      </script>
+
+      <script type="text/ng-template" id="autocomplete-template">
+        <div class="autocomplete-template">
+          <div class="right-panel">
+            <span ng-bind-html="$highlight($getDisplayText())"></span>
+          </div>
+        </div>
+      </script>
+
+      <pre>{{CompanyRecord | json}}</pre>
+
+    </div>
+  </div>
+  <div class="controls">
+    <button class="btn btn-primary btn-success" ng-click="onSubmit()" translate>Submit</button>
+  </div>
+
+
+</div>

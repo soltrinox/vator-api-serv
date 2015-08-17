@@ -71,7 +71,7 @@ angular.module('com.module.core')
 
      $modal.open({
         animation: $scope.animationsEnabled,
-        templateUrl: 'myModalContent.html',
+        templateUrl: 'addProgram.html',
         controller:  'ProgramsCtrl',
         size: size
       });
