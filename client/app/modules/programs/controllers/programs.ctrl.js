@@ -18,6 +18,7 @@ angular.module('com.module.programs')
       $scope.tags = [];
       $scope.TagFirst = '0';
       $scope.workLookUp = '';
+      $scope.program = {};
 
       $scope.ProgramObject = {
           Name: '',
@@ -99,6 +100,7 @@ angular.module('com.module.programs')
         $scope.tags = response.Cats;
         $scope.workLookUp = response.Company;
         $scope.ProgramObject = response;
+        $scope.program = response;
       }, function(err) {
         console.log(err);
       });
