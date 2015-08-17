@@ -9,7 +9,7 @@
  * Controller for Register Page
  **/
 angular.module('com.module.users')
-  .controller('RegisterCtrl', function($scope, $rootScope, $routeParams, $location, $filter,
+  .controller('RegisterCtrl', function($scope, $rootScope, ngModel, $routeParams, $location, $filter,
     CoreService, ProfileService, Profile, User, AppAuth, gettextCatalog) {
 
 
@@ -154,7 +154,7 @@ angular.module('com.module.users')
     $scope.Agreed = false;
     $scope.go = '';
 
-    $scope.watch($scope.Agreed , function(oldVal,newVal){
+    $scope.$watch($scope.Agreed , function(oldVal,newVal){
 
         if(newVal){
 
@@ -245,7 +245,6 @@ angular.module('com.module.users')
             }
           );
       };
-
 
   })
   .directive('confirmPassword',
