@@ -17,23 +17,10 @@ angular.module('com.module.programs')
           adminId : '',
           Cats: '',
           Location : '',
-          Tags : [],
-          Company : {},
-          team: {}
+          Tags : '',
+          Company : '',
+          team: ''
         };
-
-
-      $scope.loadItems = function() {
-        $scope.categories = [];
-        Category.find(function(categories) {
-          angular.forEach(categories, function(category) {
-            category.products = Category.products({
-              id: category.id
-            });
-            this.push(category);
-          }, $scope.categories);
-        });
-      };
 
       $scope.onCompanySelect = function(item, model, label){
             $scope.ProgramObject.Company = model;
@@ -47,7 +34,6 @@ angular.module('com.module.programs')
       };
 
       $scope.getCompanyProjects = function(val) {
-        //  http://api.vator.co/api/Teams?filter={%20%22where%22%20:%20{%20%22Name%22%20:%20{%22like%22%20:%22Co%22%20}%20}%20}
         return $http.get('//api.vator.co/api/products', {
           params: {
             filter: {
@@ -87,16 +73,14 @@ angular.module('com.module.programs')
         id: programId
       }, function() {
         $scope.tags = $scope.program.Cats;
+        $scope.workLookUp = $scope.program.Company;
+        
+        $scope.ProgramObject = $scope.program;
       }, function(err) {
         console.log(err);
       });
 
       console.log('PROGRAM OBJ 2 \n' + JSON.stringify($scope.ProgramObject));
-
-      // $scope.program.Name = $scope.ProgramObject.Name;
-      // var iix = $scope.ProgramObject.Details;
-      // $scope.program.Details = iix.body;
-      // $scope.program.Image = $scope.ProgramObject.Image;
 
     } else {
       $scope.program = {};
@@ -129,18 +113,7 @@ angular.module('com.module.programs')
       type: 'hidden',
       label: gettextCatalog.getString('Image'),
       required: false
-    },
-    {
-      key: 'Cats',
-      type: 'hidden',
-      required: false
-    },
-    {
-      key: 'Location',
-      type: 'hidden',
-      required: false
-    },
-
+    }
   ];
 
     $scope.formOptions = {
