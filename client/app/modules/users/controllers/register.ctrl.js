@@ -154,12 +154,19 @@ angular.module('com.module.users')
     $scope.Agreed = false;
     $scope.go = '';
 
-    $scope.$watch($scope.Agreed , function(oldVal,newVal){
-      console.log('watch fired ' + newVal);
-        if(newVal === 'true'){
 
-        }
-    });
+        $scope.errorEmail = function(){
+              CoreService.confirm('Email Found !', 'We noticed you already have an account on Vator.co. Would you like to upgrade to VatorX Enterprise Account?',
+                function() {
+                  $rootScope.isXsession = true;
+                  $location.path('/login?t=x&upgrade=true');
+                },
+                function(){
+                  $rootScope.isXsession = false;
+                    $location.path('/app/myprofile');
+                }
+              );
+          };
 
     $scope.register = function() {
       CoreService.confirm('AGree to terms', 'Terms and Policy text here',
@@ -209,6 +216,7 @@ angular.module('com.module.users')
                         for(var message in res.data.error.details.messages){
                           console.log('REGISTER ERROR MESSAGE: \n '+JSON.stringify(message));
                           if(typeof(message.email) !== 'undefined'){
+                            console.log('EMAIL message : '+ message.email[0]);
                               if(message.email[0] === 'Email already exists'){
                                       $scope.errorEmail();
 
@@ -225,17 +233,6 @@ angular.module('com.module.users')
     };
 
 
-    $scope.errorEmail = function(){
-          CoreService.confirm('Email Found !', 'We noticed you already have an account on Vator.co. Would you like to upgrade to VatorX Enterprise Account?',
-            function() {
-              $rootScope.isXsession = true;
-              $location.path('/login?t=x&upgrade=true');
-            },
-            function(){
-                $location.path('/app/myprofile');
-            }
-          );
-      };
 
   })
   .directive('confirmPassword',
