@@ -165,7 +165,7 @@ angular.module('com.module.programs')
         $scope.ProgramObject.Brief = $scope.program.Brief;
         $scope.ProgramObject.Desc = $scope.program.Desc;
         $scope.ProgramObject.Cats = $scope.tags;
-        $scope.ProgramObject.tags
+        $scope.ProgramObject.Tags = $scope.tags;
         $scope.ProgramObject.Image =   $scope.program.Image;
         $scope.ProgramObject.Owner = $scope.currentUser.pid;
         // TODO: this should pull from the selected programs admins list
