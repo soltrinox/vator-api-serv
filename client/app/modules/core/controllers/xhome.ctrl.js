@@ -95,7 +95,7 @@ angular.module('com.module.core')
         });
       };
 
-      var modalInstance = null;
+      var modalInstance = {};
 
     $scope.open = function (size) {
        modalInstance =  $modal.open({
