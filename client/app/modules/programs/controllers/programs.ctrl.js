@@ -173,8 +173,17 @@ angular.module('com.module.programs')
       Program.upsert($scope.ProgramObject , function() {
         CoreService.toastSuccess(gettextCatalog.getString('Program saved'),
           gettextCatalog.getString('Your program is safe with us!'));
-        $state.go('^.list');
+          if( typeof ($modalInstance) === 'undefined'){
+            $modalInstance.dismiss('completed');
+            $state.go('^.list');
+          }else{
+            $state.go('^.list');
+          }
+
       }, function(err) {
+        if( typeof ($modalInstance) === 'undefined'){
+          $modalInstance.dismiss('error');
+        }
         console.log(err);
       });
     };
@@ -284,17 +293,6 @@ $scope.getLocation = function(val) {
       } );
 
   };
-
-
-
-      $scope.createObject = function () {
-        // $modalInstance.close();
-      };
-
-      $scope.cancel = function () {
-        $modalInstance.dismiss('cancel');
-      };
-
 
 
   });
