@@ -215,9 +215,11 @@ angular.module('com.module.users')
                           'Error registering!'), res.data.error.message);
                         for(var message in res.data.error.details.messages){
                           console.log('REGISTER ERROR MESSAGE: \n '+JSON.stringify(message));
-                          if(message.email || message.email.length > 0){
-                            //typeof(message.email) !== 'undefined'){
-                            console.log('EMAIL message : '+ message.email[0]);
+                          if(!message.email || 0 === message.email.length){
+
+                          }else{
+
+                            console.log('EMAIL message : '+ JSON.stringify(message.email));
                               if(message.email[0] === 'Email already exists'){
                                       $scope.errorEmail();
                               }
