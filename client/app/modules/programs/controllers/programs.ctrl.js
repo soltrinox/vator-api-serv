@@ -34,7 +34,7 @@ angular.module('com.module.programs')
           Owner:  '',
           adminId : '',
           Cats: '',
-          Location : '',
+          location : '',
           Tags : '',
           Company : '',
           team: ''
