@@ -26,9 +26,8 @@ angular.module('com.module.core')
         }
     });
 
-    $scope.closeAlert = function(index) {
+    $scope.closeAlert = function() {
         $scope.upp = false;
-        $scope.alerts.splice(index, 1);
     };
 
     $scope.confirmXUpgrade = function(){
