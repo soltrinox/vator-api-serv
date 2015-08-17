@@ -193,7 +193,7 @@ angular.module('com.module.users')
               $rootScope.addMenu(gettextCatalog.getString('Dashboard'), 'app.home',
                 'fa-dashboard');
               $rootScope.addMenu(gettextCatalog.getString('Company'),
-                  'app.products.list', 'fa-bank');
+                  'app.companies.list', 'fa-bank');
               $rootScope.addMenu(gettextCatalog.getString('Profile'), 'app.myprofile.list',
                     'fa-user');
             }

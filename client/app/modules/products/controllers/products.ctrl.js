@@ -133,7 +133,7 @@ angular.module('com.module.products')
               'Product deleted'), gettextCatalog.getString(
               'Your product is deleted!'));
             $scope.loadItems();
-            $state.go('app.products.list');
+            $state.go('app.companies.list');
           }, function(err) {
             CoreService.toastError(gettextCatalog.getString(
               'Error deleting product'), gettextCatalog.getString(
