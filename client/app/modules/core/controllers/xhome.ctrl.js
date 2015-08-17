@@ -69,19 +69,19 @@ angular.module('com.module.core')
 
     $scope.open = function (size) {
 
-      var modalInstance = $modal.open({
+     $modal.open({
         animation: $scope.animationsEnabled,
         templateUrl: 'myModalContent.html',
         controller:  'ProgramsCtrl',
         size: size
       });
 
-        modalInstance.result.then(
-        function () {
-
-        }, function () {
-        console.log('Modal dismissed at: ' + new Date());
-        });
+        // modalInstance.result.then(
+        // function () {
+        //
+        // }, function () {
+        // console.log('Modal dismissed at: ' + new Date());
+        // });
 
     };
 
