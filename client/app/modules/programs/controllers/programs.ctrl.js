@@ -164,16 +164,13 @@ angular.module('com.module.programs')
         });
       };
 
-
       $scope.ok = function () {
         $scope.onSubmit();
-        $modalInstance.close();
       };
 
       $scope.cancel = function () {
-        $modalInstance.dismiss('cancel');
+        $rootScope.modalInstance.dismiss('cancel');
       };
-
 
     $scope.onSubmit = function() {
       // $rootScope.masterUser = $scope.currentUser;
@@ -221,8 +218,9 @@ angular.module('com.module.programs')
 
     $rootScope.$on('$routeChangeSuccess', function(e, current, pre) {
       console.log('Current route name: ' + $location.path());
-
-        console.log('modalInstance: ' + JSON.stringify(modalInstance) );
+        if( typeof ($rootScope.modalInstance) !== 'undefined'){
+          console.log('modalInstance: ' + JSON.stringify($rootScope.modalInstance) );
+        }
       // Get all URL parameter
       console.log($routeParams);
     });

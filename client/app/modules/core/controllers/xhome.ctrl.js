@@ -22,7 +22,7 @@ angular.module('com.module.core')
     return null;
   };
 })
-  .controller('XCtrl', function($scope, $route, $rootScope, CoreService, $modal, $http, $location, AppAuth, User, gettextCatalog) {
+  .controller('XCtrl', function($scope, $route, $rootScope, $location, CoreService, $modal, $http,  $filter, $state, $routeParams, AppAuth, User, gettextCatalog) {
 
     $scope.count = {};
     $scope.upp = false;
@@ -107,6 +107,8 @@ angular.module('com.module.core')
           scope : $scope,
           size: size
         });
+
+
 
     };
 
