@@ -7,7 +7,7 @@
  * @requires $rootScope
  **/
 angular.module('com.module.core')
-  .controller('XCtrl', function($scope, $route, $rootScope, CoreService, $modal, $modalInstance, $location, AppAuth, User, gettextCatalog) {
+  .controller('XCtrl', function($scope, $route, $rootScope, CoreService, $modal,  $location, AppAuth, User, gettextCatalog) {
 
     $scope.count = {};
     $scope.upp = false;
@@ -76,7 +76,7 @@ angular.module('com.module.core')
         size: size
       });
 
-      modalInstance.result.then(
+        modalInstance.result.then(
         function () {
 
         }, function () {
