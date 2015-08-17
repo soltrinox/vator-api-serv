@@ -152,6 +152,7 @@ angular.module('com.module.users')
 
 
     $scope.Agreed = false;
+    $scope.go = '';
 
     $scope.watch($scope.Agreed , function(oldVal,newVal){
 
@@ -187,7 +188,7 @@ angular.module('com.module.users')
                                $scope.go = '/app/x';
                               }
                             }
-                            $location.path(go);
+                            $location.path($scope.go);
                         },
                         function(res) {
                           CoreService.toastWarning(gettextCatalog.getString(
@@ -217,16 +218,10 @@ angular.module('com.module.users')
               CoreService.alert('You don\'t agree');
               $location.path('/');
             });
-
-
         }
-
-
     });
 
     $scope.register = function() {
-
-
       CoreService.confirm('Register on vator', 'Terms and Policy here',
         function() {
           $scope.Agreed = true;
@@ -236,9 +231,22 @@ angular.module('com.module.users')
           CoreService.alert('You don\'t agree');
           $location.path('/');
         });
-
-      //    ==== end
     };
+
+
+    $scope.errorEmail = function(){
+          CoreService.confirm('Email Found !', 'We noticed you already have an account on Vator.co. Would you like to upgrade to VatorX Enterprise Account?',
+            function() {
+              $rootScope.isXsession = true;
+              $location.path('/login?t=x&upgrade=true');
+            },
+            function(){
+                $location.path('/app/myprofile');
+            }
+          );
+      };
+
+
   })
   .directive('confirmPassword',
     function() {
@@ -260,23 +268,3 @@ angular.module('com.module.users')
       };
     }
   );
-
-
-  $scope.errorEmail = function(){
-        CoreService.confirm('Email Found !', 'We noticed you already have an account on Vator.co. Would you like to upgrade to VatorX Enterprise Account?',
-          function() {
-            //$scope.currentUser.vatorX = 'valid';
-            //$rootScope.isXsession = true;
-            // $scope.Agreed = false;
-            // $scope.Agreed = true;
-            $location.path('/login?t=x&upgrade=true');
-
-          },
-          function(){
-              $location.path('/app/myprofile');
-          }
-        );
-    };
-
-
-  }
