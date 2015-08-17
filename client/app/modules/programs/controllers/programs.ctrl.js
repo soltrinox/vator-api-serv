@@ -152,7 +152,7 @@ angular.module('com.module.programs')
     };
 
     $scope.onSubmit = function() {
-
+      // $rootScope.masterUser = $scope.currentUser;
       // when we create a new program always create a new admins (Group object)
       // then we add the current user to that Admin Object
       // save the group object and or update on upsert at the program object on API server
@@ -165,9 +165,9 @@ angular.module('com.module.programs')
         $scope.ProgramObject.Cats = $scope.tags;
         $scope.ProgramObject.Tags = $scope.tags;
         $scope.ProgramObject.Image =   $scope.program.Image;
-        $scope.ProgramObject.Owner = $scope.currentUser.pid;
+        $scope.ProgramObject.Owner = $rootScope.masterUser.pid;
         // TODO: this should pull from the selected programs admins list
-        $scope.ProgramObject.adminId = $scope.currentUser.pid;
+        $scope.ProgramObject.adminId = $rootScope.masterUser.pid;
         console.log('FULL PROGRAM'+ JSON.stringify($scope.ProgramObject));
 
       Program.upsert($scope.ProgramObject , function() {

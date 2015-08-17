@@ -7,6 +7,21 @@
  * @requires $rootScope
  **/
 angular.module('com.module.core')
+.filter('getItemName', function() {
+  return function(input, name) {
+    if(typeof (input) === 'undefined'){
+      // input is empty
+    }else{
+      var i=0, len=input.length;
+      for (; i<len; i++) {
+        if (input[i].name === name) {
+          return input[i];
+        }
+      }
+    }
+    return null;
+  };
+})
   .controller('XCtrl', function($scope, $route, $rootScope, CoreService, $modal,  $location, AppAuth, User, gettextCatalog) {
 
     $scope.count = {};
