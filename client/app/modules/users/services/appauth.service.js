@@ -43,6 +43,7 @@ angular.module('com.module.users')
         LoopBackAuth.clearUser();
         LoopBackAuth.save();
         $rootScope.isXsession = false;
+        // window.location.reload();
         window.location = '/auth/logout';
       },
 

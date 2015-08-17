@@ -17,7 +17,7 @@ angular.module('com.module.programs')
     return null;
   };
 })
-.controller('ProgramsCtrl', function($scope, $rootScope, $location, $http, $filter, $state, $routeParams, $stateParams, CoreService,
+.controller('ProgramsCtrl', function($scope, $rootScope, $location, $http, $filter, $state, $routeParams, $modal, $modalInstance, $stateParams, CoreService,
     FormHelper, gettextCatalog, Program,  ProgramService, Category) {
 
 
@@ -286,6 +286,34 @@ $scope.getLocation = function(val) {
       } );
 
   };
+
+      $scope.animationsEnabled = true;
+
+      $scope.open = function (size) {
+
+        var modalInstance = $modal.open({
+          animation: $scope.animationsEnabled,
+          templateUrl: 'myModalContent.html',
+          size: size,
+          scope: $scope
+        });
+
+        modalInstance.result.then(function (selectedItem) {
+          $scope.selected = selectedItem;
+        }, function () {
+          console.log('Modal dismissed at: ' + new Date());
+        });
+
+      };
+
+      $scope.createObject = function () {
+        $modalInstance.close($scope.selected.item);
+      };
+
+      $scope.cancel = function () {
+        $modalInstance.dismiss('cancel');
+      };
+
 
 
   });
