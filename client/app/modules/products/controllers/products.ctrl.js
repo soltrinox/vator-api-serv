@@ -90,7 +90,7 @@ angular.module('com.module.products')
             $scope.CompanyRecord = product.company.details;
 
             console.log('company:' + JSON.stringify($scope.CompanyRecord));
-            if(!product.company.team || 0 === product.company.team.length || (typeof product.company.team === 'undefined')){
+            if(!product.team || 0 === product.team.length || (typeof product.team === 'undefined')){
               // product.company.team =
               // TODO: create new product object
             }else{
