@@ -156,8 +156,10 @@ angular.module('com.module.users')
 
           }else{
             AppAuth.currentUser = $scope.loginResult.user;
+            // detect user is a
             if($scope.loginResult.user.vatorX === 'valid'){
               $rootScope.isXsession = true;
+              console.log('IS XSESSION');
             }
             $scope.continue(next, go);
           }
@@ -177,7 +179,7 @@ angular.module('com.module.users')
 
       if(!$rootScope.ranMenu){
 
-            if($rootScope.isXsession){
+            if($rootScope.isXsession === true){
               $rootScope.siteVersion = 'vatorX';
               console.log('MENU:' + JSON.stringify($rootScope.menu));
               $rootScope.addMenu(gettextCatalog.getString('Dashboard'), 'app.x',
@@ -186,6 +188,8 @@ angular.module('com.module.users')
                   'fa-star');
               $rootScope.addMenu(gettextCatalog.getString('Activity'), 'app.x',
                         'fa-check');
+              $rootScope.addMenu(gettextCatalog.getString('Company'),
+                            'app.companies.list', 'fa-bank');
               $rootScope.addMenu(gettextCatalog.getString('Profile'), 'app.myprofile.list',
                         'fa-user');
             }else{
