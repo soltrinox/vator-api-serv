@@ -155,9 +155,8 @@ angular.module('com.module.users')
     $scope.go = '';
 
     $scope.$watch($scope.Agreed , function(oldVal,newVal){
-
+      console.log('watch fired ' + newVal);
         if(newVal){
-
           CoreService.confirm('This is an agreement', 'Terms and Policy here',
             function() {
                       if($rootScope.isXsession){
@@ -228,8 +227,6 @@ angular.module('com.module.users')
         },
         function() {
           $scope.Agreed = false;
-          CoreService.alert('You don\'t agree');
-          $location.path('/');
         });
     };
 
