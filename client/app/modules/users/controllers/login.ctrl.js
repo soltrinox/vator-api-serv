@@ -109,8 +109,10 @@ angular.module('com.module.users')
       }
     });
 
-    $scope.login = function() {
 
+
+    $scope.login = function() {
+      var go = '/app/myprofile';
 
       $scope.loginResult = User.login({
           include: 'user',
@@ -118,7 +120,7 @@ angular.module('com.module.users')
         }, $scope.credentials,
         function(user) {
 
-          // console.log('USER LOGIN: '+JSON.stringify(user)); // => acess token
+          console.log('USER LOGIN: '+JSON.stringify(user)); // => acess token
           if(!user.user.ProfilePic ||  0 === user.user.ProfilePic.length ){
             user.user.ProfilePic = 'https://s3.amazonaws.com/vatorprofilecache/profile.png';
           }
@@ -130,41 +132,42 @@ angular.module('com.module.users')
           // TODO: set default user profilePic
           // https://s3.amazonaws.com/vatorprofilecache/profile.png
 
-          var go = '/app/myprofile';
-          if($rootScope.isXsession){
-            go = '/app/x';
+          if(user.vatorX){
+            if($state.current.data.entryType !== 'x'){
+
+            }else{
+                  go = '/app/myprofile';
+                  if($scope.upp){
+                    $scope.loginResult.user.vatorX = 'valid';
+
+                    User.upsert($scope.loginResult.user,
+                    function(responseUser){
+                      CoreService.toastSuccess(gettextCatalog.getString(
+                        'Welcome to vatorX'), gettextCatalog.getString(
+                        'Account has been upgraded!'));
+                        AppAuth.currentUser = responseUser;
+                        $scope.continue(next, go);
+                    },
+                    function(res){
+                      CoreService.toastError(gettextCatalog.getString(
+                        'Error upgrading account!'), res.data.error.message);
+                    });
+
+                  }else{
+                    AppAuth.currentUser = user;
+                    // detect user is a
+                    if($scope.loginResult.user.vatorX === 'valid'){
+                      $rootScope.isXsession = true;
+                      go = '/app/x';
+                      console.log('IS XSESSION');
+                    }
+                    $scope.continue(next, go);
+                  }
+            }
           }
           var next = $location.nextAfterLogin || go;
 
-          $location.nextAfterLogin = null;
-
-          if($scope.upp){
-            $scope.loginResult.user.vatorX = 'valid';
-
-            User.upsert($scope.loginResult.user,
-            function(responseUser){
-              CoreService.toastSuccess(gettextCatalog.getString(
-                'Welcome to vatorX'), gettextCatalog.getString(
-                'Account has been upgraded!'));
-                AppAuth.currentUser = responseUser;
-                $scope.continue(next, go);
-            },
-            function(res){
-              CoreService.toastError(gettextCatalog.getString(
-                'Error upgrading account!'), res.data.error.message);
-            });
-
-          }else{
-            AppAuth.currentUser = $scope.loginResult.user;
-            // detect user is a
-            if($scope.loginResult.user.vatorX === 'valid'){
-              $rootScope.isXsession = true;
-              go = '/app/x';
-              console.log('IS XSESSION');
-            }
-            $scope.continue(next, go);
-          }
-
+          // $location.nextAfterLogin = null;
         },
         function(res) {
           $scope.loginError = res.data.error;

@@ -22,7 +22,7 @@ angular.module('com.module.users')
         url: '/loginx',
         template: '<login></login>',
         data: {
-           entryType : 'x'
+           entryType : 'u'
         },
         controller: 'LoginCtrl'
       })
@@ -35,7 +35,7 @@ angular.module('com.module.users')
         controller: 'RegisterCtrl'
       })
       .state('registerx', {
-        url: '/x/register',
+        url: '/registerx',
         template: '<register></register>',
         data: {
            entryType : 'x'
@@ -43,9 +43,9 @@ angular.module('com.module.users')
         controller: 'RegisterCtrl'
       })
       .state('registerxx', {
-        url: '/registerx',
+        url: '/x/register',
         data: {
-           entryType : 'x'
+           entryType : 'u'
         },
         template: '<register></register>',
         controller: 'RegisterCtrl'
