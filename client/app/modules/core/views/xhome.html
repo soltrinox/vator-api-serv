@@ -1,8 +1,5 @@
-<section class="content-header">
-  <div class="pull-right">
-  </div>
-   <h1>VATORX DASHBOARD
-</h1>
+<section admin-header class="content-header" title="vatorX Dashboard" sub-title="Access your vator tools!">
+    <a ui-sref="app.programs.add" class="btn btn-default btn-sm" translate>Create Program</a>
 </section>
 
 <section class="content">
@@ -11,10 +8,10 @@
     <!-- Start Options Row -->
     <div class="row">
       <div class="col-md-12 ">
+        <alert  type="success"  ng-show="upp" close="closeAlert()">Account Upgraded to Enterprise!</alert>
+        <!-- <div class="panel panel-widget "  style="background:#B6DEE4">
 
-        <div class="panel panel-widget " ng-show="upp"  style="background:#B6DEE4">
-          <alert  type="success" close="closeAlert()">Account Upgraded to Enterprise!</alert>
-        </div>
+        </div> -->
         <div class="panel panel-widget " style="background:#B6DEE4">
           <div class="panel-title" style="background:#B6DEE4">
             Programs
