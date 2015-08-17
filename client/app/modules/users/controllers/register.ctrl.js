@@ -9,7 +9,7 @@
  * Controller for Register Page
  **/
 angular.module('com.module.users')
-  .controller('RegisterCtrl', function($scope, $rootScope,  $routeParams, $location, $filter,
+  .controller('RegisterCtrl', function($scope, $rootScope, $route, $routeParams, $location, $filter,
     CoreService, ProfileService, Profile, User, AppAuth, gettextCatalog) {
 
 
@@ -160,10 +160,12 @@ angular.module('com.module.users')
                 function() {
                   $rootScope.isXsession = true;
                   $location.path('/login?t=x&upgrade=true');
+                    $route.reload();
                 },
                 function(){
                   $rootScope.isXsession = false;
                     $location.path('/app/myprofile');
+                      $route.reload();
                 }
               );
           };
@@ -216,14 +218,20 @@ angular.module('com.module.users')
                         for(var message in res.data.error.details.messages){
                           console.log('REGISTER ERROR MESSAGE: \n '+JSON.stringify(message));
                           if(message === 'email'){
-                            $scope.errorEmail();
+                            //$scope.errorEmail();
+                            CoreService.confirm('Email Found !', 'We noticed you already have an account on Vator.co. Would you like to upgrade to VatorX Enterprise Account?',
+                              function() {
+                                $rootScope.isXsession = true;
+                                $location.path('/login?t=x&upgrade=true');
+                                  $route.reload();
+                              },
+                              function(){
+                                $rootScope.isXsession = false;
+                                  $location.path('/app/myprofile');
+                                    $route.reload();
+                              }
+                            );
                           }
-                          // if(!message.email || 0 === message.email.length){
-                          // }else{
-                          //   console.log('EMAIL message : '+ JSON.stringify(message.email));
-                          //     if(message.email[0] === 'Email already exists'){
-                          //     }
-                          // }
                         }
                   }
                 );
