@@ -2,12 +2,18 @@
 angular.module('com.module.programs')
 .filter('getItemName', function() {
   return function(input, name) {
-    var i=0, len=input.length;
-    for (; i<len; i++) {
-      if (input[i].name === name) {
-        return input[i];
+    if(typeof (input) === 'undefined'){
+      // input is empty
+    }else{
+      var i=0, len=input.length;
+      for (; i<len; i++) {
+        if (input[i].name === name) {
+          return input[i];
+        }
       }
     }
+
+
     return null;
   };
 })
