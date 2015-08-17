@@ -107,6 +107,10 @@ angular.module('com.module.core')
           scope : $scope,
           size: size
         });
+
+
+
+        app.programs.list
     };
 
 
