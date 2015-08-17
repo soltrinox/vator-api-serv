@@ -7,7 +7,7 @@
  * @requires $rootScope
  **/
 angular.module('com.module.core')
-  .controller('XCtrl', function($scope, $route, $rootScope, CoreService, $location, AppAuth, User, gettextCatalog) {
+  .controller('XCtrl', function($scope, $route, $rootScope, CoreService, $modal, $modalInstance, $location, AppAuth, User, gettextCatalog) {
 
     $scope.count = {};
     $scope.upp = false;
@@ -63,5 +63,27 @@ angular.module('com.module.core')
           $location.path('/app');
         });
     };
+
+
+    $scope.animationsEnabled = true;
+
+    $scope.open = function (size) {
+
+      var modalInstance = $modal.open({
+        animation: $scope.animationsEnabled,
+        templateUrl: 'myModalContent.html',
+        controller:  'ProgramsCtrl',
+        size: size
+      });
+
+      modalInstance.result.then(function (selectedItem) {
+        $scope.selected = selectedItem;
+      }, function () {
+        console.log('Modal dismissed at: ' + new Date());
+      });
+
+    };
+
+
 
   });
