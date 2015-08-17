@@ -174,10 +174,10 @@ angular.module('com.module.programs')
         CoreService.toastSuccess(gettextCatalog.getString('Program saved'),
           gettextCatalog.getString('Your program is safe with us!'));
           if( typeof ($modalInstance) === 'undefined'){
+            $state.go('^.list');
+          }else{
             $modalInstance.dismiss('completed');
             $state.go('app.programs.list');
-          }else{
-            $state.go('^.list');
           }
 
       }, function(err) {
