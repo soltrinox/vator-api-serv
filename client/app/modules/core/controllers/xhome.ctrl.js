@@ -95,8 +95,10 @@ angular.module('com.module.core')
         });
       };
 
+      var modalInstance = null;
+
     $scope.open = function (size) {
-       $modal.open({
+       modalInstance =  $modal.open({
           animation: $scope.animationsEnabled,
           templateUrl: 'addProgram.html',
           controller:  'ProgramsCtrl',
