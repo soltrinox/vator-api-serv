@@ -107,9 +107,9 @@ angular.module('com.module.core')
         });
 
         modalInstance.result.then(function () {
-          
+
         }, function () {
-          $log.info('Modal dismissed at: ' + new Date());
+          
         });
     };
 
