@@ -18,6 +18,7 @@ angular.module('com.module.programs')
           Cats: '',
           Location : '',
           Tags : [],
+          Company : {},
           team: {}
         };
 
@@ -35,16 +36,14 @@ angular.module('com.module.programs')
       };
 
       $scope.onCompanySelect = function(item, model, label){
-            $scope.prettyPrint('MODEL',model);
-            $scope.WorkRecord.companyname = model;
+            $scope.ProgramObject.Company = model;
             $scope.workLookUp = model;
-        label = null;
+            label = null;
       };
 
       $scope.lookCompany = function(val){
         // TODO:  set the id of the record
           $scope.workLookUp = val;
-          $scope.WorkRecord.companyname = $scope.workLookUp;
       };
 
       $scope.getCompanyProjects = function(val) {
