@@ -5,15 +5,48 @@ angular.module('com.module.users')
       .state('login', {
         url: '/login',
         template: '<login></login>',
+        data: {
+           entryType : 's'
+        },
         controller: 'LoginCtrl'
       })
       .state('loginx', {
         url: '/x/login',
-        template: '<loginx></loginx>',
+        template: '<login></login>',
+        data: {
+           entryType : 'x'
+        },
+        controller: 'LoginCtrl'
+      })
+      .state('loginxx', {
+        url: '/loginx',
+        template: '<login></login>',
+        data: {
+           entryType : 'x'
+        },
         controller: 'LoginCtrl'
       })
       .state('register', {
         url: '/register',
+        template: '<register></register>',
+        data: {
+           entryType : 's'
+        },
+        controller: 'RegisterCtrl'
+      })
+      .state('registerx', {
+        url: '/x/register',
+        template: '<register></register>',
+        data: {
+           entryType : 'x'
+        },
+        controller: 'RegisterCtrl'
+      })
+      .state('registerxx', {
+        url: '/registerx',
+        data: {
+           entryType : 'x'
+        },
         template: '<register></register>',
         controller: 'RegisterCtrl'
       })

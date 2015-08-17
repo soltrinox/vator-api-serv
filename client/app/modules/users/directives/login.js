@@ -15,7 +15,13 @@ angular.module('com.module.users')
   })
   .directive('loginx', function() {
     return {
-      templateUrl: 'modules/users/views/loginx.html',
+      templateUrl: 'modules/users/views/login.html',
+      restrict: 'E'
+    };
+  })
+  .directive('loginxx', function() {
+    return {
+      templateUrl: 'modules/users/views/login.html',
       restrict: 'E'
     };
   })
