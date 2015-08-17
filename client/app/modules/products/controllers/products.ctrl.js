@@ -89,7 +89,8 @@ angular.module('com.module.products')
               console.log('SUCCESS Product.getEntireProduct:');
             $scope.CompanyRecord = product.company.details;
 
-            console.log('company:' + JSON.stringify($scope.CompanyRecord));
+            console.log('$scope.product:\n' + JSON.stringify($scope.product));
+            console.log('team obj: \n' + JSON.stringify(product.team));
             if(!product.team || 0 === product.team.length || (typeof product.team === 'undefined')){
               // product.company.team =
               // TODO: create new product object
