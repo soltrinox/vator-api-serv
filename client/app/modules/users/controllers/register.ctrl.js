@@ -223,12 +223,10 @@ angular.module('com.module.users')
                               function() {
                                 $rootScope.isXsession = true;
                                 $location.path('/login').search('t','x').search('upgrade','true');
-                                  $route.reload();
                               },
                               function(){
                                 $rootScope.isXsession = false;
                                   $location.path('/app/myprofile');
-                                    $route.reload();
                               }
                             );
                           }

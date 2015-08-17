@@ -9,7 +9,7 @@
  * Contrller for Login Page
  **/
 angular.module('com.module.users')
-  .controller('LoginCtrl', function($scope, $rootScope, $routeParams, $location,
+  .controller('LoginCtrl', function($scope, $rootScope, $route, $routeParams, $location,
     CoreService, ProfileService, Profile, User, AppAuth, AuthProvider, gettextCatalog) {
 
     var TWO_WEEKS = 1000 * 60 * 60 * 24 * 7 * 2;
@@ -28,6 +28,7 @@ angular.module('com.module.users')
             $rootScope.isXsession  = true;
             console.log('IS XSESSION');
             $location.search('t', null);
+            $route.reload();
         }else{
           $rootScope.isXsession  = false;
           console.log('NOT XSESSION');
