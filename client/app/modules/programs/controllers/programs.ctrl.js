@@ -15,7 +15,7 @@ angular.module('com.module.programs')
     return null;
   };
 })
-.controller('ProgramsCtrl', function($scope, $rootScope, $location, $http, $filter, $state, $routeParams, $modal, $modalInstance, $stateParams, CoreService,
+.controller('ProgramsCtrl', function($scope, $rootScope, $location, $http, $filter, $state, $routeParams,  $modal, $modalInstance, $stateParams, CoreService,
     FormHelper, gettextCatalog, Program,  ProgramService, Category) {
 
 
@@ -151,6 +151,20 @@ angular.module('com.module.programs')
       submitCopy: gettextCatalog.getString('Save')
     };
 
+    $scope.getLocation = function(val) {
+        return $http.get('//maps.googleapis.com/maps/api/geocode/json', {
+          params: {
+            address: val,
+            sensor: false
+          }
+        }).then(function(response){
+          return response.data.results.map(function(item){
+            return item.formattedAddress;
+          });
+        });
+      };
+
+
     $scope.onSubmit = function() {
       // $rootScope.masterUser = $scope.currentUser;
       // when we create a new program always create a new admins (Group object)
@@ -251,18 +265,7 @@ angular.module('com.module.programs')
 // LOCATIOnS
 
 
-$scope.getLocation = function(val) {
-    return $http.get('//maps.googleapis.com/maps/api/geocode/json', {
-      params: {
-        address: val,
-        sensor: false
-      }
-    }).then(function(response){
-      return response.data.results.map(function(item){
-        return item.formattedAddress;
-      });
-    });
-  };
+
 
 
   // picture logo

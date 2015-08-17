@@ -82,15 +82,6 @@ angular.module('com.module.core')
 
     $scope.animationsEnabled = true;
 
-    $scope.open = function (size) {
-       $modal.open({
-          animation: $scope.animationsEnabled,
-          templateUrl: 'addProgram.html',
-          controller:  'ProgramsCtrl',
-          size: size
-        });
-    };
-
     $scope.getLocation = function(val) {
         return $http.get('//maps.googleapis.com/maps/api/geocode/json', {
           params: {
@@ -104,6 +95,15 @@ angular.module('com.module.core')
         });
       };
 
+    $scope.open = function (size) {
+       $modal.open({
+          animation: $scope.animationsEnabled,
+          templateUrl: 'addProgram.html',
+          controller:  'ProgramsCtrl',
+          bindToController : true,
+          size: size
+        });
+    };
 
 
   });
