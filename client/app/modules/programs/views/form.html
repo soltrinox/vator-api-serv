@@ -12,8 +12,8 @@
     <div class="alert alert-danger" ng-if="addError" translate>Could not add program!</div>
     <div class="form-group vator_form_box work-companylookup-box" ng-class="{'has-error': options.formField.$invalid}">
       <label for="work.title" class="ng-binding"> Search for a company on vator </label>
-      <div>
-        <div style="width:60%;float:left;">
+      <div  style="clear:both !important;">
+        <div style="width:40%;float:left;">
           <input type="text" ng-model="$scope.workLookUp" placeholder="Search for a company"
           typeahead="item for item in getCompanyProjects($viewValue)" id="work-companylookup"
           typeahead-on-select="onCompanySelect(item, $scope.workLookUp, work.companylookup )"
@@ -22,7 +22,7 @@
           <i ng-show="loadingCompanies" class="glyphicon glyphicon-refresh"></i>
         </div>
         <div style="width:20%; margin-left:5px; float:left">
-          OR <a href="/#/app/products/add/55ba9286966a114937493efe" class="btn btn-info fa fa-rocket"> &nbsp; Add New Company</a>
+          <a href="/#/app/products/add/55ba9286966a114937493efe" class="btn btn-info fa fa-rocket"> &nbsp; Add New Company</a>
         </div>
       </div>
       <!-- ngIf: options.description -->
