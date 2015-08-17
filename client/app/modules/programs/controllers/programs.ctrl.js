@@ -15,7 +15,7 @@ angular.module('com.module.programs')
     return null;
   };
 })
-.controller('ProgramsCtrl', function($scope, $rootScope, $location, $http, $filter, $state, $routeParams,  $modal, modalInstance, $stateParams, CoreService,
+.controller('ProgramsCtrl', function($scope, $rootScope, $location, $http, $filter, $state, $routeParams,  $modal,  $stateParams, CoreService,
     FormHelper, gettextCatalog, Program,  ProgramService, Category) {
 
 
@@ -209,8 +209,8 @@ angular.module('com.module.programs')
 
     $scope.goAway = function(){
 
-      if( typeof (modalInstance) !== 'undefined'){
-        modalInstance.dismiss('completed');
+      if( typeof ($rootScope.modalInstance) !== 'undefined'){
+        $rootScope.modalInstance.dismiss('completed');
         $state.go('app.programs.list');
       }else{
           $state.go('^.list');

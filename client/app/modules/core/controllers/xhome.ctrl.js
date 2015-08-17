@@ -95,15 +95,16 @@ angular.module('com.module.core')
         });
       };
 
-    
+
 
     $scope.open = function (size) {
        $modal.open({
           animation: $scope.animationsEnabled,
           templateUrl: 'addProgram.html',
           controller:  'ProgramsCtrl',
-          controllerAs:  'ProgramsCtrl as modalInstance',
-          bindToController : true,
+          // controllerAs:  'ProgramsCtrl as modalInstance',
+          // bindToController : true,
+          scope : $scope,
           size: size
         });
     };
