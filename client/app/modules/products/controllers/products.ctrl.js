@@ -95,7 +95,7 @@ angular.module('com.module.products')
               // product.company.team =
               // TODO: create new product object
             }else{
-              $scope.teamMembers = product.company.details.team.members;
+              //$scope.teamMembers = product.company.details.team.members;
               $scope.members = product.company.details.team.members;
               // $scope.teamDetails = product.company.team.details;
               console.log('teamMembers:' + JSON.stringify($scope.teamMembers));
