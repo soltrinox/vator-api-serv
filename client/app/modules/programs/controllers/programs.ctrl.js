@@ -179,7 +179,7 @@ angular.module('com.module.programs')
       // save the group object and or update on upsert at the program object on API server
 
         $scope.ProgramObject.Name =   $scope.program.Name;
-        $scope.ProgramObject.Company = $scope.program.Company;
+        $scope.ProgramObject.Company = $scope.workLookUp;
         $scope.ProgramObject.location = $scope.program.location;
         $scope.ProgramObject.Brief = $scope.program.Brief;
         $scope.ProgramObject.Desc = $scope.program.Desc;

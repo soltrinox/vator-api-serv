@@ -98,6 +98,8 @@ angular.module('com.module.core')
 
 
     $scope.open = function (size) {
+      
+
        $rootScope.modalInstance = $modal.open({
           animation: $scope.animationsEnabled,
           templateUrl: 'addProgram.html',
