@@ -1,11 +1,25 @@
 'use strict';
 angular.module('com.module.programs')
   .controller('ProgramsCtrl', function($scope, $rootScope, $location, $http, $filter, $state, $routeParams, $stateParams, CoreService,
-    FormHelper, gettextCatalog, Program, ProgramService, Category) {
+    FormHelper, gettextCatalog, Program, ProductService, ProgramService, Category) {
 
 
       $scope.tags = [];
       $scope.TagFirst = '0';
+      $scope.workLookUp = '';
+
+      $scope.ProgramObject = {
+          Name: '',
+          Desc : '',
+          Brief:  '',
+          Image:  '',
+          Owner:  '',
+          adminId : '',
+          Cats: '',
+          Location : '',
+          Tags : [],
+          team: {}
+        };
 
 
       $scope.loadItems = function() {
@@ -17,6 +31,39 @@ angular.module('com.module.programs')
             });
             this.push(category);
           }, $scope.categories);
+        });
+      };
+
+      $scope.onCompanySelect = function(item, model, label){
+            $scope.prettyPrint('MODEL',model);
+            $scope.WorkRecord.companyname = model;
+            $scope.workLookUp = model;
+        label = null;
+      };
+
+      $scope.lookCompany = function(val){
+        // TODO:  set the id of the record
+          $scope.workLookUp = val;
+          $scope.WorkRecord.companyname = $scope.workLookUp;
+      };
+
+      $scope.getCompanyProjects = function(val) {
+        //  http://api.vator.co/api/Teams?filter={%20%22where%22%20:%20{%20%22Name%22%20:%20{%22like%22%20:%22Co%22%20}%20}%20}
+        return $http.get('//api.vator.co/api/products', {
+          params: {
+            filter: {
+                where : {
+                  name : {
+                    like : val
+                  }
+                }
+            }
+          }
+        }).then(function(response){
+          // $scope.prettyPrint('Company : ' , response);
+          return response.data.map(function(item){
+            return item.name;
+          });
         });
       };
 
@@ -58,18 +105,7 @@ angular.module('com.module.programs')
 
     }
 
-    $scope.ProgramObject = {
-        Name: '',
-        Desc : '',
-        Brief:  '',
-        Image:  '',
-        Owner:  '',
-        adminId : '',
-        Cats: '',
-        Location : '',
-        Tags : [],
-        team: {}
-      };
+
 
 
     $scope.formFields = [{
