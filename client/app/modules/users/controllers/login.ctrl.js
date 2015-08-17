@@ -128,6 +128,8 @@ angular.module('com.module.users')
             user.CoverPic = 'https://s3.amazonaws.com/vatorprofilecache/456498.jpg';
           }
           if(user.vatorX){
+            go = '/app/x';
+            next = $location.nextAfterLogin || go;
             if($state.current.data.entryType !== 'x'){
                 AppAuth.currentUser = user;
                 // detect user is a
@@ -161,6 +163,12 @@ angular.module('com.module.users')
                   go = '/app/myprofile';
                   $scope.continue(next, go);
             }
+          }else{
+            CoreService.toastSuccess(gettextCatalog.getString(
+              'Welcome to back vator'), gettextCatalog.getString(
+              'vator vator vator vator vator'));
+                go = '/app/myprofile';
+                $scope.continue(next, go);
           }
         },
         function(res) {
