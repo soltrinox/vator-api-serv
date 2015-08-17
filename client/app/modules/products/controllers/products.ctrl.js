@@ -12,7 +12,7 @@ angular.module('com.module.products')
   };
 }).controller('ProductsCtrl', function($scope, $location, $route,  $rootScope,  $routeParams,$document, $filter,
   $state, $stateParams, $http, CoreService, ProfileService, gettextCatalog,
-  Product, Category, User, Profile, Team, Media ) {
+  Product, Category ) {
 
     var productId = $stateParams.id;
     var categoryId = $stateParams.categoryId;
@@ -227,7 +227,7 @@ angular.module('com.module.products')
         }
 
         $scope.CompanyRecord.categoryId =  categoryId;
-
+        $scope.CompanyRecord.team.members = $scope.teamMembers;
         $scope.CompanyRecord.tags = $scope.tags;
         Product.upsert($scope.CompanyRecord, function(response) {
           console.log('NEW COMP REC: '  + JSON.stringify(response));
@@ -370,26 +370,25 @@ angular.module('com.module.products')
             });
           };
 
-
           $scope.newMemberValue = function($member){
 	           //$scope.members.push($member);
-             $scope.teamMembers.push($member);
              console.log('NEW MEMBER ADDED ID: ' + $member.id  +'\n'+ JSON.stringify($scope.teamMembers) );
              $scope.showmembers($member);
           };
 
           $scope.showmembers = function($member){
-              var found = $filter('getByName')($scope.members, $member.Name);
+              var found = $filter('getByName')($scope.teamMembers, $member.Name);
               if(!found){
-                  console.log($member.Name + ' NOT FOUND'  );
+                  console.log($member.Name + ' NOT FOUND : adding member'  );
+                  $scope.teamMembers.push($member);
               }else{
-                  console.log('FOUND:' + JSON.stringify(found) +' in '+  JSON.stringify($scope.members) );
+                  console.log('FOUND:' + JSON.stringify(found) +' in '+  JSON.stringify($scope.teamMembers) );
               }
           };
 
           $scope.onSaveMembers = function(){
               console.log('SUBMIT MEMBERS TO TEAM: ' +  JSON.stringify($scope.teamMembers) );
-              $scope.CompanyRecord.team.members = $scope.members;
+              $scope.CompanyRecord.team.members = $scope.teamMembers;
           };
 
 
