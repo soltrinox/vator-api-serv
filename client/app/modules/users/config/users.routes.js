@@ -10,7 +10,7 @@ angular.module('com.module.users')
       .state('loginx', {
         url: '/x/login',
         template: '<loginx></loginx>',
-        controller: 'LoginCtrlx'
+        controller: 'LoginCtrl'
       })
       .state('register', {
         url: '/register',
