@@ -1,6 +1,17 @@
 'use strict';
 angular.module('com.module.programs')
-  .controller('ProgramsCtrl', function($scope, $rootScope, $location, $http, $filter, $state, $routeParams, $stateParams, CoreService,
+.filter('getItemName', function() {
+  return function(input, name) {
+    var i=0, len=input.length;
+    for (; i<len; i++) {
+      if (input[i].name === name) {
+        return input[i];
+      }
+    }
+    return null;
+  };
+})
+.controller('ProgramsCtrl', function($scope, $rootScope, $location, $http, $filter, $state, $routeParams, $stateParams, CoreService,
     FormHelper, gettextCatalog, Program,  ProgramService, Category) {
 
 
@@ -21,6 +32,18 @@ angular.module('com.module.programs')
           Company : '',
           team: ''
         };
+
+      $scope.loadItems = function() {
+         $scope.categories = [];
+          Category.find(function(categories) {
+            angular.forEach(categories, function(category) {
+              category.products = Category.products({
+                id: category.id
+              });
+              this.push(category);
+            }, $scope.categories);
+          });
+      };
 
       $scope.onCompanySelect = function(item, model, label){
             $scope.ProgramObject.Company = model;
@@ -69,18 +92,18 @@ angular.module('com.module.programs')
     var programId = $stateParams.id;
 
     if (programId) {
-      $scope.program = Program.findById({
+      Program.findById({
         id: programId
-      }, function() {
-        $scope.tags = $scope.program.Cats;
-        $scope.workLookUp = $scope.program.Company;
-        
-        $scope.ProgramObject = $scope.program;
+      }, function(response) {
+        console.log('PROGRAM OBJ 2 \n' + JSON.stringify(response));
+        $scope.tags = response.Cats;
+        $scope.workLookUp = response.Company;
+        $scope.ProgramObject = response;
       }, function(err) {
         console.log(err);
       });
 
-      console.log('PROGRAM OBJ 2 \n' + JSON.stringify($scope.ProgramObject));
+
 
     } else {
       $scope.program = {};
@@ -134,6 +157,7 @@ angular.module('com.module.programs')
         $scope.ProgramObject.Brief = $scope.program.Brief;
         $scope.ProgramObject.Desc = $scope.program.Desc;
         $scope.ProgramObject.Cats = $scope.tags;
+        $scope.ProgramObject.tags
         $scope.ProgramObject.Image =   $scope.program.Image;
         $scope.ProgramObject.Owner = $scope.currentUser.pid;
         // TODO: this should pull from the selected programs admins list
@@ -195,7 +219,7 @@ angular.module('com.module.programs')
      };
 
      $scope.showdetails = function($tag){
-         var found = $filter('getByName')($scope.tags, $tag.name);
+         var found = $filter('getItemName')($scope.tags, $tag.name);
          if(!found){
              console.log($tag.name + ' NOT FOUND'  );
              $scope.tags.push($tag);
