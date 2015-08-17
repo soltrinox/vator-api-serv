@@ -22,7 +22,7 @@ angular.module('com.module.users')
 
     $scope.reloadRoute = function() {
         $window.location.reload();
-         $state.reload();
+        // $state.reload();
     }
 
     $scope.$on('$viewContentLoaded', function(){
