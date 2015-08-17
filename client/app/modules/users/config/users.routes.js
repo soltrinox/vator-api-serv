@@ -34,6 +34,22 @@ angular.module('com.module.users')
         },
         controller: 'RegisterCtrl'
       })
+      .state('registerj', {
+        url: '/register-judge',
+        template: '<register></register>',
+        data: {
+           entryType : 'j'
+        },
+        controller: 'RegisterCtrl'
+      })
+      .state('registert', {
+        url: '/register-team',
+        template: '<register></register>',
+        data: {
+           entryType : 't'
+        },
+        controller: 'RegisterCtrl'
+      })
       .state('registerx', {
         url: '/registerx',
         template: '<register></register>',
