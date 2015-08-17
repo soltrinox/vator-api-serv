@@ -4,7 +4,7 @@ angular.module('com.module.products')
     $stateProvider
       .state('app.companies', {
         abstract: true,
-        url: '/products',
+        url: '/companies',
         templateUrl: 'modules/products/views/main.html'
       })
       .state('app.companies.list', {

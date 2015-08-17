@@ -388,7 +388,7 @@ angular.module('com.module.products')
 
           $scope.onSaveMembers = function(){
               console.log('SUBMIT MEMBERS TO TEAM: ' +  JSON.stringify($scope.teamMembers) );
-              $scope.CompanyRecord.team.members = $scope.teamMembers;
+              $scope.CompanyRecord.team.members = $scope.members;
           };
 
 
