@@ -25,19 +25,19 @@ angular.module('com.module.users')
           }
           if (rejection.status === 404) {
             console.log(rejection);
-            CoreService.toastError('Error 404 received', rejection.data
-              .error.message);
+            // CoreService.toastError('Error 404 received', rejection.data
+            //   .error.message);
           }
           if (rejection.status === 422) {
             console.log(rejection);
-            CoreService.toastError('Error 422 received', rejection.data
-              .error.message);
+            // CoreService.toastError('Error 422 received', rejection.data
+            //   .error.message);
           }
           if (rejection.status === 0) {
             $location.path('/');
-            CoreService.toastError('Connection Refused',
-              'The connection to the API is refused. Please verify that the API is running!'
-            );
+            // CoreService.toastError('Connection Refused',
+            //   'The connection to the API is refused. Please verify that the API is running!'
+            // );
           }
           return $q.reject(rejection);
         }
