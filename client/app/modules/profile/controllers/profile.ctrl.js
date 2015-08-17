@@ -998,7 +998,7 @@ $scope.startNewExperienceRecord = function(id) {
     console.log('editing comp : '+ comp.Name +' : ' + comp.URL +' : '  );
     $scope.CompanyRecord.Name = comp.Name;
     $scope.CompanyRecord.URL = comp.URL;
-    $scope.CompanyRecord.profileId = '';
+    $scope.CompanyRecord.profileId = comp.profileId;
     $scope.CompanyRecord.teamId = '';
 
     // console.log('getting members');

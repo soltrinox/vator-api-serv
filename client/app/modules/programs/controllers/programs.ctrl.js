@@ -157,13 +157,15 @@ angular.module('com.module.programs')
         $scope.ProgramObject.Name =   $scope.program.Name;
 
 
+        $scope.ProgramObject.Company = $scope.program.Company;
+        $scope.ProgramObject.location = $scope.program.location;
         $scope.ProgramObject.Brief = $scope.program.Brief;
         $scope.ProgramObject.Desc = $scope.program.Desc;
-        $scope.ProgramObject.Cats = $scope.program.Cats;
+        $scope.ProgramObject.Cats = $scope.tags;
         $scope.ProgramObject.Image =   $scope.program.Image;
         $scope.ProgramObject.Owner = $scope.currentUser.pid;
         // TODO: this should pull from the selected programs admins list
-        $scope.ProgramObject.adminId = '55c8ddf6a2abdc8a0672544e';
+        $scope.ProgramObject.adminId = $scope.currentUser.pid;
 
       Program.upsert($scope.ProgramObject , function() {
         CoreService.toastSuccess(gettextCatalog.getString('Program saved'),
@@ -223,6 +225,7 @@ angular.module('com.module.programs')
          var found = $filter('getByName')($scope.tags, $tag.name);
          if(!found){
              console.log($tag.name + ' NOT FOUND'  );
+             $scope.tags.push($tag);
          }else{
              console.log('FOUND:' + JSON.stringify(found) +' in '+  JSON.stringify($scope.tags) );
          }
