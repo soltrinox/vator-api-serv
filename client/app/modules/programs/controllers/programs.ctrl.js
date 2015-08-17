@@ -1,7 +1,7 @@
 'use strict';
 angular.module('com.module.programs')
   .controller('ProgramsCtrl', function($scope, $rootScope, $location, $http, $filter, $state, $routeParams, $stateParams, CoreService,
-    FormHelper, gettextCatalog, Program, ProductService, ProgramService, Category) {
+    FormHelper, gettextCatalog, Program, CompanyService, ProgramService, Category) {
 
 
       $scope.tags = [];
