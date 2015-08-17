@@ -165,7 +165,8 @@ angular.module('com.module.users')
                       $scope.registration.username = $scope.registration.email;
                       delete $scope.registration.confirmPassword;
                       $scope.user = User.save($scope.registration,
-                      function() {
+                      function()
+                      {
                       $scope.loginResult = User.login({
                           include: 'user',
                           rememberMe: true
@@ -237,7 +238,6 @@ angular.module('com.module.users')
         });
 
       //    ==== end
-
     };
   })
   .directive('confirmPassword',
@@ -265,10 +265,15 @@ angular.module('com.module.users')
   $scope.errorEmail = function(){
         CoreService.confirm('Email Found !', 'We noticed you already have an account on Vator.co. Would you like to upgrade to VatorX Enterprise Account?',
           function() {
+            //$scope.currentUser.vatorX = 'valid';
+            //$rootScope.isXsession = true;
+            // $scope.Agreed = false;
+            // $scope.Agreed = true;
+            $location.path('/login?t=x&upgrade=true');
 
           },
           function(){
-
+              $location.path('/app/myprofile');
           }
         );
     };

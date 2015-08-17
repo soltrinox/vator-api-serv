@@ -13,6 +13,7 @@ angular.module('com.module.users')
     CoreService, ProfileService, Profile, User, AppAuth, AuthProvider, gettextCatalog) {
 
     var TWO_WEEKS = 1000 * 60 * 60 * 24 * 7 * 2;
+    $scope.upp = false;
 
     $scope.credentials = {
       ttl: TWO_WEEKS,
@@ -22,13 +23,19 @@ angular.module('com.module.users')
     $scope.$on('$viewContentLoaded', function(){
         // console.log('RT PARAMS: ' + JSON.stringify($location.search()) );
         var tt = $location.search().t;
-        if(tt === 'x'){
+        var upp = $location.search().upgrade;
+        if(tt === 'x' ){
             $rootScope.isXsession  = true;
             console.log('IS XSESSION');
             $location.search('t', null);
         }else{
           $rootScope.isXsession  = false;
           console.log('NOT XSESSION');
+        }
+        if(upp === 'true'){
+          $scope.upp = true;
+        }else {
+          $scope.upp = false;
         }
 
     });
@@ -125,61 +132,85 @@ angular.module('com.module.users')
 
           $location.nextAfterLogin = null;
 
-          AppAuth.currentUser = $scope.loginResult.user;
-            console.log('AppAuth.currentUser: '+JSON.stringify(AppAuth.currentUser)); // => acess token
-          CoreService.toastSuccess(gettextCatalog.getString('Logged in'),
-            gettextCatalog.getString('You are logged in!'));
+          if($scope.upp){
+            $scope.loginResult.user.vatorX = 'valid';
 
+            User.upsert($scope.loginResult.user,
+            function(responseUser){
+              CoreService.toastSuccess(gettextCatalog.getString(
+                'Welcome to vatorX'), gettextCatalog.getString(
+                'Account has been upgraded!'));
+                AppAuth.currentUser = responseUser;
+                $scope.continue(next, go);
+            },
+            function(res){
+              CoreService.toastError(gettextCatalog.getString(
+                'Error upgrading account!'), res.data.error.message);
+            });
 
-            if(  $rootScope.isXsession === undefined){
-              // re run til defined
-            }else{
-              if(!$rootScope.ranMenu){
-
-                    if($rootScope.isXsession){
-                      $rootScope.siteVersion = 'vatorX';
-                      console.log('MENU:' + JSON.stringify($rootScope.menu));
-                      $rootScope.addMenu(gettextCatalog.getString('Dashboard'), 'app.x',
-                        'fa-dashboard');
-                      $rootScope.addMenu(gettextCatalog.getString('Programs'), 'app.programs.list',
-                          'fa-star');
-                      $rootScope.addMenu(gettextCatalog.getString('Activity'), 'app.x',
-                                'fa-check');
-                      $rootScope.addMenu(gettextCatalog.getString('Profile'), 'app.myprofile.list',
-                                'fa-user');
-                    }else{
-                        $rootScope.siteVersion = 'vator';
-                      $rootScope.addMenu(gettextCatalog.getString('Dashboard'), 'app.home',
-                        'fa-dashboard');
-                      $rootScope.addMenu(gettextCatalog.getString('Company'),
-                          'app.products.list', 'fa-bank');
-                      $rootScope.addMenu(gettextCatalog.getString('Profile'), 'app.myprofile.list',
-                            'fa-user');
-                    }
-                    $rootScope.ranMenu = true;
-              }
-            }
-
-
-
-          if (next === '/login') {
-            next = go;
-          }else if(next === '/x/login'){
-            next = go;
+          }else{
+            AppAuth.currentUser = $scope.loginResult.user;
+            $scope.continue(next, go);
           }
-
-          $rootScope.masterUser = $scope.loginResult.user;
-          $scope.currentUser = $scope.loginResult.user;
-
-          $location.path(next);
 
         },
         function(res) {
           $scope.loginError = res.data.error;
         });
-
-
     };
+
+    $scope.continue = function(next, go){
+
+      console.log('AppAuth.currentUser: '+JSON.stringify(AppAuth.currentUser)); // => acess token
+    CoreService.toastSuccess(gettextCatalog.getString('Logged in'),
+      gettextCatalog.getString('You are logged in!'));
+
+
+      if(  $rootScope.isXsession === undefined){
+        // re run til defined
+      }else{
+        if(!$rootScope.ranMenu){
+
+              if($rootScope.isXsession){
+                $rootScope.siteVersion = 'vatorX';
+                console.log('MENU:' + JSON.stringify($rootScope.menu));
+                $rootScope.addMenu(gettextCatalog.getString('Dashboard'), 'app.x',
+                  'fa-dashboard');
+                $rootScope.addMenu(gettextCatalog.getString('Programs'), 'app.programs.list',
+                    'fa-star');
+                $rootScope.addMenu(gettextCatalog.getString('Activity'), 'app.x',
+                          'fa-check');
+                $rootScope.addMenu(gettextCatalog.getString('Profile'), 'app.myprofile.list',
+                          'fa-user');
+              }else{
+                  $rootScope.siteVersion = 'vator';
+                $rootScope.addMenu(gettextCatalog.getString('Dashboard'), 'app.home',
+                  'fa-dashboard');
+                $rootScope.addMenu(gettextCatalog.getString('Company'),
+                    'app.products.list', 'fa-bank');
+                $rootScope.addMenu(gettextCatalog.getString('Profile'), 'app.myprofile.list',
+                      'fa-user');
+              }
+              $rootScope.ranMenu = true;
+        }
+      }
+
+
+
+    if (next === '/login') {
+      next = go;
+    }else if(next === '/x/login'){
+      next = go;
+    }
+
+
+
+    $rootScope.masterUser = $scope.loginResult.user;
+    $scope.currentUser = $scope.loginResult.user;
+
+    $location.path(next);
+
+  };
 
 
   });

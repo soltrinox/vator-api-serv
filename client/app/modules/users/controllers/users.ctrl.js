@@ -55,7 +55,7 @@ app.controller('UsersCtrl', function($scope, $stateParams, $state, CoreService,
   $scope.onSubmit = function() {
     User.upsert($scope.user, function() {
       CoreService.toastSuccess(gettextCatalog.getString('User saved'),
-        gettextCatalog.getString('This user is save!'));
+        gettextCatalog.getString('This user is saved!'));
       $state.go('^.list');
     }, function(err) {
       CoreService.toastError(gettextCatalog.getString(
