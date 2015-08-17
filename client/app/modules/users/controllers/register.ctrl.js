@@ -140,15 +140,15 @@ angular.module('com.module.users')
 
     $scope.confirmPassword = '';
 
-    $scope.basicConfirm = function() {
-      CoreService.confirm('vatorX Terms and Policy', 'Text goes here',
-        function() {
-          CoreService.alert('Welcome to vatorX');
-        },
-        function() {
-          CoreService.alert('You don\'t agree!');
-        });
-    };
+    // $scope.basicConfirm = function() {
+    //   CoreService.confirm('vatorX Terms and Policy', 'Text goes here',
+    //     function() {
+    //       CoreService.alert('Welcome to vatorX');
+    //     },
+    //     function() {
+    //       CoreService.alert('You don\'t agree!');
+    //     });
+    // };
 
 
     $scope.Agreed = false;
@@ -156,77 +156,71 @@ angular.module('com.module.users')
 
     $scope.$watch($scope.Agreed , function(oldVal,newVal){
       console.log('watch fired ' + newVal);
-        if(newVal){
-          CoreService.confirm('This is an agreement', 'Terms and Policy here',
-            function() {
-                      if($rootScope.isXsession){
-                        $scope.registration.vatorX = 'valid';
-                      }
-                      $scope.registration.username = $scope.registration.email;
-                      delete $scope.registration.confirmPassword;
-                      $scope.user = User.save($scope.registration,
-                      function()
-                      {
-                      $scope.loginResult = User.login({
-                          include: 'user',
-                          rememberMe: true
-                        }, $scope.registration,
-                        function() {
-                          AppAuth.currentUser = $scope.loginResult.user;
-                          CoreService.toastSuccess(gettextCatalog.getString(
-                            'Registered'), gettextCatalog.getString(
-                            'You are registered!'));
-                            CoreService.alert('Welcome to vatorX');
+        if(newVal === 'true'){
 
-                            $scope.go = '/app/myprofile';
-                            if($rootScope.isXsession){
-                              if($rootScope.goLocation !== ''){
-                               $scope.go = $rootScope.goLocation;
-                                $rootScope.goLocation = '';
-                              }else{
-                               $scope.go = '/app/x';
-                              }
-                            }
-                            $location.path($scope.go);
-                        },
-                        function(res) {
-                          CoreService.toastWarning(gettextCatalog.getString(
-                              'Error signin in after registration!'), res.data.error
-                            .message);
-                          $scope.loginError = res.data.error;
-                        }
-                      );
-
-                      },
-                      function(res) {
-                            CoreService.toastError(gettextCatalog.getString(
-                              'Error registering!'), res.data.error.message);
-                            for(var message in res.data.error.details.messages){
-                              console.log('REGISTER ERROR MESSAGE: \n '+JSON.stringify(message));
-                              if(typeof(message.email) !== 'undefined'){
-                                  if(message.email[0] === 'Email already exists'){
-                                          $scope.errorEmail();
-
-                                  }
-                              }
-                            }
-                      }
-                    );
-            },
-            function() {
-              CoreService.alert('You don\'t agree');
-              $location.path('/');
-            });
         }
     });
 
     $scope.register = function() {
-      CoreService.confirm('Register on vator', 'Terms and Policy here',
+      CoreService.confirm('AGree to terms', 'Terms and Policy text here',
         function() {
-          $scope.Agreed = true;
+                  if($rootScope.isXsession){
+                    $scope.registration.vatorX = 'valid';
+                  }
+                  $scope.registration.username = $scope.registration.email;
+                  delete $scope.registration.confirmPassword;
+                  $scope.user = User.save($scope.registration,
+                  function()
+                  {
+                  $scope.loginResult = User.login({
+                      include: 'user',
+                      rememberMe: true
+                    }, $scope.registration,
+                    function() {
+                      AppAuth.currentUser = $scope.loginResult.user;
+                      CoreService.toastSuccess(gettextCatalog.getString(
+                        'Registered'), gettextCatalog.getString(
+                        'You are registered!'));
+                        CoreService.alert('Welcome to vatorX');
+
+                        $scope.go = '/app/myprofile';
+                        if($rootScope.isXsession){
+                          if($rootScope.goLocation !== ''){
+                           $scope.go = $rootScope.goLocation;
+                            $rootScope.goLocation = '';
+                          }else{
+                           $scope.go = '/app/x';
+                          }
+                        }
+                        $location.path($scope.go);
+                    },
+                    function(res) {
+                      CoreService.toastWarning(gettextCatalog.getString(
+                          'Error signin in after registration!'), res.data.error
+                        .message);
+                      $scope.loginError = res.data.error;
+                    }
+                  );
+
+                  },
+                  function(res) {
+                        CoreService.toastError(gettextCatalog.getString(
+                          'Error registering!'), res.data.error.message);
+                        for(var message in res.data.error.details.messages){
+                          console.log('REGISTER ERROR MESSAGE: \n '+JSON.stringify(message));
+                          if(typeof(message.email) !== 'undefined'){
+                              if(message.email[0] === 'Email already exists'){
+                                      $scope.errorEmail();
+
+                              }
+                          }
+                        }
+                  }
+                );
         },
         function() {
-          $scope.Agreed = false;
+          CoreService.alert('You don\'t agree');
+          $location.path('/');
         });
     };
 
