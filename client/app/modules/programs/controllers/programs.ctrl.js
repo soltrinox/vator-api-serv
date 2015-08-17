@@ -15,7 +15,7 @@ angular.module('com.module.programs')
     return null;
   };
 })
-.controller('ProgramsCtrl', function($scope, $rootScope, $location, $http, $filter, $state, $routeParams,  $modal,  $stateParams, CoreService,
+.controller('ProgramsCtrl', function($scope, $rootScope, $location, $http, $filter, $state, $routeParams,  $modal, modalInstance, $stateParams, CoreService,
     FormHelper, gettextCatalog, Program,  ProgramService, Category) {
 
 
@@ -221,6 +221,8 @@ angular.module('com.module.programs')
 
     $rootScope.$on('$routeChangeSuccess', function(e, current, pre) {
       console.log('Current route name: ' + $location.path());
+
+        console.log('modalInstance: ' + JSON.stringify(modalInstance) );
       // Get all URL parameter
       console.log($routeParams);
     });
