@@ -22,10 +22,18 @@ angular.module('com.module.core')
 
     $scope.logout = function() {
       User.logout(function() {
+        $rootScope.isXsession = false;
+        $rootScope.ranMenu = false;
+        $rootScope.masterUser = null;
+        $scope.currentUser = null;
         $state.go('login');
         CoreService.toastSuccess(gettextCatalog.getString('Logged out'),
           gettextCatalog.getString('You are logged out!'));
       });
+      $rootScope.isXsession = false;
+      $rootScope.ranMenu = false;
+      $rootScope.masterUser = null;
+      $scope.currentUser = null;
       $state.go('login');
       CoreService.toastSuccess(gettextCatalog.getString('Logged out'),
         gettextCatalog.getString('You are logged out!'));

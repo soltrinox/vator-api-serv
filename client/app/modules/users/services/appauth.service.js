@@ -4,7 +4,7 @@
 /*jshint camelcase: false */
 
 angular.module('com.module.users')
-  .factory('AppAuth', function($cookies, $rootScope, User, LoopBackAuth, $http) {
+  .factory('AppAuth', function($cookies, User, LoopBackAuth, $http) {
     var self = {
       login: function(data, cb) {
         LoopBackAuth.currentUserId = LoopBackAuth.accessTokenId = null;
@@ -42,7 +42,6 @@ angular.module('com.module.users')
       logout: function() {
         LoopBackAuth.clearUser();
         LoopBackAuth.save();
-        $rootScope.isXsession = false;
         // window.location.reload();
         window.location = '/auth/logout';
       },
