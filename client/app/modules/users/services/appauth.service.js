@@ -4,10 +4,13 @@
 /*jshint camelcase: false */
 
 angular.module('com.module.users')
-  .factory('AppAuth', function($cookies, User, LoopBackAuth, $http) {
+  .factory('AppAuth', function($cookies, $rootScope, User, LoopBackAuth, $http) {
     var self = {
       login: function(data, cb) {
         LoopBackAuth.currentUserId = LoopBackAuth.accessTokenId = null;
+        $rootScope.ranMenu = false;
+        $rootScope.menu = [];
+        
         $http.post('/api/users/login?include=user', {
             email: data.email,
             password: data.password
@@ -42,6 +45,8 @@ angular.module('com.module.users')
       logout: function() {
         LoopBackAuth.clearUser();
         LoopBackAuth.save();
+        $rootScope.ranMenu = false;
+        $rootScope.menu = [];
         // window.location.reload();
         window.location = '/auth/logout';
       },
