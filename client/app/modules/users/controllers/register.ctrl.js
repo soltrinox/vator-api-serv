@@ -201,105 +201,82 @@ angular.module('com.module.users')
                   $scope.user = User.save($scope.registration,
                   function()
                   {
-                  // $scope.loginResult = User.login({
-                  //     include: 'user',
-                  //     rememberMe: true
-                  //   }, $scope.registration,
-                  //   function() {
-                  //     AppAuth.currentUser = $scope.loginResult.user;
-                  //     CoreService.toastSuccess(gettextCatalog.getString(
-                  //       'Registered'), gettextCatalog.getString(
-                  //       'You are registered!'));
-                  //       CoreService.alert('Welcome to vatorX');
-                  //
-                  //       $scope.go = '/app/myprofile';
-                  //       if($rootScope.isXsession){
-                  //         if($rootScope.goLocation !== ''){
-                  //          $scope.go = $rootScope.goLocation;
-                  //           $rootScope.goLocation = '';
-                  //         }else{
-                  //          $scope.go = '/app/x';
-                  //         }
-                  //       }
-                  //       $location.path($scope.go);
-                  //   },
-                  //   function(res) {
-                  //     CoreService.toastWarning(gettextCatalog.getString(
-                  //         'Error signin in after registration!'), res.data.error
-                  //       .message);
-                  //     $scope.loginError = res.data.error;
-                  //   }
-                  // );
-
                   var go = '/app/myprofile';
                   var next = $location.nextAfterLogin || go;
 
-                  $scope.loginResult = User.login({
-                      include: 'user',
-                      rememberMe: $scope.credentials.rememberMe
-                    }, $scope.credentials,
-                    function(user) {
-                      console.log('USER LOGIN: '+JSON.stringify(user));
-                      // TODO: GET FULL PROFILE HERE ????
 
-                      if(!user.user.ProfilePic ||  0 === user.user.ProfilePic.length ){
-                        user.ProfilePic = 'https://s3.amazonaws.com/vatorprofilecache/profile.png';
-                      }
-                      if(!user.user.CoverPic ||  0 === user.user.CoverPic.length ){
-                        user.CoverPic = 'https://s3.amazonaws.com/vatorprofilecache/456498.jpg';
-                      }
-                      if(user.user.vatorX === 'valid'){
-                        go = '/app/x';
-                        next = $location.nextAfterLogin || go;
-                        if($state.current.data.entryType === 'x'){
-                            AppAuth.currentUser = user;
-                            // detect user is a
-                            if(user.user.vatorX === 'valid'){
-                              $rootScope.isXsession = true;
-                              console.log('IS XSESSION');
-                              CoreService.toastSuccess(gettextCatalog.getString(
-                                'Welcome back to vatorX'), gettextCatalog.getString(
-                                'vatorx vatorx vatorx vatorx vatorx'));
-                            }
-                            next = $location.nextAfterLogin || go;
-                            $scope.continue(next, go);
-                        }else if($state.current.data.entryType === 'u'){
-                            user.user.vatorX = 'valid';
-                            User.upsert(user.user,
-                            function(responseUser){
-                              CoreService.toastSuccess(gettextCatalog.getString(
-                                'Welcome to vatorX'), gettextCatalog.getString(
-                                'Basic Account has been upgraded to vatorX Enterprise!'));
-                                AppAuth.currentUser = responseUser;
-                                next = $location.nextAfterLogin || go;
-                                $scope.continue(next, go);
-                            },
-                            function(res){
-                              CoreService.toastError(gettextCatalog.getString(
-                                'Error upgrading account!'), res.data.error.message);
-                            });
-                        }else{
-                          AppAuth.currentUser = user;
-                          CoreService.toastSuccess(gettextCatalog.getString(
-                            'Welcome to back vator'), gettextCatalog.getString(
-                            'vator vator vator vator vator'));
-                              go = '/app/myprofile';
-                              next = $location.nextAfterLogin || go;
-                              $scope.continue(next, go);
-                        }
-                      }else{
-                        AppAuth.currentUser = user;
+                  if($state.current.data.entryType === 'x'){
+                      AppAuth.currentUser = $scope.user;
+                      // detect user is a
+                      if($scope.user.user.vatorX === 'valid'){
+                        $rootScope.isXsession = true;
+                        console.log('IS XSESSION');
                         CoreService.toastSuccess(gettextCatalog.getString(
-                          'Welcome to back vator'), gettextCatalog.getString(
-                          'vator vator vator vator vator'));
-                            go = '/app/myprofile';
-                            next = $location.nextAfterLogin || go;
-                            $scope.continue(next, go);
+                          'Welcome to vatorX'), gettextCatalog.getString(
+                          'vatorx vatorx vatorx vatorx vatorx'));
                       }
-                    },
-                    function(res) {
-                      $scope.loginError = res.data.error;
-                    });
+                      go = '/app/x';
+                      next = $location.nextAfterLogin || go;
+                      $scope.continue(next, go);
+                  }else if($state.current.data.entryType === 'u'){
+                      $scope.user.user.vatorX = 'valid';
+                      User.upsert($scope.user.user,
+                      function(responseUser){
+                        CoreService.toastSuccess(gettextCatalog.getString(
+                          'Welcome to vatorX'), gettextCatalog.getString(
+                          'Basic Account has been upgraded to vatorX Enterprise!'));
+                          AppAuth.currentUser = responseUser;
+                          go = '/app/x';
+                          next = $location.nextAfterLogin || go;
+                          $scope.continue(next, go);
+                      },
+                      function(res){
+                        CoreService.toastError(gettextCatalog.getString(
+                          'Error upgrading account!'), res.data.error.message);
+                      });
+                  }else{
+                    AppAuth.currentUser = $scope.user;
+                    CoreService.toastSuccess(gettextCatalog.getString(
+                      'Welcome to vator'), gettextCatalog.getString(
+                      'vator vator vator vator vator'));
+
+                        next = $location.nextAfterLogin || go;
+                        $scope.continue(next, go);
+                  }
+
+
+                  // $scope.loginResult = User.login({
+                  //     include: 'user',
+                  //     rememberMe: $scope.credentials.rememberMe
+                  //   }, $scope.credentials,
+                  //   function(user) {
+                  //     console.log('USER LOGIN: '+JSON.stringify(user));
+                  //     // TODO: GET FULL PROFILE HERE ????
+                  //
+                  //     if(!user.user.ProfilePic ||  0 === user.user.ProfilePic.length ){
+                  //       user.ProfilePic = 'https://s3.amazonaws.com/vatorprofilecache/profile.png';
+                  //     }
+                  //     if(!user.user.CoverPic ||  0 === user.user.CoverPic.length ){
+                  //       user.CoverPic = 'https://s3.amazonaws.com/vatorprofilecache/456498.jpg';
+                  //     }
+                  //     if(user.user.vatorX === 'valid'){
+                  //       go = '/app/x';
+                  //       next = $location.nextAfterLogin || go;
+                  //
+                  //       // replace state check here ?
+                  //     }else{
+                  //       AppAuth.currentUser = user;
+                  //       CoreService.toastSuccess(gettextCatalog.getString(
+                  //         'Welcome to back vator'), gettextCatalog.getString(
+                  //         'vator vator vator vator vator'));
+                  //           go = '/app/myprofile';
+                  //           next = $location.nextAfterLogin || go;
+                  //           $scope.continue(next, go);
+                  //     }
+                  //   },
+                  //   function(res) {
+                  //     $scope.loginError = res.data.error;
+                  //   });
 
                   },
                   function(res) {

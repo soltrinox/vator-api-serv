@@ -99,7 +99,8 @@ angular.module('com.module.users')
     }, {
       property: 'rememberMe',
       label: gettextCatalog.getString('Stay signed in'),
-      type: 'checkbox'
+      type: 'checkbox',
+      "default": true
     }];
 
     $scope.options = {
@@ -245,7 +246,7 @@ angular.module('com.module.users')
             }
             $rootScope.ranMenu = true;
       }
-      // ???? test this out 
+      // ???? test this out
     if (next === '/login' || next === '/loginx' || next === '/x/login') {
       next = go;
     }
