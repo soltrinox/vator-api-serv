@@ -155,19 +155,21 @@ angular.module('com.module.users')
             if($state.current.data.entryType === 'x'){
               console.log('VATORX USER LOG INTO VATORX');
                 AppAuth.currentUser = user;
+                AppAuth.currentUser.vatorX = 'valid';
                 // detect user is a
-                if(user.user.vatorX === 'valid'){
                   $rootScope.isXsession = true;
                   console.log('IS XSESSION');
                   CoreService.toastSuccess(gettextCatalog.getString(
                     'Welcome to vatorX'), gettextCatalog.getString(
                     'vatorx vatorx vatorx vatorx vatorx'));
-                }
+                    go = '/app/x';
                 next = $location.nextAfterLogin || go;
                 $scope.continue(next, go);
             }else{
               console.log('IS A VATORX USER LOGGING INTO VATOR.CO');
               //  TODO: SEND TO UPGRADE LOCATION
+              AppAuth.currentUser = user;
+              AppAuth.currentUser.vatorX = 'valid';
               $rootScope.isXsession = true;
               CoreService.toastSuccess(gettextCatalog.getString(
                 'Welcome to back vator'), gettextCatalog.getString(
@@ -182,6 +184,7 @@ angular.module('com.module.users')
             if($state.current.data.entryType === 'x'){
               console.log('VATOR.CO USER LOG INTO VATORX BUT MUST CONFIRM');
                 AppAuth.currentUser = user;
+                AppAuth.currentUser.vatorX = 'null';
                 // detect user is a
                 CoreService.toastSuccess(gettextCatalog.getString(
                   'Welcome to vatorX'), gettextCatalog.getString(
@@ -202,6 +205,7 @@ angular.module('com.module.users')
                     'Welcome to vatorX'), gettextCatalog.getString(
                     'vatorx vatorx vatorx vatorx vatorx '));
                     AppAuth.currentUser = user;
+                    AppAuth.currentUser.vatorX = 'valid';
                     $rootScope.masterUser = responseUser;
                     $scope.currentUser = responseUser;
                     $rootScope.isXsession = true;
@@ -214,9 +218,23 @@ angular.module('com.module.users')
                   CoreService.toastError(gettextCatalog.getString(
                     'Error upgrading account!'), res.data.error.message);
                 });
+            }else{
+              console.log('IS A VATOR.CO USER LOGGING INTO VATOR.CO');
+              AppAuth.currentUser = user;
+              AppAuth.currentUser.vatorX = 'null';
+              $rootScope.isXsession = false;
+              CoreService.toastSuccess(gettextCatalog.getString(
+                'Welcome to back vator'), gettextCatalog.getString(
+                'vator vator vator vator vator'));
+                  go = '/app/myprofile';
+                  next = $location.nextAfterLogin || go;
+                  $scope.continue(next, go);
             }
           }else{
             console.log('IS A VATOR.CO USER LOGGING INTO VATOR.CO');
+            AppAuth.currentUser = user;
+            AppAuth.currentUser.vatorX = 'null';
+            $rootScope.isXsession = false;
             CoreService.toastSuccess(gettextCatalog.getString(
               'Welcome to back vator'), gettextCatalog.getString(
               'vator vator vator vator vator'));
@@ -236,7 +254,7 @@ angular.module('com.module.users')
 
       if(!$rootScope.ranMenu){
 
-            if(typeof (AppAuth.currentUser) !== 'undefined'){
+            // if(typeof (AppAuth.currentUser) !== 'undefined'){
               if(AppAuth.currentUser.vatorX === 'valid'){
                 $rootScope.isXsession = true;
                 $rootScope.siteVersion = 'vatorX';
@@ -253,13 +271,13 @@ angular.module('com.module.users')
                 $rootScope.addMenu(gettextCatalog.getString('Company'), 'app.companies.list', 'fa-bank');
                 $rootScope.addMenu(gettextCatalog.getString('Profile'), 'app.myprofile.list', 'fa-user');
               }
-            }else{
-              $rootScope.isXsession = false;
-                $rootScope.siteVersion = 'vator';
-                $rootScope.addMenu(gettextCatalog.getString('Dashboard'), 'app.home', 'fa-dashboard');
-                $rootScope.addMenu(gettextCatalog.getString('Company'), 'app.companies.list', 'fa-bank');
-                $rootScope.addMenu(gettextCatalog.getString('Profile'), 'app.myprofile.list', 'fa-user');
-            }
+            // }else{
+            //   $rootScope.isXsession = false;
+            //     $rootScope.siteVersion = 'vator';
+            //     $rootScope.addMenu(gettextCatalog.getString('Dashboard'), 'app.home', 'fa-dashboard');
+            //     $rootScope.addMenu(gettextCatalog.getString('Company'), 'app.companies.list', 'fa-bank');
+            //     $rootScope.addMenu(gettextCatalog.getString('Profile'), 'app.myprofile.list', 'fa-user');
+            // }
             $rootScope.ranMenu = true;
       }
       // ???? test this out
