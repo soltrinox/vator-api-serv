@@ -3,13 +3,14 @@ angular.module('com.module.users')
   .config(function($routeProvider, $httpProvider) {
 
     // Intercept 401 responses and redirect to login screen
-    $httpProvider.interceptors.push(function($q, $location, $window, CoreService) {
+    $httpProvider.interceptors.push(function($q, $location,  $state, CoreService) {
       return {
         responseError: function(rejection) {
           if (rejection.status === 401) {
             //$rootScope.currentUser = null;
             // save the current location so that login can redirect back
             $location.nextAfterLogin = $location.path();
+            var serverURL = $location.host();
 
             if (($location.path() === '/router') ||
               ($location.path() ===   '/login') ||
@@ -21,19 +22,19 @@ angular.module('com.module.users')
               if (($location.path() !== '/register') || ($location.path() !== '/registerx') ||  ($location.path() !== '/x/register')) {
                 if ($location.path() === '/registerx')  {
                   console.log('upgrade login');
-                  $location.path('/loginx');
+                  window.location = 'http://'+ serverURL +'/loginx';
                 }else if ($location.path() === '/x/register')  {
                   console.log('xsession login');
-                  $location.path('/x/login');
+                  window.location = 'http://'+ serverURL +'/x/login';
                 }else if ($location.path() === '/register')  {
                   console.log('standard login 3');
-                  $location.path('/login');
+                  window.location = 'http://'+ serverURL +'/login';
                 }else{
-                  $location.path('/login');
+                  window.location = 'http://'+ serverURL +'/login';
                 }
               }else{
                 console.log('standard login 2');
-                $location.path('/login');
+                window.location = 'http://'+ serverURL +'/login';
               }
             }
           }
@@ -48,7 +49,7 @@ angular.module('com.module.users')
             //   .error.message);
           }
           if (rejection.status === 0) {
-            $location.path('/');
+            window.location = '/';
             // CoreService.toastError('Connection Refused',
             //   'The connection to the API is refused. Please verify that the API is running!'
             // );
