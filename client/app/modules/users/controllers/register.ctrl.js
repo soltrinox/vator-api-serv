@@ -29,29 +29,6 @@ angular.module('com.module.users')
 
 
     $scope.$on('$viewContentLoaded', function(){
-        // console.log('RT PARAMS: ' + JSON.stringify($location.search()) );
-        // var tt = $location.search().t;
-        // var nn = $location.search().n;
-        // if(tt === 'x'){
-        //     $rootScope.isXsession  = true;
-        //     console.log('IS XSESSION');
-        //     $location.search('t', null);
-        //     if(nn  === 'cc'){
-        //       console.log('IS XSESSION');
-        //        $rootScope.goLocation = '/app/programs/add';
-        //        $location.search('n', null);
-        //        $location.search('t', null);
-        //     }
-        //
-        // }else{
-        //   $rootScope.isXsession  = false;
-        //   console.log('NOT XSESSION');
-        //   if(nn === 'ss'){
-        //     $rootScope.goLocation = '/app/products/add/55ba9286966a114937493efe';
-        //     $location.search('n', null);
-        //     $location.search('t', null);
-        //   }
-        // }
 
         if($state.current.data.entryType !== 's'){
 
@@ -154,30 +131,25 @@ angular.module('com.module.users')
 
 
     $scope.confirmPassword = '';
-
-    // $scope.basicConfirm = function() {
-    //   CoreService.confirm('vatorX Terms and Policy', 'Text goes here',
-    //     function() {
-    //       CoreService.alert('Welcome to vatorX');
-    //     },
-    //     function() {
-    //       CoreService.alert('You don\'t agree!');
-    //     });
-    // };
-
-
     $scope.Agreed = false;
     $scope.go = '';
 
     $scope.errorEmail = function(){
       CoreService.confirm('Email Found !', 'We noticed you already have an account on Vator.co. Would you like to upgrade to VatorX Enterprise Account?',
         function() {
-          $rootScope.isXsession = true;
-          $location.path('/login').search('t','x').search('upgrade','true');
+
+          if($state.current.data.entryType !== 's'){
+              $location.path('/login');
+          }else if($state.current.data.entryType !== 'x'){
+            $location.path('/x/login');
+          }else if($state.current.data.entryType !== 'u'){
+            $location.path('/loginx')
+          }else{
+              $location.path('/login');
+          }
         },
         function(){
-          $rootScope.isXsession = false;
-            $location.path('/app/myprofile');
+            $location.path('/login');
         }
       );
     };
@@ -185,8 +157,6 @@ angular.module('com.module.users')
     $scope.register = function() {
       CoreService.confirm('AGree to terms', 'Terms and Policy text here',
         function() {
-
-
                   if($state.current.data.entryType !== 's'){
 
                   }else if($state.current.data.entryType !== 'x'){
