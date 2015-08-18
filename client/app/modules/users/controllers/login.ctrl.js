@@ -192,27 +192,29 @@ angular.module('com.module.users')
 
       if(!$rootScope.ranMenu){
 
-            if(AppAuth.currentUser.vatorX === 'valid'){
-              $rootScope.siteVersion = 'vatorX';
-              console.log('MENU:' + JSON.stringify($rootScope.menu));
-              $rootScope.addMenu(gettextCatalog.getString('Dashboard'), 'app.x',
-                'fa-dashboard');
-              $rootScope.addMenu(gettextCatalog.getString('Programs'), 'app.programs.list',
-                  'fa-star');
-              $rootScope.addMenu(gettextCatalog.getString('Activity'), 'app.x',
-                        'fa-check');
-              $rootScope.addMenu(gettextCatalog.getString('Company'),
-                            'app.companies.list', 'fa-bank');
-              $rootScope.addMenu(gettextCatalog.getString('Profile'), 'app.myprofile.list',
-                        'fa-user');
-            }else{
+            if(typeof (AppAuth.currentUser) !== 'undefined'){
+              if(AppAuth.currentUser.vatorX === 'valid'){
+                $rootScope.isXsession = true;
+                $rootScope.siteVersion = 'vatorX';
+                console.log('MENU:' + JSON.stringify($rootScope.menu));
+                $rootScope.addMenu(gettextCatalog.getString('Dashboard'), 'app.x', 'fa-dashboard');
+                $rootScope.addMenu(gettextCatalog.getString('Programs'), 'app.programs.list', 'fa-star');
+                $rootScope.addMenu(gettextCatalog.getString('Activity'), 'app.x', 'fa-check');
+                $rootScope.addMenu(gettextCatalog.getString('Company'),   'app.companies.list', 'fa-bank');
+                $rootScope.addMenu(gettextCatalog.getString('Profile'), 'app.myprofile.list', 'fa-user');
+              }else{
+                $rootScope.isXsession = false;
                 $rootScope.siteVersion = 'vator';
-              $rootScope.addMenu(gettextCatalog.getString('Dashboard'), 'app.home',
-                'fa-dashboard');
-              $rootScope.addMenu(gettextCatalog.getString('Company'),
-                  'app.companies.list', 'fa-bank');
-              $rootScope.addMenu(gettextCatalog.getString('Profile'), 'app.myprofile.list',
-                    'fa-user');
+                $rootScope.addMenu(gettextCatalog.getString('Dashboard'), 'app.home', 'fa-dashboard');
+                $rootScope.addMenu(gettextCatalog.getString('Company'), 'app.companies.list', 'fa-bank');
+                $rootScope.addMenu(gettextCatalog.getString('Profile'), 'app.myprofile.list', 'fa-user');
+              }
+            }else{
+              $rootScope.isXsession = false;
+                $rootScope.siteVersion = 'vator';
+                $rootScope.addMenu(gettextCatalog.getString('Dashboard'), 'app.home', 'fa-dashboard');
+                $rootScope.addMenu(gettextCatalog.getString('Company'), 'app.companies.list', 'fa-bank');
+                $rootScope.addMenu(gettextCatalog.getString('Profile'), 'app.myprofile.list', 'fa-user');
             }
             $rootScope.ranMenu = true;
       }
