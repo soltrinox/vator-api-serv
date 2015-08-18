@@ -21,6 +21,11 @@ angular.module('com.module.users')
       email: '',
       password: ''
     };
+    var TWO_WEEKS = 1000 * 60 * 60 * 24 * 7 * 2;
+    $scope.credentials = {
+      ttl: TWO_WEEKS,
+      rememberMe: true
+    };
 
 
     $scope.$on('$viewContentLoaded', function(){
@@ -349,7 +354,7 @@ angular.module('com.module.users')
             $rootScope.ranMenu = true;
       }
 
-      // ???? test this 
+      // ???? test this
     if (next === '/login' || next === '/loginx' || next === '/x/login') {
       next = go;
     }
