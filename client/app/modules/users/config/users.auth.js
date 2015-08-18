@@ -30,7 +30,8 @@ angular.module('com.module.users')
                   console.log('standard register ');
                   $window.location = 'http://'+ serverURL +'/#/register';
                 }else{
-                  $window.location = 'http://'+ serverURL +'/#/login';
+                  console.log('unknown register ');
+                  $window.location = 'http://'+ serverURL +'/#/register';
                 }
               // }else{
               //   if ($location.path() === '/registerx')  {
