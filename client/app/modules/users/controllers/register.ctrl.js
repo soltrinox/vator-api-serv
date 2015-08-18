@@ -141,21 +141,25 @@ angular.module('com.module.users')
       }else if($state.current.data.entryType === 'x'){
         message = 'We noticed you already have an account on Vator.co. Would you like to upgrade to VatorX Enterprise Account?';
       }else if($state.current.data.entryType === 's'){
-        $location.path('/login');
+
       }else{
-          $location.path('/login');
+
       }
 
       CoreService.confirm('Email Found !', message,
         function() {
           if($state.current.data.entryType === 'u'){
               $location.path('/loginx');
+              $window.location.reload();
           }else if($state.current.data.entryType === 'x'){
             $location.path('/loginx');
+            $window.location.reload();
           }else if($state.current.data.entryType === 's'){
             $location.path('/login');
+            $window.location.reload();
           }else{
               $location.path('/login');
+              $window.location.reload();
           }
         },
         function(){
