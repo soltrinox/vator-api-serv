@@ -19,19 +19,32 @@ angular.module('com.module.users')
               // console.log('401 while on router on login path');
               console.log('standard login 1');
             } else {
-              if (($location.path() !== '/register') || ($location.path() !== '/registerx') ||  ($location.path() !== '/x/register')) {
+              if (($location.path() === '/register') || ($location.path() === '/registerx') ||  ($location.path() === '/x/register')) {
                 if ($location.path() === '/registerx')  {
-                  console.log('upgrade login');
-                  $window.location = 'http://'+ serverURL +'/loginx';
+                  console.log('upgrade register');
+                  $window.location = 'http://'+ serverURL +'/#/registerx';
                 }else if ($location.path() === '/x/register')  {
-                  console.log('xsession login');
-                  $window.location = 'http://'+ serverURL +'/x/login';
+                  console.log('xsession register');
+                  $window.location = 'http://'+ serverURL +'/#/x/register';
                 }else if ($location.path() === '/register')  {
-                  console.log('standard login 3');
-                  $window.location = 'http://'+ serverURL +'/login';
+                  console.log('standard register ');
+                  $window.location = 'http://'+ serverURL +'/#/register';
                 }else{
-                  $window.location = 'http://'+ serverURL +'/login';
+                  $window.location = 'http://'+ serverURL +'/#/login';
                 }
+              // }else{
+              //   if ($location.path() === '/registerx')  {
+              //     console.log('upgrade login');
+              //     $window.location = 'http://'+ serverURL +'/loginx';
+              //   }else if ($location.path() === '/x/register')  {
+              //     console.log('xsession login');
+              //     $window.location = 'http://'+ serverURL +'/x/login';
+              //   }else if ($location.path() === '/register')  {
+              //     console.log('standard login 3');
+              //     $window.location = 'http://'+ serverURL +'/login';
+              //   }else{
+              //     $window.location = 'http://'+ serverURL +'/login';
+              //   }
               }else{
                 console.log('standard login 2');
                 $window.location = 'http://'+ serverURL +'/login';
