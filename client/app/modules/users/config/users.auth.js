@@ -19,16 +19,16 @@ angular.module('com.module.users')
             } else {
               if (($location.path() !== '/register') || ($location.path() !== '/registerx') ||  ($location.path() !== '/x/register')) {
                 if ($location.path() === '/registerx')  {
-                  $window.location.path('/loginx');
+                  $location.path('/loginx');
                 }else if ($location.path() === '/x/register')  {
                   $location.path('/x/login');
                 }else if ($location.path() === '/register')  {
-                  $window.location.path('/login');
+                  $location.path('/login');
                 }else{
-                  $window.location.path('/login');
+                  $location.path('/login');
                 }
               }else{
-                $window.location.path('/login');
+                $location.path('/login');
               }
             }
           }
