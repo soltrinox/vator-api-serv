@@ -338,7 +338,7 @@ angular.module('com.module.users')
       if (next === '/login' || next === '/loginx' || next === '/x/login') {
         next = go;
       }
-      $window.location.path(next);
+      $location.path(next);
       // $window.location.reload();
   };
 
