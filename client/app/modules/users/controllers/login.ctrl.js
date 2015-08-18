@@ -210,14 +210,9 @@ angular.module('com.module.users')
             $rootScope.ranMenu = true;
       }
 
-
-    if (next === '/login') {
+    if (next === '/login' || next === '/loginx' || next === '/x/login') {
       next = go;
     }
-
-    $rootScope.masterUser = $scope.loginResult.user;
-    $scope.currentUser = $scope.loginResult.user;
-
     $location.path(next);
 
   };
