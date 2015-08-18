@@ -145,25 +145,21 @@ angular.module('com.module.users')
       }else{
 
       }
-
+      var serverURL = $location.host();
       CoreService.confirm('Email Found !', message,
         function() {
           if($state.current.data.entryType === 'u'){
-              $location.path('/loginx');
-              $window.location.reload();
+              $window.location = 'http://'+ serverURL +'/#/loginx';
           }else if($state.current.data.entryType === 'x'){
-            $location.path('/loginx');
-            $window.location.reload();
+            $window.location = 'http://'+ serverURL +'/#/loginx';
           }else if($state.current.data.entryType === 's'){
-            $location.path('/login');
-            $window.location.reload();
+            $window.location = 'http://'+ serverURL +'/#/login';
           }else{
-              $location.path('/login');
-              $window.location.reload();
+              $window.location = 'http://'+ serverURL +'/#/login';
           }
         },
         function(){
-          var serverURL = $location.host();
+
             $window.location = 'http://'+ serverURL + '/home.html';
         }
       );
