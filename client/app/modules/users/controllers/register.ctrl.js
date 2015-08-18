@@ -138,12 +138,12 @@ angular.module('com.module.users')
       CoreService.confirm('Email Found !', 'We noticed you already have an account on Vator.co. Would you like to upgrade to VatorX Enterprise Account?',
         function() {
 
-          if($state.current.data.entryType !== 's'){
-              $location.path('/login');
-          }else if($state.current.data.entryType !== 'x'){
+          if($state.current.data.entryType === 'u'){
+              $location.path('/x/login');
+          }else if($state.current.data.entryType === 'x'){
             $location.path('/x/login');
-          }else if($state.current.data.entryType !== 'u'){
-            $location.path('/loginx')
+          }else if($state.current.data.entryType === 's'){
+            $location.path('/login')
           }else{
               $location.path('/login');
           }
@@ -157,11 +157,11 @@ angular.module('com.module.users')
     $scope.register = function() {
       CoreService.confirm('AGree to terms', 'Terms and Policy text here',
         function() {
-                  if($state.current.data.entryType !== 's'){
+                  if($state.current.data.entryType === 's'){
 
-                  }else if($state.current.data.entryType !== 'x'){
+                  }else if($state.current.data.entryType === 'x'){
                     $scope.registration.vatorX = 'valid';
-                  }else if($state.current.data.entryType !== 'u'){
+                  }else if($state.current.data.entryType === 'u'){
                     $scope.registration.vatorX = 'valid';
                   }else{
 
