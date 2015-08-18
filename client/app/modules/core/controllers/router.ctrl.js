@@ -18,12 +18,21 @@ angular.module('com.module.core')
        if (!AppAuth.currentUser) {
          $location.path('/login');
        } else {
-         if($rootScope.isXsession){
-           console.log('Redirect to vatorX');
+        //  if($rootScope.isXsession){
+        //    console.log('Redirect to vatorX');
+        //    $location.path('/app/x');
+        //  }else{
+        //    console.log('Redirect to vator.co');
+        //    $location.path('/app');
+        //  }
+         if($state.current.data.entryType !== 's'){
+           $location.path('/app/myprofile');
+         }else if($state.current.data.entryType !== 'x'){
+           $location.path('/app/x');
+         }else if($state.current.data.entryType !== 'u'){
            $location.path('/app/x');
          }else{
-           console.log('Redirect to vator.co');
-           $location.path('/app');
+           $location.path('/app/myprofile');
          }
        }
      })
