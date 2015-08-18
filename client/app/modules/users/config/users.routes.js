@@ -50,18 +50,18 @@ angular.module('com.module.users')
         },
         controller: 'RegisterCtrl'
       })
-      .state('registerx', {
+      .state('registerxx', {
         url: '/registerx',
         template: '<register></register>',
         data: {
-           entryType : 'x'
+           entryType : 'u'
         },
         controller: 'RegisterCtrl'
       })
-      .state('registerxx', {
+      .state('registerx', {
         url: '/x/register',
         data: {
-           entryType : 'u'
+           entryType : 'x'
         },
         template: '<register></register>',
         controller: 'RegisterCtrl'
