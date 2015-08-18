@@ -3,7 +3,7 @@ angular.module('com.module.users')
   .config(function($routeProvider, $httpProvider) {
 
     // Intercept 401 responses and redirect to login screen
-    $httpProvider.interceptors.push(function($q, $location,  $state, CoreService) {
+    $httpProvider.interceptors.push(function($q, $location, $window) {
       return {
         responseError: function(rejection) {
           if (rejection.status === 401) {
@@ -22,19 +22,19 @@ angular.module('com.module.users')
               if (($location.path() !== '/register') || ($location.path() !== '/registerx') ||  ($location.path() !== '/x/register')) {
                 if ($location.path() === '/registerx')  {
                   console.log('upgrade login');
-                  window.location = 'http://'+ serverURL +'/loginx';
+                  $window.location = 'http://'+ serverURL +'/loginx';
                 }else if ($location.path() === '/x/register')  {
                   console.log('xsession login');
-                  window.location = 'http://'+ serverURL +'/x/login';
+                  $window.location = 'http://'+ serverURL +'/x/login';
                 }else if ($location.path() === '/register')  {
                   console.log('standard login 3');
-                  window.location = 'http://'+ serverURL +'/login';
+                  $window.location = 'http://'+ serverURL +'/login';
                 }else{
-                  window.location = 'http://'+ serverURL +'/login';
+                  $window.location = 'http://'+ serverURL +'/login';
                 }
               }else{
                 console.log('standard login 2');
-                window.location = 'http://'+ serverURL +'/login';
+                $window.location = 'http://'+ serverURL +'/login';
               }
             }
           }
@@ -49,7 +49,7 @@ angular.module('com.module.users')
             //   .error.message);
           }
           if (rejection.status === 0) {
-            window.location = '/';
+            $window.location = '/';
             // CoreService.toastError('Connection Refused',
             //   'The connection to the API is refused. Please verify that the API is running!'
             // );
