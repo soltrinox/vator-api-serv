@@ -25,27 +25,37 @@ angular.module('com.module.users')
 
     $scope.$on('$viewContentLoaded', function(){
         // console.log('RT PARAMS: ' + JSON.stringify($location.search()) );
-        var tt = $location.search().t;
-        var nn = $location.search().n;
-        if(tt === 'x'){
-            $rootScope.isXsession  = true;
-            console.log('IS XSESSION');
-            $location.search('t', null);
-            if(nn  === 'cc'){
-              console.log('IS XSESSION');
-               $rootScope.goLocation = '/app/programs/add';
-               $location.search('n', null);
-               $location.search('t', null);
-            }
+        // var tt = $location.search().t;
+        // var nn = $location.search().n;
+        // if(tt === 'x'){
+        //     $rootScope.isXsession  = true;
+        //     console.log('IS XSESSION');
+        //     $location.search('t', null);
+        //     if(nn  === 'cc'){
+        //       console.log('IS XSESSION');
+        //        $rootScope.goLocation = '/app/programs/add';
+        //        $location.search('n', null);
+        //        $location.search('t', null);
+        //     }
+        //
+        // }else{
+        //   $rootScope.isXsession  = false;
+        //   console.log('NOT XSESSION');
+        //   if(nn === 'ss'){
+        //     $rootScope.goLocation = '/app/products/add/55ba9286966a114937493efe';
+        //     $location.search('n', null);
+        //     $location.search('t', null);
+        //   }
+        // }
+
+        if($state.current.data.entryType !== 's'){
+
+        }else if($state.current.data.entryType !== 'x'){
+
+        }else if($state.current.data.entryType !== 'u'){
 
         }else{
-          $rootScope.isXsession  = false;
-          console.log('NOT XSESSION');
-          if(nn === 'ss'){
-            $rootScope.goLocation = '/app/products/add/55ba9286966a114937493efe';
-            $location.search('n', null);
-            $location.search('t', null);
-          }
+
         }
     });
 
@@ -154,25 +164,32 @@ angular.module('com.module.users')
     $scope.Agreed = false;
     $scope.go = '';
 
-
-        $scope.errorEmail = function(){
-          CoreService.confirm('Email Found !', 'We noticed you already have an account on Vator.co. Would you like to upgrade to VatorX Enterprise Account?',
-            function() {
-              $rootScope.isXsession = true;
-              $location.path('/login').search('t','x').search('upgrade','true');
-            },
-            function(){
-              $rootScope.isXsession = false;
-                $location.path('/app/myprofile');
-            }
-          );
-        };
+    $scope.errorEmail = function(){
+      CoreService.confirm('Email Found !', 'We noticed you already have an account on Vator.co. Would you like to upgrade to VatorX Enterprise Account?',
+        function() {
+          $rootScope.isXsession = true;
+          $location.path('/login').search('t','x').search('upgrade','true');
+        },
+        function(){
+          $rootScope.isXsession = false;
+            $location.path('/app/myprofile');
+        }
+      );
+    };
 
     $scope.register = function() {
       CoreService.confirm('AGree to terms', 'Terms and Policy text here',
         function() {
-                  if($rootScope.isXsession){
+
+
+                  if($state.current.data.entryType !== 's'){
+
+                  }else if($state.current.data.entryType !== 'x'){
                     $scope.registration.vatorX = 'valid';
+                  }else if($state.current.data.entryType !== 'u'){
+                    $scope.registration.vatorX = 'valid';
+                  }else{
+
                   }
                   $scope.registration.username = $scope.registration.email;
                   delete $scope.registration.confirmPassword;
@@ -226,7 +243,7 @@ angular.module('com.module.users')
                       if(!user.CoverPic ||  0 === user.CoverPic.length ){
                         user.CoverPic = 'https://s3.amazonaws.com/vatorprofilecache/456498.jpg';
                       }
-                      if(user.vatorX){
+                      if(user.vatorX === 'valid'){
                         go = '/app/x';
                         next = $location.nextAfterLogin || go;
                         if($state.current.data.entryType !== 'x'){
@@ -302,7 +319,7 @@ angular.module('com.module.users')
       console.log('AppAuth.currentUser: '+JSON.stringify(AppAuth.currentUser)); // => acess token
 
       if(!$rootScope.ranMenu){
-            if($rootScope.isXsession === true){
+            if(AppAuth.currentUser.vatorX === 'valid'){
               $rootScope.siteVersion = 'vatorX';
               console.log('MENU:' + JSON.stringify($rootScope.menu));
               $rootScope.addMenu(gettextCatalog.getString('Dashboard'), 'app.x',

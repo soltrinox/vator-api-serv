@@ -23,25 +23,35 @@ angular.module('com.module.users')
     $scope.reloadRoute = function() {
         $window.location.reload();
         // $state.reload();
-    }
+    };
 
     $scope.$on('$viewContentLoaded', function(){
         // console.log('RT PARAMS: ' + JSON.stringify($location.search()) );
-        var tt = $location.search().t;
-        var upp = $location.search().upgrade;
-        if(tt === 'x' ){
-            $rootScope.isXsession  = true;
-            console.log('IS XSESSION');
-            $location.search('t', null);
-            $route.reload();
+        // var tt = $location.search().t;
+        // var upp = $location.search().upgrade;
+        // if(tt === 'x' ){
+        //     $rootScope.isXsession  = true;
+        //     console.log('IS XSESSION');
+        //     $location.search('t', null);
+        //     $route.reload();
+        // }else{
+        //   $rootScope.isXsession  = false;
+        //   console.log('NOT XSESSION');
+        // }
+        // if(upp === 'true'){
+        //   $scope.upp = true;
+        // }else {
+        //   $scope.upp = false;
+        // }
+
+        if($state.current.data.entryType !== 's'){
+
+        }else if($state.current.data.entryType !== 'x'){
+
+        }else if($state.current.data.entryType !== 'u'){
+
         }else{
-          $rootScope.isXsession  = false;
-          console.log('NOT XSESSION');
-        }
-        if(upp === 'true'){
-          $scope.upp = true;
-        }else {
-          $scope.upp = false;
+
         }
 
     });
@@ -179,13 +189,10 @@ angular.module('com.module.users')
     $scope.continue = function(next, go){
 
       console.log('AppAuth.currentUser: '+JSON.stringify(AppAuth.currentUser)); // => acess token
-    CoreService.toastSuccess(gettextCatalog.getString('Logged in'),
-      gettextCatalog.getString('You are logged in!'));
-
 
       if(!$rootScope.ranMenu){
 
-            if($rootScope.isXsession === true){
+            if(AppAuth.currentUser.vatorX === 'valid'){
               $rootScope.siteVersion = 'vatorX';
               console.log('MENU:' + JSON.stringify($rootScope.menu));
               $rootScope.addMenu(gettextCatalog.getString('Dashboard'), 'app.x',
