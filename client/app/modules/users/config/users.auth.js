@@ -17,26 +17,18 @@ angular.module('com.module.users')
               ($location.path() === '/x/login')) {
               console.log('401 while on router on login path');
             } else {
-              if ($location.path() !== '/register')  {
-                // CoreService.toastWarning('Error 401 received',
-                //   'We received a 401 error from the API! Redirecting to login'
-                // );
-                $location.path('/login');
-                // $window.location.reload();
-              }
-              if ($location.path() !== '/registerx')  {
-                // CoreService.toastWarning('Error 401 received',
-                //   'We received a 401 error from the API! Redirecting to login'
-                // );
-                $location.path('/loginx');
-                // $window.location.reload();
-              }
-              if ($location.path() !== '/x/register')  {
-                // CoreService.toastWarning('Error 401 received',
-                //   'We received a 401 error from the API! Redirecting to login'
-                // );
-                $location.path('/x/login');
-                // $window.location.reload();
+              if (($location.path() !== '/register') || ($location.path() !== '/registerx') ||  ($location.path() !== '/x/register')) {
+                if ($location.path() === '/registerx')  {
+                  $window.location.path('/loginx');
+                }else if ($location.path() === '/x/register')  {
+                  $location.path('/x/login');
+                }else if ($location.path() === '/register')  {
+                  $window.location.path('/login');
+                }else{
+                  $window.location.path('/login');
+                }
+              }else{
+                $window.location.path('/login');
               }
             }
           }
