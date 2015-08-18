@@ -134,6 +134,7 @@ angular.module('com.module.users')
 
     $scope.login = function() {
       var go = '/app/myprofile';
+      var params = {};
       var next = $location.nextAfterLogin || go;
 
       $scope.loginResult = User.login({
@@ -164,9 +165,11 @@ angular.module('com.module.users')
                   CoreService.toastSuccess(gettextCatalog.getString(
                     'Welcome to vatorX'), gettextCatalog.getString(
                     'vatorx vatorx vatorx vatorx vatorx'));
-                    go = '/app/x';
-                next = $location.nextAfterLogin || go;
-                $scope.continue(next, go);
+                    go = 'app.x';
+                    params = { entryType : 'x'};
+                    $scope.continue(next, go, params);
+                //next = $location.nextAfterLogin || go;
+
             }else{
               console.log('IS A VATORX USER LOGGING INTO VATOR.CO');
               //  TODO: SEND TO UPGRADE LOCATION
@@ -176,9 +179,9 @@ angular.module('com.module.users')
               CoreService.toastSuccess(gettextCatalog.getString(
                 'Welcome to back vator'), gettextCatalog.getString(
                 'vator vator vator vator vator'));
-                  go = '/app/x';
-                  next = $location.nextAfterLogin || go;
-                  $scope.continue(next, go);
+                go = 'app.x';
+                params = { entryType : 'x'};
+                $scope.continue(next, go, params);
             }
           }else if((typeof (user.user.vatorX) !== 'undefined') || (user.user.vatorX !== 'valid')){
             go = '/app/x';
@@ -192,9 +195,9 @@ angular.module('com.module.users')
                   'Welcome to vatorX'), gettextCatalog.getString(
                   'Please upgrade to vatorX Enterprise account'));
                   $rootScope.isXsession = false;
-                  go = '/app/confirm';
-                next = $location.nextAfterLogin || go;
-                $scope.continue(next, go);
+                  go = 'app.confirm';
+                  params = { entryType : 'u'};
+                  $scope.continue(next, go, params);
             }else if($state.current.data.entryType === 'u'){
               console.log('IS A VATOR.CO USER UPGRADING INTO VATORX');
                 user.user.vatorX = 'valid';
@@ -212,9 +215,9 @@ angular.module('com.module.users')
                     $scope.currentUser = responseUser;
                     $rootScope.isXsession = true;
                     //  TODO: SEND TO SPECIAL PLACE ?? OR POP UP MODAL MESSAGE
-                    go = '/app/x';
-                    next = $location.nextAfterLogin || go;
-                    $scope.continue(next, go);
+                    go = 'app.x';
+                    params = { entryType : 'x'};
+                    $scope.continue(next, go, params);
                 },
                 function(res){
                   CoreService.toastError(gettextCatalog.getString(
@@ -228,9 +231,9 @@ angular.module('com.module.users')
               CoreService.toastSuccess(gettextCatalog.getString(
                 'Welcome to back vator'), gettextCatalog.getString(
                 'vator vator vator vator vator'));
-                  go = '/app/myprofile';
-                  next = $location.nextAfterLogin || go;
-                  $scope.continue(next, go);
+                go = 'app.myprofile.list';
+                params = { entryType : 's'};
+                $scope.continue(next, go, params);
             }
           }else{
             console.log('IS A VATOR.CO USER LOGGING INTO VATOR.CO');
@@ -240,9 +243,9 @@ angular.module('com.module.users')
             CoreService.toastSuccess(gettextCatalog.getString(
               'Welcome to back vator'), gettextCatalog.getString(
               'vator vator vator vator vator'));
-                go = '/app/myprofile';
-                next = $location.nextAfterLogin || go;
-                $scope.continue(next, go);
+              go = 'app.myprofile.list';
+              params = { entryType : 's'};
+              $scope.continue(next, go, params);
           }
         },
         function(res) {
@@ -250,7 +253,7 @@ angular.module('com.module.users')
         });
     };
 
-    $scope.continue = function(next, go){
+    $scope.continue = function(next, go, params){
 
       console.log('AppAuth.currentUser: '+JSON.stringify(AppAuth.currentUser)); // => acess token
 
@@ -286,8 +289,9 @@ angular.module('com.module.users')
     if (next === '/login' || next === '/loginx' || next === '/x/login') {
       next = go;
     }
-    var serverURL = $location.host();
-    $window.location = 'http://'+ serverURL + '/#'+ next;
+    // var serverURL = $location.host();
+    // $window.location = 'http://'+ serverURL + '/#'+ next;
+    $state.go(go, params, {reload: true});
 
   };
 

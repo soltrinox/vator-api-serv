@@ -184,7 +184,7 @@ angular.module('com.module.users')
                   {
                   var go = '/login';
                   var next = $location.nextAfterLogin || go;
-
+                  var params = {};
 
                   if($state.current.data.entryType === 'x'){
                       AppAuth.currentUser = $scope.user;
@@ -198,15 +198,18 @@ angular.module('com.module.users')
                         CoreService.toastSuccess(gettextCatalog.getString(
                           'Welcome to vatorX'), gettextCatalog.getString(
                           'vatorx vatorx vatorx vatorx vatorx'));
-                          go = '/x/login';
+                          go = 'loginx';
+                          params = { entryType : 'x'};
+                          $scope.continue(next, go, params);
                       }else{
                         AppAuth.currentUser.vatorX = 'null';
                         $rootScope.isXsession = false;
-                        go = '/loginx';
+                        go = 'loginxx';
+                        params = { entryType : 'u'};
+                        $scope.continue(next, go, params);
                       }
 
-                      next = $location.nextAfterLogin || go;
-                      $scope.continue(next, go);
+
                   }else if($state.current.data.entryType === 'u'){
 
                       User.upsert($scope.user.user,
@@ -218,9 +221,9 @@ angular.module('com.module.users')
                           AppAuth.currentUser = responseUser;
                           AppAuth.currentUser.vatorX = 'valid';
                           $rootScope.isXsession = true;
-                          go = '/x/login';
-                          next = $location.nextAfterLogin || go;
-                          $scope.continue(next, go);
+                          go = 'loginx';
+                          params = { entryType : 'x'};
+                          $scope.continue(next, go, params);
                       },
                       function(res){
                         CoreService.toastError(gettextCatalog.getString(
@@ -234,9 +237,9 @@ angular.module('com.module.users')
                     CoreService.toastSuccess(gettextCatalog.getString(
                       'Welcome to vator'), gettextCatalog.getString(
                       'vator vator vator vator vator'));
-                        go = '/login';
-                        next = $location.nextAfterLogin || go;
-                        $scope.continue(next, go);
+                      go = 'login';
+                      params = { entryType : 's'};
+                      $scope.continue(next, go, params);
                   }
               },
               function(res) {
@@ -259,7 +262,7 @@ angular.module('com.module.users')
 
     $rootScope.ranMenu = false;
 
-    $scope.continue = function(next, go){
+    $scope.continue = function(next, go, params){
 
       console.log('AppAuth.currentUser: '+JSON.stringify(AppAuth.currentUser)); // => acess token
 
@@ -295,8 +298,9 @@ angular.module('com.module.users')
       if (next === '/login' || next === '/loginx' || next === '/x/login') {
         next = go;
       }
-      $location.path(next);
-      // $window.location.reload();
+      // var serverURL = $location.host();
+      // $window.location = 'http://'+ serverURL + '/#'+ next;
+      $state.go(go, params, {reload: true});
   };
 
   })
