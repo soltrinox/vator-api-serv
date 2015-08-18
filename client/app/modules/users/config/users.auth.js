@@ -19,15 +19,19 @@ angular.module('com.module.users')
             } else {
               if (($location.path() !== '/register') || ($location.path() !== '/registerx') ||  ($location.path() !== '/x/register')) {
                 if ($location.path() === '/registerx')  {
+                  console.log('upgrade login');
                   $location.path('/loginx');
                 }else if ($location.path() === '/x/register')  {
+                  console.log('xsession login');
                   $location.path('/x/login');
                 }else if ($location.path() === '/register')  {
+                  console.log('standard login 2');
                   $location.path('/login');
                 }else{
                   $location.path('/login');
                 }
               }else{
+                console.log('standard login 1');
                 $location.path('/login');
               }
             }
