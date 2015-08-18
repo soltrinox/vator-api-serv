@@ -53,6 +53,8 @@ angular.module('com.module.users')
         // }else {
         //   $scope.upp = false;
         // }
+        $rootScope.menu = [];
+        $rootScope.ranMenu = false;
 
         if($state.current.data.entryType !== 's'){
 
