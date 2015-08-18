@@ -251,12 +251,12 @@ angular.module('com.module.users')
                             // detect user is a
                             if(user.user.vatorX === 'valid'){
                               $rootScope.isXsession = true;
-                              go = '/app/x';
                               console.log('IS XSESSION');
                               CoreService.toastSuccess(gettextCatalog.getString(
                                 'Welcome back to vatorX'), gettextCatalog.getString(
                                 'vatorx vatorx vatorx vatorx vatorx'));
                             }
+                            next = $location.nextAfterLogin || go;
                             $scope.continue(next, go);
                         }else if($state.current.data.entryType === 'u'){
                             user.user.vatorX = 'valid';
@@ -266,6 +266,7 @@ angular.module('com.module.users')
                                 'Welcome to vatorX'), gettextCatalog.getString(
                                 'Basic Account has been upgraded to vatorX Enterprise!'));
                                 AppAuth.currentUser = responseUser;
+                                next = $location.nextAfterLogin || go;
                                 $scope.continue(next, go);
                             },
                             function(res){
@@ -278,6 +279,7 @@ angular.module('com.module.users')
                             'Welcome to back vator'), gettextCatalog.getString(
                             'vator vator vator vator vator'));
                               go = '/app/myprofile';
+                              next = $location.nextAfterLogin || go;
                               $scope.continue(next, go);
                         }
                       }else{
@@ -286,6 +288,7 @@ angular.module('com.module.users')
                           'Welcome to back vator'), gettextCatalog.getString(
                           'vator vator vator vator vator'));
                             go = '/app/myprofile';
+                            next = $location.nextAfterLogin || go;
                             $scope.continue(next, go);
                       }
                     },
@@ -346,7 +349,7 @@ angular.module('com.module.users')
             $rootScope.ranMenu = true;
       }
 
-
+      // ???? test this 
     if (next === '/login' || next === '/loginx' || next === '/x/login') {
       next = go;
     }
