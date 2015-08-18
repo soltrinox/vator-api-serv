@@ -180,13 +180,14 @@ angular.module('com.module.users')
             go = '/app/x';
 
             if($state.current.data.entryType === 'x'){
-              console.log('VATORX USER LOG INTO VATORX');
+              console.log('VATOR.CO USER LOG INTO VATORX BUT MUST CONFIRM');
                 AppAuth.currentUser = user;
                 // detect user is a
-                if(user.user.vatorX === 'valid'){
+                CoreService.toastSuccess(gettextCatalog.getString(
+                  'Welcome to vatorX'), gettextCatalog.getString(
+                  'Please upgrade to vatorX Enterprise account'));
                   $rootScope.isXsession = false;
                   go = '/app/confirm';
-                }
                 next = $location.nextAfterLogin || go;
                 $scope.continue(next, go);
             }else if($state.current.data.entryType === 'u'){
@@ -199,7 +200,7 @@ angular.module('com.module.users')
                   console.log('MUST UPGRADED THE VATOR.CO USER TO VATORX');
                   CoreService.toastSuccess(gettextCatalog.getString(
                     'Welcome to vatorX'), gettextCatalog.getString(
-                    'Please upgrade to vatorX Enterprise account'));
+                    'vatorx vatorx vatorx vatorx vatorx '));
                     AppAuth.currentUser = user;
                     $rootScope.masterUser = responseUser;
                     $scope.currentUser = responseUser;
