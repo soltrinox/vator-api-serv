@@ -11,10 +11,10 @@ angular.module('com.module.users')
             // save the current location so that login can redirect back
             $location.nextAfterLogin = $location.path();
 
-            if ($location.path() === '/router' ||
-            $location.path() ===   '/login'  ||
-            $location.path() === '/loginx' ||
-            $location.path() === '/x/login') {
+            if (($location.path() === '/router') ||
+              ($location.path() ===   '/login') ||
+              ($location.path() === '/loginx') ||
+              ($location.path() === '/x/login')) {
               console.log('401 while on router on login path');
             } else {
               if ($location.path() !== '/register')  {
@@ -22,21 +22,21 @@ angular.module('com.module.users')
                 //   'We received a 401 error from the API! Redirecting to login'
                 // );
                 $location.path('/login');
-                $window.location.reload();
+                // $window.location.reload();
               }
               if ($location.path() !== '/registerx')  {
                 // CoreService.toastWarning('Error 401 received',
                 //   'We received a 401 error from the API! Redirecting to login'
                 // );
                 $location.path('/loginx');
-                $window.location.reload();
+                // $window.location.reload();
               }
               if ($location.path() !== '/x/register')  {
                 // CoreService.toastWarning('Error 401 received',
                 //   'We received a 401 error from the API! Redirecting to login'
                 // );
                 $location.path('/x/login');
-                $window.location.reload();
+                // $window.location.reload();
               }
             }
           }
