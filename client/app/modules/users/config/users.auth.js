@@ -15,7 +15,7 @@ angular.module('com.module.users')
               ($location.path() ===   '/login') ||
               ($location.path() === '/loginx') ||
               ($location.path() === '/x/login')) {
-              console.log('401 while on router on login path');
+              // console.log('401 while on router on login path');
             } else {
               if (($location.path() !== '/register') || ($location.path() !== '/registerx') ||  ($location.path() !== '/x/register')) {
                 if ($location.path() === '/registerx')  {

@@ -20,6 +20,16 @@ angular.module('com.module.users')
       rememberMe: true
     };
 
+    if($state.current.data.entryType !== 's'){
+
+    }else if($state.current.data.entryType !== 'x'){
+
+    }else if($state.current.data.entryType !== 'u'){
+
+    }else{
+
+    }
+
     $scope.reloadRoute = function() {
         $window.location.reload();
         // $state.reload();
@@ -137,13 +147,15 @@ angular.module('com.module.users')
           if(!user.CoverPic ||  0 === user.CoverPic.length ){
             user.CoverPic = 'https://s3.amazonaws.com/vatorprofilecache/456498.jpg';
           }
-          if(user.vatorX){
+          // if(user.vatorX){
+          if((typeof (user.user.vatorX) !== 'undefined') && (user.user.vatorX === 'valid')){
             go = '/app/x';
             next = $location.nextAfterLogin || go;
             if($state.current.data.entryType !== 'x'){
+              console.log('VATORX USER LOG INTO VATORX');
                 AppAuth.currentUser = user;
                 // detect user is a
-                if(user.vatorX === 'valid'){
+                if($location.path === 'valid'){
                   $rootScope.isXsession = true;
                   go = '/app/x';
                   console.log('IS XSESSION');
@@ -153,13 +165,20 @@ angular.module('com.module.users')
                 }
                 $scope.continue(next, go);
             }else if($state.current.data.entryType !== 'u'){
+              console.log('IS A VATOR.CO USER UPGRADING INTO VATORX');
+                user.user.vatorX = 'valid';
                 user.vatorX = 'valid';
                 User.upsert(user,
                 function(responseUser){
+                  $rootScope.isXsession = true;
+                  console.log('SUCCESS UPGRADED THE VATOR.CO USER TO VATORX');
                   CoreService.toastSuccess(gettextCatalog.getString(
                     'Welcome to vatorX'), gettextCatalog.getString(
                     'Basic Account has been upgraded to vatorX Enterprise!'));
                     AppAuth.currentUser = responseUser;
+                    $rootScope.masterUser = responseUser;
+                    $scope.currentUser = responseUser;
+                    //  TODO: SEND TO SPECIAL PLACE ?? OR POP UP MODAL MESSAGE
                     $scope.continue(next, go);
                 },
                 function(res){
@@ -167,6 +186,9 @@ angular.module('com.module.users')
                     'Error upgrading account!'), res.data.error.message);
                 });
             }else{
+              console.log('IS A VATORX USER LOGGING INTO VATOR.CO');
+              //  TODO: SEND TO UPGRADE LOCATION
+              $rootScope.isXsession = false;
               CoreService.toastSuccess(gettextCatalog.getString(
                 'Welcome to back vator'), gettextCatalog.getString(
                 'vator vator vator vator vator'));
@@ -174,6 +196,7 @@ angular.module('com.module.users')
                   $scope.continue(next, go);
             }
           }else{
+            console.log('IS A VATOR.CO USER LOGGING INTO VATOR.CO');
             CoreService.toastSuccess(gettextCatalog.getString(
               'Welcome to back vator'), gettextCatalog.getString(
               'vator vator vator vator vator'));
