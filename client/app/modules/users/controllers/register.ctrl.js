@@ -201,7 +201,7 @@ angular.module('com.module.users')
                   $scope.user = User.save($scope.registration,
                   function()
                   {
-                  var go = '/app/myprofile';
+                  var go = '/login';
                   var next = $location.nextAfterLogin || go;
 
 
@@ -211,22 +211,24 @@ angular.module('com.module.users')
                       if($scope.user.user.vatorX === 'valid'){
                         $rootScope.isXsession = true;
                         console.log('IS XSESSION');
+                        CoreService.alert('Welcome to vatorX');
                         CoreService.toastSuccess(gettextCatalog.getString(
                           'Welcome to vatorX'), gettextCatalog.getString(
                           'vatorx vatorx vatorx vatorx vatorx'));
                       }
-                      go = '/app/x';
+                      go = '/x/login';
                       next = $location.nextAfterLogin || go;
                       $scope.continue(next, go);
                   }else if($state.current.data.entryType === 'u'){
                       $scope.user.user.vatorX = 'valid';
                       User.upsert($scope.user.user,
                       function(responseUser){
+                        CoreService.alert('Welcome to vatorX');
                         CoreService.toastSuccess(gettextCatalog.getString(
                           'Welcome to vatorX'), gettextCatalog.getString(
                           'Basic Account has been upgraded to vatorX Enterprise!'));
                           AppAuth.currentUser = responseUser;
-                          go = '/app/x';
+                          go = '/loginx';
                           next = $location.nextAfterLogin || go;
                           $scope.continue(next, go);
                       },
@@ -236,6 +238,7 @@ angular.module('com.module.users')
                       });
                   }else{
                     AppAuth.currentUser = $scope.user;
+                    CoreService.alert('Welcome to vator.co');
                     CoreService.toastSuccess(gettextCatalog.getString(
                       'Welcome to vator'), gettextCatalog.getString(
                       'vator vator vator vator vator'));
@@ -332,14 +335,12 @@ angular.module('com.module.users')
       }
 
       // ???? test this
-    if (next === '/login' || next === '/loginx' || next === '/x/login') {
-      next = go;
-    }
-    $location.path(next);
-    $window.location.reload();
+      if (next === '/login' || next === '/loginx' || next === '/x/login') {
+        next = go;
+      }
+      $window.location.path(next);
+      // $window.location.reload();
   };
-
-
 
   })
   .directive('confirmPassword',
