@@ -16,6 +16,7 @@ angular.module('com.module.users')
               ($location.path() === '/loginx') ||
               ($location.path() === '/x/login')) {
               // console.log('401 while on router on login path');
+              console.log('standard login 1');
             } else {
               if (($location.path() !== '/register') || ($location.path() !== '/registerx') ||  ($location.path() !== '/x/register')) {
                 if ($location.path() === '/registerx')  {
@@ -25,13 +26,13 @@ angular.module('com.module.users')
                   console.log('xsession login');
                   $location.path('/x/login');
                 }else if ($location.path() === '/register')  {
-                  console.log('standard login 2');
+                  console.log('standard login 3');
                   $location.path('/login');
                 }else{
                   $location.path('/login');
                 }
               }else{
-                console.log('standard login 1');
+                console.log('standard login 2');
                 $location.path('/login');
               }
             }
