@@ -47,7 +47,7 @@ angular.module('com.module.users')
               //   }
               }else{
                 console.log('standard login 2');
-                $window.location = 'http://'+ serverURL +'/login';
+                $window.location = 'http://'+ serverURL +'/#/login';
               }
             }
           }
