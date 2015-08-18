@@ -237,19 +237,19 @@ angular.module('com.module.users')
                       console.log('USER LOGIN: '+JSON.stringify(user));
                       // TODO: GET FULL PROFILE HERE ????
 
-                      if(!user.ProfilePic ||  0 === user.ProfilePic.length ){
+                      if(!user.user.ProfilePic ||  0 === user.user.ProfilePic.length ){
                         user.ProfilePic = 'https://s3.amazonaws.com/vatorprofilecache/profile.png';
                       }
-                      if(!user.CoverPic ||  0 === user.CoverPic.length ){
+                      if(!user.user.CoverPic ||  0 === user.user.CoverPic.length ){
                         user.CoverPic = 'https://s3.amazonaws.com/vatorprofilecache/456498.jpg';
                       }
-                      if(user.vatorX === 'valid'){
+                      if(user.user.vatorX === 'valid'){
                         go = '/app/x';
                         next = $location.nextAfterLogin || go;
-                        if($state.current.data.entryType !== 'x'){
+                        if($state.current.data.entryType === 'x'){
                             AppAuth.currentUser = user;
                             // detect user is a
-                            if(user.vatorX === 'valid'){
+                            if(user.user.vatorX === 'valid'){
                               $rootScope.isXsession = true;
                               go = '/app/x';
                               console.log('IS XSESSION');
@@ -258,9 +258,9 @@ angular.module('com.module.users')
                                 'vatorx vatorx vatorx vatorx vatorx'));
                             }
                             $scope.continue(next, go);
-                        }else if($state.current.data.entryType !== 'u'){
-                            user.vatorX = 'valid';
-                            User.upsert(user,
+                        }else if($state.current.data.entryType === 'u'){
+                            user.user.vatorX = 'valid';
+                            User.upsert(user.user,
                             function(responseUser){
                               CoreService.toastSuccess(gettextCatalog.getString(
                                 'Welcome to vatorX'), gettextCatalog.getString(
