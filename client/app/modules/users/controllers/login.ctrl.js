@@ -14,7 +14,7 @@ angular.module('com.module.users')
 
     var TWO_WEEKS = 1000 * 60 * 60 * 24 * 7 * 2;
     $scope.upp = false;
-
+    $scope.serverURL = $location.host();
     $scope.credentials = {
       ttl: TWO_WEEKS,
       rememberMe: true
