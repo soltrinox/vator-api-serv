@@ -250,7 +250,8 @@ angular.module('com.module.users')
     if (next === '/login' || next === '/loginx' || next === '/x/login') {
       next = go;
     }
-    $location.path(next);
+    var serverURL = $location.host();
+    $window.location = 'http://'+ serverURL + '/#'+ next;
 
   };
 
