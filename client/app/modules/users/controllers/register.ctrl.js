@@ -135,21 +135,32 @@ angular.module('com.module.users')
     $scope.go = '';
 
     $scope.errorEmail = function(){
-      CoreService.confirm('Email Found !', 'We noticed you already have an account on Vator.co. Would you like to upgrade to VatorX Enterprise Account?',
-        function() {
+      var message = 'We noticed you already have an account on Vator.co';
+      if($state.current.data.entryType === 'u'){
+          message = 'We noticed you already have an account on Vator.co. Would you like to upgrade to VatorX Enterprise Account?';
+      }else if($state.current.data.entryType === 'x'){
+        message = 'We noticed you already have an account on Vator.co. Would you like to upgrade to VatorX Enterprise Account?';
+      }else if($state.current.data.entryType === 's'){
+        $location.path('/login');
+      }else{
+          $location.path('/login');
+      }
 
+      CoreService.confirm('Email Found !', message,
+        function() {
           if($state.current.data.entryType === 'u'){
-              $location.path('/x/login');
+              $location.path('/loginx');
           }else if($state.current.data.entryType === 'x'){
-            $location.path('/x/login');
+            $location.path('/loginx');
           }else if($state.current.data.entryType === 's'){
-            $location.path('/login')
+            $location.path('/login');
           }else{
               $location.path('/login');
           }
         },
         function(){
-            $location.path('/login');
+          var serverURL = $location.host();
+            $window.location = 'http://'+ serverURL + '/home.html';
         }
       );
     };
@@ -216,53 +227,18 @@ angular.module('com.module.users')
                         next = $location.nextAfterLogin || go;
                         $scope.continue(next, go);
                   }
-
-
-                  // $scope.loginResult = User.login({
-                  //     include: 'user',
-                  //     rememberMe: $scope.credentials.rememberMe
-                  //   }, $scope.credentials,
-                  //   function(user) {
-                  //     console.log('USER LOGIN: '+JSON.stringify(user));
-                  //     // TODO: GET FULL PROFILE HERE ????
-                  //
-                  //     if(!user.user.ProfilePic ||  0 === user.user.ProfilePic.length ){
-                  //       user.ProfilePic = 'https://s3.amazonaws.com/vatorprofilecache/profile.png';
-                  //     }
-                  //     if(!user.user.CoverPic ||  0 === user.user.CoverPic.length ){
-                  //       user.CoverPic = 'https://s3.amazonaws.com/vatorprofilecache/456498.jpg';
-                  //     }
-                  //     if(user.user.vatorX === 'valid'){
-                  //       go = '/app/x';
-                  //       next = $location.nextAfterLogin || go;
-                  //
-                  //       // replace state check here ?
-                  //     }else{
-                  //       AppAuth.currentUser = user;
-                  //       CoreService.toastSuccess(gettextCatalog.getString(
-                  //         'Welcome to back vator'), gettextCatalog.getString(
-                  //         'vator vator vator vator vator'));
-                  //           go = '/app/myprofile';
-                  //           next = $location.nextAfterLogin || go;
-                  //           $scope.continue(next, go);
-                  //     }
-                  //   },
-                  //   function(res) {
-                  //     $scope.loginError = res.data.error;
-                  //   });
-
-                  },
-                  function(res) {
-                        CoreService.toastError(gettextCatalog.getString(
-                          'Error registering!'), res.data.error.message);
-                        for(var message in res.data.error.details.messages){
-                          console.log('REGISTER ERROR MESSAGE: \n '+JSON.stringify(message));
-                          if(message === 'email'){
-                            $scope.errorEmail();
-                          }
-                        }
-                  }
-                );
+              },
+              function(res) {
+                    CoreService.toastError(gettextCatalog.getString(
+                      'Error registering!'), res.data.error.message);
+                    for(var message in res.data.error.details.messages){
+                      console.log('REGISTER ERROR MESSAGE: \n '+JSON.stringify(message));
+                      if(message === 'email'){
+                        $scope.errorEmail();
+                      }
+                    }
+              }
+            );
         },
         function() {
           CoreService.alert('You don\'t agree');

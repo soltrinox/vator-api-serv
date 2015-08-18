@@ -100,7 +100,7 @@ angular.module('com.module.users')
       property: 'rememberMe',
       label: gettextCatalog.getString('Stay signed in'),
       type: 'checkbox',
-      "default": true
+      'default': true
     }];
 
     $scope.options = {
