@@ -35,8 +35,8 @@
     "callbackPath": "/auth/twitter/callback",
     "successRedirect": "/auth/account",
     "failureRedirect": "/login",
-    "consumerKey": "ZRBzhiPamrbdcAokjxmAGcofu",
-    "consumerSecret": "L8wfOaljvsSz0ZS98KFAbkNae1Sh23wPyDHpABhIf4gGS3zyZ3",
+    "consumerKey": "xxxx",
+    "consumerSecret": "xxxxxx",
     "failureFlash": true
   }
 }
