@@ -8,7 +8,7 @@ angular.module('com.module.users')
         data: {
            entryType : 's'
         },
-        params: [{entryType : 's'}],
+        // params: [{entryType : 's'}],
         controller: 'LoginCtrl'
       })
       .state('loginx', {
@@ -17,7 +17,7 @@ angular.module('com.module.users')
         data: {
            entryType : 'x'
         },
-        params: [{entryType : 'x'}],
+        // params: [{entryType : 'x'}],
         controller: 'LoginCtrl'
       })
       .state('loginxx', {
