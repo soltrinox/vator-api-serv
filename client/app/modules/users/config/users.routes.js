@@ -26,7 +26,7 @@ angular.module('com.module.users')
         data: {
            entryType : 'u'
         },
-        params: [{entryType : 'u'}],
+//        params: [{entryType : 'u'}],
         controller: 'LoginCtrl'
       })
       .state('register', {
@@ -35,7 +35,7 @@ angular.module('com.module.users')
         data: {
            entryType : 's'
         },
-        params: [{entryType : 's'}],
+//        params: [{entryType : 's'}],
         controller: 'RegisterCtrl'
       })
       .state('registerj', {
@@ -44,13 +44,13 @@ angular.module('com.module.users')
         data: {
            entryType : 'j'
         },
-        params: [{entryType : 's'}],
+//        params: [{entryType : 's'}],
         controller: 'RegisterCtrl'
       })
       .state('registert', {
         url: '/register-team',
         template: '<register></register>',
-        params: [{entryType : 't'}],
+//        params: [{entryType : 't'}],
         data: {
            entryType : 't'
         },
@@ -59,7 +59,7 @@ angular.module('com.module.users')
       .state('registerxx', {
         url: '/registerx',
         template: '<register></register>',
-        params: [{entryType : 'u'}],
+//        params: [{entryType : 'u'}],
         data: {
            entryType : 'u'
         },
@@ -67,7 +67,7 @@ angular.module('com.module.users')
       })
       .state('registerx', {
         url: '/x/register',
-        params: [{entryType : 'x'}],
+//        params: [{entryType : 'x'}],
         data: {
            entryType : 'x'
         },
